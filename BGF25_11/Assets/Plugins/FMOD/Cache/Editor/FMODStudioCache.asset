@@ -1,0 +1,324 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6138427731918813582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPCS/NPC3Carguy
+  m_EditorClassIdentifier: 
+  Path: event:/NPCS/NPC3Carguy
+  Guid:
+    Data1: 1864064537
+    Data2: 1213879663
+    Data3: 1355767991
+    Data4: 2054595765
+  Banks:
+  - {fileID: -1802917952536123145}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26288
+--- !u!114 &-3627808398462792656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/DWCityMusic1
+  m_EditorClassIdentifier: 
+  Path: event:/Music/DWCityMusic1
+  Guid:
+    Data1: 1225557778
+    Data2: 1237595892
+    Data3: -867416935
+    Data4: 1925483338
+  Banks:
+  - {fileID: 6049545395366027170}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32000
+--- !u!114 &-2313543921836794448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPCS/NPC1Aura
+  m_EditorClassIdentifier: 
+  Path: event:/NPCS/NPC1Aura
+  Guid:
+    Data1: 1044979482
+    Data2: 1150844128
+    Data3: 1874698423
+    Data4: -104530443
+  Banks:
+  - {fileID: -1802917952536123145}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12000
+--- !u!114 &-1802917952536123145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Characters.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/Characters.bank
+  Name: Characters
+  StudioPath: bank:/Characters
+  lastModified: 638101544384101484
+  FileSizes:
+  - Name: Desktop
+    Value: 484576
+  Exists: 1
+--- !u!114 &-688130151981823433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638101544383451446
+  FileSizes:
+  - Name: Desktop
+    Value: 41216
+  Exists: 1
+--- !u!114 &-151151851337528477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/DWCityMusic2
+  m_EditorClassIdentifier: 
+  Path: event:/Music/DWCityMusic2
+  Guid:
+    Data1: 1442653941
+    Data2: 1138998508
+    Data3: -953524058
+    Data4: 361484267
+  Banks:
+  - {fileID: 6049545395366027170}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 228000
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 4021403134314416487}
+  - {fileID: -1802917952536123145}
+  - {fileID: 6049545395366027170}
+  - {fileID: 514493745394128916}
+  - {fileID: -688130151981823433}
+  EditorEvents:
+  - {fileID: -6138427731918813582}
+  - {fileID: -2313543921836794448}
+  - {fileID: 7161580821986722421}
+  - {fileID: 3661762946152768663}
+  - {fileID: 7605799821819233385}
+  - {fileID: -3627808398462792656}
+  - {fileID: -151151851337528477}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 514493745394128916}
+  StringsBanks:
+  - {fileID: 4021403134314416487}
+  cacheTime: 638101544384541466
+  cacheVersion: 131593
+--- !u!114 &514493745394128916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638101544383631472
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
+--- !u!114 &3661762946152768663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PlayerFootsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PlayerFootsteps
+  Guid:
+    Data1: -807746728
+    Data2: 1104614563
+    Data3: -1564831614
+    Data4: 1504658364
+  Banks:
+  - {fileID: -688130151981823433}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 550
+--- !u!114 &4021403134314416487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638101544383831482
+  FileSizes:
+  - Name: Desktop
+    Value: 1188
+  Exists: 1
+--- !u!114 &6049545395366027170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/DWCity.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/DWCity.bank
+  Name: DWCity
+  StudioPath: bank:/DWCity
+  lastModified: 638101544384541466
+  FileSizes:
+  - Name: Desktop
+    Value: 2960608
+  Exists: 1
+--- !u!114 &7161580821986722421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPCS/NPC2HouseGuyAura
+  m_EditorClassIdentifier: 
+  Path: event:/NPCS/NPC2HouseGuyAura
+  Guid:
+    Data1: -1337732416
+    Data2: 1307314473
+    Data3: 1266322325
+    Data4: -552328827
+  Banks:
+  - {fileID: -1802917952536123145}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0.7
+  MaxDistance: 20
+  Length: 4662
+--- !u!114 &7605799821819233385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ItemPickup
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ItemPickup
+  Guid:
+    Data1: -1582943515
+    Data2: 1139922454
+    Data3: -1761359211
+    Data4: -189745081
+  Banks:
+  - {fileID: -688130151981823433}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

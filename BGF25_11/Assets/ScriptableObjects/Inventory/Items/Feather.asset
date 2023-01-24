@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c61c32b0366430d9fbc5d1a0784867, type: 3}
+  m_Name: Feather
+  m_EditorClassIdentifier: 
+  itemName: Feather
+  itemDescription: Something lost it... But how can I use it?
+  itemImage: {fileID: 21300000, guid: c20771174354344b5aa2dc4647e64f15, type: 3}
+  itemImageDW: {fileID: -1507848310, guid: 3878e04fc0af1442daedf965001e2513, type: 3}
+  usable: 1
+  isUsed: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7114053123200484808, guid: ebccca1597a314e1b9d05e72c737106b, type: 3}
+        m_TargetAssemblyTypeName: FeatherReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Player
+          m_BoolArgument: 0
+        m_CallState: 2
+  useButton: {fileID: 0}
