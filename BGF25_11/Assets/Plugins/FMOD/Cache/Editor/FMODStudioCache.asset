@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: 1355767991
     Data4: 2054595765
   Banks:
-  - {fileID: -1802917952536123145}
+  - {fileID: -5061950208633700049}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -27,6 +27,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26288
+--- !u!114 &-5061950208633700049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Characters.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/Characters.bank
+  Name: Characters
+  StudioPath: bank:/Characters
+  lastModified: 638089862240000000
+  FileSizes:
+  - Name: Desktop
+    Value: 484576
+  Exists: 1
 --- !u!114 &-3627808398462792656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +66,7 @@ MonoBehaviour:
     Data3: -867416935
     Data4: 1925483338
   Banks:
-  - {fileID: 6049545395366027170}
+  - {fileID: 7660649764895924582}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -54,6 +74,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 32000
+--- !u!114 &-2348102498835495841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638089862240000000
+  FileSizes:
+  - Name: Desktop
+    Value: 41216
+  Exists: 1
 --- !u!114 &-2313543921836794448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +113,7 @@ MonoBehaviour:
     Data3: 1874698423
     Data4: -104530443
   Banks:
-  - {fileID: -1802917952536123145}
+  - {fileID: -5061950208633700049}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -81,7 +121,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 12000
---- !u!114 &-1802917952536123145
+--- !u!114 &-198625158857044744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,35 +131,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Characters.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/Characters.bank
-  Name: Characters
-  StudioPath: bank:/Characters
-  lastModified: 638101544384101484
+  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638089862240000000
   FileSizes:
   - Name: Desktop
-    Value: 484576
-  Exists: 1
---- !u!114 &-688130151981823433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638101544383451446
-  FileSizes:
-  - Name: Desktop
-    Value: 41216
+    Value: 1188
   Exists: 1
 --- !u!114 &-151151851337528477
 MonoBehaviour:
@@ -140,7 +160,7 @@ MonoBehaviour:
     Data3: -953524058
     Data4: 361484267
   Banks:
-  - {fileID: 6049545395366027170}
+  - {fileID: 7660649764895924582}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -161,11 +181,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 4021403134314416487}
-  - {fileID: -1802917952536123145}
-  - {fileID: 6049545395366027170}
-  - {fileID: 514493745394128916}
-  - {fileID: -688130151981823433}
+  - {fileID: -198625158857044744}
+  - {fileID: -5061950208633700049}
+  - {fileID: 7660649764895924582}
+  - {fileID: 5372714921093781665}
+  - {fileID: -2348102498835495841}
   EditorEvents:
   - {fileID: -6138427731918813582}
   - {fileID: -2313543921836794448}
@@ -176,31 +196,11 @@ MonoBehaviour:
   - {fileID: -151151851337528477}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 514493745394128916}
+  - {fileID: 5372714921093781665}
   StringsBanks:
-  - {fileID: 4021403134314416487}
-  cacheTime: 638101544384541466
+  - {fileID: -198625158857044744}
+  cacheTime: 638089862240000000
   cacheVersion: 131593
---- !u!114 &514493745394128916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638101544383631472
-  FileSizes:
-  - Name: Desktop
-    Value: 1036
-  Exists: 1
 --- !u!114 &3661762946152768663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
     Data3: -1564831614
     Data4: 1504658364
   Banks:
-  - {fileID: -688130151981823433}
+  - {fileID: -2348102498835495841}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 550
---- !u!114 &4021403134314416487
+--- !u!114 &5372714921093781665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,35 +238,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638101544383831482
+  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638089862240000000
   FileSizes:
   - Name: Desktop
-    Value: 1188
-  Exists: 1
---- !u!114 &6049545395366027170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/DWCity.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../../../Downloads/dreamgamefmod-3-20230124T095009Z-001/dreamgamefmod-3/Build/Desktop/DWCity.bank
-  Name: DWCity
-  StudioPath: bank:/DWCity
-  lastModified: 638101544384541466
-  FileSizes:
-  - Name: Desktop
-    Value: 2960608
+    Value: 1036
   Exists: 1
 --- !u!114 &7161580821986722421
 MonoBehaviour:
@@ -287,7 +267,7 @@ MonoBehaviour:
     Data3: 1266322325
     Data4: -552328827
   Banks:
-  - {fileID: -1802917952536123145}
+  - {fileID: -5061950208633700049}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -314,7 +294,7 @@ MonoBehaviour:
     Data3: -1761359211
     Data4: -189745081
   Banks:
-  - {fileID: -688130151981823433}
+  - {fileID: -2348102498835495841}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -322,3 +302,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7660649764895924582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/DWCity.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/DWCity.bank
+  Name: DWCity
+  StudioPath: bank:/DWCity
+  lastModified: 638089862240000000
+  FileSizes:
+  - Name: Desktop
+    Value: 2960608
+  Exists: 1
