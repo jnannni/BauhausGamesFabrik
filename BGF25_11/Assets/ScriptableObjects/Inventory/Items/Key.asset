@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c61c32b0366430d9fbc5d1a0784867, type: 3}
+  m_Name: Key
+  m_EditorClassIdentifier: 
+  itemName: Key
+  itemDescription: It is heavier than it should be...
+  itemImage: {fileID: 368994723, guid: c1a8306acd06845d9882a6aeaa2417f2, type: 3}
+  itemImageDW: {fileID: -20406119, guid: c1a8306acd06845d9882a6aeaa2417f2, type: 3}
+  usable: 0
+  isUsed: 0
+  collectable: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  useButton: {fileID: 0}
