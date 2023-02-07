@@ -43,9 +43,9 @@ public class FadeLayer : MonoBehaviour
     public IEnumerator FadeOut()
     {
         for (float alpha = 0; alpha > 1f; alpha += 0.1f)
-        {
+        {            
+            yield return new WaitForSeconds(5f);
             canvasGroup.alpha = alpha;
-            yield return new WaitForSeconds(.1f);
         }
     }
 }

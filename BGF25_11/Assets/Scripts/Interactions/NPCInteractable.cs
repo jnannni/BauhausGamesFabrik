@@ -13,13 +13,16 @@ public class NPCInteractable : MonoBehaviour
         talk
     }
 
-    private DialogueRunner dialogueRunner;    
+    private DialogueRunner dialogueRunner;
+    private LineView lineView;
     private bool isCurrentConversation = false;
     [SerializeField] private string dialogueStartingNode;    
     [SerializeField] private Animator animator;
     public Animator arrowAnimator;
     public BoolValue isDialogueRunning;
-    //private StudioEventEmitter emitter;
+    public Material outlineShader;
+    private Shader defaultShader;    
+    private StudioEventEmitter emitter;
 
     public bool interactable;    
     public NPCState npcState;
@@ -32,11 +35,14 @@ public class NPCInteractable : MonoBehaviour
 
     private void Start()
     {
+        defaultShader = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");        
+        this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = defaultShader;        
         if (animator == null)
         {
             Debug.Log("No Animator Needed");
         }
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
+        lineView = FindObjectOfType<Yarn.Unity.LineView>();
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);
         isPressed = false;
         
@@ -48,26 +54,28 @@ public class NPCInteractable : MonoBehaviour
     {        
         isPressed = Input.GetKeyDown(KeyCode.K);
         distance = Vector2.Distance(target.transform.position, this.gameObject.transform.position);
-        if (distance < minDist && interactable)
+        if (distance < minDist && interactable && !isDialogueRunning.initialValue)
         {
-            arrowAnimator.SetBool("showArrow", true);
+            this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = outlineShader.shader;
+            //arrowAnimator.SetBool("showArrow", true);
         }
         else
         {
+            this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = defaultShader;
             //emitter.Stop();
-            arrowAnimator.SetBool("showArrow", false);
+            //arrowAnimator.SetBool("showArrow", false);
         }
-        Interact();
+        Interact();        
         if (!isDialogueRunning.initialValue)
         {            
-            ChangeDirection(0, -1);
+            ChangeDirection(0, -1);            
         }
     }   
 
     public void Interact()
     {        
         if (distance < minDist && isPressed && interactable)
-        {
+        {            
             if (animator)
             {
                 ChangeDirection(-target.GetComponent<Animator>().GetFloat("Horizontal"),

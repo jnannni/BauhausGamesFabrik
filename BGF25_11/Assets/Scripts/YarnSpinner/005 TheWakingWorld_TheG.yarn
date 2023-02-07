@@ -1,0 +1,107 @@
+//NOW WE ARE IN THE ZONE V THE G
+
+title: TheG
+---
+<<set $putintheinventory004 to false>>
+<<set $putintheinventory005 to false>>
+<<set $goontheroof to false>> //
+<<set $lookaround to false>> //triggers a cut scene to look around the city
+<<set $entertheschool to false>>
+<<set $enterthegranshouse to false>> // 
+<<set $godowntheroof to false>>
+<<set $gototheMuseum to false>> //means to use the bridge, loads the next scene
+
+===
+title: TheKindGrandpa01
+---
+//he talks nonsense, but he invites you in for a tea
+//you get him to talk about the roof
+//you go out on the roof
+//you get an dOBJECT 004
+The Kind Grandpa: You seem like such a sunny creature.
+Magnolia: Thanks?
+The Kind Grandpa: Do you want a cup of tea?
+ -> Yes!
+  <<set $enterthegranshouse to true>>
+ -> No? 
+===
+
+title: TheGranpaObject
+---
+Magnolia: (Why do I feel like the litte dots on this old comb are eyes?)
+Magnolia: (I shouldn't steal from the old.)
+ -> Take it.
+   <<set $putintheinventory004 to true>>
+ -> Don't.
+===
+
+title: GrampasDoor
+---
+Magnolia: (I don't know how to open this thing.)
+Magnolia: (I could ask him.)
+===
+
+title: TheVase
+---
+//granpa talks about his life
+Grandpa: He is talking.
+Grandpa: Some more.
+ -> Stop listening and go on the roof.
+  <<set $goontheroof to true>>
+ -> Listen to him.
+===
+
+title: TheRoofObject
+---
+//you find the object on the roof OBJECT 005
+Magnolia: (I don't know what I'll use this for.)
+ -> Pick it up anyway.
+  <<set $putintheinventory005 to true>>
+ -> Leave it.
+===
+
+title: TheSpot
+---
+//from here you see the station
+-> Look to the distance.
+ <<set $lookaround to true>>
+-> I am scared of the heights.
+//you get a clue
+===
+
+title: TheRoofEnd
+---
+<<set $godowntheroof to true>>
+===
+
+title: TheOneToImpress
+---
+Magnolia: (She is pretty.)
+The One To Impress: Don't be shy. 
+The One To Impress: How do I look?
+//she is there just for the talk, maybe we get some clue before to unlock more parts of the conversation
+===
+
+title: TheSecurity
+---
+//gives you access through the school, so you could get to the bridge
+//you need to give him the grief book to read for him to let you
+//there will be another way to pass, but only if you give him a book, you get another object while passing
+-> Give him your book.
+ Magnolia: (I need to fetch it from the backpack.) //player needs to open the inventory
+-> I want to keep it.
+===
+
+title: TheSchool
+---
+-> Don't go in.
+-> Go in.
+ <<set $entertheschool to true>> //this just moves the character to another place behind the school
+===
+
+title: TheBridge
+---
+-> I still want to check out something here.
+-> Pass the bridge.
+ <<set $gototheMuseum to true>>
+===

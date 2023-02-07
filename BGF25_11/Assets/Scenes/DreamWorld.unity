@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 61707681}
   - component: {fileID: 61707680}
   - component: {fileID: 61707679}
+  - component: {fileID: 61707685}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -202,10 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96760a69ece754bd29f916ebc485df75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2014851397}
   smoothing: 0.1
-  maxPosition: {x: 21.8, y: -7.6}
-  minPosition: {x: -60.7, y: -95.6}
+  maxPosition: {x: -30.67, y: 39.7}
+  minPosition: {x: -55, y: -44.2}
 --- !u!20 &61707683
 Camera:
   m_ObjectHideFlags: 0
@@ -233,7 +234,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -264,6 +265,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61707685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61707678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &94911532
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +360,8 @@ MonoBehaviour:
   player: {fileID: 2014851391}
   isInventoryAvailable: {fileID: 11400000, guid: 96d4ff70e2c1547a9b210cd3c7e488e3, type: 2}
   nameOfTheScene: WakingWorld2
+  inventoryPanel: {fileID: 1221494426}
+  isInventoryOpen: {fileID: 11400000, guid: 8edc54243a47442c4aa27e1149eb23ab, type: 2}
   appearSpotPosition: {fileID: 1115970031}
 --- !u!1001 &137514258
 PrefabInstance:
@@ -378,6 +414,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2550122674717551627, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550122674717551627, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
+      propertyPath: isPaused
+      value: 
+      objectReference: {fileID: 11400000, guid: f42396a2cfdf5463d908a7de4a09a421, type: 2}
     - target: {fileID: 2550122674717551627, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: isDialogueRunning
       value: 
@@ -572,6 +616,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &276273734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1032369166443126941, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
+  m_PrefabInstance: {fileID: 1868153915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &318321277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,6 +2848,11 @@ Transform:
   m_Father: {fileID: 1500263989}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1221494426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1032369168010531583, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
+  m_PrefabInstance: {fileID: 1868153915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1244925210 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3213428149089202060, guid: 20d7da89133b74a51926bbf885073ee8, type: 3}
@@ -3041,6 +3095,25 @@ MonoBehaviour:
   dialogueView: {fileID: 1369714536}
   continueActionType: 1
   continueActionKeyCode: 32
+  continueActionReference: {fileID: 0}
+  continueAction:
+    m_Name: Skip
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 
+      m_Path: Submit
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Skip
+      m_Flags: 0
+    m_Flags: 0
+  enableActionOnStart: 1
 --- !u!4 &1352134365
 Transform:
   m_ObjectHideFlags: 0
@@ -4211,9 +4284,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3437019722927554191, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
+      propertyPath: isPaused
+      value: 
+      objectReference: {fileID: 11400000, guid: f42396a2cfdf5463d908a7de4a09a421, type: 2}
+    - target: {fileID: 3437019722927554191, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
+      propertyPath: inventoryPanel
+      value: 
+      objectReference: {fileID: 1221494426}
+    - target: {fileID: 3437019722927554191, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
+      propertyPath: inventoryContent
+      value: 
+      objectReference: {fileID: 276273734}
     - target: {fileID: 3437019722927554197, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266160809233780513, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aa66227b16de472e931760eef771cb0, type: 3}
@@ -4519,6 +4608,11 @@ Transform:
 --- !u!1 &2014851391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2550122674717551629, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
+  m_PrefabInstance: {fileID: 137514258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2014851397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
   m_PrefabInstance: {fileID: 137514258}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092949838

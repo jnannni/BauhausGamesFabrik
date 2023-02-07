@@ -9,6 +9,8 @@ public class Level2 : MonoBehaviour
     [SerializeField] private GameObject player;    
     [SerializeField] private BoolValue isInventoryAvailable;
     [SerializeField] private string nameOfTheScene;
+    [SerializeField] private GameObject inventoryPanel;
+    public BoolValue isInventoryOpen;
     public GameObject appearSpotPosition;
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
@@ -16,6 +18,7 @@ public class Level2 : MonoBehaviour
     private bool openInventory;
     private bool triggerback;
     private bool triggerAnimation;
+    private int iteration = 0;
 
     private void Awake()
     {
@@ -39,6 +42,13 @@ public class Level2 : MonoBehaviour
         variableStorage.TryGetValue("$triggerAnimation", out triggerAnimation);
 
         isInventoryAvailable.initialValue = openInventory;
+
+        if (openInventory && iteration == 0)
+        {
+            isInventoryOpen.initialValue = true;
+            inventoryPanel.SetActive(true);
+            iteration++;
+        }
 
         if (triggerback)
         {

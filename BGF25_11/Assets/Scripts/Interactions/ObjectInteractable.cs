@@ -11,6 +11,9 @@ public class ObjectInteractable : MonoBehaviour
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private string dialogueStartingNode;
     public Animator animator;
+    public BoolValue isDialogueRunning;
+    public Material outlineShader;
+    private Shader defaultShader;
 
     public bool collectable;
     public GameObject target;    
@@ -20,6 +23,8 @@ public class ObjectInteractable : MonoBehaviour
 
     private void Start()
     {
+        defaultShader = Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
+        this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = defaultShader;
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);        
         isPressed = false;
@@ -30,11 +35,11 @@ public class ObjectInteractable : MonoBehaviour
     {
         isPressed = Input.GetKeyDown(KeyCode.K);
         distance = Vector2.Distance(target.transform.position, this.gameObject.transform.position);
-        if (distance < minDist)
+        if (distance < minDist && !isDialogueRunning.initialValue)
         {
-            animator.SetBool("showArrow", true);
+            this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = outlineShader.shader;            
         }
-        else animator.SetBool("showArrow", false);
+        else this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = defaultShader;
         Interact();
     }
 

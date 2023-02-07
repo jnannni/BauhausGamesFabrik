@@ -1,0 +1,91 @@
+
+//NOW WE ARE IN THE ZONE VI THE MUSEUM CORNER
+
+title: TheMuseumCorner
+---
+//variables for UNITY
+<<set $trigger_TheDog to false>> //trigger to the Dreamworld part 3
+<<set $putintheinventory006 to false>>
+<<set $enterthemuseum to false>>
+<<set $exitthemuseum to false>>
+<<set $putintheinventory007 to false>>
+<<set $enterthegarden to false>>
+<<set $exitthegarden to false>>
+
+===
+title: TheIndenpendet
+---
+The Independent: I don't need anybody.
+===
+
+title: TheHappyKid
+---
+//he is looking for his dog
+//finding 'his dog' unlocks the trigger TRIGGER 003
+The Happy Kid: I miss my dog.
+===
+title: TheDog
+---
+-> I am not going in there.
+-> Follow the dog.
+ <<set $trigger_TheDog to true>>
+===
+
+title: TheBotanicalGarden
+---
+//enter the botanical gardens
+//you get some kind of a clue there, about plants
+//OBJECT 006
+-> Enter.
+ <<set $enterthegarden to true>>
+-> Don't enter.
+===
+
+title: TheGardener
+---
+The Gardener: Plants are kinder listeners.
+//he helps you get the clue about plants
+===
+
+title: TheGardenObject
+---
+-> I don't know how to do it.
+-> Cut out a piece.
+ <<set $putintheinventory006 to true>>
+===
+
+title: TheGardenExit
+---
+-> Leave.
+ <<set $exitthegarden to true>>
+-> Stay.
+===
+
+title: TheMuseum
+---
+-> Enter.
+ <<set $enterthemuseum to true>>
+-> Stay.
+===
+
+//WE ARE NOW INSIDE THE MUSEUM
+
+title: TheBride
+---
+//she might give us an object OBJECT 004 and a later clue
+-> Accept the gift.
+ <<set $putintheinventory007 to true>>
+===
+
+title: ThePainting
+---
+Magnolia: I have never seen anything like this.
+//a clue for later
+===
+
+title: TheMuseumExit
+---
+-> One more thing.
+-> Leave.
+ <<set $exitthemuseum to true>>
+===

@@ -1,0 +1,143 @@
+//NOW WE ARE IN THE ZONE IV THE BLOCKS
+
+title: TheBlocks
+---
+//variables for Unity
+<<set $entertheantique to false>>
+<<set $trigger_TheAllKnowingLady to false>> //trigger to the Dreamworld, but inside the dialogue of TheAllKnowingLady
+<<set $putintheinventory003 to false>>
+<<set $exittheantique to true>>
+===
+title: TheBlobPerson
+---
+//the blob person and the husband have the connection
+//you unlock a part of his conversation from a scrunched drawing of a kid you found
+<<if visited_count("TheBlobPerson") < 1>>
+ The Blob Person: They are hiding in the shadows of the sun.
+ Magnolia: Who?
+ The Blob Person: It's almost like I can hear them from inside my own body.
+ Magnolia: (Okay.)
+ The Blob Person: I am prosecuted!
+ The Blob Person: Don't you understand?!
+ Magnolia: I might be able to help if you told me who is chasing you.
+ The Blob Person: I don't see the faces of people anymore. //possibly A CLUE
+ The Blob Person: They took my body away.
+ The Blob Person: Those deamons.
+  <<jump TheBlobPerson_Questions>>
+<<elseif visited_count("TheBlobPerson") == 1>>
+ The Blob Person: I know you don't believe me.
+ The Blob Person: Nobody believes a person without a body.
+ <<wait 0.5>>
+ Magnolia: That's not true...
+ Magnolia: What I meant to say is, I believe you.
+ Magnolia: (At least I think so.)
+ The Blob Person: Thank you.
+ The Blob Person: It..
+ The Blob Person: It means a lot.
+  <<wait 0.5>>
+  <<jump TheBlobPerson_Questions>>
+<<else>>
+ The Blob Person: This huge body feels weightless.
+  <<jump TheBlobPerson_Questions>>
+<<endif>>
+===
+
+title: TheBlobPerson_Questions
+---
+-> Where did they take your body?
+-> How does your body look like?
+-> What does your family say?
+-> Show the drawing. <<if $putintheinventory001 is true>>
+ Magnolia: (I need to take it out of my backpack.) //The player now needs to open the inventory.
+===
+
+title: TheDeadbitHusband
+---
+//he is drunk with a girl under his arm, he is only making a joke after a joke, at a certain joke he asks you to guess the end. 
+//To be able to guess the end you would have need to have read a certain text/graffiti(its in the DownHill) that is an excerpt from a movie. It’s a joke about married life.
+//he gives the clue for something later CLUE 005
+<<if visited_count("TheDeadbitHusband") < 1>>
+ Magnolia: I am sorry!
+ The Husband: No need! All is well. Too well, you know.
+ Magnolia: (Is he winking?)
+ The Husband: You seem a little bit down.
+ The Husband: Want to hear a joke?
+ Magnolia: Not necessarily...
+ The Husband: Why didn’t the dad trust the stairs?
+ Magnolia: (I said no, but okay.)
+ <<wait 0.5>>
+ Magnolia: Uhm, I'm not sure.
+ -> Because he was lazy?
+  The Husband: Not really creative, are you?
+  Magnolia: (Is this an insult?)
+  The Husband: He said they were always up to something.
+  The Girl: *giggles*
+  The Husband: HAHAHAHAHAHAAHA!
+  Magnolia: (I can't even make myself laugh.)
+  The Husband: You are a tough cookie to crack.
+  The Husband: Okay, I have another one.
+   -> Magnolia: Please don't.
+   -> Magnolia: Okay, let me hear another one.
+ -> He was afraid his wife cheats on him upstairs? 
+  The Husband: HAHAHA! A good one! 
+  The Husband: But no, actually.
+  The Husband: He said they were always up to something.
+  The Girl: *giggles*
+  The Husband: HAHAHAHAHAHAAHA!
+  Magnolia: (I can't even make myself laugh.)
+  The Husband: You are a tough cookie to crack.
+  The Husband: Okay, I have another one.
+   -> Magnolia: Please don't.
+   -> Magnolia: Okay, let me hear another one.
+<<elseif visited_count("TheDeadbitHusband") == 1>>
+ //here we are using the clue
+<<else>>
+<<endif>>
+===
+
+
+title: TheAntiqueShop
+---
+//this is where you get the object OBJECT d003
+Magnolia: (This seems like a place you could find magical stuff in.)
+Magnolia: (I played this one game.)
+Magnolia: (The shop with the flaming fox looked exactly like this.)
+ -> Enter it.
+   <<set $entertheantique to true>>
+ -> No.
+===
+
+title: TheAllKnowingLady
+---
+//this time she is the trigger, it's hidden in her dialogue TRIGGER 002
+Magnolia: She says something.
+The All Knowing: She says something back.
+ -> I pick this.
+ -> No, this. //this triggers the transition
+   <<set $trigger_TheAllKnowingLady to true>>
+===
+
+//INSIDE THE ANTIQUE SHOP
+
+title: TheObject_Antique
+---
+Magnolia: (I don't have any money.)
+ -> Steal it.
+  <<set $putintheinventory003 to true>>
+ -> I can't do it.
+=== 
+
+title: AnOldEnvelope
+---
+-> Read the envelope.
+ The Envelope: I mistake the rain for your tears.
+ The Envelope: One of those days just before it rains, I feel like you are close.
+===
+
+title: TheAntiqueDoor
+---
+-> Exit the shop.
+ <<set $exittheantique to true>>
+-> Stay.
+===
+

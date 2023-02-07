@@ -10,6 +10,7 @@ public class LightsFlickering : MonoBehaviour
     Transform flickerLight;
     Light2D mainLightComponent;
     Light2D flickerLightComponent;
+    public float minTime, maxTime, minIntensity, maxIntensity;
 
 
     // Start is called before the first frame update
@@ -27,11 +28,11 @@ public class LightsFlickering : MonoBehaviour
     {
         for (; ; ) //this is while(true)
         {
-            float randomIntensity = Random.Range(1.5f, 3.5f);
+            float randomIntensity = Random.Range(minIntensity, maxIntensity); // 1.5 3.5
             flickerLightComponent.intensity = randomIntensity;
 
 
-            float randomTime = Random.Range(0f, 0.1f);
+            float randomTime = Random.Range(minTime, maxTime); // 0 0.1
             yield return new WaitForSeconds(randomTime);
         }
     }

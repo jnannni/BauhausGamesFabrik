@@ -1,0 +1,284 @@
+
+//THIS DIALOGUE IS AFTER THE GOLEM INTERACTION
+
+title: BackInTheWaking
+---
+//variables for UNITY
+<<set $gobackhome to false>> //just moves the character back in front of the house
+<<set $magnoliadances to false>> //starts the ingame animation
+<<set $gotothegraveyard to false>> //goes to the next scene
+<<set $lookatthedrawing to false>> //the screen shows an illustration of the drawing
+<<set $putintheinventory001 to false>>
+<<set $putintheinventoryd001 to false>>
+
+//variables for in YARN
+<<set $magnoliadanced to false>>
+<<set $isgoingonjourney001 to false>>
+<<set $isgoingonjourney002 to false>>
+<<set $hasClue_TheProvider to false>>
+<<set $hasClue_Graffiti001 to false>>
+
+
+//for this whole sequence I would add some kind of cloudy effect that slowly clears as her thoughts clear
+Magnolia: (Why did this dream feel so real?)
+<<wait 1>>
+Magnolia: (After the accident...I did find myself sleepwalking around the house.)
+Magnolia: (But I never went outside before.)
+Magnolia: (Did I also dream about going to the supermarket?)
+<<wait 2>>
+//it would be good if we made some kind of pulsing effect that shows Magnolia's head hurting
+Magnolia: (The therapist said everyone grieves in different ways.)
+Magnolia: (I never expected this.)
+Magnolia: (I always believed myself to be rational...)
+<<wait 1>>
+Magnolia: (Why do I want to believe that creature?)
+===
+
+title: TheAuntsHouse
+---
+//if the player is still unsure of pursuing the journey to the star
+<<if visited_count("TheAuntsHouse") < 1>>
+ Magnolia: (Maybe I just need some rest.)
+   -> Go in and sleep.
+     <<set $gobackhome to true>>
+   -> Look around.
+     Magnolia: (I can't keep those words out of my head.)
+     Magnolia: (And that star. What if it's real?)
+<<elseif visited_count("TheAuntsHouse") == 1>>
+  Magnolia: (I really need rest.)
+   -> Go in and sleep.
+     <<set $gobackhome to true>>
+     <<jump TheNewDay>>
+   -> I'm not convinced.
+     Magnolia: (It can't be all made up in my head, right?)
+<<else>>
+  Magnolia: (I can't rest now.)
+<<endif>>
+===
+
+title: TheNewDay
+---
+<<wait 2>>
+Magnolia: (Everything feels the same.)
+Magnolia: (How long did I sleep?)
+===
+
+title: ThePatriot
+---
+//he gives us a first STARCLUE 001
+<<set $isgoingonjourney001 to true>>
+<<if visited_count("ThePatriot") < 1>>
+  A stranger: This city is becoming a shithole, don't you think?
+  Magnolia: (Where are the guys I have seen before?)
+  Magnolia: (Was it yesterday?)
+  <<wait 1>>
+  Magnolia: I'm not from this part of the city.
+  Magnolia: I'm staying at my aunt's house.
+  The stranger: You know you shouldn't be sharing this with a stranger?
+  The stranger: Especially now, with them letting in anyone who bangs at our doors.
+  <<wait 0.5>>
+  The stranger: Anyway...
+  The stranger: I am talking about the whole city! They ruined it!
+  Magnolia: Who?
+  The stranger: The goverment! The mayor and the like!
+  The stranger: They only listen to the outsiders. They are changing everything that we hold dear in this city.
+  Magnolia: (The city is full of people scared of anything new...)
+  Magnolia: The outsiders? What do you mean?
+  The Patriot: We should keep what's ours.
+  The Patriot: There is nothing better for me or for you then what was meant for us from the beginning. Our roots.
+  The Patriot: We should live like our parents lived, and their parents before them. 
+  The Patriot: All these new kids are acting so strange. They want to live as far away from here.
+  The Patriot: I don't understand that.
+  Magnolia: I was wondering...
+     <<jump ThePatriot_Questions>>
+<<elseif visited_count("ThePatriot") == 1>>
+  The Patriot: The sun still shines on us. Only if we could recognize our own glory.
+  Magnolia: Uh...It's super cloudy today actually.
+  The Patriot: Don't be smart.
+  Magnolia: I didn't mean to be rude.
+  The Patriot: It's always the same with the new kids. No respect.
+  Magnolia: I really didn't mean to be disrespectuful.
+  Magnolia: I was actually wondering...
+    <<jump ThePatriot_Questions>>
+<<else>>
+  The Patriot: Yes?
+  Magnolia: I have one more question...
+    <<jump ThePatriot_Questions>>
+<<endif>>
+===
+
+
+title: ThePatriot_Questions
+---
+-> Did your parents also grow up in the city?
+-> How old are you?
+-> Did you ever hear about falling stars granting wishes?
+===
+
+
+title: TheDrawing
+---
+Magnolia: (Oh look.)
+Magnolia: (Somebody threw away a cute little drawing.)
+ -> Pick it up and look at it.
+   <<set $lookatthedrawing to true>> 
+   <<set $putintheinventory001 to true>> 
+ -> Pick it up and put it in the pocket.
+   <<set $putintheinventory001 to true>>
+ -> Leave it there.
+//it is a clue for the Blob person CLUE 000
+===
+
+title: TheHouse001
+---
+<<if visited_count("TheHouse001") < 1>>
+Magnolia: (I don't think I should be just barging into people's homes.)
+<<elseif visited_count("TheHouse001") == 1>>
+Magnolia: (Still not the good idea.)
+<<else>>
+Magnolia: (Yeah, no.)
+<<endif>>
+===
+
+title: TheHouse002
+---
+<<if visited_count("TheHouse001") < 1>>
+Magnolia: (I can't walk into someone's home.)
+Magnolia: (But I could peak in.)
+ <<jump TheHouse002_Choices>>
+<<else>>
+Magnolia: (A little peak shouldn't hurt?)
+ <<jump TheHouse002_Choices>>
+<<endif>>
+===
+
+title: TheHouse002_Choices
+---
+-> Peak in.
+  Magnolia: (I miss my family.)
+  //there is a happy family inside
+-> Leave.
+===
+
+title: TheStairs02
+---
+<<if visited_count("TheStairs02") < 1>>
+Magnolia: (Didn't they seem broken yesterday?)
+Magnolia: (Maybe I really dreamt all of that.)
+ -> Go down.
+   <<set $godownthestairs to true>>  
+   //this leads us to the downhill again
+ -> I still want to explore here.  
+<<else>>
+ -> Go down.
+   <<set $godownthestairs to true>>  
+   //this leads us to the downhill again
+ -> I still want to explore here.
+<<endif>>
+===
+
+//THIS IS NOW DOWNHILL
+
+title: TheBeggar
+---
+<<if $magnoliadanced is true>>
+ Magnolia: Hey, do you need any help?
+ TheBeggar: It is very nice of you to think of nonexisting.
+ TheBeggar: I need no help, but I wish to gift you something.
+  <<set $putintheinventoryd001 to true>> //you get the OBJECT d001
+  <<set $magnoliadanced to false>>
+  <<jump TheJudgingPerson>>
+<<else>>
+ Magnolia: (At least somebody seems happy in this city.)
+ <<wait 1.5>>
+ //there should be some happy music here
+ Magnolia: (It seems so easy when he does it.)
+ -> Join him and dance. 
+  <<set $magnoliadanced to true>>
+  <<set $magnoliadances to true>> //an animation of magnolia dancing in the game, no cut scene
+  <<wait 0.5>>
+  TheJudgingPerson: You are crazier then him.
+  <<wait 3>>
+  <<jump TheJudgingPerson>>
+ -> Stay a while and watch.
+  <<jump TheJudgingPerson>>
+<<endif>>
+===
+
+title: TheJudgingPerson
+---
+<<if visited_count("TheJudgingPerson") < 1>>
+ TheJudgingPerson: He should not be happy. What is he happy for?
+ <<wait 1>>
+ TheJudgingPerson: Nobody wants to accept the truth.
+ <<wait 1>>
+ Magnolia: What is the truth?
+ TheJudgingPerson: He won't survive past next winter.
+ TheJudgingPerson: It's easy to be happy now when there is sun.
+ TheJudgingPerson: I'm just being realistic, sorry to say.
+  <<jump TheJudgingPerson_Questions>>
+<<else>>
+ TheJudgingPerson: Everyone is just going madder and madder.
+  <<jump TheJudgingPerson_Questions>>
+<<endif>>
+===
+
+title: TheJudgingPerson_Questions
+---
+-> How long have you been watching him?
+-> Aren't you late somewhere?
+-> There is no sun today.
+===
+
+title: TheProvider
+---
+//this whole part is for Magnolia to decide to pursue the star
+<<if visited_count("TheProvider") < 1>>
+ TheProvider: You seem lost darling.
+ Magnolia: Oh, sorry. Uhm...I'm not.
+ Magnolia: I'm searching for...
+ Magnolia: (What am I even searching for?)
+ Magnolia: I might be, yes.
+ The Provider: Can I help you somehow?
+ <<jump TheProvider_Questions>>
+<<elseif visited_count("TheProvider") == 1>>
+ TheProvider: It seems you still haven't found your way.
+  -> Yes. I'm still a little bit lost.
+    TheProvider: If I could help in anyway, just tell.
+    <<jump TheProvider_Questions>>
+  -> Actually, I think I got it, but that you.
+<<else>>
+ TheProvider: You can ask me anything little one.
+ <<jump TheProvider_Questions>>
+<<endif>>
+===
+
+title: TheProvider_Questions
+---
+  -> Do you believe dreams could be real?
+  -> Have you ever dreamt of something that turned out to be true?
+   <<set $isgoingonjourney002 to true>> //Magnolia needs three of these to decide to pursue the star STARCLUE002
+  -> Did you see anything unusual around here?
+  -> You seem tired. <<if $hasClue_TheProvider>> //we need to get a clue from somewhere to unlock this CLUE 001
+===
+
+title: Grafitti001
+---
+//grafitti quote for the deadbit husband CLUE 002
+<<if $hasClue002 is false>>
+ -> Read the quote.
+ Magnolia: (I feel like I watched this movie with my dad.)
+ Magnolia: (We watched so many movies before...)
+ Magnolia: (I shouldn't be thinking about this.)
+ <<set $hasClue_Grafitti001 to true>>
+ -> Ignore.
+<<else>>
+ Magnolia: (Dads usually like these kind of movies.)
+<<endif>>
+===
+
+title:TheRoadSign
+---
+Magnolia: (They must have worked really hard to fix this street so fast.)
+<<set $gotothegraveyard to true>> 
+===

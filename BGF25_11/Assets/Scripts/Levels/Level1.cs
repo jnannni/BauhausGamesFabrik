@@ -55,7 +55,7 @@ public class Level1 : MonoBehaviour
 
         if (curtains && curtainopens)
         {
-            Destroy(curtains);
+            Destroy(curtains);            
         }
 
         if (godownthestairs && !isDownTheStairs)

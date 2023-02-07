@@ -1,0 +1,134 @@
+//NOW WE ARE IN THE ZONE III THE GRAVEYARD
+
+title: TheGraveYard
+---
+//variables for UNITY
+<<set $putintheinventory002 to false>> //you approach an object in the church
+<<set $enterthechurch to false>>
+<<set $trigger_TheChurch to false>> //second transition to the dreamworld
+<<set $searchforanitem to false>> //should maybe open like a store inventory, where we could choose some interesting object?
+
+//variables for in YARN
+<<set $isgoingonjourney003 to false>>
+<<set $hasClue003 to false>>
+<<set $hasClue004 to false>>
+<<set $hasClue_forChurch to false>>
+<<set $hasClue_AllKnowingLady to false>>
+<<set $hasClue_TheBride to false>>
+===
+
+title: TheChitChats
+---
+//Two neighbours on the windows arguing about what happened yesterday in front of the window, can’t agree on it.
+//to be able to get into the church you need to get the ChitChats to agree. CLUE 005
+<<if $hasClue004 is true>>
+ Magnolia: I think I know who did what.
+ <<set $hasClue_forChurch to true>> //this is a clue for the church
+<<else>>
+ <<if visited_count("TheChitChats") < 1>>
+ The First Chitchat: Honestly, it was all a little bit misunderstood.
+ The Second Chitchat:  How can you misunderstand a murder?
+ <<elseif visited_count("TheChitChats") == 1>>
+ The Second Chitchat: Little one, do you want to hear what happened.
+ The First Chitchat: I will tell her.
+ <<else>>
+ The First ChitChat: Who do you believe, huh?
+ <<endif>>
+<<endif>>
+===
+
+title: TheChitChats_Questions
+---
+-> Option one.
+-> Option two.
+ <<set $hasClue003 to true>>
+-> Option three. <<if $hasClue003>>
+ <<set $hasClue004 to true>>
+===
+
+title: TheMother
+---
+// is asking for her children, the clues is to get her to realize that they are grown up and that they left her and she is lonely.
+// While admitting that she is lonely, she gives a clue for both the AllKnowingLady and theBride. CLUE 006 and CLUE 007
+TheMother: They were playing behind the graves.
+ <<set $hasClue_AllKnowingLady to true>>
+ <<set $hasClue_TheBride to true>>
+
+===
+
+title: TheSignBack
+---
+Magnolia: (I don't want to go back.)
+===
+
+title: TheCrash
+---
+Magnolia: (I can't go there.)
+Magnolia: (It seems there was an accident.)
+Magnolia: (But it doesn't look recent.)
+ -> Leave it.
+===
+
+title: TheAngel
+---
+Magnolia: (They always scared me.)
+===
+
+title: AnyGrave
+---
+Magnolia: (I always kind of feel like I'll see my name on it.)
+<<wait 0.5>>
+Magnolia: (That's ridicilous, right?)
+===
+
+title: TheLittleStore
+---
+Magnolia: (There's a lot of little trinkets.)
+Mognolia: (I wonder if I could find something interesting.)
+ -> Not now.
+ -> Search.
+  <<set $searchforanitem to true>>
+===
+title: TheChurch
+---
+<<if $hasClue_forChurch is true>>
+ (It looks like it's looking at me.)
+  -> Enter the church through the back door.
+   <<set $enterthechurch to true>>
+  -> I want to live. No thanks.
+<<else>>
+ Magnolia: (I heard our ancestors died here.)
+ Magnolia: (I can't get in. It's locked.)
+<<endif>>
+//the trigger is inside the church, there is a small map. TRIGGER 001
+//you get an object here OBJECT d002
+//here is the last STARCLUE 003 where Magnolia decides to go, if she hasn't gathered all three clues, magnolia will not want to go.
+===
+
+//NOW WE ARE IN THE CHURCH
+
+title: TheChurchObject
+---
+Magnolia: (This looks interesting.)
+ -> Take it. <<if $putintheinventory002 is false>>
+  <<set $putintheinventory002 to true>> // one of the two objects for the 8th part of the Dreamworld (TheRedBeach)
+ -> Better not steal holy stuff.
+===
+
+title: TheHolyStatue
+---
+Magnolia: What is the point.
+Magnolia: Nothing makes sense anyway.
+ <<set $isgoingonjourney003 to true>> //last of 3 STAR CLUES that make Magnolia decide to go on the journey.
+===
+
+title: TheChurchTrigger
+---
+<<if $isgoingonjourney001 and $isgoingonjourney002 and $isgoingonjourney003 == true>>
+ Magnolia: I am talking something here.
+  -> Do it.
+   <<set $trigger_TheChurch to true>>  //now we are transfered to the second part of the Dreamworld
+  -> Don't do it.
+<<else>>
+<<endif>>
+===

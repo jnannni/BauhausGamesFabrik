@@ -30,6 +30,6 @@ public class FMODEvents : MonoBehaviour
 
     private void Start()
     {
-        npsAura = new List<EventReference>();
+        //npsAura = new List<EventReference>();
     }
 }

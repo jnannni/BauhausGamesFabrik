@@ -17,6 +17,7 @@ public class CharacterMovement : MonoBehaviour
 
     private PlayerState currentState = PlayerState.none;
     public Rigidbody2D rb;
+    public BoolValue isPaused;
     private Vector2 movement;
     public float speed = 5f;
     public Animator animator;
@@ -35,8 +36,11 @@ public class CharacterMovement : MonoBehaviour
     {        
         animator.SetBool("isDialogueRunning", isDialogueRunning.initialValue);
         movement = Vector2.zero;
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (!isPaused.initialValue)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }        
 
         if (!isDialogueRunning.initialValue && movement != Vector2.zero)
         {

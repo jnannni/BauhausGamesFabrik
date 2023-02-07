@@ -1,0 +1,222 @@
+//ZONE I and ZONE II - THE UPHILL AND THE DOWNHILL
+
+title: FirstScene
+
+---
+<<fadeIn>>
+//variables for UNITY
+<<set $godownthestairs to false>>
+<<set $takethekey to false>>
+<<set $gobackhome to false>>
+<<set $curtainopens to false>>
+
+//variables for in YARN
+<<set $hasClueA to false>>
+<<set $hasClueB to false>>
+<<set $hasClueC to false>>
+<<set $stairsareopen to false>>
+<<fadeOut>>
+
+// Magnolia is in front of her aunt's house in a small uphill neighborhood:
+Magnolia: (Did this city suddenly become more gray?)
+<<wait 1>>
+Magnolia: (There's no sun at all today.)
+Magnolia: (Why did I go out again?)
+Magnolia: (Ah groceries...The fridge is empty.)
+//new objective: find a supermarket
+===
+title: TheHouseMan
+---
+<<if visited_count("TheHouseMan") > 1>>
+  TheHouseMan: I can't scrub the Sun from my windows. How does one take the sun off?
+  <<if $stairsareopen == true>>
+    Magnolia: (I can't bother with him anymore.) 
+  <<else>>
+    <<jump TheHouseMan_Questions>>
+  <<endif>>
+<<elseif visited_count("TheHouseMan") == 1>>
+  Magnolia: I would really appreciate your help.
+  TheHouseMan: I can't scrub the Sun from my windows. How does one take the sun off?
+  Magnolia: (Again this.)
+  Magnolia: I really don't know, sorry.
+  TheHouseMan: ...
+  <<jump TheHouseMan_Questions>>
+<<else>>
+    Magnolia: Excuse me, do you know where the closest supermarket is?
+    TheHouseMan: I can't scrub the Sun from my windows. How does one take the Sun off?
+    Magnolia: (What is he saying?)
+    Magnolia: Uh, I don't know. Put the curtains maybe?
+    TheHouseMan: ...
+    <<jump TheHouseMan_Questions>>
+<<endif>>  
+===
+
+title: TheHouseMan_Questions
+---
+-> I heard about the stairs. <<if $hasClueA>>
+   TheHouseMan: Keep to the left wall.
+   Magnolia: Is it really safe that way?
+   TheHouseMan:...
+   <<set $stairsareopen to true>>
+     -> Give up.
+-> Ask the man again.
+   Magnolia: Uhm, do you maybe know the way to the supermarket?
+   TheHouseMan: The sky is almost purple today.
+      -> Give up.
+-> Give up.
+===
+title: TheCarMan
+---
+<<if visited_count("TheCarMan") > 1>>
+  TheCarMan: I have seen two rabbits down the street.
+  <<if $hasClueA == true>>
+    Magnolia: Me too.
+    TheCarMan: Good.
+  <<else>>
+    <<jump TheCarMan_Questions>>
+  <<endif>>
+<<elseif visited_count("TheCarMan") == 1>>
+ TheCarMan: I have seen two rabbits down the street.
+ Magnolia: Were they wild rabbits sir?
+ TheCarMan: It smells of sulphur.
+ Magnolia: Excuse me?
+ TheCarMan: ...
+ <<jump TheCarMan_Questions>>
+<<else>>
+ TheCarMan: I have seen two rabbits down the street.
+ Magnolia: Rabbits? I guess it's not unusuall sir, the city is in the woods.
+ TheCarMan: We are sinking actually.
+ Magnolia: Really? How so?
+ TheCarMan: Rabbits learn to swim.
+ Magnolia: I am not sure...
+ TheCarMan: *grunts*
+ Magnolia: (Better not argue.)
+ <<jump TheCarMan_Questions>>
+<<endif>>
+===
+
+title: TheCarMan_Questions
+---
+-> Do you know where the closest supermarket is?
+   TheCarMan: Rabbits are purple only sometimes.
+   Magnolia: (Huh?)
+   -> Give up.
+-> How did you drive your car up here?
+   TheCarMan: Billy knows the secret of the stairs.
+    <<set $hasClueA to true>>
+    -> Which is?
+        TheCarMan: ...
+        -> Give up.
+    -> Billy? 
+        TheCarMan: Nighbors can be tiring.
+        -> Give up.
+===
+title: TheStairs
+---
+<<if $stairsareopen>>
+ Magnolia: (So I should just listen to the strange neighbor?)
+  -> Go down the stairs.
+    //Here should be a code that lets you go to the next part.
+    <<set $godownthestairs to true>>
+  -> Rethink.
+<<else>>
+ Magnolia: (They seem like they will crumble under my feet.)
+ Magnolia: (I can't go there.)
+<<endif>>
+
+===
+
+title: TheSign
+---
+//Here is an interaction with the sign that gives the clue for TheCatPerson.
+<<if visited_count("TheSign") > 0>>
+ Magnolia: (Yeah, the sign says it's somewehere here.)
+<<else>>
+ Magnolia: (I almost missed it.)
+ Magnolia: (Am I too short, or are they not good at planning.)
+<<endif>>
+  -> Read the sign.
+    The Sign: Your local supermarket! Now in The Little Corner!
+      <<set $hasClueB to true>>
+  -> Ignore it.
+===
+
+title: TheCatPerson
+---
+//We are now in the Downhill part of the city, and in this part we find the supermarket. In this part there is only one person.
+<<if visited_count("TheCatPerson") > 1>>
+ Magnolia: ...
+<<elseif visited_count("TheCatPerson") == 1>>
+ Magnolia: (There's this lady again.)
+ Magnolia: (I still can't see what she's doing actually.)
+<<else>>
+ Magnolia: (Is it an animal?)
+ <<wait 1>>
+ Magnolia: (Maybe she is just tying her shoelaces.)
+ Magnolia: (...)
+ <<wait 1>>
+ Magnolia: (Stop staring Magnolia!)
+<<endif>>
+ TheCatPerson: Of all these days, this one seems the smallest.
+ Magnolia: ...
+ TheCatPerson: Does it bother you to carry all that lives?
+     -> I am looking for the Little Corner? <<if $hasClueB>>
+        TheCatPerson: I used to live there.
+        Magnolia: Oh?
+        TheCatPerson: I always hated that curtain.
+        <<set $hasClueC to true>>
+        //Here should be a code that let's you move the curtain away.
+     -> Me?
+        TheCatPerson: Sometimes we are the bad guys.
+        Magnolia: Okay...
+          -> Run away.
+     -> Is that a cat?
+        TheCatPerson: Cats never blame others for their loneliness.
+        Magnolia: Oh, so there is a cat!
+        TheCatPerson: Never trust what you see.
+        Magnolia: ...
+          -> Slowly move away.
+     -> Do you know where the nearest supermarket is?
+        TheCatPerson: ...
+        Magnolia: ...
+          -> Give up.
+===
+
+title: TheLittleCorner
+---
+  Magnolia: (Ah so here it is.)
+   <<if $hasClueC>>
+     -> Move the curtain.
+     <<fadeIn>>
+      <<set $curtainopens to true>>
+      <<wait 2>> 
+      Curtains are being opened.
+      <<fadeOut>>
+   <<else>>
+     Magnolia: (I don't know how to go there.)
+       -> Give up.
+   <<endif>>   
+===
+
+title: TheFlamingKey
+---
+<<if visited_count("TheFlamingKey") > 0>>
+ Magnolia: (It almost pulls me in.)
+<<else>>
+ Magnolia: (Okay, now it's really weird.)
+ Magnolia: (Why do I feel like it won't actually burn me?)
+<<endif>>
+  -> Pick it up.
+    //This should trigger the cutscene and all.
+    <<set $takethekey to true>>
+    <<fadeIn>> 
+  -> Nah. Go to the supermarket instead.
+===
+
+title: TheSuperMarket
+---
+ Magnolia: (I can finally end this day.)
+   -> Enter.
+    //There should be a script to restart the game.
+    <<set $gobackhome to true>>
+===
