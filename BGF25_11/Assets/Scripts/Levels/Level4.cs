@@ -8,10 +8,13 @@ public class Level4 : MonoBehaviour
 {
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
+    public Animator scaredCatAnimator;
 
     private bool putintheinventory002;
     private bool enterthechurch;
     private bool trigger_TheChurch;
+    private bool scurryawayanimation;
+    private bool searchforanitem;
 
     [SerializeField] private string nameOfTheScene;
 
@@ -31,8 +34,18 @@ public class Level4 : MonoBehaviour
     void Update()
     {
         variableStorage.TryGetValue("$trigger_TheChurch", out trigger_TheChurch);
-        variableStorage.TryGetValue("$enterthechurch", out enterthechurch);
+        variableStorage.TryGetValue("$scurryawayanimation", out scurryawayanimation);
+        variableStorage.TryGetValue("$scurryawayanimation", out scurryawayanimation);
+        variableStorage.TryGetValue("$searchforanitem", out searchforanitem);
         variableStorage.TryGetValue("$putintheinventory002", out putintheinventory002);
+
+        if (scurryawayanimation)
+        {
+            scaredCatAnimator.SetBool("isScared", true);
+        } else if (!scurryawayanimation)
+        {
+            scaredCatAnimator.SetBool("isScared", false);
+        }
 
         if (trigger_TheChurch)
         {

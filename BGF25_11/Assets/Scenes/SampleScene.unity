@@ -15180,7 +15180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1366144751}
   smoothing: 0.1
-  maxPosition: {x: 21.8, y: -7.6}
+  maxPosition: {x: 17, y: -7.6}
   minPosition: {x: -60.7, y: -95.6}
 --- !u!20 &1608081345
 Camera:
@@ -15233,7 +15233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608081340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.8, y: -7.6, z: -10}
+  m_LocalPosition: {x: 17, y: -7.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20444,70 +20444,6 @@ PrefabInstance:
     - target: {fileID: 3024238422281102535, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[0].Path
-      value: event:/NPCS/NPC1Aura
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[1].Path
-      value: event:/NPCS/NPC2HouseGuyAura
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[2].Path
-      value: event:/NPCS/NPC3Carguy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[0].Guid.Data1
-      value: 1044979482
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[0].Guid.Data2
-      value: 1150844128
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[0].Guid.Data3
-      value: 1874698423
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[0].Guid.Data4
-      value: -104530443
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[1].Guid.Data1
-      value: -1337732416
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[1].Guid.Data2
-      value: 1307314473
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[1].Guid.Data3
-      value: 1266322325
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[1].Guid.Data4
-      value: -552328827
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[2].Guid.Data1
-      value: 1864064537
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[2].Guid.Data2
-      value: 1213879663
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[2].Guid.Data3
-      value: 1355767991
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024238422289072560, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}
-      propertyPath: <npsAura>k__BackingField.Array.data[2].Guid.Data4
-      value: 2054595765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cba16049d4f4a9ca9b224e6f0bffb4, type: 3}

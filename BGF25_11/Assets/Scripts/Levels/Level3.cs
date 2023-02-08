@@ -9,17 +9,23 @@ public class Level3 : MonoBehaviour
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
 
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject targetPosition;
     private bool gobackhome;
     private bool magnoliadances;
     private bool gotothegraveyard;
     private bool lookatthedrawing;
     private bool putintheinventory001;
     private bool putintheinventoryd001;
+    private bool godownthestairs;
+    private FadeLayer fadeLayer;
+    private bool isDownTheStairs;
 
     [SerializeField] private string nameOfTheScene;
 
     private void Awake()
     {
+        fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
     }
@@ -28,6 +34,7 @@ public class Level3 : MonoBehaviour
     void Start()
     {
         dialogueRunner.StartDialogue("BackInTheWaking");
+        isDownTheStairs = false;
     }
 
     // Update is called once per frame
@@ -39,6 +46,7 @@ public class Level3 : MonoBehaviour
         variableStorage.TryGetValue("$glookatthedrawing", out lookatthedrawing);
         variableStorage.TryGetValue("$putintheinventory001", out putintheinventory001);
         variableStorage.TryGetValue("$putintheinventoryd001", out putintheinventoryd001);
+        variableStorage.TryGetValue("$godownthestairs", out godownthestairs);
 
         if (magnoliadances)
         {
@@ -65,10 +73,23 @@ public class Level3 : MonoBehaviour
             SceneManager.LoadScene(nameOfTheScene);
         }
 
+        if (godownthestairs && !isDownTheStairs)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            GoDownTheStairs();
+            isDownTheStairs = true;
+            StartCoroutine(fadeLayer.FadeOut());
+        }
+
         if (gobackhome)
         {
             // move character to the home position (add fade in/out to yarn)
         }
 
+    }
+
+    void GoDownTheStairs()
+    {
+        player.transform.position = targetPosition.transform.position;
     }
 }

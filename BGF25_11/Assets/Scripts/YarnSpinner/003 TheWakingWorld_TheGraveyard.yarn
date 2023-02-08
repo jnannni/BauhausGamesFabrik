@@ -7,6 +7,7 @@ title: TheGraveYard
 <<set $enterthechurch to false>>
 <<set $trigger_TheChurch to false>> //second transition to the dreamworld
 <<set $searchforanitem to false>> //should maybe open like a store inventory, where we could choose some interesting object?
+<<set $scurryawayanimation to false>> // trigger for the animation for the cat creature paul made
 
 //variables for in YARN
 <<set $isgoingonjourney003 to false>>
@@ -88,6 +89,18 @@ Mognolia: (I wonder if I could find something interesting.)
  -> Not now.
  -> Search.
   <<set $searchforanitem to true>>
+===
+
+title: TheCatCreature
+---
+Magnolia: (It doesn't like me.)
+ -> Stay away and just watch it.
+  <<wait 0.5>>
+  Magnolia: (It's a beauty.)
+ -> Try to pet it.
+  <<set $scurryawayanimation to true>>
+  <<wait 3>>
+  <<set $scurryawayanimation to false>>
 ===
 title: TheChurch
 ---
