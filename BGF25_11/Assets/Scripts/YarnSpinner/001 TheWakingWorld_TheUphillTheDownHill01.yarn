@@ -28,6 +28,7 @@ Magnolia: (Ah groceries...The fridge is empty.)
 title: TheHouseMan
 ---
 <<if visited_count("TheHouseMan") > 1>>
+  <<SetPortrait housemanportrait1>>
   TheHouseMan: I can't scrub the Sun from my windows. How does one take the sun off?
   <<if $stairsareopen == true>>
     Magnolia: (I can't bother with him anymore.) 
@@ -36,16 +37,20 @@ title: TheHouseMan
   <<endif>>
 <<elseif visited_count("TheHouseMan") == 1>>
   Magnolia: I would really appreciate your help.
+  <<SetPortrait housemanportrait1>>
   TheHouseMan: I can't scrub the Sun from my windows. How does one take the sun off?
   Magnolia: (Again this.)
   Magnolia: I really don't know, sorry.
+  <<SetPortrait housemanportrait1>>
   TheHouseMan: ...
   <<jump TheHouseMan_Questions>>
 <<else>>
     Magnolia: Excuse me, do you know where the closest supermarket is?
+    <<SetPortrait housemanportrait1>>
     TheHouseMan: I can't scrub the Sun from my windows. How does one take the Sun off?
     Magnolia: (What is he saying?)
     Magnolia: Uh, I don't know. Put the curtains maybe?
+    <<SetPortrait housemanportrait1>>
     TheHouseMan: ...
     <<jump TheHouseMan_Questions>>
 <<endif>>  
@@ -54,13 +59,16 @@ title: TheHouseMan
 title: TheHouseMan_Questions
 ---
 -> I heard about the stairs. <<if $hasClueA>>
+  <<SetPortrait housemanportrait1>>
    TheHouseMan: Keep to the left wall.
    Magnolia: Is it really safe that way?
+   <<SetPortrait housemanportrait1>>
    TheHouseMan:...
    <<set $stairsareopen to true>>
      -> Give up.
 -> Ask the man again.
    Magnolia: Uhm, do you maybe know the way to the supermarket?
+   <<SetPortrait housemanportrait1>>
    TheHouseMan: The sky is almost purple today.
       -> Give up.
 -> Give up.

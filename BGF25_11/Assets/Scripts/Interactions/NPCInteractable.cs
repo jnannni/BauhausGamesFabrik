@@ -13,8 +13,7 @@ public class NPCInteractable : MonoBehaviour
         talk
     }
 
-    private DialogueRunner dialogueRunner;
-    private LineView lineView;
+    private DialogueRunner dialogueRunner;    
     private bool isCurrentConversation = false;
     [SerializeField] private string dialogueStartingNode;    
     [SerializeField] private Animator animator;
@@ -41,8 +40,7 @@ public class NPCInteractable : MonoBehaviour
         {
             Debug.Log("No Animator Needed");
         }
-        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
-        lineView = FindObjectOfType<Yarn.Unity.LineView>();
+        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();        
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);
         isPressed = false;
         
@@ -81,8 +79,7 @@ public class NPCInteractable : MonoBehaviour
                 ChangeDirection(-target.GetComponent<Animator>().GetFloat("Horizontal"),
                             -target.GetComponent<Animator>().GetFloat("Vertical"));
             }            
-            StartConversation();
-            Debug.Log("interactable npc");
+            StartConversation();            
         } else if (distance < minDist && !interactable) {
             if (animator)
             {

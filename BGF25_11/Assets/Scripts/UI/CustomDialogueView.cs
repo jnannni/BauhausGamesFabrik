@@ -1,30 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Yarn.Unity;
+using System;
 
 public class CustomDialogueView : DialogueViewBase
 {
-    // The amount of time that lines will take to appear.
-    [SerializeField] private float appearanceTime = 0.5f;
+    [SerializeField] DialogueRunner runner;
+    [Header("Assets"), Tooltip("you can manually assign various assets here if you don't want to use /Resources/ folder")]
+    public List<Sprite> loadSprites = new List<Sprite>();       
 
-    // The amount of time that lines will take to disappear.
-    [SerializeField] private float disappearanceTime = 0.5f;
+    // big lists to keep track of all instantiated objects    
+    List<Image> sprites = new List<Image>(); // big list of all instantianted sprites
 
-    // The text view to display the line of dialogue in.
-    [SerializeField] TMPro.TextMeshProUGUI text;
+    [SerializeField] Image portraitPosition;
 
-    // The game object that should animate in and out.
-    [SerializeField] RectTransform container;
+    private void Awake()
+    {
+        runner.AddCommandHandler<string>("SetPortrait", SetPortrait);
+        foreach (Sprite sprite in loadSprites)
+        {            
+        }
+    }
 
-    // If this is true, then the line view will not automatically report that
-    // it's done showing a line, and will instead wait for InterruptLine to be
-    // called (which happens when UserRequestedViewAdvancement is called.)
-    [SerializeField] private bool waitForInput;
+    #region YarnCommands
 
-    // The current coroutine that's playing out a scaling animation. When this
-    // is not null, we're in the middle of an animation.
-    Coroutine currentAnimation;
+    public void SetPortrait(string spriteName)
+    {
+        Debug.Log("here");
+        portraitPosition.sprite = loadSprites.Find(sprite => sprite.name == spriteName);
+    }
 
-   
+    public void PlaySound()
+    {
+        Debug.Log("Sound is playing");
+    }
+
+    #endregion
+
 }
