@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     private DialogueRunner dialogueRunner;
     private FadeLayer fadeLayer;
     public BoolValue isDialogueRunning;
-    public Animator animator;    
+    public Animator animator;
+    public Animator portraitAnimator;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,6 +34,13 @@ public class GameManager : MonoBehaviour
 
     public void DialogueIsNotRunning()
     {
+        foreach (var param in portraitAnimator.parameters)
+        {
+            if (param.type == AnimatorControllerParameterType.Bool)
+            {
+                portraitAnimator.SetBool(param.name, false);
+            }
+        }
         animator.SetBool("isDialogueRunning", false);
         isDialogueRunning.initialValue = false;
     }

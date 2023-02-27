@@ -76,27 +76,36 @@ title: TheHouseMan_Questions
 title: TheCarMan
 ---
 <<if visited_count("TheCarMan") > 1>>
+<<SetPortrait carguyportrait1>>
   TheCarMan: I have seen two rabbits down the street.
   <<if $hasClueA == true>>
     Magnolia: Me too.
+    <<SetPortrait carguyportrait1>>
     TheCarMan: Good.
   <<else>>
     <<jump TheCarMan_Questions>>
   <<endif>>
 <<elseif visited_count("TheCarMan") == 1>>
+<<SetPortrait carguyportrait1>>
  TheCarMan: I have seen two rabbits down the street.
  Magnolia: Were they wild rabbits sir?
+ <<SetPortrait carguyportrait1>>
  TheCarMan: It smells of sulphur.
  Magnolia: Excuse me?
+ <<SetPortrait carguyportrait1>>
  TheCarMan: ...
  <<jump TheCarMan_Questions>>
 <<else>>
+<<SetPortrait carguyportrait1>>
  TheCarMan: I have seen two rabbits down the street.
  Magnolia: Rabbits? I guess it's not unusuall sir, the city is in the woods.
+ <<SetPortrait carguyportrait1>>
  TheCarMan: We are sinking actually.
  Magnolia: Really? How so?
+ <<SetPortrait carguyportrait1>>
  TheCarMan: Rabbits learn to swim.
  Magnolia: I am not sure...
+ <<SetPortrait carguyportrait1>>
  TheCarMan: *grunts*
  Magnolia: (Better not argue.)
  <<jump TheCarMan_Questions>>
@@ -106,16 +115,20 @@ title: TheCarMan
 title: TheCarMan_Questions
 ---
 -> Do you know where the closest supermarket is?
+  <<SetPortrait carguyportrait1>>
    TheCarMan: Rabbits are purple only sometimes.
    Magnolia: (Huh?)
    -> Give up.
 -> How did you drive your car up here?
+  <<SetPortrait carguyportrait1>>
    TheCarMan: Billy knows the secret of the stairs.
     <<set $hasClueA to true>>
     -> Which is?
+      <<SetPortrait carguyportrait1>>
         TheCarMan: ...
         -> Give up.
     -> Billy? 
+      <<SetPortrait carguyportrait1>>
         TheCarMan: Nighbors can be tiring.
         -> Give up.
 ===
