@@ -22,7 +22,7 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58391
+62508
 Successfully changed project path to: /Users/katjameow/UnityProjects/BGF/BGF25_11
 /Users/katjameow/UnityProjects/BGF/BGF25_11
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -54,7 +54,7 @@ Successfully changed project path to: /Users/katjameow/UnityProjects/BGF/BGF25_1
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 167.80 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 234.68 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.12f1 (8af3c3e441b1)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -69,78 +69,78 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56879
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56972
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2021.3.12f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.001663 seconds.
+Registered in 0.001698 seconds.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 96.73 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 101.20 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.460 seconds
+- Completed reload, in  0.478 seconds
 Domain Reload Profiling:
-	ReloadAssembly (460ms)
-		BeginReloadAssembly (63ms)
+	ReloadAssembly (478ms)
+		BeginReloadAssembly (68ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (333ms)
-			LoadAssemblies (64ms)
+			CreateAndSetChildDomain (0ms)
+		EndReloadAssembly (339ms)
+			LoadAssemblies (69ms)
 			RebuildTransferFunctionScriptingTraits (1ms)
-			SetupTypeCache (65ms)
+			SetupTypeCache (72ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (18ms)
-			SetupLoadedEditorAssemblies (206ms)
+			RebuildScriptCaches (19ms)
+			SetupLoadedEditorAssemblies (218ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (97ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (80ms)
-				ProcessInitializeOnLoadMethodAttributes (24ms)
+				RefreshPlugins (101ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (87ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003481 seconds.
+Registered in 0.011270 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image /Users/katjameow/UnityProjects/BGF/BGF25_11/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image /Users/katjameow/UnityProjects/BGF/BGF25_11/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 103.29 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 107.08 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.049 seconds
+- Completed reload, in  1.104 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1049ms)
-		BeginReloadAssembly (63ms)
+	ReloadAssembly (1105ms)
+		BeginReloadAssembly (61ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (23ms)
-		EndReloadAssembly (906ms)
-			LoadAssemblies (80ms)
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (975ms)
+			LoadAssemblies (76ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (229ms)
-			ReleaseScriptCaches (18ms)
-			RebuildScriptCaches (54ms)
-			SetupLoadedEditorAssemblies (491ms)
+			SetupTypeCache (206ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (615ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (2ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (103ms)
-				BeforeProcessingInitializeOnLoad (75ms)
-				ProcessInitializeOnLoadAttributes (258ms)
-				ProcessInitializeOnLoadMethodAttributes (51ms)
+				RefreshPlugins (107ms)
+				BeforeProcessingInitializeOnLoad (104ms)
+				ProcessInitializeOnLoadAttributes (350ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
 				AfterProcessingInitializeOnLoad (1ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -149,13 +149,13 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launching external process: /Applications/Unity/Hub/Editor/2021.3.12f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.18 seconds
-Refreshing native plugins compatible for Editor in 0.92 ms, found 5 plugins.
+Launched and connected shader compiler UnityShaderCompiler after 0.20 seconds
+Refreshing native plugins compatible for Editor in 1.08 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6144 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 112 unused Assets / (0.7 MB). Loaded Objects now: 6534.
-Memory consumption went from 217.7 MB to 217.0 MB.
-Total: 3.815333 ms (FindLiveObjects: 0.256292 ms CreateObjectMapping: 0.152542 ms MarkObjects: 3.148166 ms  DeleteObjects: 0.258042 ms)
+Memory consumption went from 217.8 MB to 217.1 MB.
+Total: 3.825542 ms (FindLiveObjects: 0.271583 ms CreateObjectMapping: 0.182042 ms MarkObjects: 3.082708 ms  DeleteObjects: 0.288750 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -169,319 +169,241 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 200058.607728 seconds.
-  path: Assets/Art/Environment/wetransfer_beach_001-png_2023-03-09_1749
-  artifactKey: Guid(605314f736b3b4e5c820b27bcdb0486a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/wetransfer_beach_001-png_2023-03-09_1749 using Guid(605314f736b3b4e5c820b27bcdb0486a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb786478834d70dd30db1a650a15d5cf') in 0.006729 seconds 
+  Time since last request: 254650.983547 seconds.
+  path: Assets/Scenes/Museum.unity
+  artifactKey: Guid(6ff369d5b328f40ad95ba4262cd47f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Museum.unity using Guid(6ff369d5b328f40ad95ba4262cd47f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa294d8af06bd499059f3297075d34d0') in 0.010193 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 15.783081 seconds.
-  path: Assets/Art/Environment/wetransfer_factory_001-png_2023-03-09_1744
-  artifactKey: Guid(a222d05a6ae1848c0a154db797a0ecf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/wetransfer_factory_001-png_2023-03-09_1744 using Guid(a222d05a6ae1848c0a154db797a0ecf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f725bcf76fa7bdf7a48cb0dc1cdb79e3') in 0.001067 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.117324 seconds.
-  path: Assets/Art/Environment/factory
-  artifactKey: Guid(a222d05a6ae1848c0a154db797a0ecf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory using Guid(a222d05a6ae1848c0a154db797a0ecf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b68912c40a70dcb1bb5b56b74e1f8dec') in 0.001021 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.398431 seconds.
-  path: Assets/Art/Environment/wetransfer_worker_001-png_2023-03-09_1740
-  artifactKey: Guid(6c253ca93d2d64e3b93f5c3fab163c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/wetransfer_worker_001-png_2023-03-09_1740 using Guid(6c253ca93d2d64e3b93f5c3fab163c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40bffc03eed87b228a890cd636b1a804') in 0.001975 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.839489 seconds.
-  path: Assets/Art/Environment/worker
-  artifactKey: Guid(6c253ca93d2d64e3b93f5c3fab163c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker using Guid(6c253ca93d2d64e3b93f5c3fab163c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b83d135d51aa0efb10ee272471b3c5c1') in 0.000475 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.389284 seconds.
-  path: Assets/Art/Environment/beach
-  artifactKey: Guid(605314f736b3b4e5c820b27bcdb0486a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/beach using Guid(605314f736b3b4e5c820b27bcdb0486a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f51b97b68fa331404239b22573f22e7') in 0.001312 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 22.962290 seconds.
+  Time since last request: 1.728611 seconds.
   path: Assets/Scenes/Factory.unity
   artifactKey: Guid(cee4bee9572bb465f9e51a4664aa559b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Factory.unity using Guid(cee4bee9572bb465f9e51a4664aa559b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2242d949001599348e48c796e203e6c8') in 0.001111 seconds 
+Start importing Assets/Scenes/Factory.unity using Guid(cee4bee9572bb465f9e51a4664aa559b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5275a2876ca7135c3fd01f10e8f5644d') in 0.000782 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 52.767820 seconds.
-  path: Assets/Art/Environment/factory/factory_reference.JPG
-  artifactKey: Guid(a797bab9849ce41499076c2208a855d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_reference.JPG using Guid(a797bab9849ce41499076c2208a855d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97ec3b2563a1d60c374579b9949b83c7') in 0.643731 seconds 
+  Time since last request: 22.615263 seconds.
+  path: Assets/Scenes/Beach.unity
+  artifactKey: Guid(a91325f5380d445458dbc3b59ee93f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Beach.unity using Guid(a91325f5380d445458dbc3b59ee93f2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '297a46785872f6a9fa52d9ae2e2abad2') in 0.010139 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 121.632918 seconds.
-  path: Assets/Art/Environment/factory/factory_015.png
-  artifactKey: Guid(db9784b0ead354cbfad3d0c9730c7267) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_015.png using Guid(db9784b0ead354cbfad3d0c9730c7267) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f52fe46b43bd77a5ee4ebe847090fba') in 0.408127 seconds 
+  Time since last request: 10.530623 seconds.
+  path: Assets/Art/Environment/beach/beach_reference.JPG
+  artifactKey: Guid(cc838eaec3c3542feb59e9bd056e848e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_reference.JPG using Guid(cc838eaec3c3542feb59e9bd056e848e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '164820c530586293c9086c0ccb4da1d3') in 0.558108 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 61.422381 seconds.
-  path: Assets/Art/Environment/factory/factory_001.png
-  artifactKey: Guid(8a6e719c8cca949c8987266556c7f764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_001.png using Guid(8a6e719c8cca949c8987266556c7f764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '652ac43a4a094ecb41f89e182ee650e0') in 0.257107 seconds 
+  Time since last request: 100.237879 seconds.
+  path: Assets/Art/Environment/beach/beach_001.png
+  artifactKey: Guid(2f11c70a88fa7425bbd0db351e77fa0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_001.png using Guid(2f11c70a88fa7425bbd0db351e77fa0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '424c237135d4e51178e86ccedd696e76') in 0.629818 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.609879 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_005.png
-  artifactKey: Guid(f98919df9e2dc450484db0ca03836eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_005.png using Guid(f98919df9e2dc450484db0ca03836eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54517dd7bdd1ef176953755b8e5ad9bc') in 0.055385 seconds 
+  Time since last request: 12.824725 seconds.
+  path: Assets/Art/Environment/beach/beach_001.png
+  artifactKey: Guid(2f11c70a88fa7425bbd0db351e77fa0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_001.png using Guid(2f11c70a88fa7425bbd0db351e77fa0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9609a164b21d9ab80d8adf25711e29c9') in 0.363042 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.579334 seconds.
-  path: Assets/Art/Environment/factory/factory_014.png
-  artifactKey: Guid(ef152c315e03a4dd0a85fc4f7f6c3a42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_014.png using Guid(ef152c315e03a4dd0a85fc4f7f6c3a42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81b607bf986c87fc4d577f44526a494e') in 0.088461 seconds 
+  Time since last request: 21.889025 seconds.
+  path: Assets/Art/Environment/beach/beach_003.png
+  artifactKey: Guid(ff3ba419def27431aafc388c2733a08e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_003.png using Guid(ff3ba419def27431aafc388c2733a08e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '827a2b27ee99f453b1d3f659b2d12a6e') in 0.317681 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.269290 seconds.
-  path: Assets/Art/Environment/factory/factory_014.png
-  artifactKey: Guid(ef152c315e03a4dd0a85fc4f7f6c3a42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_014.png using Guid(ef152c315e03a4dd0a85fc4f7f6c3a42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48877e755fdc5e69b42526c54621acd8') in 0.137228 seconds 
+  Time since last request: 0.161991 seconds.
+  path: Assets/Art/Environment/beach/beach_004.png
+  artifactKey: Guid(ba7c42aa178684263ae85e643fadd8d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_004.png using Guid(ba7c42aa178684263ae85e643fadd8d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4937e5756fd859e707f3cfb267f61938') in 0.238942 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 34.706823 seconds.
-  path: Assets/Art/Environment/factory/factory_003.png
-  artifactKey: Guid(c64a253fe81f3407eabdb9715762b4ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_003.png using Guid(c64a253fe81f3407eabdb9715762b4ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52714835dfe8bf0b05b1d4ccbdaf17e2') in 0.326901 seconds 
+  Time since last request: 135.858464 seconds.
+  path: Assets/Art/Environment/beach/beach_018.png
+  artifactKey: Guid(7f7ed1559b8734c11bc5112fdd00d1cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_018.png using Guid(7f7ed1559b8734c11bc5112fdd00d1cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81e0672b2b79891da10c5f40e292a43c') in 0.304064 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.353925 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_001.png
-  artifactKey: Guid(4ba8227cafe824325837a5ec98695f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_001.png using Guid(4ba8227cafe824325837a5ec98695f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55d31e146c87b5417eaad3389f0187b8') in 0.197832 seconds 
+  Time since last request: 0.905871 seconds.
+  path: Assets/Art/Environment/beach/beach_019.png
+  artifactKey: Guid(d7f5e0efaf9b74487bb24f863a448eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_019.png using Guid(d7f5e0efaf9b74487bb24f863a448eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c92ba81bbec908a5ab038622f39c060') in 0.298535 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.213272 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_001.png
-  artifactKey: Guid(4ba8227cafe824325837a5ec98695f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_001.png using Guid(4ba8227cafe824325837a5ec98695f54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63ce1b0634705edc9e8476c431914f1b') in 0.190502 seconds 
+  Time since last request: 103.283708 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_001.png
+  artifactKey: Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_001.png using Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5213e2053331b9eebcbc6658a4d2a53c') in 0.024154 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 21.294229 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_002.png
-  artifactKey: Guid(41e5fc5b7e2dc436b88ed63b06ac7e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_002.png using Guid(41e5fc5b7e2dc436b88ed63b06ac7e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08ad0ae5fd62d133ce4e42f27fa531b8') in 0.037920 seconds 
+  Time since last request: 4.095091 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_001.png
+  artifactKey: Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_001.png using Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f804dd059b6fd2a453649b136367c510') in 0.005719 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 15.071624 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_002.png
-  artifactKey: Guid(41e5fc5b7e2dc436b88ed63b06ac7e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_002.png using Guid(41e5fc5b7e2dc436b88ed63b06ac7e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dbec5e7b75d61db71ca43540c671d5c') in 0.092298 seconds 
+  Time since last request: 37.021351 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_001.png
+  artifactKey: Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_001.png using Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7263cb3be3450b2b6913df8ebda280c5') in 0.047498 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 93.106001 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_003.png
-  artifactKey: Guid(d00098f0fb8354c2e9e44d1730844221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_003.png using Guid(d00098f0fb8354c2e9e44d1730844221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dcd0ac39979b67af2960cd83b7d7a98') in 0.159703 seconds 
+  Time since last request: 4.527039 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_002.png
+  artifactKey: Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_002.png using Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2e483643148f8b98ba4c041a301e9f9') in 0.090480 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.226044 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_003.png
-  artifactKey: Guid(d00098f0fb8354c2e9e44d1730844221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_003.png using Guid(d00098f0fb8354c2e9e44d1730844221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f859f517132e88796193d67f299d6389') in 0.022890 seconds 
+  Time since last request: 4.469516 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_002.png
+  artifactKey: Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_002.png using Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e860838e677997111dc5d3e626fe4544') in 0.011950 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.037997 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_003.png
-  artifactKey: Guid(d00098f0fb8354c2e9e44d1730844221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_003.png using Guid(d00098f0fb8354c2e9e44d1730844221) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59f77f6cf18f50566dd94f5e7a248ef2') in 0.096403 seconds 
+  Time since last request: 6.231881 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_002.png
+  artifactKey: Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_002.png using Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '888f7548b89e993436d4dabd845ab2cc') in 0.063617 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.548487 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_004.png
-  artifactKey: Guid(84310ee3cb3f349308ce7e42b20221e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_004.png using Guid(84310ee3cb3f349308ce7e42b20221e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fceb6ed50776955cf46a8b65bf42e540') in 0.067327 seconds 
+  Time since last request: 4.758041 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_003.png
+  artifactKey: Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_003.png using Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6210daed903a5e1b717d36eff8692104') in 0.023152 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.951260 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_004.png
-  artifactKey: Guid(84310ee3cb3f349308ce7e42b20221e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_004.png using Guid(84310ee3cb3f349308ce7e42b20221e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85782022b1e5290532f519d794f893f0') in 0.018584 seconds 
+  Time since last request: 3.706610 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_003.png
+  artifactKey: Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_003.png using Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e09d05ec0f0986caf322ffd607d25ffa') in 0.005136 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.151556 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_004.png
-  artifactKey: Guid(84310ee3cb3f349308ce7e42b20221e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_004.png using Guid(84310ee3cb3f349308ce7e42b20221e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad50e35efe01e1e24a9336d775ae3022') in 0.094865 seconds 
+  Time since last request: 6.857015 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_003.png
+  artifactKey: Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_003.png using Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b5527bac058d6ddc1d03dfdea46682c') in 0.027431 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.796481 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_005.png
-  artifactKey: Guid(f98919df9e2dc450484db0ca03836eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_005.png using Guid(f98919df9e2dc450484db0ca03836eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a36a0ec051815ac778673b4527df064') in 0.056981 seconds 
+  Time since last request: 3.079289 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_004.png
+  artifactKey: Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_004.png using Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ee0d9d45f24ec63f0a3f565d09c9bed') in 0.040558 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.338566 seconds.
-  path: Assets/Art/Environment/factory/factory_sprites_005.png
-  artifactKey: Guid(f98919df9e2dc450484db0ca03836eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/factory/factory_sprites_005.png using Guid(f98919df9e2dc450484db0ca03836eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40c01a864c33de92b546aee6ca425d8a') in 0.095326 seconds 
+  Time since last request: 10.795104 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_004.png
+  artifactKey: Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_004.png using Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3be9b5acdabe5d569e1c3e86ba0c2443') in 0.014451 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 2877.864266 seconds.
-  path: Assets/Scenes/TheWorkerQuarters.unity
-  artifactKey: Guid(bae275e091af948d0abae83973c8c04f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/TheWorkerQuarters.unity using Guid(bae275e091af948d0abae83973c8c04f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc97cbf7ffd5f24b2504955939823c24') in 0.006580 seconds 
+  Time since last request: 8.349655 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_004.png
+  artifactKey: Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_004.png using Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c29a98bd7f72d51bbb66b1f7deda499') in 0.047701 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 33.347589 seconds.
-  path: Assets/Art/Environment/worker/worker_reference.JPG
-  artifactKey: Guid(b3dfd6c3e6ea947cbae97316973bf0e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_reference.JPG using Guid(b3dfd6c3e6ea947cbae97316973bf0e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08750d0b9867be889708806d626bd7ec') in 0.233884 seconds 
+  Time since last request: 34.060185 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_004.png
+  artifactKey: Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_004.png using Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2f54dcb6076780e5fa445fe88485635') in 0.032033 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.749135 seconds.
-  path: Assets/Scenes/Graveyard.unity
-  artifactKey: Guid(78d7a68848ffd41d7b48161b5006ca35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Graveyard.unity using Guid(78d7a68848ffd41d7b48161b5006ca35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3779c65e49056be8ac4f2656a17ccc6') in 0.001220 seconds 
+  Time since last request: 3.938039 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_004.png
+  artifactKey: Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_004.png using Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e16d0f21869cdc8b0fe74e1f76b6f5fe') in 0.026175 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 83.067540 seconds.
-  path: Assets/Art/Environment/worker/worker_006.png
-  artifactKey: Guid(6a837c63c55544b818c81a5c37581b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_006.png using Guid(6a837c63c55544b818c81a5c37581b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ea84bc425fcd788d0bdd09ac2ea0608') in 0.290232 seconds 
+  Time since last request: 49.308656 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_004.png
+  artifactKey: Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_004.png using Guid(76fb47f506cf84781ae5d496fb7bd4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51f042a08ad59074d5add6f077263e25') in 0.041298 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 62.977077 seconds.
-  path: Assets/Art/Environment/worker/worker_007.png
-  artifactKey: Guid(4fe80ce97d4e245908a9d2e19975d999) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_007.png using Guid(4fe80ce97d4e245908a9d2e19975d999) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71dc7c6beb8b776c95a102bbbb494d5e') in 0.320460 seconds 
+  Time since last request: 4.588449 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_005.png
+  artifactKey: Guid(9ead49f484f134c7b8680345e76b5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_005.png using Guid(9ead49f484f134c7b8680345e76b5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8742c8c57e5bc8afb1a36f6d876fbfa') in 0.138927 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 37.374765 seconds.
-  path: Assets/Art/Environment/worker/worker_008.png
-  artifactKey: Guid(06f18edd907464780ac6c534cfc3c4ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_008.png using Guid(06f18edd907464780ac6c534cfc3c4ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb8d8f140c7a68ea8bcc414c2ce63256') in 0.283170 seconds 
+  Time since last request: 4.077475 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_005.png
+  artifactKey: Guid(9ead49f484f134c7b8680345e76b5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_005.png using Guid(9ead49f484f134c7b8680345e76b5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8619fa693837727e5989ff5b722bebd2') in 0.019860 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 71.674286 seconds.
-  path: Assets/Art/Environment/worker/worker_020.png
-  artifactKey: Guid(c833bb90203fe46a497e89e183f13104) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_020.png using Guid(c833bb90203fe46a497e89e183f13104) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c2f2da86bfc39ae93ec6abe09db3b90') in 0.238841 seconds 
+  Time since last request: 73.439650 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_005.png
+  artifactKey: Guid(9ead49f484f134c7b8680345e76b5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_005.png using Guid(9ead49f484f134c7b8680345e76b5c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '805b63713cd43031982693b7b8ccef1f') in 0.105942 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 349.783059 seconds.
-  path: Assets/Art/Environment/worker/worker_032.png
-  artifactKey: Guid(b6ab53edb2f6c4a09a5d99d051adc924) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_032.png using Guid(b6ab53edb2f6c4a09a5d99d051adc924) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a3260bf2019b3ae604af8779ece9d3e') in 0.341189 seconds 
+  Time since last request: 3.907028 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_006.png
+  artifactKey: Guid(11598123f7a434837919f5c94fbcdd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_006.png using Guid(11598123f7a434837919f5c94fbcdd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '358f0586be34eb3d634b3d045c9094e9') in 0.133203 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 598.744788 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_001.png
-  artifactKey: Guid(7c5f5001a8bef4fc7a6d941b0ccdd61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_001.png using Guid(7c5f5001a8bef4fc7a6d941b0ccdd61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '910880004f7404d4e2901b8d1a3ea9f9') in 0.219408 seconds 
+  Time since last request: 9.422685 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_006.png
+  artifactKey: Guid(11598123f7a434837919f5c94fbcdd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_006.png using Guid(11598123f7a434837919f5c94fbcdd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50bda034a852f611c30cb06c3f7ee762') in 0.024677 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.233221 seconds.
-  path: Assets/Art/Environment/worker/worker_001.png
-  artifactKey: Guid(749427f3d57e843288520dda80007443) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_001.png using Guid(749427f3d57e843288520dda80007443) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f412d6dec6d1c9f46900149f948f9d96') in 0.270531 seconds 
+  Time since last request: 43.674577 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_006.png
+  artifactKey: Guid(11598123f7a434837919f5c94fbcdd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_006.png using Guid(11598123f7a434837919f5c94fbcdd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '537299fdb3d2c9e5e28757385f5022eb') in 0.050096 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 17.174306 seconds.
-  path: Assets/Art/Environment/worker/worker_006.png
-  artifactKey: Guid(6a837c63c55544b818c81a5c37581b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_006.png using Guid(6a837c63c55544b818c81a5c37581b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bd15af7c62e010c91e2720c9e11f517') in 0.405048 seconds 
+  Time since last request: 3.129471 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_007.png
+  artifactKey: Guid(908f3ffc9a1a74e12ac186d322505262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_007.png using Guid(908f3ffc9a1a74e12ac186d322505262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f140c7356b3f1e8b1fdbb8eb599ca4e') in 0.020989 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.319038 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_001.png
-  artifactKey: Guid(7c5f5001a8bef4fc7a6d941b0ccdd61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_001.png using Guid(7c5f5001a8bef4fc7a6d941b0ccdd61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b03ef3f58f592d506f2c52dffcda7525') in 0.115724 seconds 
+  Time since last request: 7.282394 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_007.png
+  artifactKey: Guid(908f3ffc9a1a74e12ac186d322505262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_007.png using Guid(908f3ffc9a1a74e12ac186d322505262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26ed04145eb0faae79bef4b8c0015a60') in 0.033766 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.496376 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_001.png
-  artifactKey: Guid(7c5f5001a8bef4fc7a6d941b0ccdd61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_001.png using Guid(7c5f5001a8bef4fc7a6d941b0ccdd61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43243e4bb310d87482ec40c4430c50aa') in 0.156661 seconds 
+  Time since last request: 2.490565 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_008.png
+  artifactKey: Guid(d43db573965864bd0b2a7a8bb2d52309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_008.png using Guid(d43db573965864bd0b2a7a8bb2d52309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb8f8c47683aa079334517b8493c6d65') in 0.071378 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 177.118249 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_002.png
-  artifactKey: Guid(586bb9b9ea4ad4b99ac324e8a6f7c518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_002.png using Guid(586bb9b9ea4ad4b99ac324e8a6f7c518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aabcdb7e63f61a2bc8a29517dc999e56') in 0.121799 seconds 
+  Time since last request: 6.646387 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_008.png
+  artifactKey: Guid(d43db573965864bd0b2a7a8bb2d52309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_008.png using Guid(d43db573965864bd0b2a7a8bb2d52309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a838e6e410be9d4f507ef91b0daaaee0') in 0.007020 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 201.559525 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_003.png
-  artifactKey: Guid(5975f209ee61f4c07afd93280487f6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_003.png using Guid(5975f209ee61f4c07afd93280487f6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9d5c8b8dc90eaceeda09bf6993ee2d8') in 0.071171 seconds 
+  Time since last request: 5.442469 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_008.png
+  artifactKey: Guid(d43db573965864bd0b2a7a8bb2d52309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_008.png using Guid(d43db573965864bd0b2a7a8bb2d52309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d3559165f927b380670028c506c659b') in 0.036701 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.806507 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_002.png
-  artifactKey: Guid(586bb9b9ea4ad4b99ac324e8a6f7c518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_002.png using Guid(586bb9b9ea4ad4b99ac324e8a6f7c518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3c738f961d43e4b3629eb0f39d24f8a') in 0.133977 seconds 
+  Time since last request: 187.733242 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_001.png
+  artifactKey: Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_001.png using Guid(88b05ad44154844698894fd1567b8a1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c41f5d21d6b53902ef0f23f5437c0d4f') in 0.030913 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.696663 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_004.png
-  artifactKey: Guid(213e04befee7944d8822948b6770742c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_004.png using Guid(213e04befee7944d8822948b6770742c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd06190b541285dbf076b7478f231fb89') in 0.073025 seconds 
+  Time since last request: 486.522408 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_002.png
+  artifactKey: Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_002.png using Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d1a8d2d7466252183ce362916fcb3b7') in 0.124929 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.237015 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_003.png
-  artifactKey: Guid(5975f209ee61f4c07afd93280487f6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_003.png using Guid(5975f209ee61f4c07afd93280487f6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd935bd044ed148975a6e80c6f95a545a') in 0.012274 seconds 
+  Time since last request: 44.553750 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_002.png
+  artifactKey: Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_002.png using Guid(22c70532bf17046b4b2bdd526b1bd1a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '114f96cf03fb0c2bb0769b1879d9a1c4') in 0.047967 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.644836 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_003.png
-  artifactKey: Guid(5975f209ee61f4c07afd93280487f6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_003.png using Guid(5975f209ee61f4c07afd93280487f6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19434c85b3c0035302123c221128b74e') in 0.064534 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 162.904217 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_004.png
-  artifactKey: Guid(213e04befee7944d8822948b6770742c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_004.png using Guid(213e04befee7944d8822948b6770742c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '013637d5268148e24043c91a8e714287') in 0.023877 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.938423 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_004.png
-  artifactKey: Guid(213e04befee7944d8822948b6770742c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_004.png using Guid(213e04befee7944d8822948b6770742c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8581f62f9a0e3617edcde77ac845a21d') in 0.095549 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.170238 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_005.png
-  artifactKey: Guid(cfba86f99b5374e4c86b181ce13c803e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_005.png using Guid(cfba86f99b5374e4c86b181ce13c803e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff25d38bb515e4d76613d5d076714fe5') in 0.074191 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.444102 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_005.png
-  artifactKey: Guid(cfba86f99b5374e4c86b181ce13c803e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_005.png using Guid(cfba86f99b5374e4c86b181ce13c803e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9ea9d237288b0907027c80c90f15cad') in 0.008802 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.210419 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_005.png
-  artifactKey: Guid(cfba86f99b5374e4c86b181ce13c803e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_005.png using Guid(cfba86f99b5374e4c86b181ce13c803e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e634263360691a22d23281dce2eafba') in 0.055712 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.865807 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_006.png
-  artifactKey: Guid(0b6203f933e2241848ace33d8f143191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_006.png using Guid(0b6203f933e2241848ace33d8f143191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c5ca8a68b7307ea3fffaff9a58c8ed1') in 0.042851 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.222235 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_006.png
-  artifactKey: Guid(0b6203f933e2241848ace33d8f143191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_006.png using Guid(0b6203f933e2241848ace33d8f143191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa2bb9f3fdd085e75b0d1a4b679b6ad2') in 0.018673 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.852405 seconds.
-  path: Assets/Art/Environment/worker/worker_sprites_006.png
-  artifactKey: Guid(0b6203f933e2241848ace33d8f143191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Environment/worker/worker_sprites_006.png using Guid(0b6203f933e2241848ace33d8f143191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '414c577ced3701c3dcf00b3782fd57a1') in 0.039448 seconds 
+  Time since last request: 19.613732 seconds.
+  path: Assets/Art/Environment/beach/beach_sprites_003.png
+  artifactKey: Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Environment/beach/beach_sprites_003.png using Guid(203399557115948119ebda0725b52878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b004e9e5c6b7d1cfd4aa1b02c6caa63e') in 0.028700 seconds 
