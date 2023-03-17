@@ -10,7 +10,11 @@ public class Level3 : MonoBehaviour
     private InMemoryVariableStorage variableStorage;
 
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject targetPosition;
+    [SerializeField] private GameObject downTheStairsPosition;
+    [SerializeField] private GameObject homePosition;
+    [SerializeField] private InventoryItem item001;
+    [SerializeField] private InventoryItem itemd001;
+    private PhysicalInvetoryItem addToInventory;
     private bool gobackhome;
     private bool magnoliadances;
     private bool gotothegraveyard;
@@ -60,12 +64,12 @@ public class Level3 : MonoBehaviour
 
         if (putintheinventory001)
         {
-            // put stuff in the inventory
+            addToInventory.AddingItemFromDialogue(item001);
         }
 
         if (putintheinventoryd001)
         {
-            // put stuff in the inventory
+            addToInventory.AddingItemFromDialogue(itemd001);
         }
 
         if (gotothegraveyard)
@@ -84,12 +88,19 @@ public class Level3 : MonoBehaviour
         if (gobackhome)
         {
             // move character to the home position (add fade in/out to yarn)
+            player.transform.position = homePosition.transform.position;
         }
 
     }
 
     void GoDownTheStairs()
     {
-        player.transform.position = targetPosition.transform.position;
+        player.transform.position = downTheStairsPosition.transform.position;
+    }
+
+    void GoUpTheStairs()
+    {
+        // add isdownthesrairs in yarn
+        player.transform.position = downTheStairsPosition.transform.position;
     }
 }

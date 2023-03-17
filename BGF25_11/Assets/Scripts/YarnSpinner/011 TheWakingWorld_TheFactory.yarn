@@ -1,0 +1,408 @@
+
+//WE ARE NOW IN THE ZONE 01 THE FACTORY
+
+title: TheFactory_Start
+---
+//variables for UNITY
+<<set $trigger_TheBeach to false>> //triggers the 8th DREAMWORLD
+<<set $showthepicture to false>> // shows the illustration of a family picture
+<<set $enterthefactory to false>> //enter the factory
+<<set $magnoliasits to false>>
+<<set $putintheinventory11 to false>>
+<<set $pettherabbit to false>>
+<<set $bringtherabbit to false>>
+
+//variables for in YARN
+<<set $hasclue_rabbit to false>>
+<<set $hasclue_Newspaper to false>>
+<<set $sawthesun to false>>
+<<set $sawtherabbit to false>>
+
+Magnolia: (That didn't look like any dream before!)
+Magnolia: (Did I somehow get lost?)
+<<wait 0.5>>
+Magnolia: (I can't think like that.)
+Magnolia: (I just need to find a way back.)
+Magnolia: (Again.)
+<<wait 1>>
+Magnolia: (I can see the factory from here.)
+===
+
+title: TheFactoryWorker
+---
+<<if visited_count("TheFactoryWorker") < 1>>
+ //you can only pick up the rabbit if you get a clue from him
+ Magnolia: Hello.
+ The Worker: Hello.
+ Magnolia: Do you know anyone who works in that factory?
+ The Worker: Which factory?
+ Magnolia: That over there.
+ The Worker: Ah you mean the dot.
+ Magnolia: What?
+ The Worker: I live in this box.
+ Magnolia: Okay?
+ The Worker: And there is this tiny dot in the corner.
+ The Worker: Every day I stand on that dot and wait for most of the day.
+ The Worker: After that, I am allowed to walk around.
+ Magnolia: But only inside the box?
+ The Worker: Only inside the box.
+ <<wait 0.5>>
+ Magnolia: And is there anything outside of this box?
+ <<wait 0.5>>
+ Magnolia: Am I outside of this box?
+ The Worker: I have never seen the outside.
+ The Worker: I've heard of it, and it seems nice.
+ The Worker: But I am not sure it exists.
+ Magnolia: What about me?
+ The Worker: The sun is always there.
+ Magnolia: Not really, but what I meant is - Do I exist?
+ The Worker: I feel the warmth inside this box.
+ Magnolia: (He is not going to tell me.)
+ <<jump TheFactoryWorker_Questions>>
+<<else>>
+ The Worker: Sometimes I don't know what’s up and what’s down inside this box.
+ <<jump TheFactoryWorker_Questions>>
+<<endif>>
+===
+
+title: TheFactoryWorker_Questions
+---
+-> What color is your box?
+ The Worker: It's mostly purple.
+ Magnolia: Oh like the rabbits.
+ The Worker: Oh yes the rabbits. Sometimes they get inside my box.
+ Magnolia: So you've seen the purple rabbit?
+ The Worker: Of course.
+ <<wait 0.5>>
+ Magnolia: But doesn't it mean that there is something on the outside for sure?
+ The Worker: Not really.
+ Magnolia: Where would the rabbits come from then?
+ The Worker: I'm not sure they are real.
+ Magnolia: You don't think they are?
+ The Worker: I didn't get the chance to check it.
+ Magnolia: How would you do that?
+ The Worker: Did you hear they burn in the sun?
+ Magnolia: I think I have.
+ The Worker: That's how you check.
+ <<wait 0.5>>
+ Magnolia: But I haven't seen the sun in so long.
+ <<set $hasclue_rabbit to true>>
+ <<jump TheFactoryWorker_Questions>>
+-> Could I get inside your box?
+ The Worker: You are too big for my box.
+ Magnolia: I'm only 161cm tall.
+ The Worker: Not like that.
+ Magnolia: Then like what?
+ The Worker: You don't belong here.
+ <<jump TheFactoryWorker_Questions>>
+-> Aren't you ever curious about the outside?
+ The Worker: I don't have time to be curious.
+ Magnolia: What makes you so busy?
+ The Worker: What do you mean?
+ The Worker: I have so much stuff to do in my empty box.
+ <<jump TheFactoryWorker_Questions>>
+-> I have to go.
+===
+
+title: TheNewspaperReader
+---
+<<if visited_count("TheNewspaperReader") < 1>>
+ The Reader: Yes, stand there.
+ Magnolia: Me?
+ The Reader: Yes you. You are creating a perfect shadow for me to read my newspaper.
+ Magnolia: (THERE IS NO SUN!!!)
+ Magnolia: Uhm, I don't think I have that much time.
+ The Reader: I can do it in seconds.
+ Magnolia: Read the whole newspaper?
+ The Reader: It just repeats itself anyway.
+ The Reader: There are 10 different words and they loop.
+ The Reader: That's how they write these.
+ Magnolia: Why do you read it then?
+ The Reader: To keep my mind busy.
+ <<wait 0.5>>
+ Magnolia: Do you get any useful information out of it?
+ <<wait 0.5>>
+ The Reader: No.
+ The Reader: Yes.
+ The Reader: I realized today they changed one of the ten words.
+ The Reader: That's quite interesting.
+ <<wait 0.5>>
+ Magnolia: I can imagine.
+ <<jump TheNewspaperReader_Questions>>
+<<elseif visited_count("TheNewspaperReader") == 1>>
+ Magnolia: Could I sit for a while and read with you?
+ The Reader: Be my guest.
+ Magnolia: Thank you.
+ <<set $magnoliasits to true>>
+ <<wait 2>>
+ Magnolia: What is this?
+ Magnolia: I don't see anything on these pages.
+ <<wait 0.5>>
+ The Reader: Child's eyes only see what is true.
+ Magnolia: But I am not a child.
+ <<wait 0.5>>
+ The Reader: Do you still dream?
+ Magnolia: (If he knew what kind of dreams I have.)
+ Magnolia: Yes.
+ The Reader: Then you are still a child.
+ <<jump TheNewspaper_Questions>>
+<<else>>
+ Magnolia: (I need to ask him some stuff.)
+ <<jump TheNewspaper_Questions>>
+<<endif>>
+===
+
+title: TheNewspaperReader_Questions
+---
+-> Is there a weather section?
+ The Reader: Yes, why?
+ Magnolia: What do they say about today?
+ The Reader: Let me see.
+ <<wait 0.5>>
+ Magnolia: (If it says sunny I'm going to go crazy.)
+ <<wait 0.5>>
+ The Reader: It says it's sunny with a chance of snow.
+ <<wait 0.2>>
+ The Reader: Why did you want to know?
+ Magnolia: (Let's forget about the sun.)
+ Magnolia: With the chance of snow?
+ Magnolia: It's the middle of the summer?
+ The Reader: I don't understand why you find that strange.
+ Magnolia: Never mind.
+-> Which page did you show to the kid? <<if $hasclue_Newspaper is true>>
+ The Reader: How do you know about the kid?
+ Magnolia: I talked to him.
+ The Reader: Did he open his eyes again?
+ Magnolia: He said kids can create and destroy the world.
+ The Reader: Shame.
+ The Reader: He is not wrong though.
+ <<wait 0.5>>
+ Magnolia: What did you show him?
+ The Reader: It was not the page from this newspaper.
+ Magnolia: He thought it was.
+ The Reader: Didn't he tell you that adults lie?
+-> Is there any strange news?
+ The Reader: What kind of news interests you?
+ Magnolia: Anything unusual?
+ The Reader: You won't find any of that here.
+ The Reader: They don't have enough words for that.
+-> What is your favorite word of those ten?
+ The Reader: I never thought about it.
+ <<wait 0.5>>
+ The Reader: No, I'm lying. I did think about it.
+ The Reader: Its integrity.
+ The Reader: They repeat it so much, but even these newspapers are falling apart in my hands.
+ <<wait 0.5>>
+ The Reader: Did you notice the cracks?
+ Magnolia: The cracks? Where?
+ The Reader: Everywhere.
+ The Reader: The world is ready to reveal itself.
+-> I changed my mind.
+===
+
+title: TheHideandSeeker
+---
+//gives us a clue to unlocking a part of the conversation with the ‘newspaper’ guy
+<<if visited_count("TheHideandSeeker") < 1>>
+ Magnolia: Whom are you hiding from?
+ The Hide: I am not hiding. They are hiding from me.
+ Magnolia: (?!)
+ Magnolia: Who is hiding from you and why??
+ The Hide: We are playing hide and seek.
+ Magnolia: Oh.
+ The Hide: But I still have to count.
+ Magnolia: Until when?
+ The Hide: I'm not sure about that.
+ Magnolia:?
+ <<wait 0.5>>
+ The Hide: They said I have to wait until I grow up.
+ The Hide: But I don't know when is that.
+ <<wait 0.5>>
+ Magnolia: You are going to wait until you grow up?!
+ Magnolia: That's a little too long, don't you think?
+ <<wait 0.5>>
+ The Hide: I'm not ready to see. 
+ Magnolia: What?
+ The Hide: The hidden things.
+ Magnolia: What kind of hidden things?
+ The Hide: All the things adults lie about.
+ <<wait 0.5>>
+ Magnolia: How do you know adults are lying?
+ The Hide: I saw someone reading the newspapers.
+ The Hide: They let me read one page.
+ <<wait 0.5>>
+ The Hide: So I decided that the adults are right.
+ The Hide: I will wait with my eyes closed until I grow up.
+ <<set $hasclue_Newspaper to true>>
+ <<jump TheHideandSeeker_Questions>>
+<<else>>
+ Magnolia: Still counting?
+ The Hide: Yes, I'm counting on the adults.
+ <<jump TheHideandSeeker_Questions>>
+<<endif>>
+===
+
+title: TheHideandSeeker_Questions
+---
+-> What did you see on that page?
+ The Hide: I don't think I should say it.
+ Magnolia: Why?
+ The Hide: Because it makes it real.
+ Magnolia: So you think if you don't see or you don't say something it makes it not real?
+ The Hide: Doesn't it?
+ The Hide: They told me that children's eyes never lie.
+ The Hide: That’s why I keep my eyes closed.
+ The Hide: Whenever I opened them, I saw something terrible.
+ <<jump TheHideandSeeker_Questions>>
+-> Why do you think the adults are right?
+ The Hide: It's not that I believe them.
+ The Hide: But adults can't create or destroy anything.
+ The Hide: Only children have that power.
+ The Hide: That's why they hide and I keep my eyes closed.
+ <<jump TheHideandSeeker_Questions>>
+-> What do you think they are lying about?
+ The Hide: They don't do it on purpose.
+ The Hide: They don't know how to see or say the truth.
+ Magnolia: Why do you think that is?
+ Magnolia: Do you think I always lie?
+ The Hide: You are not an adult.
+ Magnolia: I am twenty-eight years old, kiddo.
+ The Hide: It doesn't have anything to do with age.
+ <<jump TheHideandSeeker_Questions>>
+===
+
+title: TheFactory
+---
+Magnolia: (Maybe somebody inside will tell me what to do.)
+ -> Enter.
+  <<set $enterthefactory to true>>
+ -> Not yet.
+===
+
+//NOW WE ARE INSIDE THE FACTORY
+
+title: ThePurpleRabbit
+---
+<<set $sawtherabbit to true>>
+<<if visited_count("ThePurpleRabbit") < 1>>
+  Magnolia: (Is that...?)
+  Magnolia: (I can't believe I'm seeing it with my own eyes.)
+  <<wait 1>>
+  Magnolia: (It's a purple rabbit!)
+  <<jump ThePurpleRabbit_Options>> 
+<<else>>
+ Magnolia: (I still can't believe I'm looking at it.)
+ <<jump ThePurpleRabbit_Options>>
+<<endif>>
+===
+
+title: ThePurpleRabbit_Options
+---
+-> Try to pet it.
+    <<set $pettherabbit to true>>
+    <<wait 0.5>>
+    Magnolia: (It won't let me.)
+    Magnolia: (It's hopping in the circle.)
+   -> Leave the animal alone.
+    Magnolia: (It might have some kind of magical disease.)
+===
+
+title: OneRayofSunshine
+---
+//this is where the trigger is
+//she needs to hold the rabbit and stand and look directly into the sun
+//they both start burning and it triggers 8th DREAMWORLD
+<<set $sawthesun to true>>
+<<if visited_count("OneRayofSunshine") < 1>>
+ Magnolia: (This can't be right.)
+ Magnolia: (There was no sun outside.)
+ <<wait 0.5>>
+ Magnolia: (But it's definitely the sun.)
+ Magnolia: (It warms my skin.)
+ <<jump Sunshine_Options>>
+<<else>>
+ Magnolia: (Why only one ray of sunshine?)
+ Magnolia: (What is it passing through?)
+ <<jump Sunshine_Options>>
+<<endif>>
+===
+
+title: Sunshine_Options
+---
+<<if $hasclue_rabbit is true and $sawtherabbit is true>>
+  <<wait 0.5>>
+  Magnolia: (It's just a familiar feeling.)
+  <<wait 1>>
+  <<jump BurningRabbit>>
+ <<elseif $hasclue_rabbit is true and $sawtherabbit is false>>
+  <<wait 0.5>>
+  Magnolia: (It's just a familiar feeling.)
+  <<wait 0.5>>
+  Magnolia: (If I had a purple rabbit now, I could test that theory.)
+ <<else>>
+  <<wait 0.5>>
+  Magnolia: (It's just a familiar feeling.)
+ <<endif>>
+===
+
+title: BurningRabbit
+---
+Magnolia: (That guy told me that the purple rabbits supposedly burn under the sun.)
+Magnolia: (That will prove if it's real.)
+<<wait 0.5>>
+Magnolia: (But what if I burn an innocent animal?)
+<<wait 0.5>>
+Magnolia: (If it was just an innocent rabbit it wouldn't burn right?)
+ -> Test the theory.
+  Magnolia: (Everything is ridiculous anyway. This is ridiculous. I am ridiculous.)
+  Magnolia: (Let's bring the rabbit.)
+  <<set $bringtherabbit to true>>
+  <<wait 2>>
+  Magnolia: (Its fur is so soft.)
+  Magnolia: (It feels really real to me.)
+  Magnolia: (Do I want to risk burning it?)
+   -> Put the rabbit under the sun.
+    <<set $trigger_TheBeach to true>>
+===
+
+title: PictureFrame
+---
+//it is a picture of her family, but all the faces and most of the bodies are not visible because there is a sun flare
+//in the picture she holds a purple rabbit
+<<if visited_count("PictureFrame") < 1>>
+ Magnolia: (One of the workers must have kept this photograph of their family.)
+ Magnolia: (The frame is worn out.)
+  -> Inspect it.
+   <<set $showthepicture to true>>
+   <<wait 2>>
+   //there should be also the pulsing/fear effect but with the delay
+   Magnolia: (That little girl looks like me.)
+   <<wait 0.5>>
+   Magnolia: (What is this?)
+   <<wait 0.5>>
+   Magnolia: (Did my parents work here?)
+   <<wait 1>>
+   Magnolia: (I can't see their faces at all.)
+   Magnolia: (There is a sun flare in the photo. I can't even make out their bodies well enough.)
+   <<wait 0.5>>
+   Magnolia: (Why is only me visible?)
+   Magnolia: (Why would anyone choose to keep a photo like this?)
+    -> Put it in the pocket.
+     <<set $putintheinventory11 to true>>
+     Magnolia: (I ask the question, and yet it's me who is going to keep it like this.)
+    -> Put it back.
+     Magnolia: (I don't need a picture like this.)
+     Magnolia: (It's probably not even me.)
+  -> Leave it be.
+   Magnolia: (I'm already too much into people's business.)
+   Magnolia: (I'll skip this one.)
+<<else>>
+ Magnolia: (How can I know if it's a photograph of my family?)
+    -> Put it in the pocket.
+     <<set $putintheinventory11 to true>>
+     Magnolia: (I ask the question, and yet it's me who is going to keep it like this.)
+    -> Put it back.
+     Magnolia: (I don't need a picture like this.)
+     Magnolia: (It's probably not even me.)  
+<<endif>>
+===

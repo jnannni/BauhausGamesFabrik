@@ -74,4 +74,11 @@ public class PhysicalInvetoryItem : MonoBehaviour
             playerInventory.myInventory.Add(item);
         }
     }
+
+    public void AddingItemFromDialogue(InventoryItem itemFromDialogue)
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.collectedItem, this.transform.position);
+        AddItemToInventory();
+        animator.Play("PickedUp", 0, 0f);
+    }
 }

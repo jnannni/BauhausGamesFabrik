@@ -3,27 +3,272 @@
 title: TheBlocks
 ---
 //variables for Unity
-<<set $entertheantique to false>>
+<<set $entertheantique to false>> // enter antique shop
 <<set $trigger_TheAllKnowingLady to false>> //trigger to the Dreamworld, but inside the dialogue of TheAllKnowingLady
-<<set $putintheinventory003 to false>>
-<<set $exittheantique to true>>
+<<set $putintheinventory003 to false>> //this is for the physical object in the Antique shop, used in the 3rd DREAMWORLD
+<<set $exittheantique to false>> //exit antique shop
+<<set $poetsdiary to false>> //shows an illustration of The Lonely Gentleman's diary (maybe we can make it interactive so you can turn some pages)
+<<set $putintheinventory008 to false>> //an object from the Lonely Gentleman
+
+//variables for in YARN
+<<set $talkedaboutrabbits to false>>
+<<set $haspoetclue to false>>
+<<set $clue_uncle to false>>
+
+Magnolia: (I have nothing to lose.)
+Magnolia: (I have nothing to lose, I have nothing to lose...)
+Magnolia: (Even if I AM crazy, it doesn't matter, right?)
+Magnolia: (This whole city is crazy!)
+Magnolia: (And I have no family, so there is nobody to judge me for being completely nuts.)
+Magnolia: (Also...)
+Magnolia: (That felt absolutely real.)
+Magnolia: (I just hate that I always wake up.)
+Magnolia: (Dreams seem to work like that.)
+Magnolia: (Just when the excitement is at its peak, right before the big revelation...)
+Magnolia: (It disappears.)
+Magnolia: (I need to find a way to go back.)
+//new objective: find a way to go to the Dreamworld.
 ===
+
+title: TheCarCleaner
+---
+<<if visited_count("TheCarCleaner") < 1>>
+ The Car Cleaner: All these rabbits leaving paw prints over the cars.
+ The Car Cleaner: It's killing me.
+ Magnolia: They were purple, weren't they?
+ The Car Cleaner: Yes, very purple.
+ The Car Cleaner: Purple is a stubborn color.
+ Magnolia: Are you a car cleaner?
+ Magnolia: I don't see a shop anywhere near?
+ The Car Cleaner: I'm a freelancer.
+ The Car Cleaner: I hope to buy myself one of these babies one day.
+ Magnolia: How long do you need to work?
+ The Car Cleaner: I calculated...
+ The Car Cleaner: It would take me exactly 82125 cars to clean...
+ The Car Cleaner: Or 75 years, counting 3 cars per day.
+ The Car Cleaner: It's doable.
+  <<jump TheCarCleaner_Questions>>
+<<else>>
+ The Car Cleaner: You seem like you want to say something.
+ <<jump TheCarCleaner_Questions>>
+<<endif>>
+===
+
+title: TheLonelyGentleman
+---
+<<if visited_count("TheLonelyGentleman") < 1>>
+ Magnolia: (He seems approachable.)
+ Magnolia: Have you noticed anything strange around here?
+ The Lonely: I observe only people.
+ The Lonely: And they are always so strange to me.
+ Magnolia: Nothing too out of the ordinary?
+ The Lonely: Except for a child carrying a goat in its arms, not really.
+ Magnolia: A goat?
+ The Lonely: It seemed to be bothered by the sun.
+ The Lonely: Either it was blinking, or winking at me.
+ Magnolia: (If it's possible, the sky is even grayer now.)
+ <<wait 1>>
+ Magnolia: I saw you writing something.
+ Magnolia: What is it?
+ The Lonely: I record people which pass by me.
+ Magnolia: How do you record them?
+ The Lonely: I write their descriptions.
+ The Lonely: And their life stories.
+ Magnolia: How could you know their life stories?
+ The Lonely: Well, I give my best bet.
+ The Lonely: There is nobody to disapprove of me.
+ Magnolia: That seems fun.
+ The Lonely: This is not fun for me.
+ The Lonely: It makes me feel lonely.
+ Magnolia: How so?
+ The Lonely: They all have lives to go to.
+ Magnolia: And you?
+ The Lonely: I can't leave this lamp.
+ Magnolia: Why?
+ The Lonely: I am waiting for someone.
+ Magnolia: Can I ask who.
+ The Lonely: Gogo and Didi.
+ The Lonely: My childhood friends.
+ The Lonely: They are a little bit late.
+ <<wait 0.5>>
+ Magnolia: (This guy seems like he has seen stuff.)
+ Magnolia: (He could be useful.)
+  <<jump TheLonelyGentleman_Questions>>
+<<elseif visited_count("TheLonelyGentleman") == 1>>
+ The Lonely: It's again you!
+ Magnolia: What do you mean?
+ The Lonely: I turn to your page so many times.
+ The Lonely: Are you curious about anything?
+ <<jump TheLonelyGentleman_Questions>>
+<<else>>
+ The Lonely: I have all the time in this world.
+ <<jump TheLonelyGentleman_Questions>>
+<<endif>>
+===
+
+title: TheLonelyGentleman_Questions
+---
+-> (I suddenly feel too shy to ask him anything.)
+-> How long have you been waiting?
+ The Lonely: It's been sometime now.
+ Magnolia: And that is? 
+ The Lonely: I don't count.
+ Magnolia: But you have a watch on your arm.
+ The Lonely: It's beyond this watch.
+ Magnolia: You mean it's more than a day?
+ The Lonely: I would guess it's more than a year.
+ The Lonely: But I can't be sure.
+ Magnolia: Why would you wait so long?
+ <<wait 0.5>>
+ The Lonely: I didn't plan to wait this long.
+ Magnolia: Of course, you didn't. 
+ Magnolia: But I think they stood you up.
+ The Lonely: I don't care if they show up or not.
+ Magnolia: How can you not care? You are waiting for them!
+ The Lonely: Yes, at the beginning I did wait for them.
+ The Lonely: But after, I started waiting for myself.
+ Magnolia: In which sense?
+ The Lonely: In its all meanings.
+ The Lonely: I started to enjoy waiting.
+ The Lonely: But also, I might meet myself on the street. Who knows.
+ Magnolia: Oh okay.
+ <<wait 0.5>>
+ The Lonely: You could wait with me if you want.
+ Magnolia: For what?
+ The Lonely: For whatever you want.
+ Magnolia: I don't think waiting will bring me what I want.
+ The Lonely: Then I wish you luck wherever you are going.
+ Magnolia: Thank you.
+-> Could I look into your diary? <<if $haspoetclue is true>>
+ The Lonely: I don’t think you would understand.
+ Magnolia: Maybe you could give me a chance?
+ The Lonely: My words are shy.
+ The Lonely: Especially with people who are prone to judge them.
+ Magnolia: I swear I won't judge!
+ <<wait 0.5>>
+ Magnolia: I found this one note on the street.
+ Magnolia: I thought it was beautiful.
+ The Lonely: What is it?
+ Magnolia: [i]I mistake the rain for your tears.[/i]
+ Magnolia: [i]And on those days just before it rains, I feel like you are close.[/i]
+ <<wait 0.5>>
+ Magnolia: Isn't it beautiful?
+ <<wait 0.5>>
+ The Lonely: It's a little bit too romantic for my taste.
+ The Lonely: Who wrote it?
+ Magnolia: I don't know. I found it on the street.
+ The Lonely: Well that's more to my taste.
+ The Lonely: Invisible poets.
+ The Lonely: Lost words.
+ <<wait 1>>
+ Magnolia: You still don't want to show me?
+ The Lonely: I could give you a glimpse.
+ Magnolia: Thank you, thank you!
+ <<set $poetsdiary to true>>
+ <<wait 5>>
+ <<jump TheDiary>>
+-> Did you see me before?
+ The Lonely: I did. 
+ The Lonely: But you looked different each time.
+ Magnolia: How different?
+ The Lonely: We all look very different every day.
+ Magnolia: But I'm sure it's not THAT different.
+ The Lonely: Oh, but it is.
+ The Lonely: Even the sun is never the same.
+ Magnolia: It looks pretty much the same to me!
+ Magnolia: Except when the clouds cover it, or when it's a winter day, so it's barely there.
+ The Lonely: But that's exactly what I am talking about.
+ The Lonely: You never got clouds covering your being?
+ Magnolia: Uhm...
+ Magnolia: You mean like depression?
+ The Lonely: It could be that.
+ The Lonely: Or something else.
+ The Lonely: But it changes a person completely.
+ Magnolia: I never looked at it like that.
+ <<wait 0.5>>
+ The Lonely: Here, I have something for you.
+ Magnolia: What is it?
+ The Lonely: An old cigarette tin.
+ The Lonely: I don't smoke, so it's no use for me.
+ The Lonely: However its cover nicely reflects the image of your face.
+ The Lonely: I think you should have it.
+ The Lonely: You could see how you change.
+ Magnolia: I don’t know what to say.
+ Magnolia: That's so nice of you.
+ The Lonely: Thank you is enough.
+  -> Take the gift.
+   <<set $putintheinventory008 to true>> //OBJECT 008
+   Magnolia: Thank you!
+   Magnolia: (I don't think I am going to use it tho.)
+   Magnolia: (I don't like seeing myself.)
+   Magnolia: (It reminds me I am still alive.)
+===
+
+title: TheDiary
+---
+Magnolia: (He has seen some stuff.)
+Magnolia: (Too bad he didn't show me all of it.)
+===
+
+title: TheCarCleaner_Questions
+---
+-> Why only three cars per day?
+ The Car Cleaner: There is no room for mistakes, that's why.
+ Magnolia: I thought you would say you need rest time.
+ The Car Cleaner: That's the one thing I don't need.
+ The Car Cleaner: My uncle used to say that we can rest when we die.
+ <<wait 0.5>>
+ Magnolia: What is your uncle doing now?
+ The Car Cleaner: He died when he was 41.
+ Magnolia: That's...
+ Magnolia: That's too young.
+ The Car Cleaner: Yeah.
+ The Car Cleaner: Shame he didn't get to finally buy one of those boats he used to work on.
+ <<wait 0.5>>
+ Magnolia: That's a shame...
+ <<set $clue_uncle to true>>
+-> Aren't you afraid you are going to die as early as your uncle? <<if $clue_uncle is true>>
+ The Car Cleaner: Why would I?
+ The Car Cleaner: Are you cursing me or something?
+ Magnolia: No!
+ Magnolia: I just think his health might have been influenced by the way he led his life.
+ The Car Cleaner: What do you mean?
+ Magnolia: "I'll rest when I die?"
+ The Car Cleaner: No, you are mistaken.
+ The Car Cleaner: The doctors said he died of a heart attack.
+ The Car Cleaner: It just stopped working.
+ The Car Cleaner: Nothing we can do about that.
+-> 75 years is a long time.
+ The Car Cleaner: But it will be worth it!
+ <<wait 0.5>>
+ Magnolia: How old did you say you were?
+ The Car Cleaner: Thirty-one.
+ Magnolia: I see.
+ Magnolia: You never really liked math, did you?
+ The Car Cleaner: I don't have time for such academic stuff you know.
+ Magnolia: That's okay.
+ Magnolia: Good luck!
+-> I'll let you do your thing.
+===
+
 title: TheBlobPerson
 ---
 //the blob person and the husband have the connection
 //you unlock a part of his conversation from a scrunched drawing of a kid you found
 <<if visited_count("TheBlobPerson") < 1>>
+ Magnolia: (He looks a little bit strange.)
+ Magnolia: (Maybe he knows something.)
  The Blob Person: They are hiding in the shadows of the sun.
  Magnolia: Who?
  The Blob Person: It's almost like I can hear them from inside my own body.
- Magnolia: (Okay.)
+ Magnolia: (A little too strange.)
  The Blob Person: I am prosecuted!
  The Blob Person: Don't you understand?!
  Magnolia: I might be able to help if you told me who is chasing you.
  The Blob Person: I don't see the faces of people anymore. //possibly A CLUE
  The Blob Person: They took my body away.
- The Blob Person: Those deamons.
-  <<jump TheBlobPerson_Questions>>
+ The Blob Person: Those demons.
+  <<jump TheBlobPerson_Questions02>>
 <<elseif visited_count("TheBlobPerson") == 1>>
  The Blob Person: I know you don't believe me.
  The Blob Person: Nobody believes a person without a body.
@@ -32,23 +277,97 @@ title: TheBlobPerson
  Magnolia: What I meant to say is, I believe you.
  Magnolia: (At least I think so.)
  The Blob Person: Thank you.
- The Blob Person: It..
+ The Blob Person: It...
  The Blob Person: It means a lot.
   <<wait 0.5>>
-  <<jump TheBlobPerson_Questions>>
+  <<jump TheBlobPerson_Questions02>>
 <<else>>
  The Blob Person: This huge body feels weightless.
-  <<jump TheBlobPerson_Questions>>
+  <<jump TheBlobPerson_Questions02>>
 <<endif>>
 ===
 
-title: TheBlobPerson_Questions
+title: TheBlobPerson_Questions01
 ---
+Magnolia: (I don't have time to deal with his problems.)
+Magnolia: (I need to find out how to go back.)
+ -> Did you see anything unusual around here?
+  The Blob Person: Except for the monsters prying on me, not really.
+  Magnolia: How do these monsters look like?
+  The Blob Person: Like you and me.
+  Magnolia: No pointy ends? 
+  Magnolia: Stardust around them?
+  The Blob Person: Nothing like that.
+  The Blob Person: You sound a little bit strange.
+  Magnolia: Yes, ok.
+  Magnolia: (He doesn't know anything.)
+   <<jump TheBlobPerson_Questions02>>
+ -> Have you ever controlled your dreams?
+  The Blob Person: When I was a kid yes.
+  The Blob Person: I would lead a lot of epic battles inside my dreams.
+  The Blob Person: But we live in reality unfortunately.
+  The Blob Person: And it weights down on us.
+  The Blob Person: This body is suffocating.
+   <<jump TheBlobPerson_Questions02>>
+===
+
+title: TheBlobPerson_Questions02
+---
+Magnolia: (I don't think he is going to talk about anything except himself.)
+Magnolia: (He seems stuck.)
+Magnolia: (Something about his own body bothers him.)
+-> (But I don't want to ask him anything.)
 -> Where did they take your body?
+ The Blob Person: They hid it underneath.
+ Magnolia: Underneath what?
+ The Blob Person: This skin. Do you see?
+ Magnolia: Yes?
+ The Blob Person: It's upside down.
+ Magnolia: I don't think I understand.
+ The Blob Person: Nobody does until it's too late.
 -> How does your body look like?
--> What does your family say?
+ The Blob Person: It's an average-looking body.
+ The Blob Person: It has two legs and two arms.
+ Magnolia: Anything more specific?
+ The Blob Person: It has scars from the pebbles from when I was a kid.
+ Magnolia: How come your body doesn't have them anymore?
+ The Blob Person: It's upside down.
+ The Blob Person: It's only a memory now.
 -> Show the drawing. <<if $putintheinventory001 is true>>
  Magnolia: (I need to take it out of my backpack.) //The player now needs to open the inventory.
+===
+
+title: TheBlobPerson_Drawing
+---
+Magnolia: I have something to show you.
+The Blob Person: What is it?
+Magnolia: Here. Take it.
+The Blob Person: It's a child's drawing?
+<<wait 0.5>>
+The Blob Person: Where did you find this?
+Magnolia: In Uphill. 
+Magnolia: Somebody threw it away from their window.
+ -> Do you think a child threw it away?
+  The Blob Person: It's so sad to think that a kid doesn't love their own drawing.
+  Magnolia: Were you a self-critical child?
+  The Blob Person: I was not.
+  The Blob Person: But my father was very critical of me.
+  Magnolia: That's too much pressure for a kid.
+  The Blob Person: It was okay.
+  The Blob Person: Now I have the strength to fight for my body.
+  Magnolia: Your body looks a little bit like those from the drawing.
+  Magnolia: Do you see it?
+  The Blob Person: They do resemble it.
+ -> Do you think an adult threw it away?
+  The Blob Person: I don't think anyone would throw away a child's drawing.
+  The Blob Person: It's just so endearing.
+  The Blob Person: Don't you think?
+  Magnolia: Yes, I couldn't imagine.
+  Magnolia: But look at their bodies.
+  The Blob Person: What about them?
+  Magnolia: They all seem to be missing.
+  The Blob Person: They are there. They are not missing!
+  The Blob Person: It's just that they were drawn by a kid.
 ===
 
 title: TheDeadbitHusband
@@ -78,9 +397,10 @@ title: TheDeadbitHusband
   The Husband: Okay, I have another one.
    -> Magnolia: Please don't.
    -> Magnolia: Okay, let me hear another one.
+    <<jump TheDeadbitHusband_Jokes>>
  -> He was afraid his wife cheats on him upstairs? 
   The Husband: HAHAHA! A good one! 
-  The Husband: But no, actually.
+  The Husband: But no.
   The Husband: He said they were always up to something.
   The Girl: *giggles*
   The Husband: HAHAHAHAHAHAAHA!
@@ -89,32 +409,194 @@ title: TheDeadbitHusband
   The Husband: Okay, I have another one.
    -> Magnolia: Please don't.
    -> Magnolia: Okay, let me hear another one.
-<<elseif visited_count("TheDeadbitHusband") == 1>>
- //here we are using the clue
+    <<jump TheDeadbitHusband_Jokes>>
 <<else>>
+ <<if $hasClue_Graffiti001 is true>>
+  <<jump TheHusband_Grafitti>>
+ <<else>>
+  The Husband: Do you want to hear another one?
+   -> Please no.
+   -> Okay.
+    <<jump TheDeadbitHusband_Jokes>>
+ <<endif>>
 <<endif>>
 ===
 
+title: TheHusband_Grafitti
+---
+  Magnolia: I read this graffiti quote from an old movie.
+  Magnolia: But I don't remember from which movie it is.
+  The Husband: Is it one of ours?
+  The Husband: If it is, I know all of them by heart.
+  Magnolia: It is.
+   -> Tell him the quote.
+    Magnolia: It was something like...
+    Magnolia: [i]We are going to watch the video until the colors melt.[/i]
+    The Husband: A classic!
+    The Husband: It's called [i]The Fall of Rock and Roll[/i]!
+    The Husband: It's exactly what I said to my wife on our first night together.
+    Magnolia: (He has a wife??!)
+    Magnolia: You have a wife?
+    The Husband: HAHA! A joke! Good joke.
+    Magnolia: But you said...
+    The Husband: I mean I do.
+    The Husband: But she is not here.
+    Magnolia: What do you mean?
+    The Husband: She has her purple rabbits, I have my sunny days.
+    Magnolia: (Again with the purple rabbits?!)
+    Magnolia: Which means?
+    The Husband: Everyone has a skeleton in their closet.
+    Magnolia: ...
+    The Husband: She has her pink glasses on.
+    The Husband: That's why the rabbits are pink.
+    The Husband: I meant purple.
+    The Husband: Purple glasses.
+    Magnolia: And your sunny days?
+    The Husband: I wear glasses to keep the sun behind them.
+    <<wait 1>>
+    Magnolia: Who is this girl then?
+    <<wait 1>>
+    The Husband: Do you not know of the consequences?
+    <<set $hasClue_Graffiti001 to false>>
+   -> Don't tell him.
+    Magnolia: (I feel too tired to continue this.)
+    Magnolia: I have to go.
+    Magnolia: See you.
+===
+
+title: TheDeadbitHusband_Jokes
+---
+<<if visited_count("TheDeadbitHusband_Jokes") < 1>>
+THe Husband: Okay, okay!
+The Husband: Do you know why are elevator jokes so classic and good?
+Magnolia: I have no clue.
+The Husband: Come on try a little!
+Magnolia: (I think his little girlfriend is going to drop to the floor.)
+The Husband: I'll just tell you.
+The Husband: It's because they work on so many levels!
+The Husband: HAHAHAHAHAHAH!
+The Girl: *faintly gigling*
+Magnolia: (She's definitely passing out.)
+Magnolia: Hehe.
+The Husband: Yeah it's a good one.
+<<elseif visited_count("TheDeadbitHusband_Jokes") == 1>>
+The Husband: This one is really good.
+The Husband: What do you call it when a group of apes starts a company?
+Magnolia: ...
+The Husband: Monkey business!
+The Husband: *laughing furiously*
+The Girl: ...
+Magnolia: (I can't watch this scene anymore.)
+<<elseif visited_count("TheDeadbitHusband_Jokes") == 2>>
+The Husband: Why do some couples go to the gym?
+Magnolia: Because they want to be fit?
+The Husband: Probably.
+The Husband: But that's not the joke.
+<<wait 0.5>>
+The Husband: It's because they want their relationship to work out.
+The Husband: HAHAHAHAHHA! HAHAH!
+Magnolia: (...)
+<<elseif visited_count("TheDeadbitHusband_Jokes") == 3>>
+The Husband: You could tell me some jokes.
+Magnolia: I am seriously unfunny.
+The Husband: Yeah I can see that.
+Magnolia: (...)
+The Husband: Why is Peter Pan always flying?
+Magnolia: Why?
+The Husband: Because he Neverlands!
+The Husband: Haahahahahahahah!
+The Husband: Why are you not laughing!
+The Husband: It's so hilarious!
+Magnolia: Right.
+<<else>>
+The Husband: Actually, I have no more jokes to tell you.
+Magnolia: (I am thankful for that.)
+Magnolia: That's okay.
+<<endif>>
+===
+
+title: TheAllKnowingLady
+---
+//this time she is the trigger, it's hidden in her dialogue TRIGGER 002
+<<if $talkedaboutrabbits is true>>
+ The Knowing Lady: You have nowhere else to go.
+ The Knowing Lady: This is what you searched for, isn't it?
+  -> Hold her hand.
+  -> Nope.
+<<else>>
+ <<if visited_count("TheAllKnowingLady") < 1>>
+ Magnolia: (I would never do something like this before.)
+ Magnolia: (I would just probably pass by this lady hoping she wouldn't ask to read my palm.)
+ Magnolia: (But I need to find a way back.)
+ Magnolia: Excuse me?
+ The Knowing Lady: Yes birdie?
+ Magnolia: Have you seen anything strange around here?
+ The Knowing Lady: It depends on what you consider strange.
+ The Knowing Lady: For me, there is nothing strange.
+ The Knowing Lady: I know everything even before it happens.
+ Magnolia: (Exactly the person I need.)
+ <<jump TheAllKnowingLady_Questions>>
+ <<else>>
+ The Knowing Lady: I could give you an answer to any question.
+ The Knowing Lady: But I am careful.
+ <<jump TheAllKnowingLady_Questions>>
+ <<endif>>
+<<endif>>
+===
+
+title: TheAllKnowingLady_Questions
+---
+-> Somebody told me parents shouldn't die before their children. <<if $hasClue_AllKnowingLady is true>>
+ <<set $talkedaboutrabbits to true>>
+ The Knowing Lady: That is true.
+ The Knowing Lady: But they still do.
+ The Knowing Lady: The realm of souls doesn't know of the same order we know.
+ Magnolia: The same person told me a child is no longer if their parents die.
+ The Knowing Lady: That bird must be caged inside their own life.
+ The Knowing Lady: They would know that kind of love engraves itself in the texture of the world.
+ The Knowing Lady: You can't wash it off.
+ The Knowing Lady: But why do you worry about that?
+ The Knowing Lady: You have no parents.
+ Magnolia: That's why I worry. They died.
+ The Knowing Lady: You believe they died?
+ Magnolia: I'm afraid I don't believe in afterlife.
+ The Knowing Lady: That's not what I was talking about.
+ Magnolia: I don't think I understand you.
+ The Knowing Lady: I'll just tell you...
+ The Knowing Lady: Never follow the purple rabbits!
+ Magnolia: I've never even seen a purple rabbit!
+ The Knowing Lady: You will.
+ The Knowing Lady: Hold my hand.
+  -> Hold her hand.
+  <<set $trigger_TheAllKnowingLady to true>>
+  -> I am too afraid.
+-> Do you know of a way to enter dreams?
+ The Knowing Lady: Nobody dreams the same.
+ The Knowing Lady: Some people are so obsessed with mundane things in their daily lives...
+ The Knowing Lady: They enter only the surface layer of the land of dreams.
+ Magnolia: So there is a land of dreams?
+ The Knowing Lady: Some believe we are dreaming even now.
+ The Knowing Lady: Who is to say there isn't?
+ Magnolia: (She didn't answer me.)
+-> Do you believe a person could be resurrected?
+ The Knowing Lady: You shouldn't ask questions you are not ready for.
+ Magnolia: So that means it's a no?
+ The Knowing Lady: I didn't say that.
+ Magnolia: What did you mean then?
+ The Knowing Lady: Avoid the looped paths.
+ Magnolia: You are not going to tell me anything more?
+ The Knowing Lady: Ask when you are ready.
+===
 
 title: TheAntiqueShop
 ---
 //this is where you get the object OBJECT d003
 Magnolia: (This seems like a place you could find magical stuff in.)
 Magnolia: (I played this one game.)
-Magnolia: (The shop with the flaming fox looked exactly like this.)
+Magnolia: (The shop where i bought a flaming fox looked exactly like this.)
  -> Enter it.
    <<set $entertheantique to true>>
  -> No.
-===
-
-title: TheAllKnowingLady
----
-//this time she is the trigger, it's hidden in her dialogue TRIGGER 002
-Magnolia: She says something.
-The All Knowing: She says something back.
- -> I pick this.
- -> No, this. //this triggers the transition
-   <<set $trigger_TheAllKnowingLady to true>>
 ===
 
 //INSIDE THE ANTIQUE SHOP
@@ -131,7 +613,8 @@ title: AnOldEnvelope
 ---
 -> Read the envelope.
  The Envelope: I mistake the rain for your tears.
- The Envelope: One of those days just before it rains, I feel like you are close.
+ The Envelope: And on those days just before it rains, I feel like you are close.
+ <<set $haspoetclue to true>>
 ===
 
 title: TheAntiqueDoor

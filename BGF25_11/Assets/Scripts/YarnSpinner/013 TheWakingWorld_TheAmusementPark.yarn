@@ -1,0 +1,37 @@
+
+//WE ARE NOW IN THE ZONE 03 THE AMUSEMENT PARK
+title: AmusementPark
+---
+//variables for UNITY
+<<set $trigger_Amusement to false>> //triggers the last DREAMWORLD
+<<set $starttheride to false>> //starts the animation of the ride(I need to provide the sprites)
+
+//variables for in YARN
+
+Magnolia: (This is it.)
+Magnolia: (Is this the end?)
+<<wait 0.5>>
+Magnolia: (Only if I find that last portal.)
+===
+title: ThePirate
+---
+//he is holding what seems like a heart
+===
+
+title: TheSadClown
+---
+===
+
+title: TheSunPrincess
+---
+===
+
+title: ARide
+---
+<<set $starttheride to true>>
+===
+
+title: TheLast_Trigger
+---
+<<set $trigger_Amusement to true>>
+===

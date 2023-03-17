@@ -93,8 +93,11 @@ public class NPCInteractable : MonoBehaviour
 
     void ChangeDirection(float x, float y)
     {
-        animator.SetFloat("Horizontal", x);
-        animator.SetFloat("Vertical", y);
+        if (animator.GetFloat("Horizontal") != 0 && animator.GetFloat("Vertical") != 0)
+        {
+            animator.SetFloat("Horizontal", x);
+            animator.SetFloat("Vertical", y);
+        }
     }    
 
     private void StartConversation()

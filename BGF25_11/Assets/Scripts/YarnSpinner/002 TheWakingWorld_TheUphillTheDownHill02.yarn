@@ -5,11 +5,11 @@ title: BackInTheWaking
 ---
 //variables for UNITY
 <<set $gobackhome to false>> //just moves the character back in front of the house
-<<set $magnoliadances to false>> //starts the ingame animation
+<<set $magnoliadances to false>> //starts the in-game animation of magnolia dancing with the beggar
 <<set $gotothegraveyard to false>> //goes to the next scene
 <<set $lookatthedrawing to false>> //the screen shows an illustration of the drawing
-<<set $putintheinventory001 to false>>
-<<set $putintheinventoryd001 to false>>
+<<set $putintheinventory001 to false>> //this is for the crumbled drawing
+<<set $putintheinventoryd001 to false>> //this is for the object we get from beggar(only needs to exist inside the inventory, I still don't know what it is. It is used in the 2nd DREAMWORLD.)
 
 //variables for in YARN
 <<set $magnoliadanced to false>>
@@ -17,6 +17,9 @@ title: BackInTheWaking
 <<set $isgoingonjourney002 to false>>
 <<set $hasClue_TheProvider to false>>
 <<set $hasClue_Graffiti001 to false>>
+<<set $cantseemother to false>>
+<<set $hasClue_TheProvider to false>>
+<<set $peakedin to false>>
 
 
 //for this whole sequence I would add some kind of cloudy effect that slowly clears as her thoughts clear
@@ -41,11 +44,12 @@ title: TheAuntsHouse
  Magnolia: (Maybe I just need some rest.)
    -> Go in and sleep.
      <<set $gobackhome to true>>
+     <<jump TheNewDay>>
    -> Look around.
      Magnolia: (I can't keep those words out of my head.)
      Magnolia: (And that star. What if it's real?)
 <<elseif visited_count("TheAuntsHouse") == 1>>
-  Magnolia: (I really need rest.)
+  Magnolia: (I need rest.)
    -> Go in and sleep.
      <<set $gobackhome to true>>
      <<jump TheNewDay>>
@@ -66,43 +70,57 @@ Magnolia: (How long did I sleep?)
 title: ThePatriot
 ---
 //he gives us a first STARCLUE 001
-<<set $isgoingonjourney001 to true>>
 <<if visited_count("ThePatriot") < 1>>
   A stranger: This city is becoming a shithole, don't you think?
-  Magnolia: (Where are the guys I have seen before?)
+  Magnolia: (Where are the neighbors I have seen before?)
   Magnolia: (Was it yesterday?)
-  <<wait 1>>
+  <<wait 0.5>>
   Magnolia: I'm not from this part of the city.
   Magnolia: I'm staying at my aunt's house.
-  The stranger: You know you shouldn't be sharing this with a stranger?
-  The stranger: Especially now, with them letting in anyone who bangs at our doors.
+  The stranger: You know you shouldn't be sharing this information with a stranger?
+  The stranger: Especially now, with them letting in all the strange folks.
   <<wait 0.5>>
   The stranger: Anyway...
   The stranger: I am talking about the whole city! They ruined it!
   Magnolia: Who?
-  The stranger: The goverment! The mayor and the like!
-  The stranger: They only listen to the outsiders. They are changing everything that we hold dear in this city.
-  Magnolia: (The city is full of people scared of anything new...)
+  The stranger: The high court and his highness!
+  Magnolia: (He means government? Local office?)
+  The stranger: Everything is new. Shiny. Even outsiders - they let anyone come in.
+  Magnolia: (I knew a guy like this from my neighborhood.)
+  Magnolia: (Always so protective, yet never protected anything.)
   Magnolia: The outsiders? What do you mean?
   The Patriot: We should keep what's ours.
-  The Patriot: There is nothing better for me or for you then what was meant for us from the beginning. Our roots.
-  The Patriot: We should live like our parents lived, and their parents before them. 
-  The Patriot: All these new kids are acting so strange. They want to live as far away from here.
-  The Patriot: I don't understand that.
+  The Patriot: There is nothing better for me or for you than what was meant for us from the beginning. Our roots.
+  The Patriot: We should live like our parents did, and their parents before them. 
+  The Patriot: All these new kids are acting so strange. They all want to fly.
+  The Patriot: To become the stars!
+  The Patriot: But all the stars are meant to burn!
+  The Patriot: Maybe we should help them, but...
+  Magnolia: Okay, okay! Sorry to interrupt you...
+  Magnolia: (That was going in a pretty wrong direction.)
+  The Patriot: What is it?
   Magnolia: I was wondering...
      <<jump ThePatriot_Questions>>
 <<elseif visited_count("ThePatriot") == 1>>
-  The Patriot: The sun still shines on us. Only if we could recognize our own glory.
+  The Patriot: The sun still shines on us. Only if we could recognize our glory.
   Magnolia: Uh...It's super cloudy today actually.
   The Patriot: Don't be smart.
   Magnolia: I didn't mean to be rude.
   The Patriot: It's always the same with the new kids. No respect.
-  Magnolia: I really didn't mean to be disrespectuful.
-  Magnolia: I was actually wondering...
+  The Patriot: Are you one of those wishing for stardom?
+  Magnolia: I didn't mean to be disrespectful.
+  Magnolia: I was wondering...
+  The Patriot: You wonder too much.
+  The Patriot: It's all really simple if you want to see it.
+  Magnolia: Maybe I am too young.
+  The Patriot: I'm also young. It's about being wise.
+  <<wait 0.5>>
+  The Patriot: Okay, go one. Ask.
     <<jump ThePatriot_Questions>>
 <<else>>
   The Patriot: Yes?
   Magnolia: I have one more question...
+  The Patriot: Of course.
     <<jump ThePatriot_Questions>>
 <<endif>>
 ===
@@ -111,8 +129,109 @@ title: ThePatriot
 title: ThePatriot_Questions
 ---
 -> Did your parents also grow up in the city?
+ The Patriot: What kind of question is that?
+  -> Just curious.
+   The Patriot: Yeah, you don't really care about anything.
+   The Patriot: You people just want to know everything.
+   The Patriot: I have no need to share that with you.
+   Magnolia: That's not what I meant.
+   The Patriot: I know how you all are.
+   Magnolia: All us? Who?
+   The Patriot: The little stars.
+   Magnolia: Okay. Sorry to have bothered you.
+  -> Just wanted to know more about how the city was before.
+   The Patriot: It's nice to see somebody young interested in the true past.
+   The Patriot: I'll tell you all about it.
+   Magnolia: But what about your parents?
+   The Patriot: What about them?
+   Magnolia: Are they from the city?
+   The Patriot: Well, no. My Ma is still in her old house at the edge of the **** forest, close to *****.
+   The Patriot: You ever heard of it?
+   Magnolia: Not really. I know of *****.
+   The Patriot: It's close.
+   <<wait 0.5>>
+   The Patriot: Anyway...
+   The Patriot: She couldn't tell you much about the city, but I can!
+   The Patriot: As I said...The streets used to be...
+   Magnolia: Do you visit your mother?
+   The Patriot: Why do you ask so much about my mother?
+    -> I miss mine.
+     The Patriot: Oh.
+     The Patriot: I...I don't find the time. 
+     <<set $cantseemother to true>>
+     The Patriot: She calls me to come, but...
+     The Patriot: The bus takes forever, and there are no trains.
+     The Patriot: It's hard keeping up with stuff you know?
+     Magnolia: Yeah, modern life leaves no time...
+     The Patriot: Yes, yes. I have so much to do around here.
+     Magnolia: ((Protecting the old, I see.))
+     The Patriot: What was that?
+     Magnolia: I was just thinking out loud, sorry.
+    -> Never mind.
+     The Patriot: You outsiders don't care.
+     Magnolia: How am I an outsider now?
+     The Patriot: Are you from here anyway?
+     Magnolia: I am! I...
+     Magnolia: (I did always feel out of place.)
+     Magnolia: (But I was born here.)
+     Magnolia: I have to go.
+     The Patriot: Good luck.
 -> How old are you?
+ The Patriot: I'm young as you.
+ Magnolia: You are in your twenties?
+ The Patriot: You could say that.
+ Magnolia: (He does look young.)
+ Magnolia: How do you know so much about the city?
+ <<if $cantseemother is true>>
+ The Patriot: I listened to the stories of the family and neighbors.
+ Magnolia: But your parents are not from the city.
+ The Patriot: That's true.
+ The Patriot: I meant more like a wider family. 
+ The Patriot: I have this gang here in the city.
+ The Patriot: Really good guys. Love the city.
+ The Patriot: They are like my family too.
+ Magnolia: So you get the information from them?
+ The Patriot: We all share our knowledge.
+ Magnolia: Ever heard of an echo chamber?
+ The Patriot: Are you again trying to be smart?
+ Magnolia: Sorry.
+ Magnolia: (I don't even know why I am talking to him.)
+ Magnolia: (Am I this lonely?)
+ <<else>>
+ The Patriot: I listened to the stories of the family and neighbors.
+ Magnolia: You must be close to your family.
+ The Patriot: We really are.
+ Magnolia: (I don't have that anymore.)
+ Magnolia: Without family we are nothing.
+ The Patriot: That's what I say!
+ The Patriot: I feel like all these new kids have nobody to teach them some true values.
+ Magnolia: Yeah.
+ Magnolia: (Where do I belong now?)
+ <<endif>>
 -> Did you ever hear about falling stars granting wishes?
+ <<if $cantseemother is true>>
+  The Patriot: My old Ma used to tell me that. 
+  The Patriot: I never really believed.
+  The Patriot: You need to work hard and fight to get what you want.
+  Magnolia: What if it's something impossible?
+  The Patriot: There is nothing impossible if you are determined enough.
+  Magnolia: This is actually impossible, I promise.
+  The Patriot: Then wish on your silly star.
+  The Patriot: It's not like you lose anything.
+  Magnolia: (He is right.)
+  Magnolia: (My hands are empty.)
+  <<set $isgoingonjourney001 to true>> //the 1st STAR CLUE for Magnolia to continue the journey
+  <<wait 0.5>>
+  The Patriot: Me on the other hand. I have not even that second to spare.
+  The Patriot: Now let me be.
+  Magnolia: Thank you.
+  //we should have like little warnings: there is an unlocked dialogue.
+ <<else>>
+  The Patriot: Don't ask me such silly questions.
+  Magnolia: Is it so silly?
+  The Patriot: I don't have time for little girls.
+  The Patriot: Get lost.
+ <<endif>>
 ===
 
 
@@ -132,9 +251,9 @@ Magnolia: (Somebody threw away a cute little drawing.)
 title: TheHouse001
 ---
 <<if visited_count("TheHouse001") < 1>>
-Magnolia: (I don't think I should be just barging into people's homes.)
+Magnolia: (I don't think I should just barge into people's homes.)
 <<elseif visited_count("TheHouse001") == 1>>
-Magnolia: (Still not the good idea.)
+Magnolia: (Still not a good idea.)
 <<else>>
 Magnolia: (Yeah, no.)
 <<endif>>
@@ -155,25 +274,35 @@ Magnolia: (A little peak shouldn't hurt?)
 title: TheHouse002_Choices
 ---
 -> Peak in.
-  Magnolia: (I miss my family.)
-  //there is a happy family inside
+  Magnolia: (This doesn't feel right.)
+  <<wait 0.5>>
+  Magnolia: (Look at them. So happy.)
+  Magnolia: (It feels so distant from me. All of this.)
+  Magnolia: (Family.)
+  <<wait 0.5>>
+  Magnolia: (That book I got from the therapist said tears are good.)
+  Magnolia: (Why do they burn my face?)
+  <<set $peakedin to true>>
+   -> Stop watching.
 -> Leave.
+ Magnolia: (This is not right.)
 ===
 
 title: TheStairs02
 ---
 <<if visited_count("TheStairs02") < 1>>
-Magnolia: (Didn't they seem broken yesterday?)
-Magnolia: (Maybe I really dreamt all of that.)
- -> Go down.
-   <<set $godownthestairs to true>>  
-   //this leads us to the downhill again
- -> I still want to explore here.  
+ Magnolia: (Didn't they seem broken yesterday?)
+ Magnolia: (Maybe I dreamt all of that.)
+  -> Go down.
+    <<set $godownthestairs to true>>  
+    //this leads us to the downhill again
+  -> I still want to explore here.  
 <<else>>
- -> Go down.
+ Magnolia: (I still feel like keeping to the left.)
+  -> Go down.
    <<set $godownthestairs to true>>  
    //this leads us to the downhill again
- -> I still want to explore here.
+  -> I still want to explore here.
 <<endif>>
 ===
 
@@ -183,7 +312,7 @@ title: TheBeggar
 ---
 <<if $magnoliadanced is true>>
  Magnolia: Hey, do you need any help?
- TheBeggar: It is very nice of you to think of nonexisting.
+ TheBeggar: It is very nice of you to think of non-existing.
  TheBeggar: I need no help, but I wish to gift you something.
   <<set $putintheinventoryd001 to true>> //you get the OBJECT d001
   <<set $magnoliadanced to false>>
@@ -197,10 +326,11 @@ title: TheBeggar
   <<set $magnoliadanced to true>>
   <<set $magnoliadances to true>> //an animation of magnolia dancing in the game, no cut scene
   <<wait 0.5>>
-  TheJudgingPerson: You are crazier then him.
+  TheJudgingPerson: You are crazier than him.
   <<wait 3>>
   <<jump TheJudgingPerson>>
  -> Stay a while and watch.
+  <<wait 3>>
   <<jump TheJudgingPerson>>
 <<endif>>
 ===
@@ -214,7 +344,7 @@ title: TheJudgingPerson
  <<wait 1>>
  Magnolia: What is the truth?
  TheJudgingPerson: He won't survive past next winter.
- TheJudgingPerson: It's easy to be happy now when there is sun.
+ TheJudgingPerson: It's easy to be happy now when there is the sun.
  TheJudgingPerson: I'm just being realistic, sorry to say.
   <<jump TheJudgingPerson_Questions>>
 <<else>>
@@ -226,8 +356,40 @@ title: TheJudgingPerson
 title: TheJudgingPerson_Questions
 ---
 -> How long have you been watching him?
+ The Judging: Long enough.
+ Magnolia: Long enough for what?
+ The Judging: To feel sorry for him.
+ Magnolia: He doesn't need you to feel sorry.
+ The Judging: What's that hat for then?
+ Magnolia: (He might be right.)
+ Magnolia: (People only give out of pity.)
+ Magnolia: (But he really seems happy.)
+ The Judging: You are not going to answer me?
+ Magnolia: I think he is happy.
+ The Judging: It's easy living in a pretend world.
+ Magnolia: He is not!
+ The Judging: You are.
+ Magnolia: I have to go.
 -> Aren't you late somewhere?
+ The Judging: You are fiery.
+ The Judging: But you seem weak.
+ Magnolia: Because I am a woman?
+ The Judging: God no. Nothing like that.
+ The Judging: I know what you insinuated.
+ The Judging: Yes, I always have time to observe the ridiculousness of this world.
+ Magnolia: (Look at the mirror.)
+ Magnolia: I'll let you be then.
+ The Judging: Goodbye.
 -> There is no sun today.
+ <<wait 1>>
+ The Judging Person: Interesting. I haven't noticed.
+ The Judging Person: But you know what I mean.
+ Magnolia: I am not sure I do.
+ The Judging person: The harsher times will come.
+ The Judging: Only capable will survive.
+ Magnolia: We are not animals.
+ The Judging: Aren't we?
+ Magnolia: (I can't deal with this.)
 ===
 
 title: TheProvider
@@ -238,15 +400,16 @@ title: TheProvider
  Magnolia: Oh, sorry. Uhm...I'm not.
  Magnolia: I'm searching for...
  Magnolia: (What am I even searching for?)
+ //new objective: find objective?
  Magnolia: I might be, yes.
  The Provider: Can I help you somehow?
  <<jump TheProvider_Questions>>
 <<elseif visited_count("TheProvider") == 1>>
  TheProvider: It seems you still haven't found your way.
   -> Yes. I'm still a little bit lost.
-    TheProvider: If I could help in anyway, just tell.
+    TheProvider: If I could help in any way, just tell.
     <<jump TheProvider_Questions>>
-  -> Actually, I think I got it, but that you.
+  -> Actually, I think I got it, but thank you.
 <<else>>
  TheProvider: You can ask me anything little one.
  <<jump TheProvider_Questions>>
@@ -256,29 +419,131 @@ title: TheProvider
 title: TheProvider_Questions
 ---
   -> Do you believe dreams could be real?
+   The Provider: You should always dream.
+   The Provider: You are young, you have life in front of you.
+   Magnolia: It's nice to think like that.
   -> Have you ever dreamt of something that turned out to be true?
-   <<set $isgoingonjourney002 to true>> //Magnolia needs three of these to decide to pursue the star STARCLUE002
+   The Provider: I've always dreamt of a big and happy family.
+   Magnolia: I was thinking more in terms of something a little bit strange.
+   The Provider: Strange?
+   Magnolia: Maybe you dreamt of a place, and then you accidentally visited it!
+   The Provider: I don't think I ever have.
+   Magnolia: I also don't believe in it.
+   Magnolia: It's just...
+   The Provider: However, my oldest child did tell me about their dream.
+   The Provider: They said they dreamt of a certain toy.
+   The Provider: Little hand-made nutcracker with a face of a female rat.
+   Magnolia: What happened?
+   The Provider: A year later she went on a school trip with her class.
+   The Provider: She is a little bit shy, and sometimes it's hard for her to meet new friends.
+   The Provider: So she would lay in her bed while other children all gathered together to talk.
+   The Provider: One evening she reached out to fix the boards under her bed and felt something hidden.
+   Magnolia: It was the nutcracker!
+   The Provider: With a face of a rat.
+   Magnolia: And do you actually believe she dreamt it before?
+   The Provider: My child doesn't lie.
+   Magnolia: I didn't mean it that way.
+   The Provider: Yes, I'm sorry.
+   The Provider: I know kids can be a little too creative.
+   The Provider: But my second child confirmed that she told the dream when it happened.
+   The Provider: So unusual!
+   Magnolia: It is.
+   <<set $isgoingonjourney002 to true>> //2nd STAR CLUE for continuing the journey
   -> Did you see anything unusual around here?
-  -> You seem tired. <<if $hasClue_TheProvider>> //we need to get a clue from somewhere to unlock this CLUE 001
+   The Provider: Nothing is unusual.
+   The Provider: It's human nature to change.
+   Magnolia: What if it was not human?
+   The Provider: What do you mean darling?
+   Magnolia: Maybe something magical.
+   The Provider: I don't think we could see magic, even if it exists.
+   Magnolia: You might be right.
+   <<wait 1>>
+   The Provider: The sun seems unusually brighter these days.
+   The Provider: It burns my skin through the window when I work around the house.
+   Magnolia: But it was especially cloudy these days.
+   The Provider: Maybe I didn't see well. 
+   The Provider: I rarely look out of the window. 
+   Magnolia: (They must be working a lot.)
+   Magnolia: (I shouldn't pry.)
+   <<if $peakedin is true>>
+    Magnolia: I saw this family having dinner together.
+    The Provider: It must have been such a nice sight.
+    The Provider: I live for my family.
+    Magnolia: And if there was non. Would you still live?
+    The Provider: Such a dark mind, darling.
+    The Provider: Don't think of such things.
+    Magnolia: But would you?
+    The Provider: I couldn't imagine.
+    The Provider: I would have nothing to do with my time.
+    Magnolia: You do nothing besides caring for your family?
+    The Provider: Isn't it why we are here?
+    Magnolia: (Are we?)
+   <<else>>
+    Magnolia: You seem like you care a lot.
+    The Provider: Giving is the reason to live.
+    Magnolia: What if there is no one to give to?
+    The Provider: There is always someone.
+    The Provider: Give a hand to a stranger.
+    The Provider: Look at the sky and think how many people look at the same sky.
+    The Provider: They all must be lonely to look at the sky.
+    Magnolia: So you never feel lonely?
+    The Provider: How could I? I have my family that I take care of.
+    <<set $hasClue_TheProvider to true>>
+    Magnolia: I heard people could feel lonely in a room full of people.
+    The Provider: Not with family.
+    Magnolia: You are probably right.
+   <<endif>>
+  -> I believe you are lonely. <<if $hasClue_TheProvider>> //we need to get a clue from somewhere to unlock this CLUE 001
+   Magnolia: (Where do I get this confidence from?)
+   Magnolia: (I act like all these conversations have no consequences at all.)
+   The Provider: Excuse me?
+   Magnolia: What I meant is...It's okay to admit you are sometimes tired.
+   The Provider: I don't understand what you are trying to say.
+   Magnolia: Your eyes are sad.
+   The Provider: I think this is getting a little bit too much.
+   The Provider: If you need any help, please tell me.
+   The Provider: Otherwise...
+   Magnolia: My mom used to get lonely.
+   Magnolia: (It is a lie.)
+   Magnolia: (I don't remember how my mom was.)
+   Magnolia: (The doctors said it will pass. Called it dissociative amnesia.)
+   The Provider: Used to?
+   Magnolia: She passed.
+   The Provider: I'm sorry.
+   The Provider: But remember, even if she was feeling lonely, she still had you, and she was happy.
+   Magnolia: I know that.
+   The Provider: Sometimes it's all too much.
+   The Provider: Even if we want to give everything.
+   The Provider: We would give our own bodies.
+   Magnolia: You shouldn't have to.
+   The Provider: Maybe.
+   Magnolia: I hope you give yourself some time.
+   The Provider: Thank you, darling.
 ===
 
 title: Grafitti001
 ---
-//grafitti quote for the deadbit husband CLUE 002
-<<if $hasClue002 is false>>
+<<if $hasClue_Grafitti001 is false>>
  -> Read the quote.
+ The Grafitti: "We are going to watch the video until the colors melt."
+ <<wait 0.2>>
  Magnolia: (I feel like I watched this movie with my dad.)
- Magnolia: (We watched so many movies before...)
- Magnolia: (I shouldn't be thinking about this.)
- <<set $hasClue_Grafitti001 to true>>
+ Magnolia: (I hate this cloud I have around my memories.)
+ Magnolia: (But I remember this scene being romantic.)
+ <<set $hasClue_Grafitti001 to true>> //grafitti quote for the deadbit husband CLUE 002
  -> Ignore.
 <<else>>
- Magnolia: (Dads usually like these kind of movies.)
+ Magnolia: (Dads usually like these kinds of movies.)
+ -> Read it again.
+  The Grafitti: "We are going to watch the video until the colors melt."
 <<endif>>
 ===
 
 title:TheRoadSign
 ---
-Magnolia: (They must have worked really hard to fix this street so fast.)
-<<set $gotothegraveyard to true>> 
+Magnolia: (How long was I in that dream?)
+Magnolia: (Actually, is it possible to sleep long enough for them to fix a whole street?)
+ -> Go down the street.
+  <<set $gotothegraveyard to true>> 
+ -> One more thing.
 ===

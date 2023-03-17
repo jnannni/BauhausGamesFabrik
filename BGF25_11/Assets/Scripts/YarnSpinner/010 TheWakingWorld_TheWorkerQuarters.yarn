@@ -1,0 +1,374 @@
+
+//WE ARE NOW IN THE ZONE 00 THE WORKER QUARTERS
+
+title: TheWorkerQuarters
+---
+//variables for UNITY
+<<set $loopthemap to false>> //this should loop the map while the dialogue continues
+<<set $theworkercomesout to false>> //in-game animation of the worker showing his head a little bit through the little window
+<<set $cutscene_rabbits to false>> //CUTSCENE (an animated illustration of Magnolia being inside this dark bag and a small, normal-colored rabbit is looking at her)
+<<set $loopthetext to false>> //loops the node of a dialogue that I wrote(if possible?)
+<<set $trigger_Frozen to false>> //triggers 7th DREAMWORLD
+
+//variables for in YARN
+<<set $hascluefactory to false>>
+<<set $hasclueendless to false>>
+<<set $hasclue_forhitch to false>>
+<<set $norabbit to false>>
+<<set $opentrigger to false>>
+<<set $opentrigger01 to false>>
+
+//we should add some kind of dizziness effect here
+Magnolia: (NO!)
+Magnolia: (I need to go back.)
+Magnolia: (I wasn't even in a dream!)
+Magnolia: (Was I?)
+<<wait 1>>
+Magnolia: (That lady.)
+Magnolia: (What was she saying?)
+Magnolia: (She told me I didn't listen to people carefully enough.)
+Magnolia: (I feel like I missed something.)
+===
+
+title: TheTicketOffice
+---
+<<if visited_count("TheTicketOffice") < 1>>
+ Magnolia: (Maybe there is a train soon.)
+ Magnolia: (I could catch that lady.)
+ Magnolia: Excuse me?
+ The Worker:...
+ Magnolia: Hello?
+ The Worker: You are incredibly quiet.
+ Magnolia: (But I am almost shouting?)
+ Magnolia: [b]Is it better now?[/b]
+ The Worker: Why are you shouting?
+ Magnolia:...
+ Magnolia: I didn't mean to.
+ The Worker: You have 33 seconds.
+ Magnolia: Excuse me?
+ The Worker: 21...
+ Magnolia: (Everyone is mad again!)
+ Magnolia: When is the next train?
+ Magnolia: I want to go back to the city.
+ <<set $theworkercomesout to true>>
+ The Worker: Our trains never go backward.
+ Magnolia: I didn't even think it would...
+ The Worker: 5 seconds.
+ Magnolia: How can I go to the city?
+ The Worker: The contract expired.
+ The Worker: Next session in three months.
+ <<set $theworkercomesout to false>>
+ //the worker is just eyes from a small window
+<<else>>
+ Magnolia: (I can't wait for three months.)
+ Magnolia: (I need to find another way.)
+<<endif>>
+===
+
+title: TheHitchiker
+---
+<<if $hasclue_forhitch is true>>
+ Magnolia: Can you show me your bag again?
+ The Hitchiker: Did you find a way to the factory?
+ Magnolia: We will see that now.
+  -> Look for the rabbit.
+   Magnolia: You lost your rabbit!
+   Magnolia: (Did I truly believe I will find a factory inside a bag?)
+   The Hitchiker: I never had a rabbit.
+   Magnolia: But I saw it!
+   The Hithiker: It must have been someone else.
+   Magnolia: It was you I am sure.
+   The Hitchiker: I am merely a passerby.
+   <<wait 0.5>>
+   Magnolia: You also made me believe I could walk to the factory!
+   Magnolia: It was impossible.
+   Magnolia: There was a lot of nothing!
+   The Hitchiker: I am no one.
+   Magnolia: Whatever.
+   Magnolia: (I need to go back to the Alice guy.)
+   <<set $norabbit to true>>
+<<else>>
+ <<if visited_count("TheHitchiker") < 1>>
+ The Hitchiker: Hey you!
+ Magnolia: Yes?
+ The Hitchiker: Have a place for one more?
+ <<wait 0.5>>
+ Magnolia: (?)
+ Magnolia: One more?
+ The Hitchiker: I need a ride.
+ <<wait 0.5>>
+ Magnolia: Where are you going?
+ The Hitchiker: I collected some sun, now I need to bring it to the city.
+ <<wait 0.5>>
+ TheHitchiker: So can you give me I ride?
+ Magnolia: I don't even have a car.
+ TheHitchiker: Those legs would do.
+ Magnolia: What do you mean by that?!
+ TheHitchiker: Come on, you could borrow them to me.
+ Magnolia: I don't think it works like that...
+ Magnolia: Seriously, do you expect me to chop off my own legs?
+ TheHitchiker: I will be rich after I bring this sun.
+ TheHitchiker: I could pay.
+ Magnolia: (!!!)
+ Magnolia: Why don't you use your own legs?
+ TheHitchiker: These are an old model.
+ TheHitchiker: The battery runs out quickly.
+ Magnolia: I don't know how to help you.
+ <<wait 1>>
+ The Hitchiker: Wait!
+ Magnolia: Yes?
+ The Hitchiker: What if I can help you?
+  <<jump THeHitchiker_Questions>>
+ <<else>>
+ The Hitchiker: There is more in this bag than the sun.
+ <<jump TheHitchiker_Questions>>
+ <<endif>>
+<<endif>>
+===
+
+title: TheHitchiker_Questions
+---
+-> What is there in your bag?
+ The Hitchiker: I am bringing some rabbits to the old factory nearby.
+ The Hitchiker: The people there could help us go back to the city.
+  -> How could they help?
+   The Hitchiker: They are all from the city and work in this factory.
+   The Hitchiker: Their legs are used to that road.
+   Magnolia: I see.
+   Magnolia: (Maybe I really should go and ask.)
+   Magnolia: (I don't even know how to get from here to the beach.)
+   <<set $hascluefactory to true>>
+   <<jump TheHitchiker_Questions>>
+  -> Can I see the rabbits?!
+   The Hitchiker: They burn in the sun.
+   Magnolia: Come on! Please?
+   Magnolia: I am trying to see one this whole time.
+   The Hitchiker: I could allow it.
+   The Hitchiker: But you need to get inside the bag, so the sun doesn't reach.
+   Magnolia: (I think this decision will make it official.)
+   Magnolia: (How far am I on the crazy scale?)
+    -> Let me see.
+     <<set $cutscene_rabbits to true>> //it's just an animated illustration of Magnolia being inside this dark bag and a small, normal-colored rabbit is looking at her.
+     <<wait 4>>
+     Magnolia: Wait!
+     Magnolia: He is not purple!
+     The Hitchiker: Why did you expect a purple rabbit?
+     Magnolia: Nevermind.
+     <<jump TheHitchiker_Questions>>
+    -> That's fine. I changed my mind.
+     <<jump TheHitchiker_Questions>>
+-> Are you some kind of a cyborg?
+ The Hitchiker: Why do you think that?
+ Magnolia: You said you wanted me to give you my legs.
+ The Hitchiker: Does that make me a cyborg?
+ Magnolia: I don't know how it would function any other way.
+ The Hitchiker: Then I'm a cyborg.
+ Magnolia: I wouldn't believe you if you told me some months ago.
+ The Hitchiker: Do you believe me now?
+ Magnolia: I do.
+ Magnolia: But I still won't give you my legs.
+ The Hitchaker: I'm okay with that.
+-> How do we go to this factory? <<if $hascluefactory is true>>
+ The Hitchiker: We need to go east, and there will be a sign.
+ Magnolia: What kind of a sign?
+ The Hitchiker: It says: "Only for rabbits."
+ <<set $hasclueendless to true>>
+===
+
+
+title: TheEndless
+---
+<<if $hasclueendless is true>>
+Magnolia: (There is some kind of a sign.)
+ -> Read it.
+  The Sign: [i]Only for rabbits.[/i]
+<<wait 0.5>>
+Magnolia: (This is what that hitchhiker was talking about.)
+Magnolia: (I guess I should just continue.)
+Magnolia: (Even though I am not a rabbit?)
+<<set $loopthemap to true>>
+<<jump TheEndless_Loop>>
+<<else>>
+Magnolia: (There is some kind of a sign.)
+ -> Read it.
+  The Sign: [i]Only for rabbits.[/i]
+<<wait 0.5>>
+Magnolia: (I am not a rabbit.)
+<<endif>>
+===
+
+title: TheEndless_Loop
+---
+//here should be a long text...
+<<set $loopthetext to true>>
+===
+
+title: TheAstronomer
+---
+<<if visited_count("TheDustSweepwer") < 1>>
+ Magnolia: Can you see the stars even in the daytime?
+ The Astronomer: I am not looking for the stars.
+ <<wait 0.5>>
+ Magnolia: What are you looking for?
+ The Astronomer: For hope.
+ Magnolia: Will you find it in the sky?
+ The Astronomer: There is nowhere else to look.
+ <<wait 0.5>>
+ Magnolia: Are you like searching for a planet we could move onto and live on?
+ The Astronomer: I wouldn't want such despair upon any poor planet.
+ Magnolia: How does hope look like then?
+ The Astronomer: I don't know yet.
+ Magnolia: How will you know you found it when it happens?
+ The Astronomer: I depend on a feeling.
+ Magnolia: What kind of a feeling?
+ The Astronomer: Familiar.
+ The Astronomer: Hope should feel familiar.
+ Magnolia: (Did I at any point feel the hope of getting my family back?)
+ <<jump TheAstronomer_Questions>>
+<<elseif visited_count("TheDustSweeper") == 1>>
+ Magnolia: Did you find your hope yet?
+ The Astronomer: Weren't you here like some minutes ago?
+ Magnolia: Yes?
+ The Astronomer: You're optimistic.
+ Magnolia: You don't think it could happen soon?
+ The Astronomer: I'm not sure there is any left.
+ <<jump TheAstronomer_Questions>>
+<<else>>
+ The Astronomer: Sometimes I get distracted and look at the stars.
+ The Astronomer: And every time it feels like they are watching me back.
+ <<jump TheAstronomer_Questions>>
+<<endif>>
+===
+
+title: TheAstronomer_Questions
+---
+-> What about the moon?
+ The Astronomer: What do you want to know about the moon?
+ Magnolia: What do you think of the moon?
+ The Astronomer: I fear anything that can attract the sea.
+ Magnolia: So you fear it?
+ The Astronomer: No really, rather respect it.
+ <<wait 0.5>>
+ Magnolia: Do you think it judges us?
+ The Astronomer: The moon?
+ Magnolia: Yes. For ruining its sea.
+ The Astronomer: It should be.
+ The Astronomer: Maybe the moon is forgiving.
+ Magnolia: Let's hope.
+-> Does it mean you have no hope left?
+ The Astronomer: Why do you think I am searching for it?
+ Magnolia: So it's only for yourself?
+ The Astronomer: And anyone who wants it.
+ The Astronomer: Do you need it?
+ Magnolia: I think I still have some left.
+-> What do stars look like up close?
+ The Astronomer: Stars watch me back.
+ Magnolia: So they have faces?
+ The Astronomer: I'm not quite sure.
+ The Astronomer: But I can feel they are watching me.
+ The Astronomer: It feels like you are in a bus, and you can sense that somebody is watching you through the reflection on the window.
+ Magnolia: I'm not sure I felt it. But I can imagine.
+ The Astronomer: There is life there. I'm sure of it.
+ The Astronomer: I'm just not sure where 'there' is.
+ The Astronomer: Don't tell this to anybody, but I think that the sky might be just a mirror.
+ Magnolia: (A mirror? What does it reflect?)
+ Magnolia: I promise. 
+ The Astronomer: Good.
+===
+
+title: TheDustSweeper
+---
+<<if $norabbit is false>>
+ <<if visited_count("TheDustSweeper") < 1>>
+  Magnolia: (Maybe they know how I can get to the factory.)
+  Magnolia: (That hitchhiker completely scammed me.)
+  <<wait 0.5>>
+  TheDustSweeper: Don't walk around my feet.
+  Magnolia: I'm sorry.
+  Magnolia: I am looking for a way to go to the factory.
+  TheDustSweeper: Only rabbits are allowed there.
+  Magnolia: I heard about that.
+  Magnolia: I still really need to get there.
+  TheDustSweeper: Have you ever seen Alice in Wonderland?
+  Magnolia: I did?
+  TheDustSweeper: Then do that.
+  Magnolia: What exactly?
+  Magnolia: Drop into a hole?
+  <<wait 0.5>>
+  Magnolia: Follow a rabbit?
+  <<wait 0.5>>
+  Magnolia: Should I follow a rabbit?
+  Magnolia: I saw only one.
+  Magnolia: But it was inside someone’s bag.
+  Magnolia: Should I get inside his bag??
+  <<set $hasclue_forhitch to true>>
+  TheDustSweeper: ...
+  Magnolia: Why are you not saying anything?
+  TheDustSweeper: You seem to have a great conversation with yourself.
+ <<else>>
+  Magnolia: (First thing I need to do is see that hitchhiker guy.)
+  Magnolia: (If I lose him, I lose the rabbit.)
+ <<endif>>
+<<else>>
+ Magnolia: The rabbit is not there anymore.
+ TheDustSweeper: Where?
+ Magnolia: Also, does it need to be purple?
+ TheDustSweeper: Who?
+ Magnolia: The rabbit.
+ TheDustSweeper: I never said anything about a rabbit.
+ Magnolia: You said Alice in Wonderland!
+ TheDustSweeper: Yes I did!
+ TheDustSweeper: I meant you should listen to the mad people.
+ Magnolia: (Is he kidding me?)
+ Magnolia: That's what I have been doing this whole time!
+ TheDustSweeper: Then you are on the right path.
+ <<jump TheDustSweeper_Questions>>
+<<endif>>
+===
+
+title: TheDustSweeper_Questions
+---
+-> What are you even cleaning up?
+ TheDustSweeper: The stardust.
+ <<wait 0.5>>
+ Magnolia: I sometimes dream of stardust.
+ <<wait 0.2>>
+ TheDustSweeper: That's not good. Get rid of it.
+ Magnolia: Why?
+ TheDustSweeper: Did you talk to that guy that just got out of prison?
+ <<if visited_count("TheGuilty") > 0>>
+  Magnolia: Yes?
+  TheDustSweeper: Then you know sometimes it's better when you are caged.
+  Magnolia: What does it have to do with stardust in my dreams?
+  TheDustSweeper: It's a key.
+  <<set $opentrigger01 to true>>
+ <<else>>
+  Magnolia: No?
+  TheDustSweeper: Never mind then.
+  <<jump TheDustSweeper_Questions>>
+ <<endif>>
+-> You are a mad person, right?
+ TheDustSweeper: That's relative.
+ TheDustSweeper: But let's say yes.
+ Magnolia: Then I am listening.
+ TheDustSweeper: Haven't you noticed that little spot of uncleaned dust?
+ <<wait 1>>
+ TheDustSweeper: You should tell your astronomer friend that hope is not necessarily in the sky.
+ <<set $opentrigger to true>>
+ -> Nothing.
+===
+
+title: TheTrigger_Frozen
+---
+<<if $opentrigger is true and $opentrigger01 is true>>
+ Magnolia: (This is the pile of dust that the cleaner pointed out.)
+ Magnolia: (He said the stardust in my dreams is the key.)
+ Magnolia: (But what kind of cage does it unlock?)
+ -> Hold the dust in your palm.
+  <<set $trigger_Frozen to true>>
+<<else>>
+ Magnolia: (It looks like somebody didn't clean up this pile of snow from the last winter.)
+ Magnolia: (It's that kind of feathery, sparkly snow.)
+ Magnolia: (How is it possible that it didn't melt?)
+<<endif>>
+===

@@ -1,0 +1,201 @@
+
+//WE ARE NOW AT THE TRAIN STATION
+
+title: TheTrainStation_Start
+---
+//variables for UNITY
+<<set $trainapproaching to false>> //just plays the sound of train approaching
+<<set $trigger_TheFactory to false>> //triggers new level(not the dreamworld)
+
+//variables for in YARN
+
+Magnolia: (I can't believe I made it!)
+Magnolia: (It works!)
+<<wait 0.5>>
+Magnolia: (I don't know if I should be happy, or worried.)
+Magnolia: (My delusions seem to have become functional.)
+<<wait 0.5>>
+Magnolia: (Now I just need to get to the other part of the city.)
+===
+title: TheOldPerson
+---
+//trigger 005
+<<if visited_count("TheOldPerson") < 1>>
+ Magnolia: (There seems to be somebody else besides me here.)
+ <<wait 0.5>>
+ Magnolia: (It's just an old lady it seems.)
+ Magnolia: Hello.
+ The Old Person: Hello.
+ Magnolia: Are you also waiting for the train?
+ The Old Person: I am not.
+ Magnolia: You are not?
+ Magnolia: Do you by any chance know when it's going to arrive?
+ The Old Person: The train here is always late.
+ The Old Person: Or early.
+ The Old Person: They seem to have no concept of time.
+ <<wait 0.5>>
+ The Old Person: And they tell me I am demented.
+ Magnolia: (That means she forgets things?)
+ Magnolia: I have temporary amnesia.
+ The Old Person: But I don't forget anything darling.
+ The Old Person: They have me all wrong.
+ Magnolia: (She seems to be standing strongly on the ground.)
+ Magnolia: Why do they think you have dementia?
+ The Old Person: They say I talk nonsense.
+ The Old Person: And they don't understand why I would come to places like this.
+ The Old Person: They just say I get lost.
+ The Old Person: But I perfectly know where I am.
+ Magnolia: Don't they listen?
+ The Old Person: Darling.
+ The Old Person: Nobody ever listens.
+ The Old Person: Did you actually listen to anyone you talked to recently?
+ <<wait 1>>
+ Magnolia: (Have I?)
+ Magnolia: (Have I missed anything?)
+ Magnolia: I have a question for you.
+ <<jump TheOldPerson_Questions>>
+<<elseif visited_count("TheOldPerson") == 1>>
+ The Old Person: You know.
+ The Old Person: Sometimes it's not that bad when people think you are insane.
+ Magnolia:?
+ The Old Person: It's like you become invisible.
+ The Old Person: And if you take it right, it becomes a superpower.
+ Magnolia: (I kind of understand her.)
+ <<wait 1>>
+ Magnolia: You are the first person I feel like I can talk to.
+ Magnolia: Can I ask you something?
+ The Old Person: Of course.
+ <<jump TheOldPerson_Questions>>
+<<else>>
+ Magnolia: (She seems like the sanest person I met these days.)
+ <<jump TheOldPerson_Questions>>
+<<endif>>
+===
+
+title: TheOldPerson_Questions
+---
+-> (I should ask her about the rabbits.)
+ Magnolia: Everybody was talking about these purple rabbits.
+ Magnolia: At first I thought they were insane.
+ Magnolia: Then I thought I was insane.
+ Magnolia: Now I just believe they are real.
+ The Old Person: Have you seen one?
+ Magnolia: Not really.
+ Magnolia: I thought I saw one's tail.
+ The Old Person: There is this philosophy that believes nothing exists until we perceive it.
+ Magnolia: But you don't believe in that?
+ The Old Person: I don't.
+ The Old Person: But do you believe something we perceive might turn out to be non-existing?
+ Magnolia: Like hallucinations?
+ The Old Person: More than just hallucinations.
+ The Old Person: Your whole life for example.
+ Magnolia: I always thought dreams felt both real and unreal.
+ Magnolia: And that reality couldn't ever be mistaken for a dream, even when it feels slightly off.
+ The Old Person: I think that's what most people think.
+ Magnolia: What do you think?
+ The Old Person: It's not my place to think anymore.
+ The Old Person: But I can tell you one thing.
+ The Old Person: I never saw one of those rabbits.
+ <<jump TheOldPerson_Questions>>
+-> Did you notice there was almost no sun these days?
+ The Old Person: I think people are turning mad because of it.
+ Magnolia: So you noticed?!
+ The Old Person: How could I not?
+ The Old Person: This old body feels every slight change in the weather.
+ <<wait 0.5>>
+ The Old Person: And without it, the city seems on the verge of crying, but the rain never comes.
+ <<wait 1>>
+ Magnolia: You...
+ Magnolia: You are the first person who sees it!
+ Magnolia: Everybody is talking about how the sun shines so strongly these days!
+ The Old Person: They mistake the warmth behind their skin for the sunshine.
+ The Old Person: And they ignore their blindness.
+ Magnolia: I feel like something is off.
+ The Old Person: That requires a time when this city was ever right.
+ Magnolia: Was it not?
+ The Old Person: I am old, and I don't have any recollection of such times.
+ <<wait 1>>
+ Magnolia: They told me I have amnesia after what happened.
+ Magnolia: I can't remember well.
+ The Old Person: What happened?
+ Magnolia: I lost all my family in one accident.
+ Magnolia: I was the only one to survive.
+ The Old Person: That's terrible dear.
+ <<wait 0.5>>
+ The Old Person: And what was this accident?
+ Magnolia: That's what's strange.
+ Magnolia: I don't remember.
+  <<jump TheOldPerson_Questions>>
+-> Why do you come to the train station?
+ The Old Person: It's just one of my favorite spots.
+ The Old Person: Did you ever hear of liminal spaces?
+ Magnolia: Not really.
+ The Old Person: Stations are one of them.
+ The Old Person: They are transitional spaces.
+ The Old Person: For most people, they are a bit unsettling.
+ The Old Person: However, in this city, they seem like the most stable of places.
+ The Old Person: Like they are the only real ones.
+ <<wait 0.5>>
+ Magnolia: What do you do when you are here?
+ The Old Person: I watch the trains pass.
+ The Old Person: That doesn't, however, happen very often.
+ The Old Person: So instead I watch the lost time pass.
+ The Old Person: Here, you feel like you could almost touch time.
+ Magnolia: That just makes me dizzy thinking about it.
+ The Old Person: I find it calming.
+ <<wait 0.5>>
+ The Old Person: Also, I like watching people say their goodbyes.
+ Magnolia: But that sounds sad.
+ The Old Person: It's one of the most real interactions I see in this city.
+ Magnolia: (She sounds melancholic.)
+ <<jump TheOldPerson_Questions>>
+-> Did you notice that there is something wrong with this city?
+ The Old Person: There is a lot wrong with this city.
+ The Old Person: But it has always been the same.
+ Magnolia: (That just means I'm the one going mad.)
+ Magnolia: A lot of people told me really strange stuff recently.
+ The Old Person: Are you sure it's strange, or just unfamiliar to you?
+ Magnolia: Could it be both?
+ The Old Person: Could be.
+ <<jump TheOldPerson_Questions>>
+-> I was told in my dream that if I get a fallen star I can save my parents. //only if you unlock something special
+-> Do I look strange to you? //again needs to unlock something
+ The Old Person: You are the strangest thing I have ever met.
+ Magnolia: Me?!
+ Magnolia: Really?
+ The Old Person: I never talk nonsense dear.
+ The Old Person: Contrary to what my family claims.
+ Magnolia: But why me?
+ Magnolia: I do feel a little bit weird these past couple of days, but...
+ The Old Person: Why is that?
+ Magnolia: I think I am going insane.
+ The Old Person: Maybe it's the opposite?
+ Magnolia: What do you mean?
+ The Old Person: Maybe you are regaining your sanity.
+ Magnolia: If it is, it doesn't feel like it.
+ The Old Person: How would you know what sanity feels like if you lost it long ago?
+ Magnolia: (This is just confusing me.)
+ Magnolia: (It's like telling a schizophrenic they should listen to their hallucinations.)
+ Magnolia: (It feels dangerous.)
+ <<wait 1>>
+ The Old Person: Are you okay there?
+ Magnolia: Yes. Yes!
+ <<wait 0.5>>
+ The Old Person: What did you say happened to your family?
+ Magnolia: (I am not sure I mentioned them at all.)
+ Magnolia: They all died.
+ Magnolia: I am the only one left.
+ The Old Person: Isn't it strange that you don't remember what happened to them?
+ Magnolia: I did find it strange, but the doctors said...
+ The Old Person: Darling, I think you are late.
+ <<set $trainapproaching to true>>
+ The Old Person: The train is coming.
+ Magnolia: Wait!
+ Magnolia: (Not now.)
+ Magnolia: (I need to talk to her more.)
+ The Old Person: Didn't you find it unusual that people around you thought the sun was shining on the cloudy sky?
+ Magnolia: I...
+ Magnolia: I don't think it was because of me...
+ <<set $trigger_TheFactory to true>>
+-> I don't want to ask her anything.
+===
