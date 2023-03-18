@@ -88,7 +88,9 @@ public class Level3 : MonoBehaviour
         if (gobackhome)
         {
             // move character to the home position (add fade in/out to yarn)
+            StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = homePosition.transform.position;
+            StartCoroutine(fadeLayer.FadeOut());
         }
 
     }

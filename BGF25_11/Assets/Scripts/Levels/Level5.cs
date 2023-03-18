@@ -7,17 +7,28 @@ using UnityEngine.SceneManagement;
 public class Level5 : MonoBehaviour
 {
     private DialogueRunner dialogueRunner;
-    private InMemoryVariableStorage variableStorage;
+    private InMemoryVariableStorage variableStorage;    
 
     private bool entertheantique;
     private bool trigger_TheAllKnowingLady;
     private bool putintheinventory003;
     private bool exittheantique;
+    private bool poetsdiary;
+    private bool putintheinventory008;
+    private bool isInAntiqueShop;
+    private FadeLayer fadeLayer;
 
     [SerializeField] private string nameOfTheScene;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject inFrontOfAntique;
+    [SerializeField] private GameObject insideOfAntique;
+    [SerializeField] private InventoryItem item003;
+    [SerializeField] private InventoryItem item008;
+    private PhysicalInvetoryItem addToInventory;
 
     private void Awake()
     {
+        fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
     }
@@ -25,6 +36,7 @@ public class Level5 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isInAntiqueShop = false;
         dialogueRunner.StartDialogue("TheBlocks");
     }
 
@@ -35,25 +47,48 @@ public class Level5 : MonoBehaviour
         variableStorage.TryGetValue("$trigger_TheAllKnowingLady", out trigger_TheAllKnowingLady);
         variableStorage.TryGetValue("$putintheinventory003", out putintheinventory003);
         variableStorage.TryGetValue("$exittheantique", out exittheantique);
+        variableStorage.TryGetValue("$poetsdiary", out poetsdiary);
+        variableStorage.TryGetValue("$putintheinventory008", out putintheinventory008);
 
         if (trigger_TheAllKnowingLady)
         {
             SceneManager.LoadScene(nameOfTheScene);
         }
 
-        if (entertheantique)
+        if (entertheantique && !isInAntiqueShop)
         {
-            // move the character to antique position
+            // move the character to antique position and change camera thingy
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = insideOfAntique.transform.position;           
+            StartCoroutine(fadeLayer.FadeOut());
+            isInAntiqueShop = true;
+            variableStorage.SetValue("$exittheantique", false);
         }
 
         if (putintheinventory003)
         {
             // put stuff in the inventory
+            addToInventory.AddingItemFromDialogue(item003);
         }
 
-        if (exittheantique)
+        if (putintheinventory008)
+        {
+            addToInventory.AddingItemFromDialogue(item008);
+        }
+
+        if (poetsdiary)
+        {
+            // show illustration
+        }
+
+        if (exittheantique && isInAntiqueShop)
         {
             // move the character back in front of antique
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = inFrontOfAntique.transform.position;
+            StartCoroutine(fadeLayer.FadeOut());
+            isInAntiqueShop = false;
+            variableStorage.SetValue("$entertheantique", false);
         }
     }
 }

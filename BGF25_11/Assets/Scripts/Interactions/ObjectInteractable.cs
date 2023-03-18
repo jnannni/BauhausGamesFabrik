@@ -20,6 +20,17 @@ public class ObjectInteractable : MonoBehaviour
     private float distance;
     public float minDist = 0.5f;    
     private bool isPressed;
+    private bool isInTheRange;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        isInTheRange = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isInTheRange = false;
+    }
 
     private void Start()
     {
@@ -35,7 +46,7 @@ public class ObjectInteractable : MonoBehaviour
     {
         isPressed = Input.GetKeyDown(KeyCode.K);
         distance = Vector2.Distance(target.transform.position, this.gameObject.transform.position);
-        if (distance < minDist && !isDialogueRunning.initialValue)
+        if (isInTheRange && !isDialogueRunning.initialValue)
         {
             this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = outlineShader.shader;            
         }
@@ -45,7 +56,7 @@ public class ObjectInteractable : MonoBehaviour
 
     public void Interact()
     {
-        if (distance < minDist && isPressed)
+        if (isInTheRange && isPressed)
         {
             StartConversation();
             if (item && playerInventory && !collectable)
