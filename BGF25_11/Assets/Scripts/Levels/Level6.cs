@@ -92,6 +92,7 @@ public class Level6 : MonoBehaviour
         if (goontheroof && !isOnTheRoof)
         {
             // move character to the roof position
+            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = onTheRoof.transform.position;
             StartCoroutine(fadeLayer.FadeOut());
@@ -110,7 +111,7 @@ public class Level6 : MonoBehaviour
             // trigger a cut scene
         }
 
-        if (entertheschool01)
+        if (entertheschool01 || entertheschool02)
         {
             // move character to school position
             StartCoroutine(fadeLayer.FadeIn());
@@ -124,6 +125,7 @@ public class Level6 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = grandpasHouseInside.transform.position;
             StartCoroutine(fadeLayer.FadeOut());
+            player.transform.localScale = new Vector3(1.5f, 1.5f, player.transform.localScale.z);
         }
 
         if (godowntheroof && isOnTheRoof)

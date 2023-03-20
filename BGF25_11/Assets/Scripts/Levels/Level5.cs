@@ -58,6 +58,7 @@ public class Level5 : MonoBehaviour
         if (entertheantique && !isInAntiqueShop)
         {
             // move the character to antique position and change camera thingy
+            player.transform.localScale = new Vector3(1.7f, 1.7f, player.transform.localScale.z);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = insideOfAntique.transform.position;           
             StartCoroutine(fadeLayer.FadeOut());
@@ -84,6 +85,7 @@ public class Level5 : MonoBehaviour
         if (exittheantique && isInAntiqueShop)
         {
             // move the character back in front of antique
+            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = inFrontOfAntique.transform.position;
             StartCoroutine(fadeLayer.FadeOut());

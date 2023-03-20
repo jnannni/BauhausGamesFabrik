@@ -15,10 +15,8 @@ public class LightsFlickering : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        mainLight = this.transform.GetChild(0);
-        flickerLight = this.transform.GetChild(1);
-        mainLightComponent = mainLight.GetComponent<Light2D>();
+    {        
+        flickerLight = this.transform.GetChild(0);        
         flickerLightComponent = flickerLight.GetComponent<Light2D>();
 
         StartCoroutine(Timer());

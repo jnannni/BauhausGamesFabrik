@@ -29,8 +29,7 @@ public class Level1 : MonoBehaviour
     private FadeLayer fadeLayer;    
 
     private void Awake()
-    {
-        fadeLayer = FindObjectOfType<FadeLayer>();
+    {        
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
     }
@@ -39,9 +38,9 @@ public class Level1 : MonoBehaviour
     void Start()
     {        
         dialogueRunner.StartDialogue("FirstScene");
-            isDownTheStairs = false;
-            wentHome = false;
-       
+        isDownTheStairs = false;
+        wentHome = false;
+        fadeLayer = FindObjectOfType<FadeLayer>();
         curtains = GameObject.FindWithTag("TheCurtains");
     }
 
@@ -55,7 +54,9 @@ public class Level1 : MonoBehaviour
 
         if (curtains && curtainopens)
         {
-            Destroy(curtains);            
+            StartCoroutine(fadeLayer.FadeIn());
+            Destroy(curtains);
+            StartCoroutine(fadeLayer.FadeOut());
         }
 
         if (godownthestairs && !isDownTheStairs)

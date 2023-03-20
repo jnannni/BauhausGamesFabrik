@@ -147,11 +147,6 @@ title: TheAnxious_Questions
 -> He is too much for me.
 ===
 
-title: TheUndefinedObject
----
-<<set $putintheinventory10 to true>> //this is the object for the 7th part of the Dreamworld (The Frozen Village)
-===
-
 title: TheGeek
 ---
 <<if visited_count("TheGeek") < 1>>
@@ -399,19 +394,6 @@ Magnolia: (I was sure the dog was not real!)
   <<set $trigger_TheDog to true>> //triggers the animation of Magnolia walking to a point and then triggering the level
 ===
 
-title: TheBotanicalGarden
----
-//enter the botanical gardens
-//you get some kind of a clue there, about plants
-//OBJECT 006
-Magnolia: (Plants calm me down.)
-Magnolia: (They breathe, and they live so quietly.)
-Magnolia: (I have never been in a botanical garden.)
--> Enter.
- <<set $enterthegarden to true>>
--> Don't enter.
-===
-
 //WE ARE NOW IN THE BOTANICAL GARDEN
 
 title: TheGardener
@@ -545,16 +527,6 @@ title: WildDaisy
  Magnolia: (Oh look, a daisy!)
  Magnolia: (It's a beauty.)
 <<endif>>
-===
-
-title: TheGardenExit
----
-Magnolia: (If it was possible, I would stay here forever.)
-Magnolia: (Sadly it has opening and closing hours.)
-Magnolia: (And doesn't have a bed.)
--> Leave.
- <<set $exitthegarden to true>>
--> Stay a little longer.
 ===
 
 title: TheMuseum

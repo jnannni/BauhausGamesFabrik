@@ -22,6 +22,7 @@ public class NPCInteractable : MonoBehaviour
     public Material outlineShader;
     private Shader defaultShader;    
     private StudioEventEmitter emitter;
+    private bool isInTheRange;
 
     public bool interactable;    
     public NPCState npcState;
@@ -48,11 +49,21 @@ public class NPCInteractable : MonoBehaviour
         //emitter.Play();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        isInTheRange = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isInTheRange = false;
+    }
+
     void Update()
     {        
         isPressed = Input.GetKeyDown(KeyCode.K);
         distance = Vector2.Distance(target.transform.position, this.gameObject.transform.position);
-        if (distance < minDist && interactable && !isDialogueRunning.initialValue)
+        if (isInTheRange && interactable && !isDialogueRunning.initialValue)
         {
             this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = outlineShader.shader;
             //arrowAnimator.SetBool("showArrow", true);

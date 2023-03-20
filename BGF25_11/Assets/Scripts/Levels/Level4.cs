@@ -60,6 +60,7 @@ public class Level4 : MonoBehaviour
 
         if (trigger_TheChurch)
         {
+            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
             SceneManager.LoadScene(nameOfTheScene);
         }
 
@@ -70,6 +71,7 @@ public class Level4 : MonoBehaviour
             player.transform.position = insideTheChurch.transform.position;
             StartCoroutine(fadeLayer.FadeOut());
             isInsideTheChurch = true;
+            player.transform.localScale = new Vector3(1.4f, 1.4f, player.transform.localScale.z);
         }
 
         if (putintheinventory002)

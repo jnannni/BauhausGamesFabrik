@@ -14,10 +14,20 @@ public class Level7 : MonoBehaviour
     private bool enterthemuseum;
     private bool exitthemuseum;
     private bool putintheinventory007;
-    private bool enterthegarden;
-    private bool exitthegarden;
+    private bool takethefeather;
+    private bool getclose;
 
     [SerializeField] private string nameOfTheScene;
+    [SerializeField] private InventoryItem item006;
+    [SerializeField] private InventoryItem item007;
+    [SerializeField] private InventoryItem simpleFeather;
+    [SerializeField] private GameObject insideOfTheMuseum;
+    [SerializeField] private GameObject outsideOfTheMuseum;
+    [SerializeField] private GameObject player;
+
+    private PhysicalInvetoryItem addToInventory;
+    private bool isInsideOfTheMuseum;
+    private FadeLayer fadeLayer;
 
     private void Awake()
     {
@@ -28,6 +38,8 @@ public class Level7 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fadeLayer = FindObjectOfType<FadeLayer>();
+        isInsideOfTheMuseum = false;
         dialogueRunner.StartDialogue("TheMuseumCorner");
     }
 
@@ -35,11 +47,52 @@ public class Level7 : MonoBehaviour
     void Update()
     {
         variableStorage.TryGetValue("$trigger_TheDog", out trigger_TheDog);
-        variableStorage.TryGetValue("$tputintheinventory006", out putintheinventory006);
+        variableStorage.TryGetValue("$putintheinventory006", out putintheinventory006);
         variableStorage.TryGetValue("$enterthemuseum", out enterthemuseum);
         variableStorage.TryGetValue("$exitthemuseum", out exitthemuseum);
         variableStorage.TryGetValue("$putintheinventory007", out putintheinventory007);
-        variableStorage.TryGetValue("$tenterthegarden", out enterthegarden);
-        variableStorage.TryGetValue("$exitthegarden", out exitthegarden);
+        variableStorage.TryGetValue("$takethefeather", out takethefeather);
+        variableStorage.TryGetValue("$getclose", out getclose);
+
+        if (trigger_TheDog)
+        {
+            SceneManager.LoadScene(nameOfTheScene);
+        }
+
+        if (putintheinventory006)
+        {
+            addToInventory.AddingItemFromDialogue(item006);
+        }
+
+        if (enterthemuseum && !isInsideOfTheMuseum)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = insideOfTheMuseum.transform.position;
+            isInsideOfTheMuseum = true;
+            StartCoroutine(fadeLayer.FadeOut());
+        }
+
+        if (exitthemuseum && isInsideOfTheMuseum)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = outsideOfTheMuseum.transform.position;
+            isInsideOfTheMuseum = false;
+            StartCoroutine(fadeLayer.FadeOut());
+        }
+
+        if (putintheinventory007)
+        {
+            addToInventory.AddingItemFromDialogue(item007);
+        }
+
+        if (takethefeather)
+        {
+            addToInventory.AddingItemFromDialogue(simpleFeather);
+        }
+
+        if (getclose)
+        {
+            //player.transform.position = Vector2.MoveTowards();
+        }
     }
 }

@@ -45,7 +45,7 @@ public class PhysicalInvetoryItem : MonoBehaviour
         variableStorage.TryGetValue("$takethekey", out takethekey);
         if (takethekey)
         {
-            SceneManager.LoadScene("DreamWorld");
+            SceneManager.LoadScene("DreamWorld1");
         }
     }
 

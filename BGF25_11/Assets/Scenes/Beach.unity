@@ -9879,6 +9879,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaredCatAnimator: {fileID: 0}
+  item002: {fileID: 0}
+  player: {fileID: 0}
+  catCreature: {fileID: 0}
+  insideTheChurch: {fileID: 0}
   nameOfTheScene: 
 --- !u!4 &874357874
 Transform:
@@ -19732,6 +19736,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 547196678478095670, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 547196678478095670, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -22318,7 +22326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1772257733
 Transform:
   m_ObjectHideFlags: 0
