@@ -27,6 +27,7 @@ public class TheWorkerQuarters : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogueRunner.StartDialogue("TheWorkerQuarters");
         playerCurrentPosition = player.transform.position;
         playerStartPosition = playerPosition.transform.position;
     }
@@ -47,6 +48,7 @@ public class TheWorkerQuarters : MonoBehaviour
         if (changeCameraSmoothing.initialValue)
         {
             cam.smoothing = 0.1f;
+            changeCameraSmoothing.initialValue = false;
         }
     }    
 }

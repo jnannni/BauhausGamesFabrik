@@ -38,6 +38,7 @@ public class Level7 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogueRunner.StartDialogue("TheMuseumCorner");
         fadeLayer = FindObjectOfType<FadeLayer>();
         isInsideOfTheMuseum = false;
         dialogueRunner.StartDialogue("TheMuseumCorner");

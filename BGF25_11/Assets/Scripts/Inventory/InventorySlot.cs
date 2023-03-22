@@ -26,6 +26,7 @@ public class InventorySlot : MonoBehaviour, ISelectHandler, IDeselectHandler
         {
             itemName.text = thisItem.itemName;
         }
+        //add names
         if (thisItem && SceneManager.GetActiveScene().name == "SampleScene")
         {
             currentImage = thisItem.itemImage;
