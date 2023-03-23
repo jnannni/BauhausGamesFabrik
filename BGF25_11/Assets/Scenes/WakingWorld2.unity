@@ -2298,8 +2298,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 171.88
-  m_PointLightOuterAngle: 171.88
+  m_PointLightInnerAngle: 179.06
+  m_PointLightOuterAngle: 243.01
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 5.1713285
   m_ShapeLightParametricSides: 5
@@ -8963,6 +8963,7 @@ GameObject:
   - component: {fileID: 551600532}
   - component: {fileID: 551600531}
   - component: {fileID: 551600530}
+  - component: {fileID: 551600537}
   m_Layer: 0
   m_Name: downhill_sprite001_1
   m_TagString: Untagged
@@ -9193,6 +9194,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!61 &551600537
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551600528}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.7759914, y: 7.2928658}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5040952, y: -0.09191716}
+    oldSize: {x: 37.88853, y: 19.79}
+    newSize: {x: 37.88853, y: 20.61}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3995934, y: 1.0425186}
+  m_EdgeRadius: 0
 --- !u!1001 &558476558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17052,8 +17079,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 171.88
-  m_PointLightOuterAngle: 171.88
+  m_PointLightInnerAngle: 197.66
+  m_PointLightOuterAngle: 247.65
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 5.1713285
   m_ShapeLightParametricSides: 5
@@ -17451,11 +17478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.29
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.18
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17822,7 +17849,7 @@ SpriteRenderer:
   m_SortingLayerID: 390121413
   m_SortingLayer: -1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: b6fcbadf643444a72a61e56f9a687c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2df6b319fb674409a34c6f283b221eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -31585,7 +31612,7 @@ SpriteRenderer:
   m_SortingLayerID: 390121413
   m_SortingLayer: -1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 90031e5418676489880412f77768d32a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1ae5f82e839d431ea9deabcdef1bee5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

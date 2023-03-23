@@ -71,6 +71,7 @@ public class Level7 : MonoBehaviour
             player.transform.position = insideOfTheMuseum.transform.position;
             isInsideOfTheMuseum = true;
             StartCoroutine(fadeLayer.FadeOut());
+            player.transform.localScale = new Vector3(1.8f, 1.8f, player.transform.localScale.z);
         }
 
         if (exitthemuseum && isInsideOfTheMuseum)
@@ -79,6 +80,7 @@ public class Level7 : MonoBehaviour
             player.transform.position = outsideOfTheMuseum.transform.position;
             isInsideOfTheMuseum = false;
             StartCoroutine(fadeLayer.FadeOut());
+            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
         }
 
         if (putintheinventory007)

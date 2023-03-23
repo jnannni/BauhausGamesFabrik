@@ -1732,7 +1732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114477543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.274286, y: -29.780216, z: 0.41585034}
+  m_LocalPosition: {x: 10.274286, y: -27.52, z: 0.41585034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1804,18 +1804,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.68}
+  m_Offset: {x: 0, y: -0.0013027191}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.580472, y: 5.36}
+    oldSize: {x: 2.580472, y: 3.1000001}
     newSize: {x: 2.580472, y: 5.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.580472, y: 5.36}
+  m_Size: {x: 2.580472, y: 5.092304}
   m_EdgeRadius: 0
 --- !u!1 &131053120
 GameObject:
@@ -6616,7 +6616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e89473b5f5db4f7a9e24660f45a8442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfTheScene: 
+  nameOfTheScene: DreamBlocks
   player: {fileID: 1496670051}
   inFrontOfAntique: {fileID: 2089767331}
   insideOfAntique: {fileID: 1523786971}
@@ -32894,6 +32894,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1779844303}
   - component: {fileID: 1779844302}
+  - component: {fileID: 1779844306}
+  - component: {fileID: 1779844305}
+  - component: {fileID: 1779844304}
+  - component: {fileID: 1779844307}
   m_Layer: 0
   m_Name: car cleaner
   m_TagString: Untagged
@@ -32942,17 +32946,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1714344570, guid: f324bb0fd91174cbc89ec69f4cf50db3, type: 3}
+  m_Sprite: {fileID: 1670578118, guid: a12665feebea048afa636121b798770f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.91755736, y: 1.6046667}
+  m_Size: {x: 1.2233334, y: 1.1333333}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1779844303
 Transform:
   m_ObjectHideFlags: 0
@@ -32961,13 +32965,108 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779844301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.89, y: -47.97, z: 0}
+  m_LocalPosition: {x: -20.72, y: -49.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1779844304
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779844301}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.26777118, y: 0.23843098}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.24, y: 1.1333333}
+    newSize: {x: 1.2233334, y: 1.1333333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7755424, y: 1.7898045}
+  m_EdgeRadius: 0
+--- !u!61 &1779844305
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779844301}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.34551007, y: 0.05703926}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.24, y: 1.1333333}
+    newSize: {x: 1.2233334, y: 1.1333333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5489799, y: 0.11407852}
+  m_EdgeRadius: 0
+--- !u!95 &1779844306
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779844301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2897fe21b461547d59a3955dd7f6c83d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1779844307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779844301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1112be88807642508c6b5fe40c0a609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueStartingNode: TheCarCleaner
+  animator: {fileID: 1779844306}
+  arrowAnimator: {fileID: 0}
+  isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
+  outlineShader: {fileID: 2100000, guid: 71e27e131c8a641eaa1d5fe7f37d3bfb, type: 2}
+  interactable: 1
+  npcState: 0
+  npcIndex: 0
+  npcName: Car Cleaner
+  target: {fileID: 1496670051}
+  minDist: 5
 --- !u!1 &1781232493
 GameObject:
   m_ObjectHideFlags: 0

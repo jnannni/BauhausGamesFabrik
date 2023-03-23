@@ -64,6 +64,7 @@ public class Level5 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = true;
             variableStorage.SetValue("$exittheantique", false);
+            player.transform.localScale = new Vector3(1.7f, 1.7f, player.transform.localScale.z);
         }
 
         if (putintheinventory003)
@@ -91,6 +92,7 @@ public class Level5 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = false;
             variableStorage.SetValue("$entertheantique", false);
+            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
         }
     }
 }
