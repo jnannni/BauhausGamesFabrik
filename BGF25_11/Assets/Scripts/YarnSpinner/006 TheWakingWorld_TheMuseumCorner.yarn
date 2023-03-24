@@ -4,14 +4,12 @@
 title: TheMuseumCorner
 ---
 //variables for UNITY
-<<set $trigger_TheDog to false>> //trigger to the Dreamworld part 3
+<<set $goinsidethestation to false>> //load the next level(TheTrainStation)
 <<set $putintheinventory006 to false>> //its a plant from the garden, I model it, but Paul draws the icon for the inventory
 <<set $enterthemuseum to false>> //enter the museum
 <<set $exitthemuseum to false>> //exit the museum
 <<set $putintheinventory007 to false>> //a gift we get from The Bride, only shows up in the inventory
-<<set $enterthegarden to false>> //enter the garden
-<<set $exitthegarden to false>> //exit the garden
-<<set $takethefeather to false>> //it's a simple feather, puts it in the inventory, it is on the ground
+<<set $takethefeather to false>> //it's a simple feather, puts it in the inventory
 <<set $getclose to false>> //plays in=game animation of Magnolia moving toward a spot
 
 //variables for in YARN
@@ -329,7 +327,7 @@ title: TheHappyKid
  The Happy Kid: He could have been any dog you like.
  Magnolia: In which way?
  The Happy Kid: He even changed colors.
- The Happy Kid: That's why I called him Camellion. 
+ The Happy Kid: That's why I called him Chameleon. 
  The Happy Kid: Cam, for short.
  Magnolia: Okay,but what did he look like? Was he small?
  The Happy Kid: He was small when he needed to escape underneath the garden door.
@@ -358,7 +356,7 @@ title: TheHappyKid
 title: TheHappyKid_Questions
 ---
 -> I changed my mind.
--> Did you see in which direction did your dog run away?
+-> Did you see in which direction your dog run away?
  Magnolia: (I feel like this dog might bring me somewhere I need to be.)
  The Happy Kid: He is fast as light.
  Magnolia: So no clue?
@@ -388,10 +386,17 @@ Magnolia: (I was sure the dog was not real!)
   <<wait 1>>
   Magnolia: (That was for sure an animal.)
   Magnolia: (But I am not so sure it was a dog.)
-  Magnolia: (Is there a hole there.)
- -> I am not going in there.
- -> Follow the animal.
-  <<set $trigger_TheDog to true>> //triggers the animation of Magnolia walking to a point and then triggering the level
+  <<wait 0.5>>
+  Magnolia: (It's nothing.)
+  Magnolia: (It's just a pathway to the station.)
+  <<jump TheStation>>
+===
+
+title: TheBotanicalGarden
+---
+Magnolia: (Plants calm me down.)
+Magnolia: (They breathe, and they live so quietly.)
+Magnolia: (I have never been in a botanical garden.)
 ===
 
 //WE ARE NOW IN THE BOTANICAL GARDEN
@@ -580,9 +585,6 @@ title: TheBride
  The Bride: Maybe one day they will put our photos in a museum.
  <<jump TheBride_Questions>>
 <<endif>>
-
--> Accept the gift.
- <<set $putintheinventory007 to true>>
 ===
 
 title: TheBride_Questions
@@ -692,4 +694,21 @@ Magnolia: (Why do they all seem to belong to me?)
 -> One more thing.
 -> Leave.
  <<set $exitthemuseum to true>>
+===
+
+//ADDITIONAL NODES
+
+title: TheEnd2
+---
+Magnolia: (Nope.)
+Magnolia: (Inland it's even wilder then in the mountains.)
+===
+
+title: TheStation
+---
+ Magnolia: (It's the only way to go.)
+ Magnolia: (But I don't have any money, nor train tickets.)
+  -> Go inside the station.
+  <<set $goinsidethestation to true>>
+  -> Stay.
 ===

@@ -4,7 +4,6 @@ title: TheGraveYard
 <<set $putintheinventory002 to false>> //you approach an object in the church, I'm still not sure what it is (It is used for 8TH DREAMWORLD)
 <<set $enterthechurch to false>> // you enter the church
 <<set $trigger_TheChurch to false>> //second transition to the dreamworld
-<<set $searchforanitem to false>> //should maybe open like a store inventory, where we could choose some interesting object?
 <<set $scurryawayanimation to false>> // trigger for the animation for the cat creature paul made
 
 //variables for in YARN
@@ -382,10 +381,20 @@ Magnolia: (But I don't want to go back.)
 
 title: TheCrash
 ---
-Magnolia: (I can't go there.)
-Magnolia: (It seems there was an accident.)
-Magnolia: (But it doesn't look recent.)
- -> Leave it.
+<<if visited_count("TheCrash") < 1>>
+ Magnolia: (I can't go there.)
+ Magnolia: (It seems there was an accident.)
+ Magnolia: (But it doesn't look recent.)
+  -> Leave it.
+    Magnolia: (It's like this city is closing on itself.)
+    Magnolia: (There's no way to go forward.)
+    Magnolia: (How do I find that star then?)
+    <<wait 0.8>>
+    Magnolia: (What am I even thinking?!)
+<<else>>
+ Magnolia: (If I want to...)
+ Magnolia: (If I want to be able to explore the city, I need to find another way.)
+<<endif>>
 ===
 
 title: TheAngel
@@ -393,6 +402,9 @@ title: TheAngel
 <<if visited_count("TheAngel") < 1>>
  Magnolia: (They always scared me.)
  Magnolia: (I read somewhere that there are tears in their eyes sometimes.)
+ <<wait 0.5>>
+ Magnolia: (However, these kidn of things make me believe that there might be something out there.)
+ Magnolia: (How do I make myself dream the same dream?)
 <<elseif visited_count("TheAngel") == 1>>
  Magnolia: (I love patina-colored statues.)
  Magnolia: (It traces back every day of rain, sun, and air influencing its surface.)
@@ -445,15 +457,6 @@ title: AnyGrave02
 <<endif>>
 ===
 
-title: TheLittleStore
----
-Magnolia: (There's a lot of little trinkets.)
-Magnolia: (I wonder if I could find something interesting.)
- -> Not now.
- -> Search.
-  <<set $searchforanitem to true>>
-===
-
 title: TheCatCreature
 ---
 Magnolia: (It doesn't like me.)
@@ -470,7 +473,7 @@ title: TheChurch
  (It looks like it's looking at me.)
   -> Enter the church through the back door.
    <<set $enterthechurch to true>>
-  -> I want to live. No thanks.
+  -> (I want to live. No thanks.)
 <<else>>
  <<if visited_count("TheChurch") < 1>>
  Magnolia: (I heard our ancestors died here.)
@@ -479,7 +482,7 @@ title: TheChurch
   -> Get in.
     Magnolia: (It's locked.)
  <<else>>
-  Magnolia: It's locked.
+  Magnolia: (It's locked.)
  <<endif>>
 <<endif>>
 //the trigger is inside the church, there is a small map. TRIGGER 001
@@ -548,5 +551,104 @@ title: TheChurchTrigger
  <<else>>
   Magnolia: (I'm just going to ignore it.)
  <<endif>>
+<<endif>>
+===
+
+//ADDITIONAL NOTES
+
+title: TheKidsPlay
+---
+<<if visited_count("TheKidsPlay") < 1>>
+ Magnolia: (I don't ever remember playing this game.)
+ Magnolia: (And yet somethow, I know what to do.)
+<<else>>
+ Magnolia: (There's a lot of kids drawings around here.)
+<<endif>>
+===
+
+title: TheNumber7
+---
+<<if visited_count("TheNumber7") < 1>>
+ Magnolia: (The door is locked.)
+ Magnolia: (I've never heard of any of these names.)
+ Magnolia: (I wonder what kind of people live here.)
+<<elseif visited_count("TheNumber7") == 1>>
+ Magnolia: (Sunrays...)
+ Magnolia: (Doomdays...)
+ Magnolia: (Who is called Starlords?)
+<<else>>
+ Magnolia: (I'm not ringing any of those names.)
+<<endif>>
+===
+
+title: TheTable
+---
+<<if visited_count("TheTable") < 1>>
+ Magnolia: (It's like one of those long tables people keep at their summer houses in Italy.)
+ Magnolia: (They would invite their family, neighbours, and accidental passerby to dine together.)
+ <<wait 0.5>>
+ Magnolia: (I might have watched a movie about it.)
+ <<wait 0.5>>
+ Magnolia: (Why is no one here?)
+<<else>>
+ Magnolia: (The table is ready, and there is not a soul here.)
+<<endif>>
+===
+
+title: TheManHole01
+---
+ Magnolia: (Oh this one is designed differently.)
+ Magnolia: (There is something written on it.)
+  -> Read it.
+   TheManHole: THE
+   Magnolia: (That's all that is written?)
+===
+
+title: TheWilderness04
+---
+ Magnolia: (I'm close to the railway.)
+ Magnolia: (I can here the distant sound of a train.)
+===
+
+title: Graffiti02
+---
+<<if visited_count("Graffiti02") < 1>>
+ Magnolia: (It's a bit agressive.)
+ Magnolia: (Is this some kind of conceptual art?)
+<<else>>
+ Magnolia: (I stay away from conspiracy theories.)
+<<endif>>
+===
+
+title: TheWilderness05
+---
+//inside the Graveyard
+Magnolia: (The fog is really thickly covering the river.)
+Magnolia: (I can it flowing.)
+<<wait 0.5>>
+Magnolia: (And the train is close.)
+===
+
+title: TheBench
+---
+<<if visited_count("TheBench") < 1>>
+ Magnolia: (I kind of expected to see someone feeding the crows or something.)
+ Magnolia: (It looks even spookier when it's so quiet.)
+ <<wait 0.2>>
+ Magnolia: (If I sat down I would feel like something would creep up to me from behind.)
+<<else>>
+ Magnolia: (This is not the right place to rest.)
+<<endif>>
+===
+
+title: TheChurchWindow
+---
+<<if visited_count("TheChurchWindow") < 1>>
+Magnolia: (The sun passing through these stained-glass windows create interesting shapes on the floor.)
+Magnolia: (Could I have something like this in my house?)
+<<wait 0.5>>
+Magnolia: (Wait, is that sun?)
+<<else>>
+ Magnolia: (I haven't seen sun at all outside.)
 <<endif>>
 ===

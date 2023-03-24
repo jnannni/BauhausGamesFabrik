@@ -23,6 +23,15 @@ Magnolia: (Did this city suddenly become more gray?)
 Magnolia: (There's no sun at all today.)
 Magnolia: (Why did I go out again?)
 Magnolia: (Ah groceries...The fridge is empty.)
+===
+
+title: Restart
+---
+<<wait 1>>
+Magnolia: (I feel the same heaviness.)
+Magnolia: (Even the city seems unchanged.)
+Magnolia: (Did the days pass?)
+Magnolia: (And I again don't have any food.)
 //new objective: find a supermarket
 ===
 title: TheHouseMan
@@ -139,6 +148,7 @@ title: TheStairs
   -> Go down the stairs.
     //Here should be a code that lets you go to the next part.
     <<set $godownthestairs to true>>
+    <<set $godownthestairs to false>>
   -> Rethink.
 <<else>>
  Magnolia: (They seem like they will crumble under my feet.)
@@ -240,4 +250,84 @@ title: TheSuperMarket
    -> Enter.
     //There should be a script to restart the game.
     <<set $gobackhome to true>>
+===
+
+title: TheWilderness
+---
+<<if visited_count("TheWilderness") < 1>>
+ Magnolia: (I've never been in this nneighbourhood before.)
+ Magnolia: (Even though my aunt used to live here, I never visited her.)
+ <<wait 0.5>>
+ Magnolia: (I don't really know why.)
+ Magnolia: (Maybe my parents didn't like her.)
+ <<wait 0.5>>
+ Magnolia: (All the relationships I had...HAVE! They seem so blurry to me.)
+ <<wait 0.5>>
+ Magnolia: (I never knew there is so much wilderness so close to the city.)
+ Magnolia: (I can see the mountains up there beneath the fog and clouds.)
+<<else>>
+ Magnolia: (I can't pass there.)
+<<endif>>
+===
+
+title: TheWilderness02
+---
+<<if visited_count("TheWilderness02") < 1>>
+ Magnolia: (I can see the coast from here.)
+ Magnolia: (And all that wilderness in between the city and the sea.)
+ Magnolia: (How does one reach there?)
+ <<wait 0.5>>
+ Magnolia: (It's curious that my parents have never taken me to that little amusement park island.)
+<<else>>
+ Magnolia: (I would probably die trying to cross all those rocks and woods.)
+<<endif>>
+===
+
+title: TheLookOut
+---
+<<if visited_count("TheLookOut") < 1>>
+ Magnolia: (From here I can see almost the whole city.)
+ Magnolia: (It seems so big and so small at the same time.)
+ <<wait 0.5>>
+ Magnolia: (There's the railroad.)
+ Magnolia: (It goes through the middle of the city, splitting it in half.)
+<<else>>
+ Magnolia: (I'm not going to start jumping on the roofs.)
+<<endif>>
+===
+
+title: TheWilderness03
+---
+//it's in the downhill
+<<if visited_count("TheWilderness03") < 1>>
+ Magnolia: (From here I can only see the trees and the rocks.)
+ Magnolia: (I can't go there.)
+<<else>>
+ Magnolia: (Nope.)
+<<endif>>
+===
+
+title: TheOtherSide
+---
+<<if visited_count ("TheOtherSide") < 1>>
+ Magnolia: (I can't pass through here.)
+ <<wait 0.5>>
+ Magnolia: (I think I see a church there.)
+<<else>>
+ Magnolia: (I don't want to jump over the fence.)
+<<endif>>
+===
+
+title: TheRoadClosed
+---
+<<if visited_count("TheRoadClosed") < 1>>
+ Magnolia: (It's dangerous walking over construction sites.)
+<<else>>
+ Magnolia: (I have no reason to go there.)
+<<endif>>
+===
+
+title: StairsBack
+---
+Magnolia: (I can't go back without groceries.)
 ===

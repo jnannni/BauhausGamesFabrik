@@ -1,0 +1,333 @@
+title: TheDreamworld_04
+---
+//object: the comb with the eyes turns into a jar of what looks like fireflies
+//and they lit up some kind of candles and that moves the giants
+
+//variables for UNITY
+<<set $tryflamingsword to false>>
+<<set $camerashaking to false>> //both camera shakes and the buzzing sound plays
+<<set $magnoliawalksforward to false>>
+<<set $priestshows to false>>
+
+//variables for in YARN
+<<set $firstanswer to false>>
+<<set $secondanswer to false>>
+<<set $thirdanswer to false>>
+
+
+Magnolia: (That dust burned my hands.)
+<<wait 1>>
+Magnolia: (It hurts, but I don't have anything to wrap them with.)
+<<wait 2>>
+Magnolia: (So there is no way to the factory.)
+<<wait 0.5>>
+Magnolia: (I could use this dream to go there.)
+<<set $magnoliawalksforward to true>>
+<<wait 1>>
+Magnolia: (Wow.)
+Magnolia: (They are giants.)
+<<wait 0.5>>
+Magnolia: (Am I even allowed to be here.)
+Magnolia: (It's like a museum of their gods...or a shirne.)
+<<wait 0.5>>
+Magnolia: (I definitely shouldn't be here.)
+===
+
+title: TheIceSpot
+---
+<<if visited_count("TheIceSpot") < 1>>
+Magnolia: (A perfect pair of ice skates.)
+Magnolia: (I guess I could use them to slide over the ice.)
+<<wait 0.5>>
+Magnolia: (Honestly it seems like it would be kind of fun.)
+Magnolia: (I never tried it before.)
+Magnolia: (Unfortunately the laces are missing. I can't do it without them.)
+<<else>>
+Magnolia: (I can't do it without the laces. It's dangerous.)
+<<endif>>
+===
+
+title: TheIceSpot_Laces
+---
+//when you choose the laces from the inventory
+Magnolia: (Why is everything so magical here.)
+<<wait 0.5>>
+Magnolia: (Maybe because it's a dream Magnolia, duh.)
+===
+
+title: GroupOfSouls
+---
+<<if visited_count("GroupOfSouls") < 1>>
+ Magnolia: (Suddenly this dream doesn't seem so empty.)
+ Magnolia: (I wonder what they are talking about.)
+ <<wait 0.5>>
+ Souls: %*&%*$*$%@$*%&@^%@%$@^*@%$^%&*&$@*^@*$!
+ Souls: @$*%&@^%@%$@^*@%?
+ Souls: &*&$@*^@.
+ <<wait 0.5>>
+ Magnolia: (I don't understand anything.)
+<<else>>
+ Magnolia: (They all are looking at me, and yet they don't acknowledge me.)
+<<endif>>
+===
+
+title: DancingwithFireflies
+---
+//her pocket starts buzzing she needs to open inventory to check it
+<<if visited_count("DancingwithFireflies") < 1>>
+<<set $camerashaking to true>> //both camera shakes and the buzzing sound plays
+<<wait 0.5>>
+Magnolia: (Something is vibrating in my pockets.)
+Magnolia: (I didn't bring my phone with me tho. I left it on the nightstand.)
+<<wait 0.5>>
+Magnolia: (I'm getting nervous.)
+Magnolia: (It's sounds like a swarm of hornets.)
+<<else>>
+Magnolia: (There's some kind of energy around here.)
+<<endif>>
+===
+
+title: DiscoverTheFireFlies
+---
+//this node activates when you click on the fireflies in the inventory
+Magnolia: (I never managed to catch those fireflies. How are they in my pocket?)
+Magnolia: (Do these also scream?)
+===
+
+title: Giant1
+---
+<<if visited_count("Giant1") < 1>>
+Magnolia: (This one looks like a christian representation of a devil.)
+Magnolia: (I wonder...)
+The Devil: &&*$*&$&%%*$&%$*&$*@$@*%^@*%!
+Magnolia: AAAAAAH!
+Magnolia: (They speak?!)
+The Devil: Why wouldn't we?
+<<wait 0.5>>
+Magnolia: You speak my language?
+The Devil: There are no languages. Only unwilling to understand.
+Magnolia: Okay.
+<<wait 0.5>>
+The Devil: Who let you wander here?
+<<jump Giant1_Answers>>
+<<else>>
+The Devil: Who let you wander here?
+<<jump Giant1_Answers>>
+<<endif>>
+===
+
+title: Giant1_Answers
+---
+ -> "Uh no one. I got a little bit lost." <<if $firstanswer is false>>
+  The Devil: You were. But you are not anymore.
+  The Devil: I'm just not sure who helped you.
+  Magnolia: No one helped me. I'm all alone. My family died.
+  The Devil: Your family died?
+  Magnolia: Yes, in a freaky accident. I don't remember it well.
+  Magnolia: You see, I have amnesia.
+  <<wait 0.5>>
+  The Devil: Curious.
+  The Devil: Crowley was always so creative.
+  The Devil: You should go talk to him.
+  Magnolia: Crowley? Who is he?
+  The Devil: You'll see him.
+  <<set $firstanswer to true>>
+ -> "Is it forbidden?" <<if $secondanswer is false>>
+  The Devil: For you, yes.
+  Magnolia: Me?! Why me? Is it because I come from the waking world?
+  The Devil: Hahahahaahh!
+  Magnolia: ?
+  The Devil: You really are lost.
+  <<set $secondanswer to true>>
+ -> "I'm sorry. I will go." <<if $thirdanswer is false>>
+  The Devil: Sorry is not enough.
+  The Devil: But it seems someobody else thinks it is.
+  The Devil: It has to be seen.
+  Magnolia: What do you mean?
+  The Devil: ...
+  <<set $thirdanswer to true>>
+===
+
+title: Giant2
+---
+<<if visited_count("Giant2") < 1>>
+Magnolia: (I can't find the Crowley person.)
+Magnolia: (Maybe he is like a fallen star... Doesn't exist.)
+Crowley: We both exist.
+Magnolia: AHHHHH!
+<<wait 0.2>>
+Magnolia: (How am I even surprised anymore?)
+Crowley: You scream like the fairies you have in your pocket.
+Magnolia: Those are fairies?!
+Magnolia: I thought they were fireflies.
+Crowley: It's the same thing.
+Magnolia: Our fareflies don't scream.
+Crowley: They do. You just don't listen to them.
+<<wait 0.5>>
+Magnolia: I guess I'll let them go.
+Crowley: I wouldn't do that if I were you. They are awfully magical.
+Magnolia: You mean they could kill me?
+Crowley: Certainly, but that was not what I meant.
+Crowley: They can come useful.
+Magnolia: Do you know why I'm here?
+Crowley: Do you?
+<<jump Giant2_Questions>>
+<<else>>
+Crowley: So, still unsure of why you are here?
+<<jump Giant2_Questions>>
+<<endif>>
+===
+
+title: Giant2_Questions
+---
+-> Tell Crowley about your family and the star.
+ Magnolia: (I already got burned once. I shouldn't tell about my goal.)
+ <<wait 0.5>>
+ Crowley: Your thoughts are awfully loud.
+ Crowley: And yes, you shouldn't speak of such things.
+ Magnolia: (He can read my mind?!)
+ Magnolia: (I need to be careful.)
+ Crowley: It is not me who you should be careful of.
+ Magnolia: Who is it?
+ Crowley: I helped too much already.
+-> Ask Crowley if he knows where the star is.
+ Crowley: I will not tell you that.
+ Crowley: They are already angry at me.
+ Magnolia: Who?
+ Crowley: You wouldn't know. Anyway, that rabbit feather you have is very useful.
+ Magnolia: How do you know about that?!
+ Crowley: When you are this tall you see everything.
+ Crowley: Even that little island in the waking world.
+ Crowley: It seems like it shines especially bright tonight.
+-> Ask Crowley if he knows who you are.
+ Magnolia: Do you know of me?
+ Crowley: Why do you ask me that.
+ Magnolia: You talk like you know me.
+ Crowley: I might.
+ Crowley: But you are the one going around asking about the things you shouldn't ask.
+ Crowley: I think everyone knows you here.
+-> Crowley is scary, get away.
+===
+
+title: OutofTheGiant
+---
+<<if visited_count("ThePriestSoul") < 1>>
+The Watcher01: What are you doing here?
+<<wait 0.5>>
+Magnolia: Who is talking?
+The Watcher01: Me.
+Magnolia: Who is me? I don't see you.
+The Watcher01: That's because you only use your eyes.
+Magnolia: What should I be using?!
+<<wait 0.5>>
+The Watcher02: If I have to tell you, there's no use.
+<<set $priestshows to true>>
+<<wait 1>>
+The Watcher02: Are you still blind?
+Magnolia: I was never blind. You were just hidden.
+The Watcher02: Hidden in the plain sight, as you say.
+Magnolia: Okay, if that's what they say.
+The Watcher02: You seem impatient. Where are you headed to?
+<<jump OutofTheGiant_Questions>>
+<<else>>
+<<set $priestshows to true>>
+<<wait 0.5>>
+The Watcher02: You seem impatient. Where are you headed to?
+<<jump OutofTheGiant_Questions>>
+<<endif>>
+===
+
+title: OutofTheGiant_Questions
+---
+-> "Is your name Crowley?"
+ The Watcher02: Me? Crowley? HAHAHAHAAHAHH!
+ The Watcher02: I wish.
+ <<set $priestshows to false>>
+-> Tell him about the star.
+ Magnolia: (I'm not sure this is a good idea. But I need to try.)
+ Magnolia: I'm looking for a fallen star.
+ The Watcher02: Oh really? Who would have guessed.
+ The Watcher02: And who says that star belongs to you?
+ Magnolia: Does it belong to anyone?
+ The Watcher02: It belongs to itself.
+ Magnolia: So it's noones. That means anyone can claim it.
+ The Watcher02: Can you claim a living thing?
+ Magnolia: People have pets.
+ The Watcher02: Who are these people?
+ Magnolia: Uh...normal people.
+ The Watcher02: That doesn't seem normal.
+ <<wait 0.5>>
+ The Watcher02: Anyway, just let the star go.
+ Magnolia: I can't.
+ <<set $priestshows to false>>
+-> Don't tell him about the star, but still try to ask about the way.
+ Magnolia: I'm a wanderer. I write stories about my adventures.
+ The Watcher02: You wandered too far.
+ Magnolia: I don't think so. 
+ The Watcher02: So what kind of adventure are you searching for?
+ Magnolia: Anythign unusual.
+ The Watcher02: I don't think it's a defined thing.
+ Magnolia: Has anything seem unsual to you?
+ The Watcher02: It's unusual to see YOU here.
+ Magnolia: Anything else?
+ The Watcher02: Not really.
+ <<wait 0.5>>
+ The Watcher02: I have to go.
+ <<set $priestshows to false>>
+-> Ask about the giants.
+ Magnolia: Is this some kind fo a museum for your gods?
+ The Watcher02: I don't know what a museum is.
+ Magnolia: Like a display of statues of your gods?
+ The Watcher02: Those are no statues. Those are our giants.
+ The Watcher02: You can check. They breathe.
+ Magnolia: How are they are alive and unmoving?
+ The Watcher02: They know of peace. Unlike you.
+ Magnolia: Oh.
+ <<wait 0.5>>
+ The Watcher02: The time is up.
+ <<set $priestshows to false>>
+-> Ignore him.
+ Magnolia: (He appears to be a trickster. I can't deal with that.)
+ <<wait 0.5>>
+ The Watcher02: Did the rabbit eat your tongue?
+ Magnolia: The rabbit?
+ The Watcher02: It's lair is in the factory.
+ Magnolia: I'm headed there.
+ The Watcher02: Then hurry up.
+ <<set $priestshows to false>>
+===
+
+title: ThePriestSoul
+---
+<<if visited_count("ThePriestSould") < 1>>
+ThePriest: &^$&*@&@$@%*%&^&@%@%$@%*...
+Magnolia: Are you a priest here?
+ThePriest: %&^&@%@%$&^$&*@&@$@%...
+Magnolia: Is that a yes?
+ThePriest: *@^$@%&$@*^@$^?
+Magnolia: Is your name Crowley by any chance?
+ThePriest: ...
+Magnolia: (I guess not.)
+Magnolia: I'm Magnolia, it was nice to meet you.
+Magnolia: I have to go.
+<<else>>
+Magnolia: They will not speak to me.
+<<endif>>
+===
+
+title: TheCandleStick
+---
+<<if $hascomb is true>>
+ Magnolia: (This looks like it should be burning.)
+ Magnolia: (I don't have any matches.)
+ Magnolia: (I could check if there's anything useful in my pockets.)
+<<else>>
+ Magnolia: (This seems like it should be burning.)
+  -> Try the flaming sword.
+   <<set $tryflamingsword to true>>
+   <<wait 1>>
+   Magnolia: (Yeah, it doesn't work.)
+   Magnolia: (It won't light it up.)
+  -> (I can't do anything about it.)
+<<endif>>
+===

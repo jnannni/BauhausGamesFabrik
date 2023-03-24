@@ -1,0 +1,167 @@
+﻿title: TheDreamworld_01
+---
+//variables for UNITY
+
+<<set $standup to false>>
+<<set $openInventory to false>>
+<<set $trigger_waking02 to false>> //this should also trigger the FIRST CUT SCENE
+
+//variables for in YARN
+<<set $hasClueD to false>>
+<<set $inspected to false>>
+
+Magnolia: (What has just happened?)
+Magnolia: (My head feels heavy.)
+Magnolia: (Did I pass out?)
+ -> Get up.
+ <<set $standup to true>>
+ //There should be an animation where the character gets up from the floor.
+ <<wait 2>>
+ Magnolia: (I never had a dream like this before.)
+ Magnolia: (Actually I don't remember any of my dreams.)
+ Magnolia: (Even as a child...)
+ <<wait 1>>
+ Magnolia: (My head REALLY feels fuzzy. I can't concentrate on my memories at all.)
+ <<wait 1>>
+ Magnolia: (How does one get out of a dream?)
+ //new objective: get out of the dream
+===
+
+title: Reflection
+---
+<<if $hasClueD is false>>
+ <<if visited_count("Reflection") < 1>>
+ Magnolia: (It's so hard to concentrate.)
+ <<wait 1>>
+ Magnolia: (Is that my face?)
+ -> Look into the water.
+   Magnolia: (I can't discern my features very well.)
+   Magnolia: (Have I been this tired?)
+       -> Stir the water.
+           Magnolia: (It looks like one of those instagram filters.)
+             -> Drop a pebble inside.
+                Magnolia: (Wait.) 
+                Magnolia: (Did the rock just turn into a key?)
+                Magnolia: (But I can't get it. It sunk.)
+                   <<set $hasClueD to true>>
+       -> Stop looking.
+        Magnolia: (I don't even want to see myself.)
+ <<else>>
+ Magnolia: (Water supposedly has calming effects.)
+ <<wait 0.5>>
+ Magnolia: (It just makes me nervous.)
+  -> Drop a pebble inside.
+                Magnolia: (Wait.) 
+                Magnolia: (Did the rock just turn into a key?)
+                Magnolia: (But I can't get it. It sunk.)
+                   <<set $hasClueD to true>> 
+ <<endif>>
+<<else>>
+ Magnolia: (The sound of it reminds me of a song.)
+ <<wait 0.5>>
+ Magnolia: (I don't know where from.)
+<<endif>>
+===
+
+title: TheDream
+---
+<<if visited_count("TheDream") < 1>>
+ Magnolia: (It looks like no place I've ever seen before.)
+ Magnolia: (Not even in my dreams.)
+ <<wait 0.5>>
+ Magnolia: (I can't see the horizon.)
+<<else>>
+ Magnolia: (The grass stings when I try to walk through it.)
+ Magnolia: (I can't go there.)
+<<endif>>
+===
+
+title: TheEyeLamp
+---
+<<if visited_count("TheEyeLamp") < 1>>
+ Magnolia: (What an unusual looking thing.)
+ Magnolia: (I feel like they are watching me.)
+<<else>>
+ Magnolia: (They are watching me for sure.)
+<<endif>>
+===
+
+title: ThePurpleFireflies
+---
+<<if visited_count("ThePurpleFireflies") < 1>>
+ Magnolia: (Purple fireflies?)
+ <<wait 0.5>>
+ Magnolia: (Anyone saw any purple rabbits around?)
+<<else>>
+ Magnolia: (This dream resembles Avatar.)
+<<endif>>
+===
+
+
+title: TheWaterMist
+---
+<<if visited_count("TheWaterMist") < 1>>
+ Magnolia: (I can't discern if it's suspended water, or just mist.)
+ <<wait 0.5>>
+ Magnolia: (Doesn't really matter.)
+ Magnolia: (I have to get out of here.)
+ Magnolia: (I feel like I shouldn't be dreaming right now.)
+ <<wait 0.2>>
+ Magnolia: (How did I even fall asleep?)
+<<else>>
+ Magnolia: (I need to wake up.)
+<<endif>>
+===
+
+title: TheGolem
+---
+<<if visited_count("TheGolem") < 1>>
+     Magnolia: (I can't pass here.)
+     Magnolia: (There's no way I can move such a big pile of rocks.)
+     <<wait 2>>
+     Magnolia: (Wait. Is that a face there?)
+     <<jump TheGolem_Options>>
+<<else>>
+ Magnolia: (He seems lonely.)
+ <<wait 0.5>>
+ Magnolia: (Maybe it's just me.)
+ <<jump TheGolem_Options>>
+<<endif>> 
+===
+
+title: TheGolem_Options
+---
+   -> Inspect. <<if $inspected is false>>
+    Magnolia: (It is a face!)
+    Magnolia: (He seems sad.)
+    Magnolia: (Me and you both, buddy.)  
+    <<set $inspected to true>> 
+   -> Touch it. <<if $inspected is true>>
+    Magnolia: (There is a hole in his body.)
+    <<wait 0.5>>
+    Magnolia: (It almost seems like somebody took his heart out.)
+   -> Check your pocket. <<if $hasClueD>>
+      Magnolia: (I had these kind of dreams before.)
+      Magnolia: (I heard it's called lucid dreaming.)
+      <<wait 0.5>>
+      Magnolia: (It just means that I am aware that I am dreaming. But it also happens that people in my dream are giving me clues how to wake up.)
+      <<wait 1>>
+      Magnolia: (That stone truned into a key?)
+      <<wait 0.5>>
+      Magnolia: (I have a key in my pocket...)
+      <<wait 1>>
+      Magnolia: (It's not there!)
+      Magnolia: (There's just...)
+      Magnolia: (A rock?)
+       -> Put it into the Golem's body.
+        <<set $openInventory to true>>    
+   -> Leave it be.
+===
+
+title: TheGolem_After
+---
+Magnolia: (It seems like it perfectly fits.)
+<<wait 0.5>>
+Magnolia: (Will it come alive now?)
+<<set $trigger_waking02 to true>>
+===

@@ -57,11 +57,15 @@ title: TheTicketOffice
  Magnolia: How can I go to the city?
  The Worker: The contract expired.
  The Worker: Next session in three months.
+ <<wait 0.5>>
+ The Worker: You could try going through the factory.
+ MAgnolia: (The factory?)
  <<set $theworkercomesout to false>>
  //the worker is just eyes from a small window
 <<else>>
  Magnolia: (I can't wait for three months.)
  Magnolia: (I need to find another way.)
+ Magnolia: (He mentioned the factory.)
 <<endif>>
 ===
 
@@ -199,7 +203,36 @@ Magnolia: (I am not a rabbit.)
 
 title: TheEndless_Loop
 ---
-//here should be a long text...
+Magnolia: (This road is never-ending. How much more do I need to walk to reach the factory?)
+<<wait 1>>
+Magnolia: (I wonder if the wishing star is real. Can it really resurrect my family?)
+Magnolia: (But then again, is it worth the risk of losing my sanity? Are my neighbors even sane?)
+Magnolia: (What if the star is just a myth? A figment of someone's imagination?)
+<<wait 0.5>>
+Magnolia: (My own imagination?)
+<<wait 1>>
+Magnolia: (I don't know what to believe anymore. I feel like I'm losing touch with reality.)
+Magnolia: (But I have to keep searching. I can't give up on the possibility of bringing my family back.)
+Magnolia: (I just wish I knew where to look. Is it here in the frozen steppe, or in the dreams?)
+<<wait 1>>
+Magnolia: (This is all so overwhelming. I need to focus. I need to stay sane.)
+Magnolia: (But how can I when everything around me is so uncertain?)
+Magnolia: (I just hope that I find the star soon. For my sake, and for the sake of my family.).
+<<wait 2>>
+Magnolia: (What is happening to the environment around me? It's shifting and changing.)
+Magnolia: (Am I hallucinating? Or is this the effect of the wishing star?)
+<<wait 1>>
+Magnolia: (I need to stay focused. I can't let my mind play tricks on me.)
+Magnolia: (But it's hard to ignore the strange and unfamiliar sights that I'm seeing.)
+Magnolia: (I just hope I'm not losing my mind.)
+<<wait 0.5>>
+Magnolia: (I need to keep walking. The factory must be close by.)
+Magnolia: (But what if it's all for nothing? What if the star is just a myth?)
+Magnolia: (I don't know if I can handle the disappointment.)
+<<wait 1>>
+Magnolia: (But I have to keep trying. For my family's sake.)
+Magnolia: (I just hope that when I find the star, it will be worth all of this.)
+Magnolia: (And I hope that I can maintain my sanity through it all.)
 <<set $loopthetext to true>>
 ===
 
@@ -370,5 +403,71 @@ title: TheTrigger_Frozen
  Magnolia: (It looks like somebody didn't clean up this pile of snow from the last winter.)
  Magnolia: (It's that kind of feathery, sparkly snow.)
  Magnolia: (How is it possible that it didn't melt?)
+<<endif>>
+===
+
+//ADDED NODES
+
+title: TheTrainTracks
+---
+Magnolia: (I don't understand how the train can go over these tracks.)
+Magnolia: (They are frozen, and there are piles of snow.)
+===
+
+title: TheSun03
+---
+Magnolia: (Another sun.)
+Magnolia: (How did they get up there?)
+===
+
+title: Hearts
+---
+<<if visited_count("Hearts") < 1>>
+Magnolia: (If emotions exist in this world, doesn't that make it inherently real?)
+Magnolia: (We are only alive when we desire.)
+<<wait 0.3>>
+Magnolia: (What do I desire?)
+<<else>>
+Magnolia: (What I desire is almost impossible.)
+<<endif>>
+===
+
+title: Think
+---
+<<if visited_count("Think") < 1>>
+Magnolia: (Yeah, no.)
+Magnolia: (What is enough, is enough.)
+Magnolia: (Sometimes I feel like nothing exists except my own thoughts.)
+<<else>>
+Magnolia: (What if I'm laying down somewhere on a field of celestial flowers, and all this...)
+Magnolia: (Is just a product of my own mind.)
+<<endif>>
+===
+
+title: TheLoopEndNode
+---
+Magnolia: (I think I went far enough.)
+Magnolia: (It's time to get back.)
+<<wait 0.5>>
+Magnolia: (I guess it was too good to be true.)
+===
+
+title: TheWilderness07
+---
+Magnolia: (The land here seems even tougher.)
+Magnolia: (There's no way I would survive the adventure through steppe.)
+===
+
+title: TheCarTracks
+---
+<<if visited_count("TheCarTracks") < 1>>
+Magnolia: (Some kind of vehicle passed here.)
+Magnolia: (It's eerily noiseless here.)
+<<wait 0.5>>
+Magnolia: (The fog is cold and dark.)
+Magnolia: (I can't follow them.)
+<<else>>
+Magnolia: (The fog is cold and dark.)
+Magnolia: (I can't follow them.)
 <<endif>>
 ===

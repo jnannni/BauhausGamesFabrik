@@ -7,11 +7,12 @@ title: TheBeach
 <<set $cutscene_moon to false>> //triggers a CUTSCENE (magnolia watches the water and the reflection of the moon)
 <<set $mournersmove to false>> // triggers in-game animation of mourners moving to show a pattern in the sand
 <<set $magnoliainarow to false>> // in-game animation of Magnolia walking to the Mourners and stands in the same row (she has some thoughts, but nothing happens)
-<<set $digthestreams to false>> // CUTSCENE - Magnolia is digging little streams in the sand (after the cutscene the environment changes a little bit.)
 <<set $putintheinventory12 to false>> //puts the daisies in the inventory
+<<set $everythingchanges to false>> //enviromental changes
 
 //variables for in YARN
 <<set $hasclue_flowers to false>>
+<<set $everythingchanged to false>>
 
 Magnolia: (I have never been to this beach before.)
 Magnolia: (I'm sure I would have remembered.)
@@ -19,8 +20,7 @@ Magnolia: (I'm sure I would have remembered.)
 Magnolia: (Maybe my parents didn't think I need to see the beach.)
 <<wait 0.5>>
 Magnolia: (It's not like I care.)
-Magnolia: (I need to cross that bridge to the Park.)
-Magnolia: (I don't have time for anything else.)
+Magnolia: (There's nobody to take me now.)
 //new objective: cross the bridge
 ===
 
@@ -135,14 +135,13 @@ title: TheMournesrs_Next
 ---
  Magnolia: (The moon casts the shadows of the mourners curiously.)
  Magnolia: (It makes it look like streams of water that flow into the sea.)
- Magnolia: (What if I dug into it.)
- //here she needs to use an object from the Dreamworld
-  -> Dig in the sand.
-  <<set $digthestreams to true>>
-  <<wait 1>>
+ <<wait 0.5>>
+ <<set $everythingchanges to true>>
   Magnolia: (What does this mean?)
   Magnolia: (Why does this look like from my dream?)
   Magnolia: (Is everything just collapsing?)
+  <<wait 1>>
+   <<set $everythingchanged to true>>
 ===
 
 title: TheWildFlowers
@@ -248,7 +247,7 @@ title: Chihiro
  <<wait 0.5>>
  Magnolia: (But there is the bridge.)
 <<else>>
- <<if $digthestreams is true>>
+ <<if $everythingchanged is true>>
   Chihiro: Hey.
   Magnolia: Hey.
   Chihiro: My name is Chihiro.
@@ -256,7 +255,7 @@ title: Chihiro
   <<wait 0.5>>
   Chihiro: There's no reason to keep you away anymore.
   Magnolia: From where?
-  Chihiro: For the star.
+  Chihiro: From the star.
   Magnolia: You know about the star?
   Chihiro: Hold my hand.
    -> Hold Chihiro's hand.
@@ -302,4 +301,16 @@ title: BacktotheCity
  Magnolia: (I can’t go there.)
 <<endif>>
 //we are not able to pass here before we unlock the last DREAMWORLD
+===
+
+//ADDED NODES
+
+title: TheCastle
+---
+Magnolia: (I wonder if the tied will come this far and ruin it.)
+===
+
+title: ChihiroInSand
+---
+Magnolia: (Who is Chihiro?)
 ===

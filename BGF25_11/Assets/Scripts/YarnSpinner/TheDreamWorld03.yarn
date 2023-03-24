@@ -1,0 +1,204 @@
+﻿title: TheDreamworld_03
+---
+//object: a dead starfish from the antique shop turns into the breathing device on Magnolia's face
+//the hall of star giants space and monument at the end
+//variables for UNITY
+<<set $trigger_waking04 to false>>
+<<set $approaching_parents to false>> // animation of magnolia walking toward the parents
+
+//variables for in YARN>
+<<set $triedtocatch to false>>
+
+Magnolia: (I am back!)
+Magnolia: (It's exhausting that the dream is constantly interrupted.)
+<<wait 0.5>>
+Magnolia: (It seams to take me back always at the peak of the excitement.)
+<<wait 0.5>>
+Magnolia: (Maybe if I try to contain my emotions, I might stay longer within.)
+<<wait 1>>
+Magnolia: (First I need to find somebody who will talk to me.)
+<<wait 0.5>>
+Magnolia: (And I should probably check if I have some kind of a new weaponry.)
+Magnolia: (I wonder what that star turned into.)
+===
+
+title: TheAllKnowingCreature
+---
+<<if visited_count("TheAllKnowingCreature") < 1>>
+ Magnolia: (This seems familiar.)
+ Magnolia: (Did that lady follow me?)
+ <<wait 0.5>>
+ Magnolia: (She seems a little bit weird...)
+ <<jump TheAllKnowingCreature_Questions>>
+<<else>>
+ Magnolia: (It definately resembles that lady!)
+ <<jump TheAllKnowingCreature_Questions>>
+<<endif>>
+===
+
+title: TheAllKnowingCreature_Questions
+---
+-> Did you follow me from home?
+ TheLady: Where is home?
+ Magnolia: (She talks!)
+ <<wait 0.5>>
+ Magnolia: You know, home, outside of the dream?
+ The Lady: Are we in a dream?
+-> Is this the dreamworld you talked about?
+ TheLady: Everyone has their own definitions.
+ Magnolia: Everybody has their own dreamworld?
+ Magnolia: So I am just only dreaming?
+ Magnolia: Nobody could see this except me? It is not real?
+ <<wait 0.5>>
+ TheLady: I never said it wasn't real.
+ Magnolia: Then what exactly is it.
+ TheLady: I don't have the answer, sorry.
+-> Do you know anything about the falling star?
+ TheLady: You walk around and you ask that questions?
+ Magnolia: Yes? It's essential that I find it.
+ TheLady: You shouldn't be doing that.
+ <<wait 0.5>>
+ Magnolia: Why?
+ TheLady: Don't you look outside yourself?
+ TheLady: Don't you notice?
+ Magnolia: (Somebody already told me I don't listen to people.)
+===
+
+title: TheFlyingSoul
+---
+<<if visited_count("TheFlyingSoul") < 1>>
+ Magnolia: (Are they flying?)
+ Magnolia: (It's like they are suspended in the air.)
+ Magnolia: (I don't feel like bothering them, but I feel lost.)
+ <<wait 0.5>>
+ <<jump TheFlyingSoul_Questions>>
+<<else>>
+ Magnolia: (This is not the weirdest thing I've seen till now.)
+ <<jump TheFlyingSoul_Questions>>
+<<endif>>
+===
+
+title: TheFlyingSoul_Questions
+---
+-> Ask them about the star.
+ Magnolia: (That other celestial told me to not ask about the star.)
+ Magnolia: (I feel like I should listen to them.)
+-> Ask them if the stars can fall outside of the dream.
+ Magnolia: (Technically this is still the question about the star.)
+ Magnolia: (But it doesn't say that I want to have it.)
+ Magnolia: (I'm just being curious.)
+ <<wait 0.5>>
+ Magnolia: Excuse me, I...
+ Magnolia: I've always wondered if a fallen star can fall out of this world...
+ Magnolia: Into another world?
+ <<wait 0.5>>
+ Magnolia: (They're not going to answer.)
+ TheFlyingSoul: &%&4@*$&@*%^@%@
+ Magnolia: Thank you.
+-> Ask about the flying things that scream.
+ Magnolia: Uhm, I tried to catch those bugs, and I think one of them screamed.
+ <<wait 0.5>>
+ TheFlyingSoul: ^$*&$^@*@%%*@%^@&@^$@@%*%
+ TheFlyingSoul: %&*@_@@$*%$*&%*$^$*&%*$^@%@!
+ Magnolia: Does that mean I shouldn't touch them?
+ TheFlyingSould: ^@&@^$@@%*%!
+ Magnolia: Okay, I understand.
+ Magnolia: (I don't.)
+===
+
+title: TheSunDrawing02
+---
+//now it's like a whirling circle of fireflies
+<<if visited_count("TheSunDrawing02") < 1>>
+ Magnolia: (These bugs seem to be attracted to the light of the sun drawing.)
+ Magnolia: (I wonder if I could catch them.)
+  -> Try to catch the bugs.
+   Magnolia: (It's impossible.)
+   Magnolia: (Also...)
+   <<wait 0.2>>
+   Magnolia: I don't think they are really bugs.
+   Magnolia: I think I heard one of them scream.
+   <<set $triedtocatch to true>>
+    -> Stay away.
+  -> Leave them be.
+<<else>>
+ <<if $triedtocatch is true>>
+  Magnolia: (They might be magical.)
+  -> Try to catch the bugs.
+   Magnolia: (It's impossible.)
+   Magnolia: (Also...)
+   <<wait 0.2>>
+   Magnolia: I don't think they are really bugs.
+   Magnolia: I think I heard one of them scream.
+   <<set $triedtocatch to true>>
+    -> Stay away. 
+ <<else>>
+  Magnolia: (There's no way I'm catching something that can scream.)
+ <<endif>>
+<<endif>>
+===
+
+title: TheDive
+---
+<<if visited_count("TheDive") < 1>>
+ Magnolia: (It looks like a pool.)
+ Magnolia: (But I can't see the bottom.)
+ <<wait 0.5>>
+ Magnolia: (I guess I'm stuck inside this dream.)
+ Magnolia: (There is no peak, nothing to wake me up.)
+ Magnolia: (But also there is nowehere for me to go.)
+ <<wait 0.5>>
+ Magnolia: (This is A DREAM.)
+ Magnolia: (There are no consequences.)
+ <<wait 0.5>>
+ Magnolia: (Maybe I could I could jump in?)
+  -> Jump in.
+   Magnolia: (Yeah no.)
+   Magnolia: (What am I going to do then. Dive?)
+   Magnolia: (I can't breathe for that long.)
+<<else>>
+ Magnolia: (There must be a way.)
+ //The player should open the inventory and use the object.
+<<endif>>
+===
+
+title: TheWaterFalls02
+---
+Magnolia: (These are probably the waterfalls that I heard from the other dream.)
+<<wait 0.5>>
+Magnolia: (They really are continuing.)
+<<wait 0.5>>
+Magnolia: (The loudness of the water creates a perfect silence.)
+//destroy node after
+===
+
+title: TheOtherPart
+---
+ Magnolia: (That WAS the weirdest thing I have done, ever.)
+ <<wait 1>>
+ Magnolia: (Wait, is that?)
+ <<wait 0.5>>
+ Magnolia: (Mother?)
+ <<wait 1>>
+ Magnolia: (Father?)
+ <<wait 0.5>>
+ Magnolia: (Am I dreaming of them?)
+===
+
+title: MotherandFather
+---
+Magnolia: (It's like my memories are coming back...)
+Magnolia: (And yet, nothing seems right.)
+<<wait 0.5>>
+ -> Ask them who they are.
+  Magnolia: Have we met before?
+  Souls: ...
+  <<wait 0.5>>
+  Magnolia: (They don't answer.)
+  Magnolia: (But they do look at me.)
+ -> Approach them.
+  <<set $approaching_parents to true>>
+  Magnolia: (It's like they are moving away from me.)
+  Magnolia: (I can't seem to reach them.)
+  <<set $trigger_waking04 to true>>
+===

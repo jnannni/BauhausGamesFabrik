@@ -10,6 +10,8 @@ title: BackInTheWaking
 <<set $lookatthedrawing to false>> //the screen shows an illustration of the drawing
 <<set $putintheinventory001 to false>> //this is for the crumbled drawing
 <<set $putintheinventoryd001 to false>> //this is for the object we get from beggar(only needs to exist inside the inventory, I still don't know what it is. It is used in the 2nd DREAMWORLD.)
+<<set $headpulsing to false>> //pulsing effect 
+<<set $goupthestairs002 to false>> // from downhill to uphill moves the character
 
 //variables for in YARN
 <<set $magnoliadanced to false>>
@@ -23,13 +25,14 @@ title: BackInTheWaking
 
 
 //for this whole sequence I would add some kind of cloudy effect that slowly clears as her thoughts clear
-Magnolia: (Why did this dream feel so real?)
+Magnolia: (Why did that dream feel so real?)
 <<wait 1>>
 Magnolia: (After the accident...I did find myself sleepwalking around the house.)
 Magnolia: (But I never went outside before.)
 Magnolia: (Did I also dream about going to the supermarket?)
 <<wait 2>>
 //it would be good if we made some kind of pulsing effect that shows Magnolia's head hurting
+<<set $headpulsing to true>>
 Magnolia: (The therapist said everyone grieves in different ways.)
 Magnolia: (I never expected this.)
 Magnolia: (I always believed myself to be rational...)
@@ -541,9 +544,66 @@ title: Grafitti001
 
 title:TheRoadSign
 ---
-Magnolia: (How long was I in that dream?)
-Magnolia: (Actually, is it possible to sleep long enough for them to fix a whole street?)
+Magnolia: (Why do they still keep the sign?)
+Magnolia: (The street looks perfectly done now.)
  -> Go down the street.
   <<set $gotothegraveyard to true>> 
  -> One more thing.
+===
+
+//ADITIONAL NODES
+
+title: TheCar
+---
+<<if visited_count("TheCar") < 1>>
+ Magnolia: (Where did that guy go?)
+ Magnolia: (I could swear I was just away for a few minutes.)
+<<else>>
+ Magnolia: (The whole neighbourhood looks slightly shifted.)
+<<endif>>
+===
+
+title: TheUpStairs
+---
+<<if visited_count("TheUpStairs") < 1>>
+ Magnolia: (There is nothing here.)
+ Magnolia: (It's a dead end.)
+ <<wait 0.5>>
+ Magnolia: (But I could have sworn..)
+ <<wait 0.2>>
+ Magnolia: (This is where I met that clay creature.)
+<<else>>
+ Magnolia: (There's no way for me to pass.)
+<<endif>>
+===
+
+title: TheWindowLight
+---
+Magnolia: (There are so many lights on.)
+Magnolia: (Yet the city seems almost empty.)
+===
+
+title: TheGraveyardLook
+---
+Magnolia: (There's so much fog, and there's no sun at all.)
+Magnolia: (But I'm sure that's a graveyard there.)
+===
+
+title: TheSupermarket02
+---
+Magnolia: (I can't think of food right now.)
+===
+
+title: TheDestiny
+---
+ Magnolia: (I don't believe neither in God nor destiny.)
+ Magnolia: (Every choice a person makes changes their path.)
+===
+
+title: TheUpStairs02
+---
+Magnolia: (Did I forget anything?)
+ -> Go up.
+  <<set $goupthestairs002 to true>>
+ -> Stay.
 ===

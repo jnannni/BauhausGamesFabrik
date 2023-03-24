@@ -36,11 +36,11 @@ public class TheWorkerQuarters : MonoBehaviour
     void Update()
     {
         playerCurrentPosition = player.transform.position;
-        playerStartPosition = new Vector3(playerStartPosition.x, playerCurrentPosition.y, 0);
+        playerStartPosition = new Vector3(playerPosition.transform.position.x, playerCurrentPosition.y, 0);
 
         if (isLoopTriggered.initialValue)
         {
-            player.transform.position = playerStartPosition;
+            player.transform.position = playerStartPosition;            
             cam.smoothing = 1f;
             isLoopTriggered.initialValue = false;
         }

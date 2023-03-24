@@ -624,3 +624,101 @@ title: TheAntiqueDoor
 -> Stay.
 ===
 
+//ADDED NODES
+
+title: TheCrash02
+---
+<<if visited_count("TheCrash02") < 1>>
+Magnolia: (Oh so I am on the other side of that crash now.)
+Magnolia: (It's like I am sleepwalking to the other parts of the city.)
+<<else>>
+Magnolia: (Can I use my dreams to travel?)
+<<endif>>
+===
+
+title: TheHedgeDoor
+---
+Magnolia: (This door has the exact texture of that hedge.)
+===
+
+title: TheFog01
+---
+<<if visited_count("TheFog01") < 1>>
+Magnolia: (The fog is too thick.)
+Magnolia: (I might have something to lose at the end...)
+Magnolia: (My life.)
+Magnolia: (I'm not ready for that.)
+<<else>>
+Magnolia: (I was always scared of the dark.)
+<<endif>>
+===
+
+title: TheHoop
+---
+Magnolia: (I hear people like team games.)
+Magnolia: (I on the other hand always avoid them.)
+===
+
+title: TheMountains
+---
+Magnolia: (These mountains look so wild.)
+Magnolia: (They are towering over the city.)
+===
+
+title: TheWeirdFog
+---
+Magnolia: (This looks out of place.)
+Magnoli: (What if it's one of the ways to fall into a dream?)
+ -> Touch the suspended particles.
+  <<wait 1>>
+  Magnolia: (Nothing is happening.)
+  Magnolia: (This is embarrassing.)
+ -> Ignore it.
+===
+
+title: TheFountain
+---
+Magnolia: (Those people that drop coins to make wishes are fools.)
+<<wait 0.5>>
+Magnolia: (But I am the one chasing a dream.)
+ -> Look for a coin.
+  Magnolia: (I should check my pockets.)
+===
+
+title: DroppedTheCoin
+---
+//when the player picks the coin from the inventory
+<<wait 1>>
+Magnolia: (I wish this all turns out to be true.)
+<<wait 0.5>>
+Magnolia: (If not, I wish to never be sane again.)
+===
+
+title: TheUphillSee
+---
+Magnolia: (Oh, I can see my aunt's neighbourgood from here.)
+<<wait 0.5>>
+Magnolia: (Is that the car guy from before?)
+===
+
+title: TheSunDrawing
+---
+Magnolia: (This is not the first time that I see sun drawn around.)
+Magnolia: (Are they all just pretending there is sun, but secretly missing the sunny days?)
+===
+
+title: TheManHole02
+---
+<<if visited_count("TheManHole02") < 1>>
+Magnolia: (Another one.)
+Magnolia: (There is a word here too.)
+ -> Read it.
+  The Word: THIEF
+  <<wait 0.2>>
+  Magnolia: (The thief?)
+<<else>>
+ Magnolia: (The thief.)
+ Magnolia: (Who says there is even a connection there.)
+ Magnolia: (I'm looking too much into it.)
+<<endif>>
+===

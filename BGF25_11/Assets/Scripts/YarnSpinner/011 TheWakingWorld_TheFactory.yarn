@@ -7,10 +7,10 @@ title: TheFactory_Start
 <<set $trigger_TheBeach to false>> //triggers the 8th DREAMWORLD
 <<set $showthepicture to false>> // shows the illustration of a family picture
 <<set $enterthefactory to false>> //enter the factory
-<<set $magnoliasits to false>>
+<<set $magnoliasits to false>> //magnolia sits next to the newspaper reader
 <<set $putintheinventory11 to false>>
-<<set $pettherabbit to false>>
-<<set $bringtherabbit to false>>
+<<set $pettherabbit to false>> //animation of the rabbit going in the circle
+<<set $bringtherabbit to false>> //animation of magnolia picking up the rabbit and bringing it back
 
 //variables for in YARN
 <<set $hasclue_rabbit to false>>
@@ -22,10 +22,9 @@ Magnolia: (That didn't look like any dream before!)
 Magnolia: (Did I somehow get lost?)
 <<wait 0.5>>
 Magnolia: (I can't think like that.)
-Magnolia: (I just need to find a way back.)
-Magnolia: (Again.)
-<<wait 1>>
-Magnolia: (I can see the factory from here.)
+<<wait 0.5>>
+Magnolia: (I found the factory.)
+Magnolia: (I guess that dream travel actually works.)
 ===
 
 title: TheFactoryWorker
@@ -145,6 +144,7 @@ title: TheNewspaperReader
  Magnolia: (If he knew what kind of dreams I have.)
  Magnolia: Yes.
  The Reader: Then you are still a child.
+ <<set $magnoliasits to false>>
  <<jump TheNewspaper_Questions>>
 <<else>>
  Magnolia: (I need to ask him some stuff.)
@@ -404,5 +404,24 @@ title: PictureFrame
     -> Put it back.
      Magnolia: (I don't need a picture like this.)
      Magnolia: (It's probably not even me.)  
+<<endif>>
+===
+
+//ADDED NODES
+
+title: GoBack
+---
+Magnolia: (This sounds politically incorrect.)
+Magnolia: (Is it directed towards me?)
+===
+
+title: LookInside
+---
+<<if visited_count("LookInside") < 1>>
+Magnolia: (It doesn't look like a factory inside.)
+Magnolia: (It actually looks like a home, except...)
+Magnolia: (All the furniture is super tiny.)
+<<else>>
+Magnolia: (Do the fairies live inside?)
 <<endif>>
 ===

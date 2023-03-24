@@ -1,0 +1,137 @@
+﻿title: TheDreamworld_02
+---
+//object: a little coin turns into an iron light flamed sword
+//variables for UNITY
+<<set $trigger_waking03 to true>> // should also show the animation of
+
+//variables for in YARN
+<<set $activatestone to false>>
+
+Magnolia: (I can't believe I really decided to do it.)
+<<wait 1>>
+Magnolia: (Everything seems to come to one point.)
+<<wait 0.5>>
+Magnolia: (I have nothing left.)
+Magnolia: (Who do I stay sane for?)
+===
+
+title: ThePrayingSoul
+---
+<<if visited_count("TheParyingSoul") < 1>>
+ Magnolia: (I don't think I should disturb the creatures in the dream.)
+ <<wait 0.5>>
+ Magnolia: (I might get kicked out, and I don't want that right now.)
+ <<wait 1>>
+ Magnolia: (This one seems like it's praying.)
+ Magnolia: (To whom are they praying?)
+ <<wait 0.5>>
+ Magnolia: (This reminds me of that sweet man begging on the street.)
+ <<wait 0.5>>
+ Magnolia: (Comparing praying to begging? Good job Magnolia.)
+ Magnolia: (Anyway, he did give me that little coin.)
+ Magnolia: (I wonder...)
+ //new objective: Check your inventory
+<<else>>
+ Magnolia: (It doesn't seem disturbed by my presence.)
+<<endif>>
+===
+
+title: WateringFrogs
+---
+<<if visited_count("WateringFrogs") < 1>>
+ Magnolia: (Is that thing watering frogs?)
+ Magnolia: (Those are frogs right?)
+ <<wait 0.5>>
+ Magnolia: (Well they do need water.)
+ Magnolia: (I should just concentrate and ask it about the star.)
+ <<jump TheFrogs_Questions>>
+<<else>>
+ Magnolia: (I need to only think of the star.)
+ Magnolia: (That's why I am here.)
+ <<jump TheFrogs_Questions>>
+<<endif>>
+===
+
+title: ThePond
+---
+<<if visited_count("ThePond") < 1>>
+ Magnolia: (I look even worse now.)
+ Magnolia: (But I can't look away.)
+ <<wait 0.2>>
+ Magnolia: (Thankfully, my reflection seems to follow my own movements this time.)
+ Magnolia: (No secret messages.)
+<<else>>
+ Magnolia: (I look like somebody else.)
+<<endif>>
+===
+
+title: TheFrogs_Questions
+---
+ -> Are you watering the frogs?
+  FrogSoul: $$$%@%%^&**$$$@@ $%$^%^$!!!$**%&...
+  Magnolia: Uhm?
+  FrogSoul: *&^^$%^&@&@%$&@%!
+  Magnolia: (This is not going well.)
+ -> What do you know about the falling star?
+  Magnolia: (They should have heard about it, right?)
+  <<wait 1>>
+  Magnolia: (Why does it stare at me?)
+  FrogSoul: !!!!@$$$%%^^!!^^&^^^^^^!!!
+  Magnolia: (Sh*t. I seem to have angered it.)
+   -> Get away.
+ -> (Magnolia, no.)
+===
+
+title: TheHedge
+---
+ Magnolia: (This hedge looks like it covers a secret passage.)
+ <<wait 0.5>>
+ Magnolia: (It could be the way to the star.)
+ //here the player can open inventroy and try use the flaming sword
+ //if he does use it it burns down and opens the path, however I need the code to then switch from this node to the next one
+===
+
+title: TheSecretPath
+---
+Magnolia: (I did it!)
+Magnolia: (And I have a freaking flaming sword!!!!!)
+<<wait 1>>
+Magnolia: (But wait. This seems to be a deadend.)
+<<wait 0.5>>
+Magnolia: (How am I going to find my way around this dream when nobody seems to talk?!)
+<<set $activatestone to true>>
+===
+
+title: TheStone
+---
+<<if $activatestone is true>>
+ Magnolia: (There is a giant stone.)
+ <<wait 0.5>>
+ Magnolia: (I have a sword.)
+ <<wait 0.5>>
+ Magnolia: (Should I put the sword in the stone?)
+ Magnolia: (Am I living inside the dream of King Arthur?)
+  -> Stab the stone.
+  <<set $trigger_waking03 to true>>
+
+<<else>>
+ Magnolia: (Again a giant stone.)
+ Magnolia: (This one doesn't have a face thankfully.)
+ <<wait 0.5>>
+ Magnolia: (But it seems like it's also missing somethign.)
+<<endif>>
+===
+
+title: TheWaterFalls
+---
+<<if visited_count("TheWaterFalls") < 1>>
+Magnolia: (I can hear strong waterfalls from that direction.)
+Magnolia: (It's not surprising since the water seems to be eating away this dream of mine.)
+<<wait 0.5>>
+Magnolia: (I wonder if it's somehow connected to the star.)
+<<wait 0.5>>
+Magnolia: (I'm not even sure if I should search for it in my dreams.)
+<<else>>
+Magnolia: (The sound is calming.)
+<<endif>>
+===

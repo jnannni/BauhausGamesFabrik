@@ -1,0 +1,160 @@
+title: TheDreamworld_05
+---
+//the church object which is a heavy page holder for a holy book
+// it turns into a golden cup with some kind of a liquid and when you being it close to the bust it turns into snakes and they drink out if it and move away
+
+//variables for UNITY
+<<set $trigger_waking05 to false>>
+<<set $rabbit_celestial to false>> 
+
+//variables for in YARN
+
+Magnolia: (Again in a dream?!)
+<<wait 0.5>>
+Magnolia: (I thought that would be it.)
+<<wait 1>>
+Magnolia: (It's okay.)
+Magnolia: (When I get out of this dream I should be on the premises of the amusement park.)
+<<wait 0.5>>
+Magnolia: (I'm one step away from that star.)
+<<wait 0.5>>
+Magnolia: (I will, also, find out if I was crazy this whole time.)
+Magnolia: (At the end - it won't matter.)
+Magnolia: (Either I'll have my family back, or I'll be crazy enough to believe I can live in my own dreams.)
+<<wait 0.5>>
+Magnolia: (Not so bad, right?)
+===
+
+title: TheRabbit_Celestial
+---
+//Magnolia needs to go forward, the camera follows her, but then she reaches the trigger and the camera spans back, magnolia automaticaly turns around and is faced with a giant rabbit celestial
+<<set $rabbit_celestial to true>>
+<<wait 1>>
+Magnolia: I'm extremely sorry! I, I...
+Magnolia: I didn't see you there!
+<<wait 0.5>>
+Magnolia: I will just move now.
+<<wait 0.5>>
+Magnolia: (Is it possible to die in a dream?)
+<<wait 0.5>>
+The Soul: I have no problem with you.
+Magnolia: Oh okay, that's good.
+The Soul: You seem to be found.
+Magnolia: Found?
+The Soul: Opposite of lost.
+Magnolia: I know that...But how am I found?
+The Soul: Are you still planning to steal that star?
+Magnolia: Steal? From who? And how do you know about that...
+The Soul: I have been with you the whole time.
+<<wait 0.5>>
+Magnolia: The purple rabbit?
+The Soul: Humans have such bad sight.
+<<wait 0.5>>
+The Soul: And the star?
+Magnolia: I need to get my family back.
+Magnolia: I get them back, or I just accept I'm absolutely nuts.
+<<wait 0.5>>
+The Soul: You are completely fine.
+Magnolia: Uhm...thank you?
+<<wait 0.5>>
+The Sould: Aren't you late?
+//you can't talk to the rabbit anymore and you need to get out on the red beach
+===
+
+title: TheHouseMan_Soul
+---
+//the celestial is holding the window in its hands
+<<if visited_count("TheHouseMan_Soul") < 1>>
+ Magnolia: (I surely know this guy!)
+ <<wait 0.5>>
+ Magnolia: (He does look different...)
+ <<wait 0.5>>
+ <<jump TheHouseMan_Soul_Questions>>
+<<else>>
+ Magnolia: (I'm now dreaming of my aunt's neighbours.)
+ <<jump TheHouseMan_Soul_Questions>>
+<<endif>>
+===
+
+title: TheHouseMan_Soul_Questions
+---
+ -> Did you manage to scrubb off the sun?
+  <<wait 1>>
+  Magnolia: (I don't think he will talk.)
+  <<wait 0.5>>
+  Magnolia: (This seems pointless.)
+  <<wait 1>>
+  The Soul: Stupid.
+  Magnolia: (Huh?)
+  The Soul: There was no sun at all.
+  Magnolia: (???)
+  Magnolia: (That's what I was telling the whole time.)
+ -> Why are you in my dream?
+  <<wait 0.5>>
+  Magnolia: (Not talkative I see.)
+  <<wait 0.5>>
+  Magnolia: (There's no much difference from real life.)
+  <<wait 0.5>>
+  The Soul: I left the your dream long ago.
+  <<wait 0.5>>
+  The Soul: However, I had no choice about it all.
+  Magnolia: What do you mean?
+  <<wait 1>>
+  Magnolia: (Nothing?)
+ -> Leave it.
+===
+
+title: TheBeggar_Soul
+---
+<<if visited_count("TheBeggar_Soul") < 1>>
+Magnolia: You are here too?!
+TheBeggar: Did my coin come useful?
+Magnolia: Your coin?
+Magnolia: Oh yes, look, I have a cool sword now.
+TheBeggar: You always had it. But you are welcome.
+<<wait 0.5>>
+Magnolia: So how are you here?
+TheBeggar: ...
+<<else>>
+Magnolia: Is this all real?
+TheBeggar: It's up to you to decide.
+<<endif>>
+===
+
+title: TheMother_Soul
+---
+<<if visited_count("TheMother_Soul") < 1>>
+TheMother: Little bird, you are finally found?
+Magnolia: Am I?
+TheMother: Mothers know these things, trust me.
+Magnolia: Then I trust you.
+<<else>>
+TheMother: Little bird, be free.
+<<endif>>
+
+===
+
+title: Underwater
+---
+Magnolia: (It does feel like I am underwater.)
+Magnolia: (However, it's orange. And I can breathe.)
+Magnolia: (Unusual.)
+<<wait 0.5>>
+Magnolia: (Anyway, where's that star?)
+//turn the node off after
+===
+
+title: TheSnakes
+---
+Magnolia: (This is the only way.)
+Magnolia: (But I can't pass.)
+===
+
+title: AfterSnakes
+---
+<<wait 1.5>>
+Magnolia: What???
+Magnolia: (Are those snakes?)
+<<wait 0.5>>
+<<set $trigger_waking05 to true>>
+===

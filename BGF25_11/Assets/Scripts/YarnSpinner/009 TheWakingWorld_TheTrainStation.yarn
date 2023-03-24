@@ -6,30 +6,62 @@ title: TheTrainStation_Start
 //variables for UNITY
 <<set $trainapproaching to false>> //just plays the sound of train approaching
 <<set $trigger_TheFactory to false>> //triggers new level(not the dreamworld)
+<<set $lookatthemap to false>> //shows the illustration of the map
 
 //variables for in YARN
 
-Magnolia: (I can't believe I made it!)
-Magnolia: (It works!)
-<<wait 0.5>>
-Magnolia: (I don't know if I should be happy, or worried.)
-Magnolia: (My delusions seem to have become functional.)
-<<wait 0.5>>
-Magnolia: (Now I just need to get to the other part of the city.)
+Magnolia: (It's a small station.)
+Magnolia: (I'm not sure where the train comes from.)
+Magnolia: (I guess I'll have to wait.)
 ===
+
+title: TheCityMap
+---
+ Magnolia: (There is a whole map of the city.)
+  -> Look at the map.
+   <<set $lookatthemap to true>>
+  -> (I don't need it. I don't even know where I'm going.)
+===
+
+title: TrainTracks
+---
+ Magnolia: (I saw somewhere that you can lay your ear on the tracks and hear the distant train.)
+ Magnolia: (I won't do that now.)
+===
+
 title: TheOldPerson
 ---
-//trigger 005
 <<if visited_count("TheOldPerson") < 1>>
- Magnolia: (There seems to be somebody else besides me here.)
- <<wait 0.5>>
- Magnolia: (It's just an old lady it seems.)
  Magnolia: Hello.
  The Old Person: Hello.
  Magnolia: Are you also waiting for the train?
  The Old Person: I am not.
  Magnolia: You are not?
  Magnolia: Do you by any chance know when it's going to arrive?
+ The Old Person: Do you have a ticket?
+ Magnolia: A ticket?
+ The Old Person: The train ticket, how do you expect to travel?
+ Magnolia: (I don't.)
+ Magnolia: (I guess I could check my bag.)
+ Magnolia: I'll look for it.
+<<else>>
+ The Old Person: Found your ticket?
+ Magnolia: Not yet.
+<<endif>>
+===
+
+title: TheTicket
+---
+<<wait 2>>
+Magnolia: Here it is!
+The Old Person: Keep it safe. It's not an ordinary ticket.
+Magnolia: What do you mean?
+<<jump TheOldPerson02>>
+===
+title: TheOldPerson02
+---
+//trigger 005
+<<if visited_count("TheOldPerson02") < 1>>
  The Old Person: The train here is always late.
  The Old Person: Or early.
  The Old Person: They seem to have no concept of time.
@@ -54,7 +86,7 @@ title: TheOldPerson
  Magnolia: (Have I missed anything?)
  Magnolia: I have a question for you.
  <<jump TheOldPerson_Questions>>
-<<elseif visited_count("TheOldPerson") == 1>>
+<<elseif visited_count("TheOldPerson02") == 1>>
  The Old Person: You know.
  The Old Person: Sometimes it's not that bad when people think you are insane.
  Magnolia:?

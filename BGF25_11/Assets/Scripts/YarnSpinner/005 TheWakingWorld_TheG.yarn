@@ -15,6 +15,7 @@ title: TheG
 <<set $playscreamsound to false>> //plays a sound of Magnolia shouting on top of her lungs
 <<set $sheisdancing to false>> //plays ANIMATION of a THe One To Impress dancing
 <<set $pulsingeffect to false>> //sound and visual effect of fear, pulsing
+<<set $fallingfeeling to false>> //again some kind of woozy effect
 
 //for YARN
 <<set $gavethebook01 to false>>
@@ -25,8 +26,11 @@ title: TheG
 
 Magnolia: (This is getting out of hand.)
 Magnolia: (I'm starting to believe it.)
-Magnolia: (At the same time I feel like I am losing contact with reality.)
+Magnolia: (At the same time I feel like I'm losing contact with reality.)
 Magnolia: (I am afraid of what I am capable of under these circumstances.)
+<<wait 0.5>>
+Magnolia: (Also, I still don't know where that damn star is.)
+Magnolia: (I don't even know if I should search here or in the dreams.)
 ===
 
 title: TheGuilty
@@ -346,7 +350,7 @@ Magnolia: (I have never seen the city from this height.)
 -> Let out a scream.
  <<set $playscreamsound to true>>
  Someone: The Gods are calling us!
- Magnolia: (I am not a god.)
+ Magnolia: (I am not a God.)
 //you get a clue
 ===
 
@@ -487,7 +491,88 @@ Magnolia: (It feels so distant.)
 title: TheBridge
 ---
 Magnolia: (I have never been to this part of the city.)
--> I still want to check out something here.
+-> (I still want to check out something here.)
 -> Pass the bridge.
  <<set $gototheMuseum to true>>
+===
+
+//ADDED NODES
+
+title: TheCrashScene
+---
+Magnolia: (The world is falling into chaos.)
+Magnolia: (I can't go there.)
+===
+
+title: TheButterfly
+---
+<<if visited_count("TheButterfly") < 1>>
+Magnolia: (This is where my parents stood in that dream.)
+Magnolia: (For a second I got my memories back.)
+Magnolia: (But now everything is blurry again.)
+<<wait 0.5>>
+Magnolia: (I wonder who drew this butterfly.)
+<<else>>
+Magnolia: (I just want to sit and draw butterflis.)
+<<endif>>
+===
+
+title: TheRoofWindow
+---
+<<if visited_count("TheRoofWindow") < 1>>
+A male voice: Who is up for an amusement park day tomorrow.
+Kids: Me! Me! Mememememe! Nooo, me!
+A male voice: Hey! Don't fight. We'll all go.
+Kids: Yaaaay! Thank youu!
+<<wait 0.5>>
+A male voice: Don't forget to bring your astrounaut suits.
+<<wait 0.5>>
+Magnolia: (Astrounut suit?!)
+Kids: What about our wishes?
+A male voice: Pack them too, you might be able to use them tomorrow.
+Magnolia: (What does that mean?!)
+<<else>>
+Magnolia: (They are awfully quiet now.)
+Magnlia: (Are they also looking for the star?)
+<<endif>>
+===
+
+title: ADate
+---
+Magnolia: (I've never been on a date.)
+<<wait 0.5>>
+Magnolia: (Have I ever fallen in love?)
+Magnolia: (What if I had a partner and forgot about them after the accident?)
+<<wait 0.5>>
+Magnolia: (Haha, no way.)
+===
+
+title: AFall
+---
+<<set $fallingfeeling to true>>
+<<wait 0.5>>
+Magnolia: (If I fall now and die...)
+Magnolia: (Will I wake up and realize it was all a messed up dream?)
+//destroy it after
+===
+
+title: TheWilderness06
+---
+Magnolia: (It's like mountains are getting taller.)
+Magnlia: (And the forest is closing in.)
+===
+
+title: TheOtherEnd
+---
+Magnolia: (The road tehre is falling apart.)
+Magnolia: (I'm not in a dream, I can't risk my life.)
+===
+
+title: KidsDrawings
+---
+Magnolia: (Again a sun.)
+Magnolia: (If anything, the clouds are getting darker.)
+<<wait 0.5>>
+Magnolia: (I just need to move forward.)
+Magnolia: (Somehow I'll stumble upon that star.)
 ===
