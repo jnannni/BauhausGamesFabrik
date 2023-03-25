@@ -8,6 +8,7 @@ public class AutomaticInteractions : MonoBehaviour
     private DialogueRunner dialogueRunner;
 
     [SerializeField] private string nameOfTheNode;
+    [SerializeField] private bool oneUse;    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

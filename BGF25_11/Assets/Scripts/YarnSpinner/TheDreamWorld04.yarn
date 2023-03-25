@@ -8,6 +8,7 @@ title: TheDreamworld_04
 <<set $camerashaking to false>> //both camera shakes and the buzzing sound plays
 <<set $magnoliawalksforward to false>>
 <<set $priestshows to false>>
+<<set $trigger_waking06 to false>>
 
 //variables for in YARN
 <<set $firstanswer to false>>
@@ -330,4 +331,14 @@ title: TheCandleStick
    Magnolia: (It won't light it up.)
   -> (I can't do anything about it.)
 <<endif>>
+===
+
+title: TheCandleStick_Lit
+---
+<<wait 1.5>>
+Magnolia: It's so beautiful!
+<<wait 0.5>>
+Crowley: Good luck little bird!
+Magnolia: Wait, what?
+<<set $trigger_waking06 to true>>
 ===

@@ -90,6 +90,11 @@ title: TheHedge
  //here the player can open inventroy and try use the flaming sword
  //if he does use it it burns down and opens the path, however I need the code to then switch from this node to the next one
 ===
+title: TheHedgeCleared
+---
+<<wait 1>>
+<<jump TheSecretPath>>
+===
 
 title: TheSecretPath
 ---

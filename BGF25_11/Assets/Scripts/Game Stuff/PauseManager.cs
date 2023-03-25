@@ -10,16 +10,18 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryPanel;
     public GameObject inventoryContent;
-    public GameObject inventorySelectedButton, pausedMenuSelectedButton, optionsSelectedButton;
+    public GameObject pausedMenuSelectedButton, optionsSelectedButton;
     public BoolValue isPaused;
     public BoolValue isInventoryOpen;    
     public GameObject pausePanel;
     public string mainMenu;
-    public AudioMixer audioMixer;    
+    public AudioMixer audioMixer;
+    private GameObject inventorySelectedButton;
+    private EventSystem currentEvenSystem;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {             
         isPaused.initialValue = false;
         inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;               
         isInventoryOpen.initialValue = false;
@@ -30,6 +32,7 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
         if (isPaused.initialValue)
         {
             Time.timeScale = 0f;
@@ -38,13 +41,18 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.I) && !pausePanel.activeSelf ||
-            Input.GetKeyDown(KeyCode.Escape) && inventoryPanel.activeSelf)
+        if (inventoryPanel.activeSelf && EventSystem.current.currentSelectedGameObject == null)
         {
-            Debug.Log("inv");
-            InteractInventory();
+            inventorySelectedButton.GetComponent<Button>().Select();
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && !inventoryPanel.activeSelf)
+
+        if (Input.GetKeyDown(KeyCode.I) && !pausePanel.activeSelf ||
+            Input.GetKeyDown(KeyCode.Escape) && inventoryPanel.activeSelf && !pausePanel.activeSelf)
+        {
+            inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
+            Debug.Log("here");
+            InteractInventory();
+        } else if (Input.GetKeyDown(KeyCode.Escape) && !inventoryPanel.activeSelf)
         {            
             ChangePause();
         }
@@ -54,13 +62,13 @@ public class PauseManager : MonoBehaviour
     public void InteractInventory()
     {        
         isInventoryOpen.initialValue = !isInventoryOpen.initialValue;
-        isPaused.initialValue = !isPaused.initialValue;
-        Debug.Log(inventorySelectedButton);
+        isPaused.initialValue = !isPaused.initialValue;        
         if (isInventoryOpen.initialValue)
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            inventoryPanel.SetActive(true);                       
-            EventSystem.current.SetSelectedGameObject(inventorySelectedButton);
+        {            
+            EventSystem.current.SetSelectedGameObject(null);            
+            inventoryPanel.SetActive(true);            
+            EventSystem.current.SetSelectedGameObject(inventorySelectedButton);            
+            Debug.Log(EventSystem.current.currentSelectedGameObject);
         }
         else
         {
