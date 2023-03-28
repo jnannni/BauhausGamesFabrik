@@ -42,6 +42,7 @@ public class TheG : MonoBehaviour
     [SerializeField] private GameObject downTheRoof;
     [SerializeField] private InventoryItem item004;
     [SerializeField] private InventoryItem item005;
+    [SerializeField] private InventoryItem objectFromSecurity;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private Animator cameraAnimator;
     [SerializeField] private Animator canvasAnimator;
@@ -137,15 +138,20 @@ public class TheG : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(behindTheSchool.transform.position.x, behindTheSchool.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
+            /*if (entertheschool01)
+            {
+                if (!playerInventory.myInventory.Contains(objectFromSecurity))
+                {
+                    playerInventory.myInventory.Add(objectFromSecurity);
+                }
+            }*/
         }
 
         if (enterthegranshouse)
         {
             // move character to grans position
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = new Vector3(grandpasHouseInside.transform.position.x,
-
-                Inside.transform.position.y, 0f);
+            player.transform.position = new Vector3(grandpasHouseInside.transform.position.x, grandpasHouseInside.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             player.transform.localScale = new Vector3(1.5f, 1.5f, 0f);
         }

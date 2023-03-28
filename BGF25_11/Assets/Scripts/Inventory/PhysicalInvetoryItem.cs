@@ -29,7 +29,7 @@ public class PhysicalInvetoryItem : MonoBehaviour
 
     private void Update()
     {        
-        isPressed = Input.GetKeyDown(KeyCode.J);
+        isPressed = Input.GetKeyDown(KeyCode.K);
         if (isPressed && isItemClose && item.collectable)
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.collectedItem, this.transform.position);

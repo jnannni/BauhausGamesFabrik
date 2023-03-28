@@ -10,6 +10,7 @@ title: TheBlocks
 <<set $exittheantique to false>> //exit antique shop
 <<set $poetsdiary to false>> //shows an illustration of The Lonely Gentleman's diary (maybe we can make it interactive so you can turn some pages)
 <<set $putintheinventory008 to false>> //an object from the Lonely Gentleman
+<<set $coinisselected to false>>
 
 //variables for in YARN
 <<set $talkedaboutrabbits to false>>
@@ -36,7 +37,7 @@ Magnolia: (I need to find a way to go back.)
 title: TheCarCleaner
 ---
 <<if visited_count("TheCarCleaner") < 1>>
-<<SetPortrait carcleanerportrait1>>
+ <<SetPortrait carcleanerportrait1>>
  The Car Cleaner: All these rabbits leaving paw prints over the cars.
  The Car Cleaner: It's killing me.
  <<SetPortrait noportrait>>
@@ -66,8 +67,8 @@ title: TheCarCleaner
 
 title: TheLonelyGentleman
 ---
-<<SetPortrait noportrait>>
 <<if visited_count("TheLonelyGentleman") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (He seems approachable.)
  Magnolia: Have you noticed anything strange around here?
  <<SetPortrait lonelygentelmanportrait1>>
@@ -128,7 +129,7 @@ title: TheLonelyGentleman
  Magnolia: (He could be useful.)
   <<jump TheLonelyGentleman_Questions>>
 <<elseif visited_count("TheLonelyGentleman") == 1>>
-<<SetPortrait lonelygentelmanportrait1>>
+ <<SetPortrait lonelygentelmanportrait1>>
  The Lonely: It's again you!
  <<SetPortrait noportrait>>
  Magnolia: What do you mean?
@@ -137,7 +138,7 @@ title: TheLonelyGentleman
  The Lonely: Are you curious about anything?
  <<jump TheLonelyGentleman_Questions>>
 <<else>>
-<<SetPortrait lonelygentelmanportrait1>>
+ <<SetPortrait lonelygentelmanportrait1>>
  The Lonely: I have all the time in this world.
  <<jump TheLonelyGentleman_Questions>>
 <<endif>>
@@ -145,10 +146,9 @@ title: TheLonelyGentleman
 
 title: TheLonelyGentleman_Questions
 ---
-<<SetPortrait noportrait>>
 -> (I suddenly feel too shy to ask him anything.)
 -> How long have you been waiting?
-<<SetPortrait lonelygentelmanportrait1>>
+ <<SetPortrait lonelygentelmanportrait1>>
  The Lonely: It's been sometime now.
  <<SetPortrait noportrait>>
  Magnolia: And that is? 
@@ -200,7 +200,7 @@ title: TheLonelyGentleman_Questions
  <<SetPortrait noportrait>>
  Magnolia: Thank you.
 -> Could I look into your diary? <<if $haspoetclue is true>>
-<<SetPortrait lonelygentelmanportrait1>>
+ <<SetPortrait lonelygentelmanportrait1>>
  The Lonely: I don’t think you would understand.
  <<SetPortrait noportrait>>
  Magnolia: Maybe you could give me a chance?
@@ -241,7 +241,7 @@ title: TheLonelyGentleman_Questions
  <<jump TheDiary>>
  <<SetPortrait noportrait>>
 -> Did you see me before?
-<<SetPortrait lonelygentelmanportrait1>>
+ <<SetPortrait lonelygentelmanportrait1>>
  The Lonely: I did. 
  The Lonely: But you looked different each time.
  <<SetPortrait noportrait>>
@@ -287,6 +287,7 @@ title: TheLonelyGentleman_Questions
  <<SetPortrait noportrait>>
   -> Take the gift.
    <<set $putintheinventory008 to true>> //OBJECT 008
+   <<SetPortrait noportrait>>
    Magnolia: Thank you!
    Magnolia: (I don't think I am going to use it tho.)
    Magnolia: (I don't like seeing myself.)
@@ -302,9 +303,8 @@ Magnolia: (Too bad he didn't show me all of it.)
 
 title: TheCarCleaner_Questions
 ---
-<<SetPortrait noportrait>>
 -> Why only three cars per day?
-<<SetPortrait carcleanerportrait1>>
+ <<SetPortrait carcleanerportrait1>>
  The Car Cleaner: There is no room for mistakes, that's why.
  <<SetPortrait noportrait>>
  Magnolia: I thought you would say you need rest time.
@@ -327,7 +327,7 @@ title: TheCarCleaner_Questions
  Magnolia: That's a shame...
  <<set $clue_uncle to true>>
 -> Aren't you afraid you are going to die as early as your uncle? <<if $clue_uncle is true>>
-<<SetPortrait carcleanerportrait1>>
+ <<SetPortrait carcleanerportrait1>>
  The Car Cleaner: Why would I?
  The Car Cleaner: Are you cursing me or something?
  <<SetPortrait noportrait>>
@@ -344,7 +344,7 @@ title: TheCarCleaner_Questions
  The Car Cleaner: Nothing we can do about that.
  <<SetPortrait noportrait>>
 -> 75 years is a long time.
-<<SetPortrait carcleanerportrait1>>
+ <<SetPortrait carcleanerportrait1>>
  The Car Cleaner: But it will be worth it!
  <<wait 0.5>>
  <<SetPortrait noportrait>>
@@ -364,10 +364,10 @@ title: TheCarCleaner_Questions
 
 title: TheBlobPerson
 ---
-<<SetPortrait noportrait>>
 //the blob person and the husband have the connection
 //you unlock a part of his conversation from a scrunched drawing of a kid you found
 <<if visited_count("TheBlobPerson") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (He looks a little bit strange.)
  Magnolia: (Maybe he knows something.)
  <<SetPortrait blobpersonportrait1>>
@@ -389,14 +389,14 @@ title: TheBlobPerson
  The Blob Person: Those demons.
   <<jump TheBlobPerson_Questions02>>
 <<elseif visited_count("TheBlobPerson") == 1>>
-<<SetPortrait blobpersonportrait1>>
+ <<SetPortrait blobpersonportrait1>>
  The Blob Person: I know you don't believe me.
  The Blob Person: Nobody believes a person without a body.
  <<wait 0.5>>
  <<SetPortrait noportrait>>
  Magnolia: That's not true...
  Magnolia: What I meant to say is, I believe you.
- Magnolia: (At least I think so.)
+ Magnolia: (At least I think so.) 
  <<SetPortrait blobpersonportrait1>>
  The Blob Person: Thank you.
  The Blob Person: It...
@@ -404,7 +404,7 @@ title: TheBlobPerson
   <<wait 0.5>>
   <<jump TheBlobPerson_Questions02>>
 <<else>>
-<<SetPortrait blobpersonportrait1>>
+ <<SetPortrait blobpersonportrait1>>
  The Blob Person: This huge body feels weightless.
   <<jump TheBlobPerson_Questions02>>
 <<endif>>
@@ -415,8 +415,8 @@ title: TheBlobPerson_Questions01
 <<SetPortrait noportrait>>
 Magnolia: (I don't have time to deal with his problems.)
 Magnolia: (I need to find out how to go back.)
- -> Did you see anything unusual around here?
- <<SetPortrait blobpersonportrait1>>
+ -> Did you see anything unusual around here? 
+  <<SetPortrait blobpersonportrait1>>
   The Blob Person: Except for the monsters prying on me, not really.
   <<SetPortrait noportrait>>
   Magnolia: How do these monsters look like?
@@ -433,7 +433,7 @@ Magnolia: (I need to find out how to go back.)
   Magnolia: (He doesn't know anything.)
    <<jump TheBlobPerson_Questions02>>
  -> Have you ever controlled your dreams?
- <<SetPortrait blobpersonportrait1>>
+  <<SetPortrait blobpersonportrait1>>
   The Blob Person: When I was a kid yes.
   The Blob Person: I would lead a lot of epic battles inside my dreams.
   The Blob Person: But we live in reality unfortunately.
@@ -450,7 +450,7 @@ Magnolia: (He seems stuck.)
 Magnolia: (Something about his own body bothers him.)
 -> (But I don't want to ask him anything.)
 -> Where did they take your body?
-<<SetPortrait blobpersonportrait1>>
+ <<SetPortrait blobpersonportrait1>>
  The Blob Person: They hid it underneath.
  <<SetPortrait noportrait>>
  Magnolia: Underneath what?
@@ -465,7 +465,7 @@ Magnolia: (Something about his own body bothers him.)
  <<SetPortrait blobpersonportrait1>>
  The Blob Person: Nobody does until it's too late.
 -> How does your body look like?
-<<SetPortrait blobpersonportrait1>>
+ <<SetPortrait blobpersonportrait1>>
  The Blob Person: It's an average-looking body.
  The Blob Person: It has two legs and two arms.
  <<SetPortrait noportrait>>
@@ -479,7 +479,7 @@ Magnolia: (Something about his own body bothers him.)
  The Blob Person: It's only a memory now.
  <<SetPortrait noportrait>>
 -> Show the drawing. <<if $putintheinventory001 is true>>
-<<SetPortrait noportrait>>
+ <<SetPortrait noportrait>>
  Magnolia: (I need to take it out of my backpack.) //The player now needs to open the inventory.
 ===
 
@@ -498,8 +498,8 @@ The Blob Person: Where did you find this?
 <<SetPortrait noportrait>>
 Magnolia: In Uphill. 
 Magnolia: Somebody threw it away from their window.
- -> Do you think a child threw it away?
- <<SetPortrait blobpersonportrait1>>
+ -> Do you think a child threw it away? 
+  <<SetPortrait blobpersonportrait1>>
   The Blob Person: It's so sad to think that a kid doesn't love their own drawing.
   <<SetPortrait noportrait>>
   Magnolia: Were you a self-critical child?
@@ -516,8 +516,8 @@ Magnolia: Somebody threw it away from their window.
   Magnolia: Do you see it?
   <<SetPortrait blobpersonportrait1>>
   The Blob Person: They do resemble it.
- -> Do you think an adult threw it away?
- <<SetPortrait blobpersonportrait1>>
+ -> Do you think an adult threw it away? 
+  <<SetPortrait blobpersonportrait1>>
   The Blob Person: I don't think anyone would throw away a child's drawing.
   The Blob Person: It's just so endearing.
   The Blob Person: Don't you think?
@@ -535,11 +535,11 @@ Magnolia: Somebody threw it away from their window.
 
 title: TheDeadbitHusband
 ---
-<<SetPortrait noportrait>>
 //he is drunk with a girl under his arm, he is only making a joke after a joke, at a certain joke he asks you to guess the end. 
 //To be able to guess the end you would have need to have read a certain text/graffiti(its in the DownHill) that is an excerpt from a movie. It’s a joke about married life.
 //he gives the clue for something later CLUE 005
 <<if visited_count("TheDeadbitHusband") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: I am sorry!
  <<SetPortrait deadbithusbandportrait1>>
  The Husband: No need! All is well. Too well, you know.
@@ -556,8 +556,8 @@ title: TheDeadbitHusband
  Magnolia: (I said no, but okay.)
  <<wait 0.5>>
  Magnolia: Uhm, I'm not sure.
- -> Because he was lazy?
- <<SetPortrait deadbithusbandportrait1>>
+ -> Because he was lazy? 
+  <<SetPortrait deadbithusbandportrait1>>
   The Husband: Not really creative, are you?
   <<SetPortrait noportrait>>
   Magnolia: (Is this an insult?)
@@ -574,8 +574,8 @@ title: TheDeadbitHusband
    -> Magnolia: Please don't.
    -> Magnolia: Okay, let me hear another one.
     <<jump TheDeadbitHusband_Jokes>>
- -> He was afraid his wife cheats on him upstairs? 
- <<SetPortrait deadbithusbandportrait1>>
+ -> He was afraid his wife cheats on him upstairs?  
+  <<SetPortrait deadbithusbandportrait1>>
   The Husband: HAHAHA! A good one! 
   The Husband: But no.
   The Husband: He said they were always up to something.
@@ -593,10 +593,9 @@ title: TheDeadbitHusband
 <<else>>
  <<if $hasClue_Graffiti001 is true>>
   <<jump TheHusband_Grafitti>>
- <<else>>
- <<SetPortrait deadbithusbandportrait1>>
-  The Husband: Do you want to hear another one?
-  <<SetPortrait noportrait>>
+ <<else>> 
+  <<SetPortrait deadbithusbandportrait1>>
+  The Husband: Do you want to hear another one?  
    -> Please no.
    -> Okay.
     <<jump TheDeadbitHusband_Jokes>>
@@ -606,7 +605,7 @@ title: TheDeadbitHusband
 
 title: TheHusband_Grafitti
 ---
-<<SetPortrait noportrait>>
+  <<SetPortrait noportrait>>
   Magnolia: I read this graffiti quote from an old movie.
   Magnolia: But I don't remember from which movie it is.
   <<SetPortrait deadbithusbandportrait1>>
@@ -614,8 +613,8 @@ title: TheHusband_Grafitti
   The Husband: If it is, I know all of them by heart.
   <<SetPortrait noportrait>>
   Magnolia: It is.
-   -> Tell him the quote.
-   <<SetPortrait noportrait>>
+   -> Tell him the quote.   
+    <<SetPortrait noportrait>>
     Magnolia: It was something like...
     Magnolia: [i]We are going to watch the video until the colors melt.[/i]
     <<SetPortrait deadbithusbandportrait1>>
@@ -670,7 +669,7 @@ title: TheDeadbitHusband_Jokes
 ---
 <<if visited_count("TheDeadbitHusband_Jokes") < 1>>
 <<SetPortrait deadbithusbandportrait1>>
-THe Husband: Okay, okay!
+The Husband: Okay, okay!
 The Husband: Do you know why are elevator jokes so classic and good?
 <<SetPortrait noportrait>>
 Magnolia: I have no clue.
@@ -744,10 +743,9 @@ Magnolia: That's okay.
 
 title: TheAllKnowingLady
 ---
-<<SetPortrait noportrait>>
 //this time she is the trigger, it's hidden in her dialogue TRIGGER 002
 <<if $talkedaboutrabbits is true>>
-<<SetPortrait allknowingladyportrait1>>
+ <<SetPortrait allknowingladyportrait1>>
  The Knowing Lady: You have nowhere else to go.
  The Knowing Lady: This is what you searched for, isn't it?
  <<SetPortrait noportrait>>
@@ -761,7 +759,7 @@ title: TheAllKnowingLady
  Magnolia: (But I need to find a way back.)
  Magnolia: Excuse me?
  <<SetPortrait allknowingladyportrait1>>
- The Knowing Lady: Yes birdie?
+ The Knowing Lady: Yes birdie? 
  <<SetPortrait noportrait>>
  Magnolia: Have you seen anything strange around here?
  <<SetPortrait allknowingladyportrait1>>
@@ -782,7 +780,6 @@ title: TheAllKnowingLady
 
 title: TheAllKnowingLady_Questions
 ---
-<<SetPortrait noportrait>>
 -> Somebody told me parents shouldn't die before their children. <<if $hasClue_AllKnowingLady is true>>
  <<set $talkedaboutrabbits to true>>
  <<SetPortrait allknowingladyportrait1>>
@@ -820,7 +817,7 @@ title: TheAllKnowingLady_Questions
   <<set $trigger_TheAllKnowingLady to true>>
   -> I am too afraid.
 -> Do you know of a way to enter dreams?
-<<SetPortrait allknowingladyportrait1>>
+ <<SetPortrait allknowingladyportrait1>>
  The Knowing Lady: Nobody dreams the same.
  The Knowing Lady: Some people are so obsessed with mundane things in their daily lives...
  The Knowing Lady: They enter only the surface layer of the land of dreams.
@@ -832,7 +829,7 @@ title: TheAllKnowingLady_Questions
  <<SetPortrait noportrait>>
  Magnolia: (She didn't answer me.)
 -> Do you believe a person could be resurrected?
-<<SetPortrait allknowingladyportrait1>>
+ <<SetPortrait allknowingladyportrait1>>
  The Knowing Lady: You shouldn't ask questions you are not ready for.
  <<SetPortrait noportrait>>
  Magnolia: So that means it's a no?
@@ -958,6 +955,7 @@ Magnolia: (But I am the one chasing a dream.)
 
 title: DroppedTheCoin
 ---
+<<set $coinisselected to true>>
 <<SetPortrait noportrait>>
 //when the player picks the coin from the inventory
 <<wait 1>>

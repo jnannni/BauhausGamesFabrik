@@ -56,7 +56,7 @@ public class ObjectInteractable : MonoBehaviour
 
     public void Interact()
     {
-        if (isInTheRange && isPressed)
+        if (isInTheRange && isPressed && dialogueStartingNode != "")
         {
             StartConversation();
             if (item && playerInventory && !collectable)

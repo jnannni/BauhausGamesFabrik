@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WakingWorld2 : MonoBehaviour
 {
@@ -13,11 +14,10 @@ public class WakingWorld2 : MonoBehaviour
     [SerializeField] private GameObject downTheStairsPosition;
     [SerializeField] private GameObject upTheStairsPosition;
     [SerializeField] private GameObject homePosition;
+    [SerializeField] private Sprite childsDrawing;
     [SerializeField] private InventoryItem item001;
     [SerializeField] private InventoryItem itemd001;
-    [SerializeField] private PlayerInventory playerInventory;
-
-    private PhysicalInvetoryItem addToInventory;
+    [SerializeField] private PlayerInventory playerInventory;    
 
     private bool gobackhome;
     private bool magnoliadances;
@@ -34,6 +34,8 @@ public class WakingWorld2 : MonoBehaviour
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Animator cameraAnimator;
     [SerializeField] private Animator canvasAnimator;
+    [SerializeField] private BoolValue isIllustrationWatched;
+    [SerializeField] private GameObject illustrationPanel;
 
     private void Awake()
     {
@@ -55,7 +57,7 @@ public class WakingWorld2 : MonoBehaviour
         variableStorage.TryGetValue("$gobackhome", out gobackhome);
         variableStorage.TryGetValue("$magnoliadances", out magnoliadances);
         variableStorage.TryGetValue("$gotothegraveyard", out gotothegraveyard);
-        variableStorage.TryGetValue("$glookatthedrawing", out lookatthedrawing);
+        variableStorage.TryGetValue("$lookatthedrawing", out lookatthedrawing);
         variableStorage.TryGetValue("$putintheinventory001", out putintheinventory001);
         variableStorage.TryGetValue("$putintheinventoryd001", out putintheinventoryd001);
         variableStorage.TryGetValue("$godownthestairs", out godownthestairs);
@@ -67,18 +69,21 @@ public class WakingWorld2 : MonoBehaviour
             // add animation to animator for the dance
         }
 
-        if (lookatthedrawing)
+        if (lookatthedrawing && !isIllustrationWatched.initialValue)
         {
             // show the picture of the drawing or move camera to show it
+            isIllustrationWatched.initialValue = true;
+            illustrationPanel.transform.GetChild(0).GetComponent<Image>().sprite = childsDrawing;
+            variableStorage.SetValue("$lookatthedrawing", false);
         }
 
-        if (putintheinventory001)
+        /*if (putintheinventory001)
         {
             if (!playerInventory.myInventory.Contains(item001))
             {
                 playerInventory.myInventory.Add(item001);
             }
-        }
+        }*/
 
         if (putintheinventoryd001)
         {

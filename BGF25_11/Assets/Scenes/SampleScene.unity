@@ -3062,9 +3062,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 0}
   inventoryContent: {fileID: 0}
+  illustrationPanel: {fileID: 0}
   pausedMenuSelectedButton: {fileID: 0}
   optionsSelectedButton: {fileID: 0}
   isPaused: {fileID: 11400000, guid: f42396a2cfdf5463d908a7de4a09a421, type: 2}
+  isIllustrationWatched: {fileID: 0}
   isInventoryOpen: {fileID: 11400000, guid: 8edc54243a47442c4aa27e1149eb23ab, type: 2}
   pausePanel: {fileID: 1388966306}
   mainMenu: StartMenu
@@ -30278,7 +30280,7 @@ GameObject:
   - component: {fileID: 1686617592}
   m_Layer: 0
   m_Name: TheCurtains
-  m_TagString: Untagged
+  m_TagString: TheCurtains
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

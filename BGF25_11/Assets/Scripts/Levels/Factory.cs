@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Factory : MonoBehaviour
@@ -25,6 +26,9 @@ public class Factory : MonoBehaviour
     [SerializeField] private GameObject insideTheFactory;
     [SerializeField] private InventoryItem item11;
     [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private BoolValue isIllustrationWatched;
+    [SerializeField] private GameObject illustrationPanel;
+    [SerializeField] private Sprite pictureFrameImage;
 
     private void Awake()
     {
@@ -55,19 +59,25 @@ public class Factory : MonoBehaviour
             SceneManager.LoadScene(nameOfTheScene);
         }
 
-        if (showthepicture)
+        if (showthepicture && !isIllustrationWatched.initialValue)
         {
             // show the illustration
+            isIllustrationWatched.initialValue = true;
+            illustrationPanel.transform.GetChild(0).GetComponent<Image>().sprite = pictureFrameImage;
+            variableStorage.SetValue("$showthepicture", false);
         }
 
         if (enterthefactory)
         {
-            player.transform.localScale = new Vector3(1.7f, 1.7f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
         }
 
         if (putintheinventory11)
         {
-            addToInventory.AddingItemFromDialogue(item11, playerInventory);
+            if (!playerInventory.myInventory.Contains(item11))
+            {
+                playerInventory.myInventory.Add(item11);
+            }
         }
     }
 }

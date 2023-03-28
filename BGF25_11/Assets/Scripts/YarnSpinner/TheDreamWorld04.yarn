@@ -3,8 +3,9 @@ title: TheDreamworld_04
 //object: the comb with the eyes turns into a jar of what looks like fireflies
 //and they lit up some kind of candles and that moves the giants
 
-//variables for UNITY
+//variables for UNIT
 <<set $tryflamingsword to false>>
+<<set $jar_used to false>>
 <<set $camerashaking to false>> //both camera shakes and the buzzing sound plays
 <<set $magnoliawalksforward to false>>
 <<set $priestshows to false>>
@@ -83,6 +84,7 @@ Magnolia: (I didn't bring my phone with me tho. I left it on the nightstand.)
 <<wait 0.5>>
 Magnolia: (I'm getting nervous.)
 Magnolia: (It's sounds like a swarm of hornets.)
+<<set $camerashaking to false>>
 <<else>>
 Magnolia: (There's some kind of energy around here.)
 <<endif>>
@@ -335,6 +337,7 @@ title: TheCandleStick
 
 title: TheCandleStick_Lit
 ---
+<<set $jar_used to true>>
 <<wait 1.5>>
 Magnolia: It's so beautiful!
 <<wait 0.5>>

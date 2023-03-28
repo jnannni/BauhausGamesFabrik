@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Blocks : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Blocks : MonoBehaviour
     private bool putintheinventory003;
     private bool exittheantique;
     private bool poetsdiary;
+    private bool coinisselected;
     private bool putintheinventory008;
 
     private bool isInAntiqueShop;
@@ -24,9 +26,16 @@ public class Blocks : MonoBehaviour
     [SerializeField] private GameObject inFrontOfAntique;
     [SerializeField] private GameObject insideOfAntique;
     [SerializeField] private InventoryItem item003;
-    [SerializeField] private InventoryItem item008;    
+    [SerializeField] private InventoryItem item008;
+    [SerializeField] private InventoryItem coinForFountain;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private Animator transitionAnimator;
+    [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private BoolValue isInventoryOpen;
+    [SerializeField] private BoolValue isPaused;
+    [SerializeField] private BoolValue isIllustrationWatched;
+    [SerializeField] private GameObject illustrationPanel;
+    [SerializeField] private Sprite poetsDairyImage;
 
     private void Awake()
     {
@@ -50,6 +59,7 @@ public class Blocks : MonoBehaviour
         variableStorage.TryGetValue("$putintheinventory003", out putintheinventory003);
         variableStorage.TryGetValue("$exittheantique", out exittheantique);
         variableStorage.TryGetValue("$poetsdiary", out poetsdiary);
+        variableStorage.TryGetValue("$coinisselected", out coinisselected);
         variableStorage.TryGetValue("$putintheinventory008", out putintheinventory008);
 
         if (trigger_TheAllKnowingLady)
@@ -91,9 +101,19 @@ public class Blocks : MonoBehaviour
             }
         }
 
-        if (poetsdiary)
+        if (coinisselected)
         {
-            // show illustration
+            inventoryPanel.SetActive(false);
+            isInventoryOpen.initialValue = false;
+            isPaused.initialValue = false;
+            playerInventory.myInventory.Remove(coinForFountain);
+        }
+
+        if (poetsdiary && !isIllustrationWatched.initialValue)
+        {
+            isIllustrationWatched.initialValue = true;
+            illustrationPanel.transform.GetChild(0).GetComponent<Image>().sprite = poetsDairyImage;
+            variableStorage.SetValue("$poetsdiary", false);
         }
 
         if (exittheantique && isInAntiqueShop)

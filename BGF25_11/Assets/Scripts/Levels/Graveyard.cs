@@ -17,8 +17,7 @@ public class Graveyard : MonoBehaviour
     private bool scurryawayanimation;
     
     private bool isInsideTheChurch;
-    private FadeLayer fadeLayer;
-    private PhysicalInvetoryItem addToInventory;
+    private FadeLayer fadeLayer;    
     [SerializeField] private InventoryItem item002;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject catCreature;

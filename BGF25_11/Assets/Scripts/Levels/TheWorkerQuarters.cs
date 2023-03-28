@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using UnityEngine.SceneManagement;
 
 public class TheWorkerQuarters : MonoBehaviour
 {
@@ -20,14 +21,17 @@ public class TheWorkerQuarters : MonoBehaviour
     [SerializeField] private BoolValue changeCameraSmoothing;
     [SerializeField] private CameraMovement cam;
     [SerializeField] private string nameOfTheScene;
+    [SerializeField] private Animator transitionAnimator;
 
     private Vector3 playerStartPosition;
     private Vector3 playerCurrentPosition;
+    private FadeLayer fadeLayer;
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueRunner.StartDialogue("TheWorkerQuarters");
+        fadeLayer = FindObjectOfType<FadeLayer>();
         playerCurrentPosition = player.transform.position;
         playerStartPosition = playerPosition.transform.position;
     }
@@ -35,8 +39,12 @@ public class TheWorkerQuarters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        variableStorage.TryGetValue("$theworkercomesout", out theworkercomesout);
+        variableStorage.TryGetValue("$cutscene_rabbits", out cutscene_rabbits);
+        variableStorage.TryGetValue("$trigger_Frozen", out trigger_Frozen);
+
         playerCurrentPosition = player.transform.position;
-        playerStartPosition = new Vector3(playerPosition.transform.position.x, playerCurrentPosition.y, 0);
+        playerStartPosition = new Vector3(playerPosition.transform.position.x, playerCurrentPosition.y, 0f);
 
         if (isLoopTriggered.initialValue)
         {
@@ -48,7 +56,18 @@ public class TheWorkerQuarters : MonoBehaviour
         if (changeCameraSmoothing.initialValue)
         {
             cam.smoothing = 0.1f;
-            changeCameraSmoothing.initialValue = false;
+            changeCameraSmoothing.initialValue = false;            
+        }
+
+        if (trigger_Frozen)
+        {
+            transitionAnimator.SetBool("transitiontodw", true);
+            if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
+            {
+                StartCoroutine(fadeLayer.FadeIn());
+                SceneManager.LoadScene(nameOfTheScene);
+                transitionAnimator.SetBool("transitiontodw", false);
+            }
         }
     }    
 }

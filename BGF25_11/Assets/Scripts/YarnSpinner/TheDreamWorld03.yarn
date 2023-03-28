@@ -164,11 +164,13 @@ title: TheDive
 
 title: TheWaterFalls02
 ---
+<<if visited_count("TheWaterFalls02") < 1>>
 Magnolia: (These are probably the waterfalls that I heard from the other dream.)
 <<wait 0.5>>
 Magnolia: (They really are continuing.)
 <<wait 0.5>>
 Magnolia: (The loudness of the water creates a perfect silence.)
+<<endif>>
 //destroy node after
 ===
 

@@ -28,41 +28,41 @@ Magnolia: (They are not the ones considering going after a magical star.)
 title: TheCreeper
 ---
 <<if visited_count("TheCreeper") < 1>>
-<<SetPortrait noportrait>>
+ <<SetPortrait noportrait>>
  Magnolia: (This guy gives me the creeps.)
  Magnolia: (Not even in a good way.)
  Magnolia: (Like he might be magical or something.)
  Magnolia: (It's very - I am a woman and this feels unsafe - way.)
  <<wait 1>>
  <<SetPortrait creeperportrait1>>
- The Creeper: The sun shines through the summer dresses.
+ The Creeper: The sun shines through the summer dresses. 
  <<SetPortrait noportrait>>
  Magnolia: (I knew it.)
  Magnolia: (I'll just ignore him.)
- <<wait 1>>
+ <<wait 1>> 
  <<SetPortrait creeperportrait1>>
  The Creeper: You know this world was made for my eyes?
- <<wait 0.2>>
+ <<wait 0.2>> 
  <<SetPortrait creeperportrait1>>
  The Creeper: Every little patch of the skin, it's created by my design.
- The Creeper: I designed it in my dreams.
+ The Creeper: I designed it in my dreams. 
  <<SetPortrait noportrait>>
- Magnolia: Dreams or fantasies?
+ Magnolia: Dreams or fantasies? 
  <<SetPortrait creeperportrait1>>
- The Creeper: Where is the difference?
+ The Creeper: Where is the difference? 
  <<SetPortrait noportrait>>
- Magnolia: Not every dream is a fantasy.
+ Magnolia: Not every dream is a fantasy. 
  <<SetPortrait creeperportrait1>>
  The Creeper: Is it not?
- The Creeper: What do you dream of?
+ The Creeper: What do you dream of? 
  <<SetPortrait noportrait>>
  Magnolia: (I dream of a star that can resurrect my family.)
  Magnolia: (That does seem like a fantasy.)
- Magnolia: But you believe fantasies can come true?
+ Magnolia: But you believe fantasies can come true? 
  <<SetPortrait creeperportrait1>>
  The Creeper: Only mine.
  The Creeper: Because they are pure.
- The Creeper: Pure as the girls that I bathe in my fantasies.
+ The Creeper: Pure as the girls that I bathe in my fantasies. 
  <<SetPortrait noportrait>>
  Magnolia: (I don't want to be close to him anymore.)
 <<else>>
@@ -75,17 +75,17 @@ title: TheChitChats
 //Two neighbours on the windows arguing about what happened yesterday in front of the window, can’t agree on it.
 //to be able to get into the church you need to get the ChitChats to agree. CLUE 005
 <<if $hasClue004 is true>>
-<<SetPortrait noportrait>>
- Magnolia: I think I know what happened here.
+ <<SetPortrait noportrait>>
+ Magnolia: I think I know what happened here. 
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: What do you mean?
-  -> Someone from the church cut down the tree.
-  <<SetPortrait chitchat1portrait1>>
+  -> Someone from the church cut down the tree.  
+   <<SetPortrait chitchat1portrait1>>
    The First Chitchat: Outrageous!
    <<SetPortrait chitchat2portrait1>>
-   The Second Chitchat: It's her! I told you it's her!
+   The Second Chitchat: It's her! I told you it's her!   
    <<SetPortrait noportrait>>
-   Magnolia: I don't think it was her.
+   Magnolia: I don't think it was her.   
    <<SetPortrait chitchat1portrait1>>
    The First Chitchat: Of course, it was not me.
    The First Chitchat: But someone had to do it.
@@ -103,26 +103,26 @@ title: TheChitChats
    <<SetPortrait chitchat1portrait1>>
    The First Chitchat: The backdoor is open. 
    <<SetPortrait chitchat2portrait1>>
-   The Second Chitchat: I can't believe this!
+   The Second Chitchat: I can't believe this!   
    <<SetPortrait noportrait>>
    Magnolia: (So I could've gone in.)
    Magnolia: (Church does seem like a perfect place for unusual occurrences.)
    <<set $hasClue_forChurch to true>> //this is a clue for the church
-  -> God intervened and let the tree rot.
-  <<SetPortrait chitchat2portrait1>>
+  -> God intervened and let the tree rot.  
+   <<SetPortrait chitchat2portrait1>>
    The Second Chitchat: Darling, I do believe in God.
-   The Second Chitchat: However, I don't believe he would involve himself in such a matter.
+   The Second Chitchat: However, I don't believe he would involve himself in such a matter.   
    <<SetPortrait chitchat1portrait1>>
    The First Chitchat: Why not?
-   The First Chitchat: You said it yourself. It's a spiritual tree!
+   The First Chitchat: You said it yourself. It's a spiritual tree!   
    <<SetPortrait noportrait>>
    Magnolia: (This is going nowhere.)
   -> I'm not sure.
-   The Second Chitchat: What was the use of you?
+   The Second Chitchat: What was the use of you?   
    <<SetPortrait noportrait>>
    Magnolia: I'm sorry.
 <<else>>
- <<if visited_count("TheChitChats") < 1>>
+ <<if visited_count("TheChitChats") < 1>> 
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: Honestly, it was all a little bit misunderstood.
  <<SetPortrait chitchat2portrait1>>
@@ -130,18 +130,18 @@ title: TheChitChats
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: That's a little bit of an exaggeration, don't you think?
  <<SetPortrait chitchat2portrait1>>
- The Second Chitchat: Is it? The body is still there. Just look!
+ The Second Chitchat: Is it? The body is still there. Just look! 
  <<SetPortrait noportrait>>
  Magnolia: (Is there a dead body lying around?!)
   -> Run away immediately.
-  -> Wait and then ask them.
-  <<SetPortrait chitchat1portrait1>>
+  -> Wait and then ask them.  
+   <<SetPortrait chitchat1portrait1>>
    The First Chitchat: They just cut down a tree.
    The First Chitchat: It's hardly a murder.
    <<SetPortrait chitchat2portrait1>>
    The Second Chitchat: That tree stood there long before any of us were born!
    <<SetPortrait chitchat1portrait1>>
-   The First Chitchat: So it lived a long life.
+   The First Chitchat: So it lived a long life.   
    <<SetPortrait noportrait>>
    Magnolia: Trees can live up to 5000 years.
    Magnolia: (Why can't I shut up?)
@@ -152,35 +152,33 @@ title: TheChitChats
    <<wait 1>>
    <<SetPortrait chitchat2portrait1>>
    The Second Chitchat: You hear that!
-   <<wait 0.5>>
+   <<wait 0.5>>   
    <<SetPortrait chitchat1portrait1>>
    The First Chitchat: Not this one.
-   The First Chitchat: It was rotting.
+   The First Chitchat: It was rotting.   
    <<SetPortrait noportrait>>
    Magnolia: So what happened?
    <<jump TheChitChats_Story>>
  <<elseif visited_count("TheChitChats") == 1>>
-  <<if visited_count("TheChitChats_Story") <1>> 
-  <<SetPortrait chitchat2portrait1>>
-   The Second Chitchat: Little one, do you want to hear what happened?
+  <<if visited_count("TheChitChats_Story") <1>>   
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: Little one, do you want to hear what happened?   
    <<SetPortrait chitchat1portrait1>>
    The First Chitchat: I will tell her.
     -> Let's hear it.
      <<jump TheChitChats_Story>>
-  <<else>>
-  <<SetPortrait chitchat2portrait1>>
-   The Second ChitChat: You are on my side right?
-   <<SetPortrait noportrait>>
+  <<else>>  
+   <<SetPortrait chitchat2portrait1>>
+   The Second ChitChat: You are on my side right?   
     -> I have a question.
      <<jump TheChitChats_Questions>>
-    -> I am on nobody's side.
-    <<SetPortrait chitchat1portrait1>>
+    -> I am on nobody's side.    
+     <<SetPortrait chitchat1portrait1>>
      The First ChitChat: You can't always be Switzerland you know.
   <<endif>> 
- <<else>>
- <<SetPortrait chitchat1portrait1>>
+ <<else>> 
+  <<SetPortrait chitchat1portrait1>>
   The First ChitChat: Who do you believe, huh?
-  <<SetPortrait noportrait>>
    -> I have a question for you.
     <<jump TheChitChats_Questions>>
    -> I don't want to get involved.
@@ -208,20 +206,19 @@ Magnolia: I was wondering...
 
 title: TheChitChats_Questions
 ---
-<<SetPortrait noportrait>>
 -> Does anyone know who would do it?
-<<SetPortrait chitchat2portrait1>>
- The Second Chitchat: I say it's her!
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: I say it's her! 
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: Me?!
  The First Chitchat: I don't have that kind of strength.
  The First Chitchat: But I applaud whoever did it.
  <<SetPortrait chitchat2portrait1>>
- The Second Chitchat: I bet she knows who did it then!
+ The Second Chitchat: I bet she knows who did it then! 
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: Like I would tell you.
  <<SetPortrait chitchat2portrait1>>
- The Second Chitchat: I knew it!
+ The Second Chitchat: I knew it! 
  <<SetPortrait noportrait>>
  Magnolia: (It's like listening to two crows fighting in the trees.)
  Magnolia: There must have been some kind of misunderstanding.
@@ -242,23 +239,23 @@ title: TheChitChats_Questions
  Magnolia: (Such a tough crowd.)
   -> Leave.
 -> Why is that tree so important to you?
-<<SetPortrait chitchat2portrait1>>
- The Second Chitchat: Like I said it's really old.
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: Like I said it's really old. 
  <<SetPortrait noportrait>>
  Magnolia: And that's just it?
  <<SetPortrait chitchat2portrait1>>
  The Second Chitchat: Isn't it enough?!
- The Second Chitchat: It was there throughout my whole childhood.
+ The Second Chitchat: It was there throughout my whole childhood. 
  <<SetPortrait noportrait>>
  Magnolia: Any special memories?
  <<SetPortrait chitchat1portrait1>>
- The First Chitchat: She will just make something up.
+ The First Chitchat: She will just make something up. 
  <<SetPortrait noportrait>>
  Magnolia: I don't think...
  <<SetPortrait chitchat2portrait1>>
  The Second Chitchat: I planted it with my grandfather when I was six years old.
  <<wait 0.5>>
- The Second Chitchat: He dissapeared the next year.
+ The Second Chitchat: He dissapeared the next year. 
  <<SetPortrait noportrait>>
  Magnolia and The Second Chitchat: Disappeared??!
  <<SetPortrait chitchat2portrait1>>
@@ -266,7 +263,7 @@ title: TheChitChats_Questions
  <<set $hasClue003 to true>>
   -> That's okay.
 -> I had this toy once. <<if $hasClue003>>
-<<SetPortrait noportrait>>
+ <<SetPortrait noportrait>>
  Magnolia: They gifted it to me when I was born.
  Magnolia: It was made of stardust.
  Magnolia: Or that's how my child's brain saw it at the time.
@@ -278,14 +275,14 @@ title: TheChitChats_Questions
  Magnolia: It's like part of myself.
  Magnolia: And a part of the person who gifted it to me.
  <<SetPortrait chitchat1portrait1>>
- The First Chitchat: Do you remember who gifted it to you?
+ The First Chitchat: Do you remember who gifted it to you? 
  <<SetPortrait noportrait>>
  Magnolia: Not really.
  Magnolia: (Why did I suddenly get this memory back?)
  Magnolia: (I'm getting dizzy.)
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: You seem pale!
- The First Chitchat: Want me to come down and bring you a glass of water?
+ The First Chitchat: Want me to come down and bring you a glass of water? 
  <<SetPortrait noportrait>>
  Magnolia: No need, thank you.
  <<SetPortrait chitchat1portrait1>>
@@ -296,7 +293,7 @@ title: TheChitChats_Questions
  The Second Chitchat: That sounds like you plan her dead.
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: Don't be ridiculous!
- <<wait 0.5>>
+ <<wait 0.5>> 
  <<SetPortrait noportrait>>
  Magnolia: The church looked closed.
  <<SetPortrait chitchat2portrait1>>
@@ -307,7 +304,7 @@ title: TheChitChats_Questions
  The Second Chithchat and Magnolia: ...?
  <<SetPortrait chitchat1portrait1>>
  The First Chitchat: Ah no, I forgot. They are.
- <<wait 0.5>>
+ <<wait 0.5>> 
  <<SetPortrait noportrait>>
  Magnolia: Where was this tree?
  <<SetPortrait chitchat2portrait1>>
@@ -325,7 +322,7 @@ title: TheMother
 // is asking for her children, the clues is to get her to realize that they are grown up and that they left her and she is lonely.
 // While admitting that she is lonely, she gives a clue for both the AllKnowingLady and TheBride. CLUE 006 and CLUE 007
 <<if visited_count("TheMother") < 1>>
-<<SetPortrait motherportrait1>>
+ <<SetPortrait motherportrait1>>
  The Mother: They were playing behind the graves.
  <<SetPortrait noportrait>>
  Magnolia: Who?
@@ -358,7 +355,7 @@ title: TheMother
  <<wait 0.2>>
  <<jump TheMother_Questions>>
 <<elseif visited_count("TheMother") == 1>>
-<<SetPortrait motherportrait1>>
+ <<SetPortrait motherportrait1>>
  The Mother: I still can't find them.
  <<SetPortrait noportrait>>
  Magnolia: How long has it been?
@@ -373,7 +370,7 @@ title: TheMother
  Magnolia: (Should I call the police?)
  <<jump TheMother_Questions>>
 <<else>>
-<<SetPortrait noportrait>>
+ <<SetPortrait noportrait>>
  Magnolia: Still can't find them?
  <<SetPortrait motherportrait1>>
  The Mother: It feels like years.
@@ -384,9 +381,8 @@ title: TheMother
 
 title: TheMother_Questions
 ---
-<<SetPortrait noportrait>>
 -> Do you think you stop being someone's child after they die?
-<<SetPortrait motherportrait1>>
+ <<SetPortrait motherportrait1>>
  The Mother: Parents shouldn't die before their kids.
   <<set $hasClue_AllKnowingLady to true>>
   <<SetPortrait noportrait>>
@@ -409,7 +405,7 @@ title: TheMother_Questions
  The Mother: I don't think I have an answer to that question.
  The Mother: I'm sorry.
 -> Are you still a mother if your child dies?
-<<SetPortrait motherportrait1>>
+ <<SetPortrait motherportrait1>>
  The Mother: What a morbid question from such a young girl!
  The Mother: Of course, you are still a mother.
  <<wait 0.5>>
@@ -428,7 +424,7 @@ title: TheMother_Questions
  <<SetPortrait motherportrait1>>
  The Mother: They seem to be.
 -> Maybe they went back home? <<if visited_count("TheMother") == 1>>
-<<SetPortrait motherportrait1>>
+ <<SetPortrait motherportrait1>>
  The Mother: They don't know the way back home.
  <<SetPortrait noportrait>>
  Magnolia: (They must be so young.)
@@ -441,25 +437,25 @@ title: TheMother_Questions
  <<SetPortrait motherportrait1>>
  The Mother: It's hard to see from such a distance.
   -> Yes, the graveyard is quite big.
-  <<SetPortrait motherportrait1>>
+   <<SetPortrait motherportrait1>>
    The Mother: The distance is uncountable.
-    -> Are your kids alive?
-    <<SetPortrait motherportrait1>>
+    -> Are your kids alive?    
+     <<SetPortrait motherportrait1>>
      The Mother: Really!
      The Mother: You anger me now.
      The Mother: Of course they are alive.
      <<SetPortrait noportrait>>
      Magnolia: I'm sorry.
-    -> How big of a distance are we talking about?
-    <<SetPortrait motherportrait1>>
+    -> How big of a distance are we talking about?    
+     <<SetPortrait motherportrait1>>
      The Mother: My arm doesn't outstretch that long.
      <<SetPortrait noportrait>>
      Magnolia: (I guessed that.)
      Magnolia: It's okay, you'll find them.
      <<SetPortrait motherportrait1>>
      The Mother: Of course, I will.
-  -> What do you mean by distance?
-  <<SetPortrait motherportrait1>>
+  -> What do you mean by distance?  
+   <<SetPortrait motherportrait1>>
    The Mother: Telephones don't help.
    <<SetPortrait noportrait>>
    Magnolia: Do they have telephones?
@@ -471,7 +467,7 @@ title: TheMother_Questions
    <<SetPortrait motherportrait1>>
    The Mother: You wouldn't understand.
 -> How old are your kids? <<if visited_count("TheMother") == 1>>
-<<SetPortrait motherportrait1>>
+ <<SetPortrait motherportrait1>>
  The Mother: What do you mean?
  <<SetPortrait noportrait>>
  Magnolia: Uhm.
@@ -486,8 +482,8 @@ title: TheMother_Questions
  The Mother: Probably many more. 
  The Mother: But I was not there.
  The Mother: And now they are hiding.
-  -> Are your children adults?
-  <<SetPortrait motherportrait1>>
+  -> Are your children adults?  
+   <<SetPortrait motherportrait1>>
    The Mother: They still fit in my palm.
    <<SetPortrait noportrait>>
    Magnolia: (I am not sure they ever did.)
@@ -497,8 +493,8 @@ title: TheMother_Questions
    <<SetPortrait noportrait>>
    Magnolia: I do!
    Magnolia: I do.
-  -> Where did you see your kids last?
-  <<SetPortrait motherportrait1>>
+  -> Where did you see your kids last?  
+   <<SetPortrait motherportrait1>>
    The Mother: They were playing just here!
    <<SetPortrait noportrait>>
    Magnolia: But if you really, really think?

@@ -1,0 +1,414 @@
+//ZONE I and ZONE II - THE UPHILL AND THE DOWNHILL
+
+title: FirstScene
+
+---
+<<SetPortrait noportrait>>
+//variables for UNITY
+<<set $godownthestairs to false>>
+<<set $takethekey to false>>
+<<set $gobackhome to false>>
+<<set $curtainopens to false>> //we talked about adding some kind of disappearing effect
+
+//variables for in YARN
+<<set $hasClueA to false>>
+<<set $hasClueB to false>>
+<<set $hasClueC to false>>
+<<set $stairsareopen to false>>
+
+// Magnolia is in front of her aunt's house in a small uphill neighborhood:
+Magnolia: (Did this city suddenly become grayer?)
+<<wait 1>>
+Magnolia: (There's no sun at all today.)
+Magnolia: (Why did I go out again?)
+Magnolia: (Ah groceries...The fridge is empty.)
+===
+
+title: Restart
+---
+<<wait 1>>
+Magnolia: (I feel the same heaviness.)
+Magnolia: (Even the city seems unchanged.)
+Magnolia: (Did the days pass?)
+Magnolia: (And I again don't have any food.)
+//new objective: find a supermarket
+===
+
+title: TheHouseMan
+---
+<<if visited_count("TheHouseMan") > 1>>
+  <<SetPortrait housemanportrait1>>
+  TheHouseMan: I can't scrub the sun from my windows. How does one take the sun off?
+  <<if $stairsareopen == true>>
+    <<SetPortrait noportrait>>
+    Magnolia: (I can't bother with him anymore.) 
+  <<else>>
+    <<jump TheHouseMan_Questions>>
+  <<endif>>
+<<elseif visited_count("TheHouseMan") == 1>>
+  <<SetPortrait noportrait>>
+  Magnolia: I would really appreciate your help.
+  <<SetPortrait housemanportrait1>>
+  TheHouseMan: I can't scrub the sun from my windows. How does one take the sun off?
+  <<SetPortrait noportrait>>
+  Magnolia: (Again this.)
+  Magnolia: I don't know, sorry.
+  <<SetPortrait housemanportrait1>>
+  TheHouseMan: ...
+  <<jump TheHouseMan_Questions>>
+<<else>>
+    <<SetPortrait noportrait>>
+    Magnolia: Excuse me, do you know where the closest supermarket is?
+    <<SetPortrait housemanportrait1>>
+    TheHouseMan: I can't scrub the sun from my windows. How does one take the sun off?
+    <<SetPortrait noportrait>>
+    Magnolia: (What is he saying?)
+    Magnolia: Uh, I don't know. Put the curtains maybe?
+    <<SetPortrait housemanportrait1>>
+    TheHouseMan: ...
+    <<jump TheHouseMan_Questions>>
+<<endif>>  
+===
+
+title: TheHouseMan_Questions
+---
+-> I heard about the stairs. <<if $hasClueA>>
+   <<SetPortrait housemanportrait1>>
+   TheHouseMan: Keep to the left wall.
+   <<SetPortrait noportrait>>
+   Magnolia: Is it safe that way?
+   <<SetPortrait housemanportrait1>>
+   TheHouseMan:...
+   <<set $stairsareopen to true>>
+     -> Give up.
+-> Ask the man again.
+   <<SetPortrait noportrait>>
+   Magnolia: Uhm, do you maybe know the way to the supermarket?
+   <<SetPortrait housemanportrait1>>
+   TheHouseMan: The sky is almost purple today.
+      -> Give up.
+-> Give up.
+===
+title: TheCarMan
+---
+<<if visited_count("TheCarMan") > 1>>
+  <<SetPortrait carguyportrait1>>
+  TheCarMan: I have seen two rabbits down the street.
+  <<if $hasClueA == true>>
+    <<SetPortrait noportrait>>
+    Magnolia: Me too.
+    <<SetPortrait carguyportrait1>>
+    TheCarMan: Good.
+  <<else>>
+    <<jump TheCarMan_Questions>>
+  <<endif>>
+<<elseif visited_count("TheCarMan") == 1>>
+ <<SetPortrait carguyportrait1>>
+ TheCarMan: I have seen two rabbits down the street.
+ <<SetPortrait noportrait>>
+ Magnolia: Were they wild rabbits sir?
+ <<SetPortrait carguyportrait1>>
+ TheCarMan: It smells of sulfur.
+ <<SetPortrait noportrait>>
+ Magnolia: Excuse me?
+ <<SetPortrait carguyportrait1>>
+ TheCarMan: ...
+ <<jump TheCarMan_Questions>>
+<<else>>
+ <<SetPortrait carguyportrait1>>
+ TheCarMan: I have seen two rabbits down the street.
+ <<SetPortrait noportrait>>
+ Magnolia: Rabbits? I guess it's not unusual sir, the city is in the woods.
+ <<SetPortrait carguyportrait1>>
+ TheCarMan: We are sinking actually.
+ <<SetPortrait noportrait>>
+ Magnolia: Really? How so?
+ <<SetPortrait carguyportrait1>>
+ TheCarMan: Rabbits learn to swim.
+ <<SetPortrait noportrait>>
+ Magnolia: I am not sure...
+ <<SetPortrait carguyportrait1>>
+ TheCarMan: *grunts*
+ <<SetPortrait noportrait>>
+ Magnolia: (Better not argue.)
+ <<jump TheCarMan_Questions>>
+<<endif>>
+===
+
+title: TheCarMan_Questions
+---
+-> Do you know where the closest supermarket is?
+   <<SetPortrait carguyportrait1>>
+   TheCarMan: Rabbits are purple only sometimes.
+   <<SetPortrait noportrait>>
+   Magnolia: (Huh?)
+   -> Give up.
+-> How did you drive your car up here?
+   <<SetPortrait carguyportrait1>>
+   TheCarMan: Billy knows the secret of the stairs.
+    <<set $hasClueA to true>>
+    -> Which is?
+        <<SetPortrait carguyportrait1>>
+        TheCarMan: ...
+        <<SetPortrait noportrait>>
+        Magnolia: (I don't think he will tell me anything.)
+        <<wait 0.2>>
+        <<if visited_count("TheHouseMan") > 0>>
+         <<SetPortrait noportrait>>
+         Magnolia: (Billy is probably the guy talking about the sun on his windows.)
+        <<else>>
+         <<SetPortrait noportrait>>
+         Magnolia: (Did I pass by this Billy?)
+        <<endif>>
+        -> Give up.
+    -> Billy? 
+        <<SetPortrait carguyportrait1>>
+        TheCarMan: Neighbors can be tiring.
+        <<if visited_count("TheHouseMan") > 0>>
+         <<SetPortrait noportrait>>
+         Magnolia: (It's probably the man going on about scrubbing the sun.)
+        <<else>>
+         <<SetPortrait noportrait>>
+         Magnolia: (I should probably look for someone around.)
+        <<endif>>
+        -> Give up.
+===
+title: TheStairs
+---
+<<if $stairsareopen>>
+ <<SetPortrait noportrait>>
+ Magnolia: (So I should just listen to the strange neighbor?)
+  -> Go down the stairs.
+    //Here should be a code that lets you go to the next part.
+    <<set $godownthestairs to true>>
+  -> Rethink.
+   Magnolia: (I am such a coward.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (They seem like they will crumble under my feet.)
+ Magnolia: (I can't go there.)
+<<endif>>
+===
+
+//THE DOWNHILL
+
+title: TheSign
+---
+<<if visited_count("TheSign") > 0>>
+ <<SetPortrait noportrait>>
+ Magnolia: (Yeah, the sign says it's somewhere here.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I almost missed it.)
+ Magnolia: (Am I too short, or are they not good at planning.)
+<<endif>>
+  -> Read the sign.
+    The Sign: Your local supermarket! Now in The Little Corner!
+      <<set $hasClueB to true>>
+  -> Ignore it.
+===
+
+title: TheCatPerson
+---
+//We are now in the Downhill part of the city, and in this part we find the supermarket. In this part there is only one person.
+<<if visited_count("TheCatPerson") > 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: ...
+<<elseif visited_count("TheCatPerson") == 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (There's this lady again.)
+ Magnolia: (I still can't see what she's doing actually.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (Is it an animal?)
+ <<wait 0.5>>
+ <<SetPortrait noportrait>>
+ Magnolia: (Maybe she is just tying her shoelaces.)
+ Magnolia: (...)
+ <<wait 0.5>>
+ Magnolia: (Stop staring Magnolia!)
+<<endif>>
+ <<SetPortrait catpersonportrait1>>
+ TheCatPerson: Of all these days, this one seems the smallest.
+ <<SetPortrait noportrait>>
+ Magnolia: ...
+ <<SetPortrait catpersonportrait1>>
+ TheCatPerson: Does it bother you to carry all that lives?
+     -> I am looking for the Little Corner? <<if $hasClueB>>
+        <<SetPortrait catpersonportrait1>>
+        TheCatPerson: I used to live there.
+        <<SetPortrait noportrait>>
+        Magnolia: Oh?
+        <<SetPortrait catpersonportrait1>>
+        TheCatPerson: I always hated that curtain.
+        The Cat Person: What do you mean?
+        <<SetPortrait noportrait>>
+        Magnolia: You need to roll the curtain from the bottom.
+        <<set $hasClueC to true>>
+     -> Me?
+        <<SetPortrait catpersonportrait1>>
+        TheCatPerson: Sometimes undeserving people get second chances.
+        <<SetPortrait noportrait>>
+        Magnolia: (Ouch.)
+        Magnolia: (This lady doesn't know what happened to me, and yet...)
+        Magnolia: (I did wonder myself why I was the only one to survive.)
+        Magnolia: (But she couldn't be possibly talking about that?)
+        Magnolia: It's true.
+          -> Run away.
+     -> Is that a cat?
+        <<SetPortrait catpersonportrait1>>
+        TheCatPerson: Cats never blame others for their loneliness.
+        <<SetPortrait noportrait>>
+        Magnolia: Oh, so there is a cat!
+        <<SetPortrait catpersonportrait1>>
+        TheCatPerson: Never trust what you see.
+        <<SetPortrait noportrait>>
+        Magnolia: ...
+          -> Slowly move away.
+     -> Do you know where the nearest supermarket is?
+        <<SetPortrait catpersonportrait1>>
+        TheCatPerson: ...
+        <<SetPortrait noportrait>>
+        Magnolia: ...
+          -> Give up.
+===
+
+title: TheLittleCorner
+---
+  <<SetPortrait noportrait>>
+  Magnolia: (Ah so here it is.)
+   <<if $hasClueC>>
+     Magnolia: (I know the trick.)
+     -> Move the curtain.
+      <<set $curtainopens to true>>
+   <<else>>
+     Magnolia: (This curtain is not moving.)
+     Magnolia: (Something is holding it from the sides.)
+       -> Give up.
+   <<endif>>
+===
+
+title: TheFlamingKey
+---
+<<if visited_count("TheFlamingKey") > 0>>
+ <<SetPortrait noportrait>>
+ Magnolia: (It almost pulls me in.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (Okay, now it's really weird.)
+ Magnolia: (Why do I feel like it won't actually burn me?)
+<<endif>>
+  -> Pick it up.
+    //This should trigger the cutscene and all.
+    <<set $takethekey to true>>
+  -> Nah. Go to the supermarket instead.
+   Magnolia: (I should go and do what I planned.)
+   //reminder: objective - find the supermarket
+===
+
+title: TheSuperMarket
+---
+ <<SetPortrait noportrait>>
+ Magnolia: (I have no time, nor nerves for this.)
+ <<wait 0.5>>
+ Magnolia: (I can finally end this day.)
+   -> Enter.
+    <<set $gobackhome to true>>
+    <<jump Restart>>
+   -> (How can I just ignore everything else?)
+===
+
+//NEW ADDED NODES
+
+title: TheWilderness
+---
+<<if visited_count("TheWilderness") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I've never been in this nneighbourhood before.)
+ Magnolia: (Even though my aunt used to live here, I never visited her.)
+ <<wait 0.5>>
+ Magnolia: (I don't really know why.)
+ Magnolia: (Maybe my parents didn't like her.)
+ <<wait 0.5>>
+ Magnolia: (All the relationships I had...HAVE! They seem so blurry to me.)
+ <<wait 0.5>>
+ Magnolia: (I never knew there is so much wilderness so close to the city.)
+ Magnolia: (I can see the mountains up there beneath the fog and clouds.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I can't pass there.)
+<<endif>>
+===
+
+title: TheWilderness02
+---
+<<if visited_count("TheWilderness02") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I can see the coast from here.)
+ Magnolia: (And all that wilderness in between the city and the sea.)
+ Magnolia: (How does one reach there?)
+ <<wait 0.5>>
+ Magnolia: (It's curious that my parents have never taken me to that little amusement park island.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I would probably die trying to cross all those rocks and woods.)
+<<endif>>
+===
+
+title: TheLookOut
+---
+<<if visited_count("TheLookOut") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (From here I can see almost the whole city.)
+ Magnolia: (It seems so big and so small at the same time.)
+ <<wait 0.5>>
+ Magnolia: (There's the railroad.)
+ Magnolia: (It goes through the middle of the city, splitting it in half.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I'm not going to start jumping on the roofs.)
+<<endif>>
+===
+
+title: TheWilderness03
+---
+//it's in the downhill
+<<if visited_count("TheWilderness03") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (From here I can only see the trees and the rocks.)
+ Magnolia: (I can't go there.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (Nope.)
+<<endif>>
+===
+
+title: TheOtherSide
+---
+<<if visited_count ("TheOtherSide") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I can't pass through here.)
+ <<wait 0.5>>
+ Magnolia: (I think I see a church there.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I don't want to jump over the fence.)
+<<endif>>
+===
+
+title: TheRoadClosed
+---
+<<if visited_count("TheRoadClosed") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (It's dangerous walking over construction sites.)
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (I have no reason to go there.)
+<<endif>>
+===
+
+title: StairsBack
+---
+<<SetPortrait noportrait>>
+Magnolia: (I can't go back without groceries.)
+===

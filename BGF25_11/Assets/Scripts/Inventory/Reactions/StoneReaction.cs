@@ -8,9 +8,7 @@ public class StoneReaction : MonoBehaviour
 {
     public SignalSend stoneSignal;
     private DialogueRunner dialogueRunner;
-    public string startNode;
-    [SerializeField] private GameObject inventoryPanel;
-    [SerializeField] private BoolValue isInventoryOpen;
+    public string startNode;    
 
     public void Use()
     {

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c61c32b0366430d9fbc5d1a0784867, type: 3}
+  m_Name: CoinForFountain
+  m_EditorClassIdentifier: 
+  itemName: Coin
+  itemNameDW: Harpoon
+  itemDescription: Should it belong to water?
+  itemImage: {fileID: 21300000, guid: 713cc690fbcb04706947aa3c7f77b904, type: 3}
+  itemImageDW: {fileID: 21300000, guid: 69a475146c30547e0bcbe63be031ca44, type: 3}
+  usable: 1
+  isUsed: 0
+  collectable: 1
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1645093282331530400, guid: f862e7e6e3bbc41e596bee29ca1156fe, type: 3}
+        m_TargetAssemblyTypeName: Coin2Reaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  useButton: {fileID: 0}

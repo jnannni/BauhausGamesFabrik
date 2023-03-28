@@ -22,13 +22,11 @@ public class CustomDialogueView : DialogueViewBase
     {
         runner.AddCommandHandler<string>("SetPortrait", SetPortrait);        
     }
-
-    #region YarnCommands
-
+   
     public void SetPortrait(string spriteName)
     {
-        Debug.Log(previousSprite);
-        if (previousSprite != spriteName) {
+        if (previousSprite != spriteName)
+        {
             foreach (var param in animator.parameters)
             {
                 if (param.type == AnimatorControllerParameterType.Bool)
@@ -45,8 +43,6 @@ public class CustomDialogueView : DialogueViewBase
     public void PlaySound()
     {
         Debug.Log("Sound is playing");
-    }
-
-    #endregion
+    }   
 
 }

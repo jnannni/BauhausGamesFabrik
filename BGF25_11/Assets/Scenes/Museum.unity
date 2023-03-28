@@ -6329,6 +6329,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2550122674717551629, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
   m_PrefabInstance: {fileID: 828566464}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &828566467 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2550122674717551626, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
+  m_PrefabInstance: {fileID: 828566464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &868101043
 GameObject:
   m_ObjectHideFlags: 0
@@ -14384,12 +14389,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d334dcdb8c541a5bef050fdf4d65a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfTheScene: 
-  item006: {fileID: 0}
-  simpleFeather: {fileID: 0}
-  insideOfTheMuseum: {fileID: 0}
-  outsideOfTheMuseum: {fileID: 0}
-  player: {fileID: 0}
+  nameOfTheScene: TrainStation
+  playerAnimator: {fileID: 828566467}
+  item006: {fileID: 11400000, guid: d5ebd181110ed470ea969349be1bad81, type: 2}
+  simpleFeather: {fileID: 11400000, guid: 54414f2997ffd4567929585f61b9a9df, type: 2}
+  insideOfTheMuseum: {fileID: 292274910}
+  outsideOfTheMuseum: {fileID: 2040155124}
+  player: {fileID: 828566466}
+  playerInventory: {fileID: 11400000, guid: 219fc655d65b3420bac8507d43ef20df, type: 2}
 --- !u!1 &1692412009
 GameObject:
   m_ObjectHideFlags: 0
@@ -16528,13 +16535,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887106941}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29, y: -38.47, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.7121067, y: -18.366478, z: 0.41585034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 2013739025}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1887106944
 MonoBehaviour:
@@ -17067,6 +17074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheNode: TheEnd2
+  oneUse: 0
 --- !u!61 &1952599998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17947,6 +17955,7 @@ Transform:
   - {fileID: 61635918}
   - {fileID: 1008049415}
   - {fileID: 1558455803}
+  - {fileID: 1887106943}
   m_Father: {fileID: 1655876766}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18943,7 +18952,7 @@ Transform:
   - {fileID: 292274911}
   - {fileID: 2040155125}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2143005354
 GameObject:

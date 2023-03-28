@@ -10,8 +10,10 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryPanel;
     public GameObject inventoryContent;
+    public GameObject illustrationPanel;
     public GameObject pausedMenuSelectedButton, optionsSelectedButton;
     public BoolValue isPaused;
+    public BoolValue isIllustrationWatched;
     public BoolValue isInventoryOpen;    
     public GameObject pausePanel;
     public string mainMenu;
@@ -52,9 +54,22 @@ public class PauseManager : MonoBehaviour
             inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
             Debug.Log("here");
             InteractInventory();
-        } else if (Input.GetKeyDown(KeyCode.Escape) && !inventoryPanel.activeSelf)
+        } else if (Input.GetKeyDown(KeyCode.Escape) && !inventoryPanel.activeSelf && !illustrationPanel.activeSelf)
         {            
             ChangePause();
+        }
+
+        if (isIllustrationWatched.initialValue && !illustrationPanel.activeSelf)
+        {
+            illustrationPanel.SetActive(true);
+            isPaused.initialValue = true;            
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && isIllustrationWatched.initialValue && illustrationPanel.activeSelf)
+        {
+            Debug.Log("hey");
+            isPaused.initialValue = false;
+            illustrationPanel.SetActive(false);            
+            isIllustrationWatched.initialValue = false;
         }
 
     }
