@@ -42,11 +42,11 @@ public class PhysicalInvetoryItem : MonoBehaviour
             AddItemToInventory();            
             Destroy(this.gameObject);
         }*/
-        variableStorage.TryGetValue("$takethekey", out takethekey);
+        /*variableStorage.TryGetValue("$takethekey", out takethekey);
         if (takethekey)
         {
             SceneManager.LoadScene("DreamWorld1");
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,10 +75,14 @@ public class PhysicalInvetoryItem : MonoBehaviour
         }
     }
 
-    public void AddingItemFromDialogue(InventoryItem itemFromDialogue)
+    public void AddingItemFromDialogue(InventoryItem itemFromDialogue, PlayerInventory curInventory)
     {
+        Debug.Log("to inv");
         AudioManager.instance.PlayOneShot(FMODEvents.instance.collectedItem, this.transform.position);
-        AddItemToInventory();
+        if (curInventory && itemFromDialogue)
+        {
+            curInventory.myInventory.Add(itemFromDialogue);
+        }
         animator.Play("PickedUp", 0, 0f);
     }
 }

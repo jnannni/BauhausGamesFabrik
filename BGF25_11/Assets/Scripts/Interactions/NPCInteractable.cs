@@ -83,7 +83,7 @@ public class NPCInteractable : MonoBehaviour
 
     public void Interact()
     {        
-        if (distance < minDist && isPressed && interactable)
+        if (isInTheRange && isPressed && interactable)
         {            
             if (animator)
             {
@@ -91,7 +91,7 @@ public class NPCInteractable : MonoBehaviour
                             -target.GetComponent<Animator>().GetFloat("Vertical"));
             }            
             StartConversation();            
-        } else if (distance < minDist && !interactable) {
+        } else if (isInTheRange && !interactable) {
             if (animator)
             {
                 ChangeDirection(-target.GetComponent<Animator>().GetFloat("Horizontal"),

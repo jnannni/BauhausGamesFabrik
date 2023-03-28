@@ -9,18 +9,18 @@ public class TheG : MonoBehaviour
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
 
-    private bool putintheinventory004;
-    private bool putintheinventory005;
-    private bool goontheroof;
+    private bool putintheinventory004; //
+    private bool putintheinventory005; //
+    private bool goontheroof; //
     private bool lookaround;
-    private bool entertheschool01;
-    private bool entertheschool02;
-    private bool enterthegranshouse;
-    private bool godowntheroof;
-    private bool gototheMuseum;
+    private bool entertheschool01; //
+    private bool entertheschool02; //
+    private bool enterthegranshouse; //
+    private bool godowntheroof; //
+    private bool gototheMuseum; //
     private bool playscreamsound;
     private bool sheisdancing;
-    private bool pulsingeffect;
+    private bool pulsingeffect; //
     private bool fallingfeeling;
 
     private FadeLayer fadeLayer;
@@ -42,6 +42,9 @@ public class TheG : MonoBehaviour
     [SerializeField] private GameObject downTheRoof;
     [SerializeField] private InventoryItem item004;
     [SerializeField] private InventoryItem item005;
+    [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private Animator cameraAnimator;
+    [SerializeField] private Animator canvasAnimator;
 
     private void Awake()
     {
@@ -63,14 +66,14 @@ public class TheG : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        variableStorage.TryGetValue("$putintheinventory004", out putintheinventory004);
-        variableStorage.TryGetValue("$putintheinventory005", out putintheinventory005);
-        variableStorage.TryGetValue("$goontheroof", out goontheroof);
+        variableStorage.TryGetValue("$putintheinventory004", out putintheinventory004); //
+        variableStorage.TryGetValue("$putintheinventory005", out putintheinventory005); //
+        variableStorage.TryGetValue("$goontheroof", out goontheroof); //
         variableStorage.TryGetValue("$lookaround", out lookaround);
-        variableStorage.TryGetValue("$entertheschool01", out entertheschool01);
-        variableStorage.TryGetValue("$entertheschool01", out entertheschool02);
-        variableStorage.TryGetValue("$enterthegranshouse", out enterthegranshouse);
-        variableStorage.TryGetValue("$godowntheroof", out godowntheroof);
+        variableStorage.TryGetValue("$entertheschool01", out entertheschool01); //
+        variableStorage.TryGetValue("$entertheschool01", out entertheschool02); //
+        variableStorage.TryGetValue("$enterthegranshouse", out enterthegranshouse); //
+        variableStorage.TryGetValue("$godowntheroof", out godowntheroof); //
         variableStorage.TryGetValue("$gototheMuseum", out gototheMuseum);
         variableStorage.TryGetValue("$playscreamsound", out playscreamsound);
         variableStorage.TryGetValue("$sheisdancing", out sheisdancing);
@@ -84,22 +87,32 @@ public class TheG : MonoBehaviour
 
         if (putintheinventory004)
         {
-            // put stuff in the inventory
-            addToInventory.AddingItemFromDialogue(item004);
+            if (!playerInventory.myInventory.Contains(item004))
+            {
+                playerInventory.myInventory.Add(item004);
+            }
         }
 
         if (putintheinventory005)
         {
-            // put stuff in the inventory
-            addToInventory.AddingItemFromDialogue(item005);
+            if (!playerInventory.myInventory.Contains(item005))
+            {
+                playerInventory.myInventory.Add(item005);
+            }
+        }
+
+        if (pulsingeffect || !pulsingeffect)
+        {
+            cameraAnimator.SetBool("headpulsing", pulsingeffect);
+            canvasAnimator.SetBool("pulsing", pulsingeffect);
         }
 
         if (goontheroof && !isOnTheRoof)
         {
             // move character to the roof position
-            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1f, 1f, 0);
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = onTheRoof.transform.position;
+            player.transform.position = new Vector3(onTheRoof.transform.position.x, onTheRoof.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             variableStorage.SetValue("$godowntheroof", false);
             isOnTheRoof = true;            
@@ -122,7 +135,7 @@ public class TheG : MonoBehaviour
         {
             // move character to school position
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = behindTheSchool.transform.position;
+            player.transform.position = new Vector3(behindTheSchool.transform.position.x, behindTheSchool.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
         }
 
@@ -130,16 +143,18 @@ public class TheG : MonoBehaviour
         {
             // move character to grans position
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = grandpasHouseInside.transform.position;
+            player.transform.position = new Vector3(grandpasHouseInside.transform.position.x,
+
+                Inside.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
-            player.transform.localScale = new Vector3(1.5f, 1.5f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1.5f, 1.5f, 0f);
         }
 
         if (godowntheroof && isOnTheRoof)
         {
             // move character to infront of the roof
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = downTheRoof.transform.position;
+            player.transform.position = new Vector3(downTheRoof.transform.position.x, downTheRoof.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             variableStorage.SetValue("$goontheroof", false);
             isOnTheRoof = false;

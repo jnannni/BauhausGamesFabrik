@@ -9,6 +9,7 @@ public class Graveyard : MonoBehaviour
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
     public Animator scaredCatAnimator;
+    public Animator transitionAnimator;
 
     private bool putintheinventory002;
     private bool enterthechurch;
@@ -22,6 +23,7 @@ public class Graveyard : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject catCreature;
     [SerializeField] private GameObject insideTheChurch;
+    [SerializeField] private PlayerInventory playerInventory;
     private float distanceToCat;
 
     [SerializeField] private string nameOfTheScene;
@@ -60,7 +62,13 @@ public class Graveyard : MonoBehaviour
         if (trigger_TheChurch)
         {
             player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
-            SceneManager.LoadScene(nameOfTheScene);
+            transitionAnimator.SetBool("transitiontodw", true);
+            if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
+            {
+                StartCoroutine(fadeLayer.FadeIn());
+                SceneManager.LoadScene(nameOfTheScene);
+                transitionAnimator.SetBool("transitiontodw", false);
+            }                        
         }
 
         if (enterthechurch && !isInsideTheChurch)
@@ -70,13 +78,15 @@ public class Graveyard : MonoBehaviour
             player.transform.position = insideTheChurch.transform.position;
             StartCoroutine(fadeLayer.FadeOut());
             isInsideTheChurch = true;
-            player.transform.localScale = new Vector3(1.4f, 1.4f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1.4f, 1.4f, 0f);
         }
 
         if (putintheinventory002)
         {
-            // put stuff in the inventory
-            addToInventory.AddingItemFromDialogue(item002);
+            if (!playerInventory.myInventory.Contains(item002))
+            {
+                playerInventory.myInventory.Add(item002);
+            }
         }
 
         if (distanceToCat > 5)

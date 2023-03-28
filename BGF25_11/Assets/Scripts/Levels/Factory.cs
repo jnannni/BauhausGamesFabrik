@@ -24,6 +24,7 @@ public class Factory : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject insideTheFactory;
     [SerializeField] private InventoryItem item11;
+    [SerializeField] private PlayerInventory playerInventory;
 
     private void Awake()
     {
@@ -66,7 +67,7 @@ public class Factory : MonoBehaviour
 
         if (putintheinventory11)
         {
-            addToInventory.AddingItemFromDialogue(item11);
+            addToInventory.AddingItemFromDialogue(item11, playerInventory);
         }
     }
 }

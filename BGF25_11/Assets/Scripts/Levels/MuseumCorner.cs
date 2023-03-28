@@ -17,11 +17,13 @@ public class MuseumCorner : MonoBehaviour
     private bool getclose;
 
     [SerializeField] private string nameOfTheScene;
+    [SerializeField] private Animator playerAnimator;
     [SerializeField] private InventoryItem item006;    
     [SerializeField] private InventoryItem simpleFeather;
     [SerializeField] private GameObject insideOfTheMuseum;
     [SerializeField] private GameObject outsideOfTheMuseum;
     [SerializeField] private GameObject player;
+    [SerializeField] private PlayerInventory playerInventory;
 
     private PhysicalInvetoryItem addToInventory;
     private bool isInsideOfTheMuseum;
@@ -59,35 +61,43 @@ public class MuseumCorner : MonoBehaviour
 
         if (putintheinventory006)
         {
-            addToInventory.AddingItemFromDialogue(item006);
+            if (!playerInventory.myInventory.Contains(item006))
+            {
+                playerInventory.myInventory.Add(item006);
+            }
         }
 
         if (enterthemuseum && !isInsideOfTheMuseum)
         {
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = insideOfTheMuseum.transform.position;
+            player.transform.position = new Vector3(insideOfTheMuseum.transform.position.x, insideOfTheMuseum.transform.position.y, 0f);
             isInsideOfTheMuseum = true;
             StartCoroutine(fadeLayer.FadeOut());
-            player.transform.localScale = new Vector3(1.8f, 1.8f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1.8f, 1.8f, 0f);
         }
 
         if (exitthemuseum && isInsideOfTheMuseum)
         {
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = outsideOfTheMuseum.transform.position;
+            player.transform.position = new Vector3(outsideOfTheMuseum.transform.position.x, outsideOfTheMuseum.transform.position.y, 0f);
             isInsideOfTheMuseum = false;
             StartCoroutine(fadeLayer.FadeOut());
-            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1f, 1f, 0f);
         }
 
         if (takethefeather)
         {
-            addToInventory.AddingItemFromDialogue(simpleFeather);
+            if (!playerInventory.myInventory.Contains(simpleFeather))
+            {
+                playerInventory.myInventory.Add(simpleFeather);
+            }
         }
 
         if (getclose)
-        {
-            //player.transform.position = Vector2.MoveTowards();
+        {            
+            //playerAnimator.SetFloat("Horizontal", -1f);
+            //playerAnimator.SetFloat("Vertical", 0);
+            //player.transform.position = Vector3.MoveTowards(player.transform.position, closeToParents.transform.position, approachSpeed * Time.deltaTime);
         }
     }
 }

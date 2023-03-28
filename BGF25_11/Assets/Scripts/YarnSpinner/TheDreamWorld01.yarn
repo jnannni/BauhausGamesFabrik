@@ -3,22 +3,29 @@
 //variables for UNITY
 
 <<set $standup to false>>
+<<set $laying to false>>
 <<set $openInventory to false>>
+<<set $stoneSelected to false>>
 <<set $trigger_waking02 to false>> //this should also trigger the FIRST CUT SCENE
 
 //variables for in YARN
 <<set $hasClueD to false>>
 <<set $inspected to false>>
 
+<<SetPortrait noportrait>>
+<<set $laying to true>>
 Magnolia: (What has just happened?)
 Magnolia: (My head feels heavy.)
 Magnolia: (Did I pass out?)
  -> Get up.
+ <<set $laying to false>>
  <<set $standup to true>>
  //There should be an animation where the character gets up from the floor.
  <<wait 2>>
+ <<set $standup to false>>
  Magnolia: (I never had a dream like this before.)
  Magnolia: (Actually I don't remember any of my dreams.)
+
  Magnolia: (Even as a child...)
  <<wait 1>>
  Magnolia: (My head REALLY feels fuzzy. I can't concentrate on my memories at all.)
@@ -29,6 +36,7 @@ Magnolia: (Did I pass out?)
 
 title: Reflection
 ---
+<<SetPortrait noportrait>>
 <<if $hasClueD is false>>
  <<if visited_count("Reflection") < 1>>
  Magnolia: (It's so hard to concentrate.)
@@ -65,6 +73,7 @@ title: Reflection
 
 title: TheDream
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheDream") < 1>>
  Magnolia: (It looks like no place I've ever seen before.)
  Magnolia: (Not even in my dreams.)
@@ -78,6 +87,7 @@ title: TheDream
 
 title: TheEyeLamp
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheEyeLamp") < 1>>
  Magnolia: (What an unusual looking thing.)
  Magnolia: (I feel like they are watching me.)
@@ -88,6 +98,7 @@ title: TheEyeLamp
 
 title: ThePurpleFireflies
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("ThePurpleFireflies") < 1>>
  Magnolia: (Purple fireflies?)
  <<wait 0.5>>
@@ -100,6 +111,7 @@ title: ThePurpleFireflies
 
 title: TheWaterMist
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheWaterMist") < 1>>
  Magnolia: (I can't discern if it's suspended water, or just mist.)
  <<wait 0.5>>
@@ -115,6 +127,7 @@ title: TheWaterMist
 
 title: TheGolem
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheGolem") < 1>>
      Magnolia: (I can't pass here.)
      Magnolia: (There's no way I can move such a big pile of rocks.)
@@ -131,6 +144,7 @@ title: TheGolem
 
 title: TheGolem_Options
 ---
+<<SetPortrait noportrait>>
    -> Inspect. <<if $inspected is false>>
     Magnolia: (It is a face!)
     Magnolia: (He seems sad.)
@@ -160,8 +174,13 @@ title: TheGolem_Options
 
 title: TheGolem_After
 ---
+<<SetPortrait noportrait>>
+<<if visited_count("TheGolem_After") < 1>>
+<<set $stoneSelected to true>>
 Magnolia: (It seems like it perfectly fits.)
 <<wait 0.5>>
 Magnolia: (Will it come alive now?)
+<<set $stoneSelected to false>>
 <<set $trigger_waking02 to true>>
+<<endif>>
 ===

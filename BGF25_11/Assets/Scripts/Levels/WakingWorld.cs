@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using UnityEngine.SceneManagement;
 
 public class WakingWorld : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class WakingWorld : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject targetPosition;
     [SerializeField] private GameObject homePosition;
+    [SerializeField] private Animator transitionAnimator;
     private GameObject curtains;   
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
@@ -69,13 +71,20 @@ public class WakingWorld : MonoBehaviour
 
         if (takethekey)
         {
+            transitionAnimator.SetBool("transitiontodw", true);
+            if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
+            {
+                StartCoroutine(fadeLayer.FadeIn());
+                SceneManager.LoadScene("DreamWorld1");
+                transitionAnimator.SetBool("transitiontodw", false);
+            }
             isLevel1Completed.initialValue = true;
         }
 
         if (gobackhome && !wentHome)
         {
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = homePosition.transform.position;
+            player.transform.position = new Vector3(homePosition.transform.position.x, homePosition.transform.position.y, 0f);            
             wentHome = true;
             StartCoroutine(fadeLayer.FadeOut());
         }
@@ -83,7 +92,7 @@ public class WakingWorld : MonoBehaviour
 
     void GoDownTheStairs()
     {
-        player.transform.position = targetPosition.transform.position;        
+        player.transform.position = new Vector3(targetPosition.transform.position.x, targetPosition.transform.position.y, 0f);        
     }
     
 }

@@ -22,6 +22,7 @@ public class Beach : MonoBehaviour
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private GameObject player;    
     [SerializeField] private InventoryItem item12;
+    [SerializeField] private PlayerInventory playerInventory;
 
     private void Awake()
     {
@@ -53,7 +54,7 @@ public class Beach : MonoBehaviour
 
         if (putintheinventory12)
         {
-            addToInventory.AddingItemFromDialogue(item12);
+            addToInventory.AddingItemFromDialogue(item12, playerInventory);
         }
     }
 }

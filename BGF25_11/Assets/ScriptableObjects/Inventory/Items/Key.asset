@@ -13,13 +13,26 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   itemName: Key
+  itemNameDW: Stone
   itemDescription: It is heavier than it should be...
   itemImage: {fileID: 21300000, guid: 2964b766ddc624ec2b7493ffd1f3cd69, type: 3}
   itemImageDW: {fileID: 21300000, guid: 4d492d38aeb6b445b93f6eb54be32103, type: 3}
-  usable: 0
+  usable: 1
   isUsed: 0
   collectable: 0
   thisEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3201935669595903109, guid: c0c87ebabc2df4656a85b06fa6d292b6, type: 3}
+        m_TargetAssemblyTypeName: StoneReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   useButton: {fileID: 0}

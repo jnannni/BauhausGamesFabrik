@@ -24,8 +24,9 @@ public class Blocks : MonoBehaviour
     [SerializeField] private GameObject inFrontOfAntique;
     [SerializeField] private GameObject insideOfAntique;
     [SerializeField] private InventoryItem item003;
-    [SerializeField] private InventoryItem item008;
-    private PhysicalInvetoryItem addToInventory;
+    [SerializeField] private InventoryItem item008;    
+    [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private Animator transitionAnimator;
 
     private void Awake()
     {
@@ -53,30 +54,41 @@ public class Blocks : MonoBehaviour
 
         if (trigger_TheAllKnowingLady)
         {
-            SceneManager.LoadScene(nameOfTheScene);
+            transitionAnimator.SetBool("transitiontodw", true);
+            if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
+            {
+                StartCoroutine(fadeLayer.FadeIn());
+                SceneManager.LoadScene(nameOfTheScene);
+                transitionAnimator.SetBool("transitiontodw", false);
+            }
         }
 
         if (entertheantique && !isInAntiqueShop)
         {
             // move the character to antique position and change camera thingy
-            player.transform.localScale = new Vector3(1.7f, 1.7f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = insideOfAntique.transform.position;           
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = true;
             variableStorage.SetValue("$exittheantique", false);
-            player.transform.localScale = new Vector3(1.7f, 1.7f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
         }
 
         if (putintheinventory003)
         {
-            // put stuff in the inventory
-            addToInventory.AddingItemFromDialogue(item003);
+            if (!playerInventory.myInventory.Contains(item003))
+            {
+                playerInventory.myInventory.Add(item003);
+            }
         }
 
         if (putintheinventory008)
         {
-            addToInventory.AddingItemFromDialogue(item008);
+            if (!playerInventory.myInventory.Contains(item008))
+            {
+                playerInventory.myInventory.Add(item008);
+            }
         }
 
         if (poetsdiary)
@@ -87,13 +99,13 @@ public class Blocks : MonoBehaviour
         if (exittheantique && isInAntiqueShop)
         {
             // move the character back in front of antique
-            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1f, 1f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = inFrontOfAntique.transform.position;
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = false;
             variableStorage.SetValue("$entertheantique", false);
-            player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(1f, 1f, 0f);
         }
     }
 }

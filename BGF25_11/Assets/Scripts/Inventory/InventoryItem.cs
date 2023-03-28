@@ -8,6 +8,7 @@ using TMPro;
 public class InventoryItem : ScriptableObject
 {
     public string itemName;
+    public string itemNameDW;
     public string itemDescription;
     public Sprite itemImage;
     public Sprite itemImageDW;
@@ -18,8 +19,11 @@ public class InventoryItem : ScriptableObject
     [SerializeField] private GameObject useButton;
 
     public void Use()
-    {        
-        thisEvent.Invoke();       
-        isUsed = !isUsed;        
+    {
+        if (usable)
+        {
+            thisEvent.Invoke();
+            isUsed = !isUsed;
+        }               
     }    
 }

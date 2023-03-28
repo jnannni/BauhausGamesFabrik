@@ -11,10 +11,14 @@ public class WakingWorld2 : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject downTheStairsPosition;
+    [SerializeField] private GameObject upTheStairsPosition;
     [SerializeField] private GameObject homePosition;
     [SerializeField] private InventoryItem item001;
     [SerializeField] private InventoryItem itemd001;
+    [SerializeField] private PlayerInventory playerInventory;
+
     private PhysicalInvetoryItem addToInventory;
+
     private bool gobackhome;
     private bool magnoliadances;
     private bool gotothegraveyard;
@@ -28,6 +32,8 @@ public class WakingWorld2 : MonoBehaviour
     private bool isDownTheStairs;
 
     [SerializeField] private string nameOfTheScene;
+    [SerializeField] private Animator cameraAnimator;
+    [SerializeField] private Animator canvasAnimator;
 
     private void Awake()
     {
@@ -68,12 +74,18 @@ public class WakingWorld2 : MonoBehaviour
 
         if (putintheinventory001)
         {
-            addToInventory.AddingItemFromDialogue(item001);
+            if (!playerInventory.myInventory.Contains(item001))
+            {
+                playerInventory.myInventory.Add(item001);
+            }
         }
 
         if (putintheinventoryd001)
         {
-            addToInventory.AddingItemFromDialogue(itemd001);
+            if (!playerInventory.myInventory.Contains(itemd001))
+            {
+                playerInventory.myInventory.Add(itemd001);
+            }                       
         }
 
         if (gotothegraveyard)
@@ -89,11 +101,25 @@ public class WakingWorld2 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeOut());
         }
 
+        if (goupthestairs002 && isDownTheStairs)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            GoUpTheStairs();
+            isDownTheStairs = false;
+            StartCoroutine(fadeLayer.FadeOut());
+        }
+
+        if (headpulsing || !headpulsing)
+        {
+            cameraAnimator.SetBool("headpulsing", headpulsing);
+            canvasAnimator.SetBool("pulsing", headpulsing);
+        }
+
         if (gobackhome)
         {
             // move character to the home position (add fade in/out to yarn)
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = homePosition.transform.position;
+            player.transform.position = new Vector3(homePosition.transform.position.x, homePosition.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
         }
 
@@ -101,12 +127,12 @@ public class WakingWorld2 : MonoBehaviour
 
     void GoDownTheStairs()
     {
-        player.transform.position = downTheStairsPosition.transform.position;
+        player.transform.position = new Vector3(downTheStairsPosition.transform.position.x, downTheStairsPosition.transform.position.y, 0f);
     }
 
     void GoUpTheStairs()
     {
         // add isdownthesrairs in yarn
-        player.transform.position = downTheStairsPosition.transform.position;
+        player.transform.position = new Vector3(upTheStairsPosition.transform.position.x, upTheStairsPosition.transform.position.y, 0f);
     }
 }

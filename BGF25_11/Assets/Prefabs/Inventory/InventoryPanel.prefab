@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -305.23218, y: 0.00012207031}
+  m_AnchoredPosition: {x: -305.23218, y: -8.067322}
   m_SizeDelta: {x: -646.374, y: -73.382}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3873705703236066615
@@ -256,15 +256,15 @@ GameObject:
   - component: {fileID: 8759596895039139825}
   - component: {fileID: 8759596895039139826}
   - component: {fileID: 8759596895039139824}
-  - component: {fileID: 4528028456798122538}
-  - component: {fileID: 7038084782446993433}
+  - component: {fileID: 177773110}
+  - component: {fileID: 177773109}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8759596895039139827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
   descriptionText: {fileID: 8759596895785583560}
   itemImage: {fileID: 9199178533485230981}
   currentItem: {fileID: 0}
---- !u!223 &4528028456798122538
+--- !u!223 &177773110
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,11 +360,11 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &7038084782446993433
+--- !u!114 &177773109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,7 +415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -377.4664, y: 354.38916}
+  m_AnchoredPosition: {x: -377.4664, y: 354.38937}
   m_SizeDelta: {x: 754, y: 701.18}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8759596895616228756
@@ -437,11 +437,11 @@ MonoBehaviour:
     m_Bottom: 40
   m_ChildAlignment: 0
   m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 300, y: 75}
   m_Spacing: {x: 70, y: 40}
   m_Constraint: 1
-  m_ConstraintCount: 5
+  m_ConstraintCount: 2
 --- !u!1 &8759596895785583562
 GameObject:
   m_ObjectHideFlags: 0

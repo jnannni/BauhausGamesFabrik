@@ -3,6 +3,7 @@
 
 title: BackInTheWaking
 ---
+<<fadeIn>>
 //variables for UNITY
 <<set $gobackhome to false>> //just moves the character back in front of the house
 <<set $magnoliadances to false>> //starts the in-game animation of magnolia dancing with the beggar
@@ -22,9 +23,11 @@ title: BackInTheWaking
 <<set $cantseemother to false>>
 <<set $hasClue_TheProvider to false>>
 <<set $peakedin to false>>
+<<fadeOut>>
 
 
 //for this whole sequence I would add some kind of cloudy effect that slowly clears as her thoughts clear
+<<SetPortrait noportrait>>
 Magnolia: (Why did that dream feel so real?)
 <<wait 1>>
 Magnolia: (After the accident...I did find myself sleepwalking around the house.)
@@ -37,11 +40,13 @@ Magnolia: (The therapist said everyone grieves in different ways.)
 Magnolia: (I never expected this.)
 Magnolia: (I always believed myself to be rational...)
 <<wait 1>>
+<<set $headpulsing to false>>
 Magnolia: (Why do I want to believe that creature?)
 ===
 
 title: TheAuntsHouse
 ---
+<<SetPortrait noportrait>>
 //if the player is still unsure of pursuing the journey to the star
 <<if visited_count("TheAuntsHouse") < 1>>
  Magnolia: (Maybe I just need some rest.)
@@ -65,6 +70,7 @@ title: TheAuntsHouse
 
 title: TheNewDay
 ---
+<<SetPortrait noportrait>>
 <<wait 2>>
 Magnolia: (Everything feels the same.)
 Magnolia: (How long did I sleep?)
@@ -75,6 +81,7 @@ title: ThePatriot
 //he gives us a first STARCLUE 001
 <<if visited_count("ThePatriot") < 1>>
   A stranger: This city is becoming a shithole, don't you think?
+  <<SetPortrait noportrait>>
   Magnolia: (Where are the neighbors I have seen before?)
   Magnolia: (Was it yesterday?)
   <<wait 0.5>>
@@ -85,13 +92,17 @@ title: ThePatriot
   <<wait 0.5>>
   The stranger: Anyway...
   The stranger: I am talking about the whole city! They ruined it!
+  <<SetPortrait noportrait>>
   Magnolia: Who?
   The stranger: The high court and his highness!
+  <<SetPortrait noportrait>>
   Magnolia: (He means government? Local office?)
   The stranger: Everything is new. Shiny. Even outsiders - they let anyone come in.
+  <<SetPortrait noportrait>>
   Magnolia: (I knew a guy like this from my neighborhood.)
   Magnolia: (Always so protective, yet never protected anything.)
   Magnolia: The outsiders? What do you mean?
+  <<SetPortrait patriot1>>
   The Patriot: We should keep what's ours.
   The Patriot: There is nothing better for me or for you than what was meant for us from the beginning. Our roots.
   The Patriot: We should live like our parents did, and their parents before them. 
@@ -99,30 +110,45 @@ title: ThePatriot
   The Patriot: To become the stars!
   The Patriot: But all the stars are meant to burn!
   The Patriot: Maybe we should help them, but...
+  <<SetPortrait noportrait>>
   Magnolia: Okay, okay! Sorry to interrupt you...
   Magnolia: (That was going in a pretty wrong direction.)
+  <<SetPortrait patriot1>>
   The Patriot: What is it?
+  <<SetPortrait noportrait>>
   Magnolia: I was wondering...
      <<jump ThePatriot_Questions>>
 <<elseif visited_count("ThePatriot") == 1>>
+<<SetPortrait patriot1>>
   The Patriot: The sun still shines on us. Only if we could recognize our glory.
+  <<SetPortrait noportrait>>
   Magnolia: Uh...It's super cloudy today actually.
+  <<SetPortrait patriot1>>
   The Patriot: Don't be smart.
+  <<SetPortrait noportrait>>
   Magnolia: I didn't mean to be rude.
+  <<SetPortrait patriot1>>
   The Patriot: It's always the same with the new kids. No respect.
   The Patriot: Are you one of those wishing for stardom?
+  <<SetPortrait noportrait>>
   Magnolia: I didn't mean to be disrespectful.
   Magnolia: I was wondering...
+  <<SetPortrait patriot1>>
   The Patriot: You wonder too much.
   The Patriot: It's all really simple if you want to see it.
+  <<SetPortrait noportrait>>
   Magnolia: Maybe I am too young.
+  <<SetPortrait patriot1>>
   The Patriot: I'm also young. It's about being wise.
   <<wait 0.5>>
   The Patriot: Okay, go one. Ask.
     <<jump ThePatriot_Questions>>
 <<else>>
+<<SetPortrait patriot1>>
   The Patriot: Yes?
+  <<SetPortrait noportrait>>
   Magnolia: I have one more question...
+  <<SetPortrait patriot1>>
   The Patriot: Of course.
     <<jump ThePatriot_Questions>>
 <<endif>>
@@ -131,107 +157,164 @@ title: ThePatriot
 
 title: ThePatriot_Questions
 ---
+<<SetPortrait noportrait>>
 -> Did your parents also grow up in the city?
+<<SetPortrait patriot1>>
  The Patriot: What kind of question is that?
   -> Just curious.
+  <<SetPortrait patriot1>>
    The Patriot: Yeah, you don't really care about anything.
    The Patriot: You people just want to know everything.
    The Patriot: I have no need to share that with you.
+   <<SetPortrait noportrait>>
    Magnolia: That's not what I meant.
+   <<SetPortrait patriot1>>
    The Patriot: I know how you all are.
+   <<SetPortrait noportrait>>
    Magnolia: All us? Who?
+   <<SetPortrait patriot1>>
    The Patriot: The little stars.
+   <<SetPortrait noportrait>>
    Magnolia: Okay. Sorry to have bothered you.
   -> Just wanted to know more about how the city was before.
+  <<SetPortrait patriot1>>
    The Patriot: It's nice to see somebody young interested in the true past.
    The Patriot: I'll tell you all about it.
+   <<SetPortrait noportrait>>
    Magnolia: But what about your parents?
+   <<SetPortrait patriot1>>
    The Patriot: What about them?
+   <<SetPortrait noportrait>>
    Magnolia: Are they from the city?
+   <<SetPortrait patriot1>>
    The Patriot: Well, no. My Ma is still in her old house at the edge of the **** forest, close to *****.
    The Patriot: You ever heard of it?
+   <<SetPortrait noportrait>>
    Magnolia: Not really. I know of *****.
+   <<SetPortrait patriot1>>
    The Patriot: It's close.
    <<wait 0.5>>
    The Patriot: Anyway...
    The Patriot: She couldn't tell you much about the city, but I can!
    The Patriot: As I said...The streets used to be...
+   <<SetPortrait noportrait>>
    Magnolia: Do you visit your mother?
+   <<SetPortrait patriot1>>
    The Patriot: Why do you ask so much about my mother?
     -> I miss mine.
+    <<SetPortrait patriot1>>
      The Patriot: Oh.
      The Patriot: I...I don't find the time. 
-     <<set $cantseemother to true>>
+     <<set $cantseemother to true>>     
      The Patriot: She calls me to come, but...
      The Patriot: The bus takes forever, and there are no trains.
      The Patriot: It's hard keeping up with stuff you know?
+     <<SetPortrait noportrait>>
      Magnolia: Yeah, modern life leaves no time...
+     <<SetPortrait patriot1>>
      The Patriot: Yes, yes. I have so much to do around here.
+     <<SetPortrait noportrait>>
      Magnolia: ((Protecting the old, I see.))
+     <<SetPortrait patriot1>>
      The Patriot: What was that?
+     <<SetPortrait noportrait>>
      Magnolia: I was just thinking out loud, sorry.
     -> Never mind.
+    <<SetPortrait patriot1>>
      The Patriot: You outsiders don't care.
+     <<SetPortrait noportrait>>
      Magnolia: How am I an outsider now?
+     <<SetPortrait patriot1>>
      The Patriot: Are you from here anyway?
+     <<SetPortrait noportrait>>
      Magnolia: I am! I...
      Magnolia: (I did always feel out of place.)
      Magnolia: (But I was born here.)
      Magnolia: I have to go.
+     <<SetPortrait patriot1>>
      The Patriot: Good luck.
 -> How old are you?
+<<SetPortrait patriot1>>
  The Patriot: I'm young as you.
+ <<SetPortrait noportrait>>
  Magnolia: You are in your twenties?
+ <<SetPortrait patriot1>>
  The Patriot: You could say that.
+ <<SetPortrait noportrait>>
  Magnolia: (He does look young.)
  Magnolia: How do you know so much about the city?
  <<if $cantseemother is true>>
+ <<SetPortrait patriot1>>
  The Patriot: I listened to the stories of the family and neighbors.
+ <<SetPortrait noportrait>>
  Magnolia: But your parents are not from the city.
+ <<SetPortrait patriot1>>
  The Patriot: That's true.
  The Patriot: I meant more like a wider family. 
  The Patriot: I have this gang here in the city.
  The Patriot: Really good guys. Love the city.
  The Patriot: They are like my family too.
+ <<SetPortrait noportrait>>
  Magnolia: So you get the information from them?
+ <<SetPortrait patriot1>>
  The Patriot: We all share our knowledge.
+ <<SetPortrait noportrait>>
  Magnolia: Ever heard of an echo chamber?
+ <<SetPortrait patriot1>>
  The Patriot: Are you again trying to be smart?
+ <<SetPortrait noportrait>>
  Magnolia: Sorry.
  Magnolia: (I don't even know why I am talking to him.)
  Magnolia: (Am I this lonely?)
  <<else>>
+ <<SetPortrait patriot1>>
  The Patriot: I listened to the stories of the family and neighbors.
+ <<SetPortrait noportrait>>
  Magnolia: You must be close to your family.
+ <<SetPortrait patriot1>>
  The Patriot: We really are.
+ <<SetPortrait noportrait>>
  Magnolia: (I don't have that anymore.)
  Magnolia: Without family we are nothing.
+ <<SetPortrait patriot1>>
  The Patriot: That's what I say!
  The Patriot: I feel like all these new kids have nobody to teach them some true values.
+ <<SetPortrait noportrait>>
  Magnolia: Yeah.
  Magnolia: (Where do I belong now?)
  <<endif>>
 -> Did you ever hear about falling stars granting wishes?
  <<if $cantseemother is true>>
+ <<SetPortrait patriot1>>
   The Patriot: My old Ma used to tell me that. 
   The Patriot: I never really believed.
   The Patriot: You need to work hard and fight to get what you want.
+  <<SetPortrait noportrait>>
   Magnolia: What if it's something impossible?
+  <<SetPortrait patriot1>>
   The Patriot: There is nothing impossible if you are determined enough.
+  <<SetPortrait noportrait>>
   Magnolia: This is actually impossible, I promise.
+  <<SetPortrait patriot1>>
   The Patriot: Then wish on your silly star.
   The Patriot: It's not like you lose anything.
+  <<SetPortrait noportrait>>
   Magnolia: (He is right.)
   Magnolia: (My hands are empty.)
   <<set $isgoingonjourney001 to true>> //the 1st STAR CLUE for Magnolia to continue the journey
   <<wait 0.5>>
+  <<SetPortrait patriot1>>
   The Patriot: Me on the other hand. I have not even that second to spare.
   The Patriot: Now let me be.
+  <<SetPortrait noportrait>>
   Magnolia: Thank you.
   //we should have like little warnings: there is an unlocked dialogue.
  <<else>>
+ <<SetPortrait patriot1>>
   The Patriot: Don't ask me such silly questions.
+  <<SetPortrait noportrait>>
   Magnolia: Is it so silly?
+  <<SetPortrait patriot1>>
   The Patriot: I don't have time for little girls.
   The Patriot: Get lost.
  <<endif>>
@@ -240,6 +323,7 @@ title: ThePatriot_Questions
 
 title: TheDrawing
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Oh look.)
 Magnolia: (Somebody threw away a cute little drawing.)
  -> Pick it up and look at it.
@@ -253,6 +337,7 @@ Magnolia: (Somebody threw away a cute little drawing.)
 
 title: TheHouse001
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheHouse001") < 1>>
 Magnolia: (I don't think I should just barge into people's homes.)
 <<elseif visited_count("TheHouse001") == 1>>
@@ -264,6 +349,7 @@ Magnolia: (Yeah, no.)
 
 title: TheHouse002
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheHouse001") < 1>>
 Magnolia: (I can't walk into someone's home.)
 Magnolia: (But I could peak in.)
@@ -276,6 +362,7 @@ Magnolia: (A little peak shouldn't hurt?)
 
 title: TheHouse002_Choices
 ---
+<<SetPortrait noportrait>>
 -> Peak in.
   Magnolia: (This doesn't feel right.)
   <<wait 0.5>>
@@ -293,6 +380,7 @@ title: TheHouse002_Choices
 
 title: TheStairs02
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheStairs02") < 1>>
  Magnolia: (Didn't they seem broken yesterday?)
  Magnolia: (Maybe I dreamt all of that.)
@@ -313,17 +401,22 @@ title: TheStairs02
 
 title: TheBeggar
 ---
+<<set $magnoliadanced to true>>
 <<if $magnoliadanced is true>>
+<<SetPortrait noportrait>>
  Magnolia: Hey, do you need any help?
+ <<SetPortrait beggar1>>
  TheBeggar: It is very nice of you to think of non-existing.
  TheBeggar: I need no help, but I wish to gift you something.
   <<set $putintheinventoryd001 to true>> //you get the OBJECT d001
   <<set $magnoliadanced to false>>
   <<jump TheJudgingPerson>>
 <<else>>
+<<SetPortrait noportrait>>
  Magnolia: (At least somebody seems happy in this city.)
  <<wait 1.5>>
  //there should be some happy music here
+ <<SetPortrait noportrait>>
  Magnolia: (It seems so easy when he does it.)
  -> Join him and dance. 
   <<set $magnoliadanced to true>>
@@ -341,16 +434,20 @@ title: TheBeggar
 title: TheJudgingPerson
 ---
 <<if visited_count("TheJudgingPerson") < 1>>
+<<SetPortrait judgingperson1>>
  TheJudgingPerson: He should not be happy. What is he happy for?
  <<wait 1>>
  TheJudgingPerson: Nobody wants to accept the truth.
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: What is the truth?
+ <<SetPortrait judgingperson1>>
  TheJudgingPerson: He won't survive past next winter.
  TheJudgingPerson: It's easy to be happy now when there is the sun.
  TheJudgingPerson: I'm just being realistic, sorry to say.
   <<jump TheJudgingPerson_Questions>>
 <<else>>
+<<SetPortrait judgingperson1>>
  TheJudgingPerson: Everyone is just going madder and madder.
   <<jump TheJudgingPerson_Questions>>
 <<endif>>
@@ -359,39 +456,62 @@ title: TheJudgingPerson
 title: TheJudgingPerson_Questions
 ---
 -> How long have you been watching him?
+<<SetPortrait judgingperson1>>
  The Judging: Long enough.
+ <<SetPortrait noportrait>>
  Magnolia: Long enough for what?
+ <<SetPortrait judgingperson1>>
  The Judging: To feel sorry for him.
+ <<SetPortrait noportrait>>
  Magnolia: He doesn't need you to feel sorry.
+ <<SetPortrait judgingperson1>>
  The Judging: What's that hat for then?
+ <<SetPortrait noportrait>>
  Magnolia: (He might be right.)
  Magnolia: (People only give out of pity.)
  Magnolia: (But he really seems happy.)
+ <<SetPortrait judgingperson1>>
  The Judging: You are not going to answer me?
+ <<SetPortrait noportrait>>
  Magnolia: I think he is happy.
+ <<SetPortrait judgingperson1>>
  The Judging: It's easy living in a pretend world.
+ <<SetPortrait noportrait>>
  Magnolia: He is not!
+ <<SetPortrait judgingperson1>>
  The Judging: You are.
+ <<SetPortrait noportrait>>
  Magnolia: I have to go.
 -> Aren't you late somewhere?
+<<SetPortrait judgingperson1>>
  The Judging: You are fiery.
  The Judging: But you seem weak.
+ <<SetPortrait noportrait>>
  Magnolia: Because I am a woman?
+ <<SetPortrait judgingperson1>>
  The Judging: God no. Nothing like that.
  The Judging: I know what you insinuated.
  The Judging: Yes, I always have time to observe the ridiculousness of this world.
+ <<SetPortrait noportrait>>
  Magnolia: (Look at the mirror.)
  Magnolia: I'll let you be then.
+ <<SetPortrait judgingperson1>>
  The Judging: Goodbye.
 -> There is no sun today.
  <<wait 1>>
+ <<SetPortrait judgingperson1>>
  The Judging Person: Interesting. I haven't noticed.
  The Judging Person: But you know what I mean.
+ <<SetPortrait noportrait>>
  Magnolia: I am not sure I do.
+ <<SetPortrait judgingperson1>>
  The Judging person: The harsher times will come.
  The Judging: Only capable will survive.
+ <<SetPortrait noportrait>>
  Magnolia: We are not animals.
+ <<SetPortrait judgingperson1>>
  The Judging: Aren't we?
+ <<SetPortrait noportrait>>
  Magnolia: (I can't deal with this.)
 ===
 
@@ -399,21 +519,27 @@ title: TheProvider
 ---
 //this whole part is for Magnolia to decide to pursue the star
 <<if visited_count("TheProvider") < 1>>
+<<SetPortrait provider1>>
  TheProvider: You seem lost darling.
+ <<SetPortrait noportrait>>
  Magnolia: Oh, sorry. Uhm...I'm not.
  Magnolia: I'm searching for...
  Magnolia: (What am I even searching for?)
  //new objective: find objective?
  Magnolia: I might be, yes.
+ <<SetPortrait provider1>>
  The Provider: Can I help you somehow?
  <<jump TheProvider_Questions>>
 <<elseif visited_count("TheProvider") == 1>>
+<<SetPortrait provider1>>
  TheProvider: It seems you still haven't found your way.
   -> Yes. I'm still a little bit lost.
+  <<SetPortrait provider1>>
     TheProvider: If I could help in any way, just tell.
     <<jump TheProvider_Questions>>
   -> Actually, I think I got it, but thank you.
 <<else>>
+<<SetPortrait provider1>>
  TheProvider: You can ask me anything little one.
  <<jump TheProvider_Questions>>
 <<endif>>
@@ -421,111 +547,175 @@ title: TheProvider
 
 title: TheProvider_Questions
 ---
+<<SetPortrait noportrait>>
   -> Do you believe dreams could be real?
+  <<SetPortrait provider1>>
    The Provider: You should always dream.
    The Provider: You are young, you have life in front of you.
+   <<SetPortrait noportrait>>
    Magnolia: It's nice to think like that.
   -> Have you ever dreamt of something that turned out to be true?
+  <<SetPortrait provider1>>
    The Provider: I've always dreamt of a big and happy family.
+   <<SetPortrait noportrait>>
    Magnolia: I was thinking more in terms of something a little bit strange.
+   <<SetPortrait provider1>>
    The Provider: Strange?
+   <<SetPortrait noportrait>>
    Magnolia: Maybe you dreamt of a place, and then you accidentally visited it!
+   <<SetPortrait provider1>>
    The Provider: I don't think I ever have.
+   <<SetPortrait noportrait>>
    Magnolia: I also don't believe in it.
    Magnolia: It's just...
+   <<SetPortrait provider1>>
    The Provider: However, my oldest child did tell me about their dream.
    The Provider: They said they dreamt of a certain toy.
    The Provider: Little hand-made nutcracker with a face of a female rat.
+   <<SetPortrait noportrait>>
    Magnolia: What happened?
+   <<SetPortrait provider1>>
    The Provider: A year later she went on a school trip with her class.
    The Provider: She is a little bit shy, and sometimes it's hard for her to meet new friends.
    The Provider: So she would lay in her bed while other children all gathered together to talk.
    The Provider: One evening she reached out to fix the boards under her bed and felt something hidden.
+   <<SetPortrait noportrait>>
    Magnolia: It was the nutcracker!
+   <<SetPortrait provider1>>
    The Provider: With a face of a rat.
+   <<SetPortrait noportrait>>
    Magnolia: And do you actually believe she dreamt it before?
+   <<SetPortrait provider1>>
    The Provider: My child doesn't lie.
+   <<SetPortrait noportrait>>
    Magnolia: I didn't mean it that way.
+   <<SetPortrait provider1>>
    The Provider: Yes, I'm sorry.
    The Provider: I know kids can be a little too creative.
    The Provider: But my second child confirmed that she told the dream when it happened.
    The Provider: So unusual!
+   <<SetPortrait noportrait>>
    Magnolia: It is.
    <<set $isgoingonjourney002 to true>> //2nd STAR CLUE for continuing the journey
   -> Did you see anything unusual around here?
+  <<SetPortrait provider1>>
    The Provider: Nothing is unusual.
    The Provider: It's human nature to change.
+   <<SetPortrait noportrait>>
    Magnolia: What if it was not human?
+   <<SetPortrait provider1>>
    The Provider: What do you mean darling?
+   <<SetPortrait noportrait>>
    Magnolia: Maybe something magical.
+   <<SetPortrait provider1>>
    The Provider: I don't think we could see magic, even if it exists.
+   <<SetPortrait noportrait>>
    Magnolia: You might be right.
    <<wait 1>>
+   <<SetPortrait provider1>>
    The Provider: The sun seems unusually brighter these days.
    The Provider: It burns my skin through the window when I work around the house.
+   <<SetPortrait noportrait>>
    Magnolia: But it was especially cloudy these days.
+   <<SetPortrait provider1>>
    The Provider: Maybe I didn't see well. 
-   The Provider: I rarely look out of the window. 
+   The Provider: I rarely look out of the window.
+   <<SetPortrait noportrait>> 
    Magnolia: (They must be working a lot.)
    Magnolia: (I shouldn't pry.)
    <<if $peakedin is true>>
+   <<SetPortrait noportrait>>
     Magnolia: I saw this family having dinner together.
+    <<SetPortrait provider1>>
     The Provider: It must have been such a nice sight.
     The Provider: I live for my family.
+    <<SetPortrait noportrait>>
     Magnolia: And if there was non. Would you still live?
+    <<SetPortrait provider1>>
     The Provider: Such a dark mind, darling.
     The Provider: Don't think of such things.
+    <<SetPortrait noportrait>>
     Magnolia: But would you?
+    <<SetPortrait provider1>>
     The Provider: I couldn't imagine.
     The Provider: I would have nothing to do with my time.
+    <<SetPortrait noportrait>>
     Magnolia: You do nothing besides caring for your family?
+    <<SetPortrait provider1>>
     The Provider: Isn't it why we are here?
+    <<SetPortrait noportrait>>
     Magnolia: (Are we?)
    <<else>>
+   <<SetPortrait noportrait>>
     Magnolia: You seem like you care a lot.
+    <<SetPortrait provider1>>
     The Provider: Giving is the reason to live.
+    <<SetPortrait noportrait>>
     Magnolia: What if there is no one to give to?
+    <<SetPortrait provider1>>
     The Provider: There is always someone.
     The Provider: Give a hand to a stranger.
     The Provider: Look at the sky and think how many people look at the same sky.
     The Provider: They all must be lonely to look at the sky.
+    <<SetPortrait noportrait>>
     Magnolia: So you never feel lonely?
+    <<SetPortrait provider1>>
     The Provider: How could I? I have my family that I take care of.
     <<set $hasClue_TheProvider to true>>
+    <<SetPortrait noportrait>>
     Magnolia: I heard people could feel lonely in a room full of people.
+    <<SetPortrait provider1>>
     The Provider: Not with family.
+    <<SetPortrait noportrait>>
     Magnolia: You are probably right.
    <<endif>>
   -> I believe you are lonely. <<if $hasClue_TheProvider>> //we need to get a clue from somewhere to unlock this CLUE 001
+  <<SetPortrait noportrait>>
    Magnolia: (Where do I get this confidence from?)
    Magnolia: (I act like all these conversations have no consequences at all.)
+   <<SetPortrait provider1>>
    The Provider: Excuse me?
+   <<SetPortrait noportrait>>
    Magnolia: What I meant is...It's okay to admit you are sometimes tired.
+   <<SetPortrait provider1>>
    The Provider: I don't understand what you are trying to say.
+   <<SetPortrait noportrait>>
    Magnolia: Your eyes are sad.
+   <<SetPortrait provider1>>
    The Provider: I think this is getting a little bit too much.
    The Provider: If you need any help, please tell me.
    The Provider: Otherwise...
+   <<SetPortrait noportrait>>
    Magnolia: My mom used to get lonely.
    Magnolia: (It is a lie.)
    Magnolia: (I don't remember how my mom was.)
    Magnolia: (The doctors said it will pass. Called it dissociative amnesia.)
+   <<SetPortrait provider1>>
    The Provider: Used to?
+   <<SetPortrait noportrait>>
    Magnolia: She passed.
+   <<SetPortrait provider1>>
    The Provider: I'm sorry.
    The Provider: But remember, even if she was feeling lonely, she still had you, and she was happy.
+   <<SetPortrait noportrait>>
    Magnolia: I know that.
+   <<SetPortrait provider1>>
    The Provider: Sometimes it's all too much.
    The Provider: Even if we want to give everything.
    The Provider: We would give our own bodies.
+   <<SetPortrait noportrait>>
    Magnolia: You shouldn't have to.
+   <<SetPortrait provider1>>
    The Provider: Maybe.
+   <<SetPortrait noportrait>>
    Magnolia: I hope you give yourself some time.
+   <<SetPortrait provider1>>
    The Provider: Thank you, darling.
 ===
 
 title: Grafitti001
 ---
+<<SetPortrait noportrait>>
 <<if $hasClue_Grafitti001 is false>>
  -> Read the quote.
  The Grafitti: "We are going to watch the video until the colors melt."
@@ -544,6 +734,7 @@ title: Grafitti001
 
 title:TheRoadSign
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Why do they still keep the sign?)
 Magnolia: (The street looks perfectly done now.)
  -> Go down the street.
@@ -555,6 +746,7 @@ Magnolia: (The street looks perfectly done now.)
 
 title: TheCar
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheCar") < 1>>
  Magnolia: (Where did that guy go?)
  Magnolia: (I could swear I was just away for a few minutes.)
@@ -565,6 +757,7 @@ title: TheCar
 
 title: TheUpStairs
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheUpStairs") < 1>>
  Magnolia: (There is nothing here.)
  Magnolia: (It's a dead end.)
@@ -579,29 +772,34 @@ title: TheUpStairs
 
 title: TheWindowLight
 ---
+<<SetPortrait noportrait>>
 Magnolia: (There are so many lights on.)
 Magnolia: (Yet the city seems almost empty.)
 ===
 
 title: TheGraveyardLook
 ---
+<<SetPortrait noportrait>>
 Magnolia: (There's so much fog, and there's no sun at all.)
 Magnolia: (But I'm sure that's a graveyard there.)
 ===
 
 title: TheSupermarket02
 ---
+<<SetPortrait noportrait>>
 Magnolia: (I can't think of food right now.)
 ===
 
 title: TheDestiny
 ---
+<<SetPortrait noportrait>>
  Magnolia: (I don't believe neither in God nor destiny.)
  Magnolia: (Every choice a person makes changes their path.)
 ===
 
 title: TheUpStairs02
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Did I forget anything?)
  -> Go up.
   <<set $goupthestairs002 to true>>

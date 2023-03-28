@@ -22,17 +22,19 @@ public class InventorySlot : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         thisItem = newItem;
         thisManager = newManager;
-        if (thisItem)
-        {
-            itemName.text = thisItem.itemName;
-        }
-        //add names
-        if (thisItem && SceneManager.GetActiveScene().name == "SampleScene")
+       
+        if (thisItem && (SceneManager.GetActiveScene().name == "DreamWorld1" ||
+            SceneManager.GetActiveScene().name == "DreamBlocks" ||
+            SceneManager.GetActiveScene().name == "Gravedream" ||
+            SceneManager.GetActiveScene().name == "FrozenVillage" ||
+            SceneManager.GetActiveScene().name == "RedBeach"))
+        {            
+            currentImage = thisItem.itemImageDW;
+            itemName.text = thisItem.itemNameDW;
+        } else
         {
             currentImage = thisItem.itemImage;
-        } else if (thisItem && SceneManager.GetActiveScene().name == "DreamWorld")
-        {
-            currentImage = thisItem.itemImageDW;
+            itemName.text = thisItem.itemName;
         }
     }
 
@@ -41,6 +43,7 @@ public class InventorySlot : MonoBehaviour, ISelectHandler, IDeselectHandler
         if (thisItem)
         {
             thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, thisItem, currentImage);
+            thisItem.Use();
         }
     }
 
@@ -51,14 +54,12 @@ public class InventorySlot : MonoBehaviour, ISelectHandler, IDeselectHandler
     }
 
     public void OnSelect(BaseEventData eventData)
-    {
-        Debug.Log(this.gameObject.name + " selected");
+    {        
         selectionUISign.SetActive(true);
     }
 
     public void OnDeselect(BaseEventData eventData)
-    {
-        Debug.Log(this.gameObject.name + " deselected");
+    {        
         selectionUISign.SetActive(false);
     }
 }

@@ -2,11 +2,13 @@
 ---
 //object: a little coin turns into an iron light flamed sword
 //variables for UNITY
-<<set $trigger_waking03 to true>> // should also show the animation of
+<<set $trigger_waking03 to false>> // should also show the animation of
+<<set $hedge_cleared to false>>
 
 //variables for in YARN
 <<set $activatestone to false>>
 
+<<SetPortrait noportrait>>
 Magnolia: (I can't believe I really decided to do it.)
 <<wait 1>>
 Magnolia: (Everything seems to come to one point.)
@@ -17,6 +19,7 @@ Magnolia: (Who do I stay sane for?)
 
 title: ThePrayingSoul
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheParyingSoul") < 1>>
  Magnolia: (I don't think I should disturb the creatures in the dream.)
  <<wait 0.5>>
@@ -38,6 +41,7 @@ title: ThePrayingSoul
 
 title: WateringFrogs
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("WateringFrogs") < 1>>
  Magnolia: (Is that thing watering frogs?)
  Magnolia: (Those are frogs right?)
@@ -54,6 +58,7 @@ title: WateringFrogs
 
 title: ThePond
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("ThePond") < 1>>
  Magnolia: (I look even worse now.)
  Magnolia: (But I can't look away.)
@@ -67,16 +72,23 @@ title: ThePond
 
 title: TheFrogs_Questions
 ---
+<<SetPortrait noportrait>>
  -> Are you watering the frogs?
+ <<SetPortrait wateringfrogsportrait1>>
   FrogSoul: $$$%@%%^&**$$$@@ $%$^%^$!!!$**%&...
+  <<SetPortrait noportrait>>
   Magnolia: Uhm?
+  <<SetPortrait wateringfrogsportrait1>>
   FrogSoul: *&^^$%^&@&@%$&@%!
+  <<SetPortrait noportrait>>
   Magnolia: (This is not going well.)
  -> What do you know about the falling star?
   Magnolia: (They should have heard about it, right?)
   <<wait 1>>
   Magnolia: (Why does it stare at me?)
+  <<SetPortrait wateringfrogsportrait1>>
   FrogSoul: !!!!@$$$%%^^!!^^&^^^^^^!!!
+  <<SetPortrait noportrait>>
   Magnolia: (Sh*t. I seem to have angered it.)
    -> Get away.
  -> (Magnolia, no.)
@@ -84,6 +96,7 @@ title: TheFrogs_Questions
 
 title: TheHedge
 ---
+<<SetPortrait noportrait>>
  Magnolia: (This hedge looks like it covers a secret passage.)
  <<wait 0.5>>
  Magnolia: (It could be the way to the star.)
@@ -92,12 +105,15 @@ title: TheHedge
 ===
 title: TheHedgeCleared
 ---
+<<SetPortrait noportrait>>
+<<set $hedge_cleared to true>>
 <<wait 1>>
 <<jump TheSecretPath>>
 ===
 
 title: TheSecretPath
 ---
+<<SetPortrait noportrait>>
 Magnolia: (I did it!)
 Magnolia: (And I have a freaking flaming sword!!!!!)
 <<wait 1>>
@@ -109,6 +125,7 @@ Magnolia: (How am I going to find my way around this dream when nobody seems to 
 
 title: TheStone
 ---
+<<SetPortrait noportrait>>
 <<if $activatestone is true>>
  Magnolia: (There is a giant stone.)
  <<wait 0.5>>
@@ -129,6 +146,7 @@ title: TheStone
 
 title: TheWaterFalls
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheWaterFalls") < 1>>
 Magnolia: (I can hear strong waterfalls from that direction.)
 Magnolia: (It's not surprising since the water seems to be eating away this dream of mine.)
