@@ -8,11 +8,12 @@ public class FirefliesJarReaction : MonoBehaviour
 {
     public SignalSend firefliesJarSignal;
     private DialogueRunner dialogueRunner;
-    public string startNode;    
+    public string startNode;
+    [SerializeField] private BoolValue isNearCandleStick;
 
     public void Use()
     {
-        if (SceneManager.GetActiveScene().name == "FrozzenVillage")
+        if (SceneManager.GetActiveScene().name == "FrozenVillage" && isNearCandleStick.initialValue)
         {
             dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
             dialogueRunner.StartDialogue(startNode);

@@ -24,8 +24,7 @@ public class MuseumCorner : MonoBehaviour
     [SerializeField] private GameObject outsideOfTheMuseum;
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerInventory playerInventory;
-
-    private PhysicalInvetoryItem addToInventory;
+    
     private bool isInsideOfTheMuseum;
     private FadeLayer fadeLayer;
 

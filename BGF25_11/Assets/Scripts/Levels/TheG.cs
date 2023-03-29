@@ -28,8 +28,7 @@ public class TheG : MonoBehaviour
     private Renderer stairsRenderer;
     private Renderer grandpasHouseRenderer;
     private BoxCollider2D[] boxCollider2Ds;
-    private BoxCollider2D boxCollider2DFall;
-    private PhysicalInvetoryItem addToInventory;
+    private BoxCollider2D boxCollider2DFall;    
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private GameObject player;
@@ -41,7 +40,9 @@ public class TheG : MonoBehaviour
     [SerializeField] private GameObject onTheRoof;
     [SerializeField] private GameObject downTheRoof;
     [SerializeField] private InventoryItem item004;
+    [SerializeField] private GameObject item004Object;
     [SerializeField] private InventoryItem item005;
+    [SerializeField] private GameObject item005Object;
     [SerializeField] private InventoryItem objectFromSecurity;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private Animator cameraAnimator;
@@ -75,7 +76,7 @@ public class TheG : MonoBehaviour
         variableStorage.TryGetValue("$entertheschool01", out entertheschool02); //
         variableStorage.TryGetValue("$enterthegranshouse", out enterthegranshouse); //
         variableStorage.TryGetValue("$godowntheroof", out godowntheroof); //
-        variableStorage.TryGetValue("$gototheMuseum", out gototheMuseum);
+        variableStorage.TryGetValue("$gototheMuseum", out gototheMuseum); //
         variableStorage.TryGetValue("$playscreamsound", out playscreamsound);
         variableStorage.TryGetValue("$sheisdancing", out sheisdancing);
         variableStorage.TryGetValue("$pulsingeffect", out pulsingeffect);
@@ -91,6 +92,7 @@ public class TheG : MonoBehaviour
             if (!playerInventory.myInventory.Contains(item004))
             {
                 playerInventory.myInventory.Add(item004);
+                Destroy(item004Object);
             }
         }
 
@@ -99,6 +101,7 @@ public class TheG : MonoBehaviour
             if (!playerInventory.myInventory.Contains(item005))
             {
                 playerInventory.myInventory.Add(item005);
+                Destroy(item005Object);
             }
         }
 

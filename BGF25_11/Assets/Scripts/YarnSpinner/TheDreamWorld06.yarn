@@ -1,0 +1,141 @@
+title: TheDreamworld_06
+---
+//the last level, whoosh
+//variables for UNITY
+<<set $shocklevel to false>> //sound effects of fear, curiosity
+<<set $stareffect to false>> //some kind of effects for when we approach the star finaly
+<<set $holdthestar to false>> //triggers CUTSCENE of holding the star
+<<set $cutscenewrong to false>> //last CUTSCNE wrong choice
+<<set $cutsceneright to false>> //last CUtSCENE right choice
+
+//variables for in YARN
+
+Magnolia: (She didn't say a word to me.)
+Magnolia: (Her grip is determined, and she seems to know where she is going.)
+<<wait 0.5>>
+Magnolia: (Is she taking me to the star?)
+===
+
+title: AfterAnimation_Start
+---
+Magnolia: Thank you Chihiro.
+Chihiro: ...
+Magnolia: (Dead-silent.)
+<<wait 0.5>>
+Magnolia: (Oh, we are on that island.)
+Magnolia: (I've always seen the posters for this park, but I though it's nothing special.)
+Magnolia: (But this looks incredibly magical. How did they do it?)
+<<wait 0.5>>
+Magnolia: (Wait. Is this just another dream?)
+===
+
+title: ThePirate
+---
+<<if visited_count("ThePirate") < 1>>
+ Magnolia: (He looks normal enough. Maybe I'm not dreaming.)
+ ThePirate: Arrgh, three coins for the ride of your life.
+ Magnolia: Only three coins?
+ ThePirate: Not any coins. 
+ <<wait 0.5>>
+ Magnolia: What kind of ride is it then?
+ ThePirate: Of your life.
+ Magnolia: What does that mean?
+ ThePirate: It means you get to see your whole life. Savvy?
+ Magnolia: From the beginning?
+ ThePirate: Till the end.
+ <<wait 0.5>>
+ Magnolia: I desparately need that.
+ Magnolia: But I don't want to see how I die.
+ <<wait 0.5>>
+ ThePirate: Blimey! Magnolia?
+ <<set $shocklevel to true>>
+ <<wait 1>>
+ Magnolia: You know me?
+ ThePirate: Eveybody knows you.
+ ThePirate: You finally reached your star it seems.
+ Magnolia: It's here?!
+ ThePirate: Aye Matey, it's here.
+ <<jump ThePirate_Questions>>
+<<else>>
+ ThePirate: Shouldn't you run to your star?
+ <<jump ThePirateQuestions>>
+<<endif>>
+===
+
+title: ThePirate_Questions
+---
+-> I want to go on your ride?
+ ThePirate: Do you have three coins?
+  -> No.
+   ThePirate: Then you can't.
+-> "Where is it?! Where is the star?"
+ ThePirate: Don't you see all this stardust glow?
+ ThePirate: You just need to follow it.
+-> "Will it ressurect my parents?"
+ ThePirate: Matey, you first need to get it to your world.
+ ThePirate: It won't work from here.
+ Magnolia: How do I do that?
+ ThePirate: Ahhhhh, that is a question. Indeed.
+ Magnolia: What does that mean?!
+ ThePirate: It means you should hurry up.
+-> "Am I crazy?"
+ ThePirate: Aren't we all?
+ Magnolia: But am I especially crazy? Am I imagining all of this?
+ Magnolia: The star? The dreams?
+ ThePirate: Me?
+ Magnolia: And you.
+ ThePirate: I don't know about you, but I feel pretty alive.
+===
+
+title: TheRollerCoaster
+---
+ Magnolia: (I'm scared of these.)
+ Magnolia: (I don't want to throw up on someones head.)
+===
+
+title: TheEdgeoftheWorld
+---
+ Magnolia: (There is no horizon.)
+ Magnolia: (It feels like the whole world is floating.)
+===
+
+title: TheStar
+---
+<<set $stareffect to true>>
+Magnolia: This is it.
+Magnolia: I can't believe it.
+<<wait 0.5>>
+Magnolia: It's so bright. It hurts my eyes.
+Magnolia: Should I just...hold it?
+ -> Hold it.
+  <<set $holdthestar to true>>
+ -> A curse?
+  Magnolia: What if it has a curse?
+  <<wait 0.5>>
+  Magnolia: I'm anyway cursed.
+  Magnolia: There's no going back.
+  <<set $holdthestar to true>>
+===
+
+title: AfterStar
+---
+Magnolia: Ahhhh! It burns my hands!
+<<wait 0.5>>
+Magnolia: But it doesn't matter. 
+Magnolia: It all comes down to this moment.
+<<wait 0.5>>
+Magnolia: Will I finally see my parents again?
+<<wait 0.5>>
+Magnolia: Does this star really doesn't belong to anybody?
+<<wait 0.5>>
+Magnolia: How can it belong to itself?
+Magnolia: It's not a live thing.
+<<wait 0.5>>
+Magnolia: That golem didn't tell me anything.
+Magnolia: Who does the star belong to?
+Mangnolia: Do I really have the right to take it?
+ -> Try to get the star to the waking world.
+  <<set $cutscenewrong to true>>
+ -> Bring the star to the golem.
+  <<set $cutsceneright to true>>
+===

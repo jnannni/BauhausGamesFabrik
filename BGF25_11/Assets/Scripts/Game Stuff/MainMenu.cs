@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     private bool gameExists;       
     public EventSystem eventSystem;    
     public GameObject optionsMenu, mainMenu;
+    public Button loadGameButton;
     public GameObject optionsFirstButton, optionsClosedFirstButton;
 
     private void Start()
@@ -21,7 +22,7 @@ public class MainMenu : MonoBehaviour
         gameExists = false;
         if (!gameExists)
         {
-            //loadGameButton.enabled = false;
+            loadGameButton.enabled = false;
         }
     }
 
@@ -46,10 +47,12 @@ public class MainMenu : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(optionsFirstButton);
+            optionsFirstButton.GetComponent<Button>().Select();
         } else
         {
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(optionsClosedFirstButton);
+            optionsClosedFirstButton.GetComponent<Button>().Select();
         }
         
     }

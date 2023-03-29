@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 193450948}
   - component: {fileID: 193450949}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,8 +1288,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -404.5, y: -108.18}
-  m_SizeDelta: {x: 909, y: 216.38}
+  m_AnchoredPosition: {x: -369.18408, y: -108.18}
+  m_SizeDelta: {x: 871.6284, y: 216.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &215055388
 GameObject:
@@ -2599,6 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae1ae1a5e5d497f9a5c3139f62326f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 392257722}
 --- !u!1 &392257720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,7 +2611,7 @@ GameObject:
   - component: {fileID: 392257721}
   - component: {fileID: 392257722}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MasterSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3081,6 +3082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae1ae1a5e5d497f9a5c3139f62326f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 1421741380}
 --- !u!222 &480444369
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4257,7 +4259,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 454.5, y: -108.18}
-  m_SizeDelta: {x: 809, y: 216.37}
+  m_SizeDelta: {x: 775.7397, y: 216.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &659563402
 GameObject:
@@ -4425,6 +4427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae1ae1a5e5d497f9a5c3139f62326f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &704713986
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,6 +4934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae1ae1a5e5d497f9a5c3139f62326f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!114 &774703480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5736,6 +5740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae1ae1a5e5d497f9a5c3139f62326f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 1898839177}
 --- !u!114 &971972383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6065,8 +6070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -404.5, y: 108.19}
-  m_SizeDelta: {x: 909, y: 216.37}
+  m_AnchoredPosition: {x: -369.18408, y: 108.19}
+  m_SizeDelta: {x: 871.6284, y: 216.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1033409868
 GameObject:
@@ -7317,6 +7322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae1ae1a5e5d497f9a5c3139f62326f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &1318586310
 GameObject:
   m_ObjectHideFlags: 0
@@ -7824,7 +7830,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 454.5, y: 108.19}
-  m_SizeDelta: {x: 809, y: 216.37}
+  m_SizeDelta: {x: 775.7397, y: 216.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1403139727
 GameObject:
@@ -8099,7 +8105,7 @@ GameObject:
   - component: {fileID: 1421741379}
   - component: {fileID: 1421741380}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: AmbienceSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8509,6 +8515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae1ae1a5e5d497f9a5c3139f62326f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 193450949}
 --- !u!222 &1496189041
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8610,7 +8617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536196219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10118,7 +10125,7 @@ GameObject:
   - component: {fileID: 1898839176}
   - component: {fileID: 1898839177}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

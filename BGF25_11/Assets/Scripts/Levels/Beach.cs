@@ -16,13 +16,14 @@ public class Beach : MonoBehaviour
     private bool putintheinventory12;
     private bool everythingchanges;
 
-    private FadeLayer fadeLayer;
-    private PhysicalInvetoryItem addToInventory;
+    private FadeLayer fadeLayer;    
 
     [SerializeField] private string nameOfTheScene;
-    [SerializeField] private GameObject player;    
+    [SerializeField] private GameObject player;
+    [SerializeField] private Light globalLight;
     [SerializeField] private InventoryItem item12;
     [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private GameObject dustParticleSystem;
 
     private void Awake()
     {
@@ -54,7 +55,17 @@ public class Beach : MonoBehaviour
 
         if (putintheinventory12)
         {
-            addToInventory.AddingItemFromDialogue(item12, playerInventory);
+            if (!playerInventory.myInventory.Contains(item12))
+            {
+                playerInventory.myInventory.Add(item12);
+            }
+        }
+
+        if (everythingchanges)
+        {
+            globalLight.color = new Color(185, 49, 100, 1);
+            dustParticleSystem.SetActive(true);
+            variableStorage.SetValue("$everythingchanges", false);
         }
     }
 }

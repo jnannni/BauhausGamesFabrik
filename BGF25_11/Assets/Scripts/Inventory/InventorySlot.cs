@@ -54,7 +54,11 @@ public class InventorySlot : MonoBehaviour, ISelectHandler, IDeselectHandler
     }
 
     public void OnSelect(BaseEventData eventData)
-    {        
+    {
+        if (thisItem)
+        {
+            thisManager.SetupDescriptionAndButton(thisItem.itemDescription, thisItem.usable, thisItem, currentImage);
+        }
         selectionUISign.SetActive(true);
     }
 

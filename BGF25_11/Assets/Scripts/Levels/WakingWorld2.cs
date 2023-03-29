@@ -16,6 +16,7 @@ public class WakingWorld2 : MonoBehaviour
     [SerializeField] private GameObject homePosition;
     [SerializeField] private Sprite childsDrawing;
     [SerializeField] private InventoryItem item001;
+    [SerializeField] private GameObject item001Object;
     [SerializeField] private InventoryItem itemd001;
     [SerializeField] private PlayerInventory playerInventory;    
 
@@ -77,19 +78,20 @@ public class WakingWorld2 : MonoBehaviour
             variableStorage.SetValue("$lookatthedrawing", false);
         }
 
-        /*if (putintheinventory001)
+        if (putintheinventory001)
         {
             if (!playerInventory.myInventory.Contains(item001))
             {
                 playerInventory.myInventory.Add(item001);
+                Destroy(item001Object);
             }
-        }*/
+        }
 
         if (putintheinventoryd001)
         {
             if (!playerInventory.myInventory.Contains(itemd001))
             {
-                playerInventory.myInventory.Add(itemd001);
+                playerInventory.myInventory.Add(itemd001);                
             }                       
         }
 
@@ -103,6 +105,7 @@ public class WakingWorld2 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             GoDownTheStairs();
             isDownTheStairs = true;
+            variableStorage.SetValue("$godownthestairs", false);
             StartCoroutine(fadeLayer.FadeOut());
         }
 
@@ -111,6 +114,7 @@ public class WakingWorld2 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             GoUpTheStairs();
             isDownTheStairs = false;
+            variableStorage.SetValue("$goupthestairs002", false);
             StartCoroutine(fadeLayer.FadeOut());
         }
 
@@ -126,7 +130,7 @@ public class WakingWorld2 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(homePosition.transform.position.x, homePosition.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
-            variableStorage.SetValue("gobackhome", false);
+            variableStorage.SetValue("$gobackhome", false);
         }
 
     }

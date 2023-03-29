@@ -27,6 +27,7 @@ public class Blocks : MonoBehaviour
     [SerializeField] private GameObject inFrontOfAntique;
     [SerializeField] private GameObject insideOfAntique;
     [SerializeField] private InventoryItem item003;
+    [SerializeField] private GameObject item003Object;
     [SerializeField] private InventoryItem item008;
     [SerializeField] private InventoryItem coinForFountain;
     [SerializeField] private PlayerInventory playerInventory;
@@ -92,6 +93,7 @@ public class Blocks : MonoBehaviour
             if (!playerInventory.myInventory.Contains(item003))
             {
                 playerInventory.myInventory.Add(item003);
+                Destroy(item003Object);
             }
         }
 

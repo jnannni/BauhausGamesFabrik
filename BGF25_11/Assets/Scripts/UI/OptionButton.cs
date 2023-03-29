@@ -8,14 +8,14 @@ using UnityEngine.InputSystem;
 public class OptionButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     private GameObject selectionUISign;
-    private Slider slider;
+    [SerializeField] private Slider slider;
+
+    private bool dDown, aDown;
 
     
     // Start is called before the first frame update
     void Start()
-    {
-        slider = transform.GetComponent<Slider>();
-        
+    {                
         selectionUISign = transform.Find("Selection").gameObject;
         selectionUISign.SetActive(false);
     }
@@ -26,8 +26,7 @@ public class OptionButton : MonoBehaviour, ISelectHandler, IDeselectHandler
     }
 
     public void OnDeselect(BaseEventData eventData)
-    {
-        Debug.Log(this.gameObject.name + " deselected");
+    {        
         selectionUISign.SetActive(false);
     }
 
@@ -44,21 +43,42 @@ public class OptionButton : MonoBehaviour, ISelectHandler, IDeselectHandler
     public void OnClick()
     {        
     }
-
-    // Update is called once per frame
+   
     void Update()
     {
-        //Debug.Log(Keyboard.current.spaceKey.wasPressedThisFrame);
-        //Debug.Log(Input.GetKeyDown(KeyCode.D));
-        if (Input.GetKeyDown(KeyCode.D) && slider)
+        CheckIfAKeyPressed();
+        CheckIfDKeyPressed();
+        /*Debug.Log(aDown + "   " + dDown);
+        Debug.Log(Input.GetKeyDown(KeyCode.E) + " " + slider);
+        if (dDown && slider)
         {
             IncreaseSliderValue();
-            Debug.Log(slider.value);
+            dDown = false;
         }
-        if (Input.GetKeyDown(KeyCode.A) && slider)
+        if (aDown && slider)
         {
             DecreaseSliderValue();
-            Debug.Log(slider.value);
+            aDown = false;
+        }*/
+    }
+
+    void CheckIfDKeyPressed()
+    {
+        dDown |= Input.GetKeyDown(KeyCode.D);
+        if (dDown && slider)
+        {
+            IncreaseSliderValue();
+            dDown = false;
+        }
+    }
+
+    void CheckIfAKeyPressed()
+    {
+        aDown |= Input.GetKeyDown(KeyCode.A);
+        if (aDown && slider)
+        {
+            DecreaseSliderValue();
+            aDown = false;
         }
     }
 }

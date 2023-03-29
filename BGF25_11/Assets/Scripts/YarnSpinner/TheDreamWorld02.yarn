@@ -105,10 +105,12 @@ title: TheHedge
 ===
 title: TheHedgeCleared
 ---
+<<if visited_count("TheHedgeCleared") < 1>>
 <<SetPortrait noportrait>>
 <<set $hedge_cleared to true>>
 <<wait 1>>
 <<jump TheSecretPath>>
+<<endif>>
 ===
 
 title: TheSecretPath

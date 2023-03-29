@@ -21,7 +21,7 @@ public class Trigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isTriggered.initialValue = true;
+            isTriggered.initialValue = !isTriggered.initialValue;
         }
     }
 }
