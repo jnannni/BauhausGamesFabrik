@@ -82,6 +82,7 @@ title: ThePatriot
 ---
 //he gives us a first STARCLUE 001
 <<if visited_count("ThePatriot") < 1>>
+  <<SetPortrait patriotportrait1>>
   A stranger: This city is becoming a shithole, don't you think?  
   <<SetPortrait noportrait>>
   Magnolia: (Where are the neighbors I have seen before?)
@@ -89,6 +90,7 @@ title: ThePatriot
   <<wait 0.5>>
   Magnolia: I'm not from this part of the city.
   Magnolia: I'm staying at my aunt's house.
+  <<SetPortrait patriotportrait1>>
   The stranger: You know you shouldn't be sharing this information with a stranger?
   The stranger: Especially now, with them letting in all the strange folks.
   <<wait 0.5>>
@@ -96,6 +98,7 @@ title: ThePatriot
   The stranger: I am talking about the whole city! They ruined it!  
   <<SetPortrait noportrait>>
   Magnolia: Who?
+  <<SetPortrait patriotportrait1>>
   The stranger: The high court and his highness!
   <<SetPortrait noportrait>>
   Magnolia: (He means government? Local office?)
@@ -160,7 +163,7 @@ title: ThePatriot
 title: ThePatriot_Questions
 ---
 -> Did your parents also grow up in the city?
-<<SetPortrait patriot1>>
+ <<SetPortrait patriotportrait1>>
  The Patriot: What kind of question is that?
   -> Just curious.  
    <<SetPortrait patriotportrait1>>

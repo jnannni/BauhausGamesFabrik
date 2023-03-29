@@ -478,7 +478,7 @@ Magnolia: (Something about his own body bothers him.)
  The Blob Person: It's upside down.
  The Blob Person: It's only a memory now.
  <<SetPortrait noportrait>>
--> Show the drawing. <<if $putintheinventory001 is true>>
+-> Show the drawing. <<if $putintheinventory001 is true>> 
  <<SetPortrait noportrait>>
  Magnolia: (I need to take it out of my backpack.) //The player now needs to open the inventory.
 ===

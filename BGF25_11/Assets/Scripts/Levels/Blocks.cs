@@ -17,6 +17,7 @@ public class Blocks : MonoBehaviour
     private bool poetsdiary;
     private bool coinisselected;
     private bool putintheinventory008;
+    private bool putintheinventory001;
 
     private bool isInAntiqueShop;
     private FadeLayer fadeLayer;
@@ -49,12 +50,13 @@ public class Blocks : MonoBehaviour
     {
         isInAntiqueShop = false;
         dialogueRunner.StartDialogue("TheBlocks");
+        variableStorage.SetValue("$putintheinventory001", true);
     }
 
     // Update is called once per frame
     void Update()
-    {
-        variableStorage.TryGetValue("$entertheantique", out entertheantique);
+    {        
+        variableStorage.TryGetValue("$entertheantique", out entertheantique);        
         variableStorage.TryGetValue("$trigger_TheAllKnowingLady", out trigger_TheAllKnowingLady);
         variableStorage.TryGetValue("$putintheinventory003", out putintheinventory003);
         variableStorage.TryGetValue("$exittheantique", out exittheantique);

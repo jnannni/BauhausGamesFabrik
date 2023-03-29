@@ -10,7 +10,20 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
   sourceScripts:
   - {fileID: 6391573757903218779, guid: 59fe335124ae44dcfbe0fc09b87fcca8, type: 3}
+  - {fileID: 6391573757903218779, guid: a2d5e9512dcca4bfbaed59167649e1a1, type: 3}
+  - {fileID: 6391573757903218779, guid: 7cacafd39eefb4a17b7d0bb9bb6f0e9b, type: 3}
+  - {fileID: 6391573757903218779, guid: 90c1b12bfca334f5cafd2a225955bf60, type: 3}
+  - {fileID: 6391573757903218779, guid: c65099da214114a98adb52b253c6b17a, type: 3}
+  - {fileID: 6391573757903218779, guid: 4b08aa96c884f4c7b858da8b9d240315, type: 3}
+  - {fileID: 6391573757903218779, guid: ee39527b0a7c940969719bc37d4d65f7, type: 3}
+  - {fileID: 6391573757903218779, guid: 9706d4363885143a7810904f269a8171, type: 3}
+  - {fileID: 6391573757903218779, guid: 036c9fd90895f4b79839a28d578bb4b6, type: 3}
+  - {fileID: 6391573757903218779, guid: 4a62e812954054170a7c6b10559629f3, type: 3}
   - {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
+  - {fileID: 6391573757903218779, guid: 31f060cabfcc146dea94a522f0eeb8b3, type: 3}
+  - {fileID: 6391573757903218779, guid: c78bbc9ecf8654a8fa08cdd625101949, type: 3}
+  - {fileID: 6391573757903218779, guid: 4f5867811c3b948ccbb39e8b03d026c0, type: 3}
+  - {fileID: 6391573757903218779, guid: 493d7966a6f8c4327bc6195ae59c1d5a, type: 3}
   compileErrors: []
   serializedDeclarations:
   - name: $godownthestairs
@@ -85,6 +98,62 @@ ScriptedImporter:
       node FirstScene
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 59fe335124ae44dcfbe0fc09b87fcca8, type: 3}
+  - name: $standup
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in TheDreamWorld01.yarn, node TheDreamworld_01
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
+  - name: $laying
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in TheDreamWorld01.yarn, node TheDreamworld_01
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
+  - name: $openInventory
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in TheDreamWorld01.yarn, node TheDreamworld_01
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
+  - name: $stoneSelected
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in TheDreamWorld01.yarn, node TheDreamworld_01
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
+  - name: $trigger_waking02
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in TheDreamWorld01.yarn, node TheDreamworld_01
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
+  - name: $hasClueD
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in TheDreamWorld01.yarn, node TheDreamworld_01
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
+  - name: $inspected
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in TheDreamWorld01.yarn, node TheDreamworld_01
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b7cdd4bed43e64ae98c15518ffd411ce, type: 3}
   defaultLanguage: en-US
   languagesToSourceAssets: []
   useAddressableAssets: 0

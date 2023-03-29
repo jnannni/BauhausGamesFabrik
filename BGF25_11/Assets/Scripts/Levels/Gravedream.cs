@@ -63,7 +63,8 @@ public class Gravedream : MonoBehaviour
                 inventoryPanel.SetActive(false);
                 isInventoryOpen.initialValue = false;
                 isPaused.initialValue = false;
-            }            
+            }
+            Destroy(hedgeObject);
             // destroy hedge
         }
     }

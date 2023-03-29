@@ -126,6 +126,7 @@ public class WakingWorld2 : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(homePosition.transform.position.x, homePosition.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
+            variableStorage.SetValue("gobackhome", false);
         }
 
     }

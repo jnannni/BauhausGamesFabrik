@@ -27,11 +27,17 @@ public class TheWorkerQuarters : MonoBehaviour
     private Vector3 playerCurrentPosition;
     private FadeLayer fadeLayer;
 
+    private void Awake()
+    {
+        fadeLayer = FindObjectOfType<FadeLayer>();
+        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
+        variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        dialogueRunner.StartDialogue("TheWorkerQuarters");
-        fadeLayer = FindObjectOfType<FadeLayer>();
+        dialogueRunner.StartDialogue("TheWorkerQuarters");        
         playerCurrentPosition = player.transform.position;
         playerStartPosition = playerPosition.transform.position;
     }

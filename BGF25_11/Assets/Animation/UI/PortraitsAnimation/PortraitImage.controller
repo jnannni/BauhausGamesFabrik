@@ -36,7 +36,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: husbandportrait1
+    m_ConditionEvent: deadbithusbandportrait1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1227816399702945300}
@@ -192,7 +192,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: blobportrait1
+    m_ConditionEvent: blobpersonportrait1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -684029413699234610}
@@ -349,6 +349,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: chitchat2portrait1
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: noportrait
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}
   m_Solo: 0
@@ -389,7 +392,7 @@ AnimatorStateMachine:
     m_Position: {x: 660, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6731531028762752946}
-    m_Position: {x: 650, y: 140, z: 0}
+    m_Position: {x: 730, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -157960695049509692}
     m_Position: {x: 870, y: 750, z: 0}
@@ -453,7 +456,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -70, y: -160, z: 0}
-  m_EntryPosition: {x: -80, y: -120, z: 0}
+  m_EntryPosition: {x: 30, y: -120, z: 0}
   m_ExitPosition: {x: 890, y: 140, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 6357333803475119200}
@@ -907,6 +910,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: chitchat1portrait1
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: noportrait
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}
   m_Solo: 0
@@ -957,6 +963,12 @@ AnimatorController:
   m_Name: PortraitImage
   serializedVersion: 5
   m_AnimatorParameters:
+  - m_Name: noportrait
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   - m_Name: carguyportrait1
     m_Type: 4
     m_DefaultFloat: 0
@@ -969,7 +981,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: blobportrait1
+  - m_Name: blobpersonportrait1
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1005,7 +1017,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: husbandportrait1
+  - m_Name: deadbithusbandportrait1
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1096,12 +1108,6 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: dustsweeperportrait1
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: noportrait
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1363,6 +1369,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: creeperportrait1
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: noportrait
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}
@@ -1745,7 +1754,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: blobportrait1
+    m_ConditionEvent: blobpersonportrait1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}
@@ -1926,6 +1935,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: patriotportrait1
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: noportrait
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}
   m_Solo: 0
@@ -2076,7 +2088,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: husbandportrait1
+    m_ConditionEvent: deadbithusbandportrait1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}
@@ -2102,6 +2114,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: dustsweeperportrait1
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: noportrait
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}
@@ -2152,6 +2167,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: motherportrait1
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: noportrait
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6357333803475119200}

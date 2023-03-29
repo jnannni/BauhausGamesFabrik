@@ -24,14 +24,16 @@ public class CustomDialogueView : DialogueViewBase
     }
    
     public void SetPortrait(string spriteName)
-    {
+    {       
         if (previousSprite != spriteName)
         {
             foreach (var param in animator.parameters)
             {
                 if (param.type == AnimatorControllerParameterType.Bool)
                 {
-                    animator.SetBool(spriteName, false);
+                    Debug.Log(spriteName);
+                    Debug.Log(animator.GetBool(spriteName));
+                    animator.SetBool(previousSprite, false);
                 }
             }
         }               
