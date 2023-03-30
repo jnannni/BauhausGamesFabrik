@@ -29,15 +29,17 @@ public class DreamWorld01  : MonoBehaviour
     private bool standup;
     private bool laying;
     private bool stoneSelected;
+    private bool hasClueA;
     private int iteration = 0;
     private GameObject inventorySelectedButton;
 
     private void Awake()
-    {
+    {        
         //player.transform.position = appearSpotPosition.transform.position;
         fadeLayer = FindObjectOfType<FadeLayer>();
-        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
+        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();        
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        dialogueRunner.LoadStateFromPlayerPrefs();
     }
 
     // Start is called before the first frame update
@@ -55,6 +57,9 @@ public class DreamWorld01  : MonoBehaviour
         variableStorage.TryGetValue("$standup", out standup);
         variableStorage.TryGetValue("$laying", out laying);
         variableStorage.TryGetValue("$stoneSelected", out stoneSelected);
+        variableStorage.TryGetValue("$hasClueA", out hasClueA);
+
+        Debug.Log("hasClueA " + hasClueA);
 
         isInventoryAvailable.initialValue = openInventory;
 
@@ -78,6 +83,7 @@ public class DreamWorld01  : MonoBehaviour
 
         if (trigger_waking02)
         {
+            dialogueRunner.SaveStateToPlayerPrefs();
             if (!cutSceneEnded)
             {
                 canvasAnimator.SetBool("startCutSceneGolem", true);                

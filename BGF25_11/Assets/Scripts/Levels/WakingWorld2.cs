@@ -29,7 +29,7 @@ public class WakingWorld2 : MonoBehaviour
     private bool putintheinventoryd001;
     private bool godownthestairs;
     private bool goupthestairs002;
-    private bool headpulsing;
+    private bool headpulsing;    
     private FadeLayer fadeLayer;
     private bool isDownTheStairs;
 
@@ -44,6 +44,7 @@ public class WakingWorld2 : MonoBehaviour
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        dialogueRunner.LoadStateFromPlayerPrefs();
     }
 
     // Start is called before the first frame update
@@ -65,7 +66,7 @@ public class WakingWorld2 : MonoBehaviour
         variableStorage.TryGetValue("$godownthestairs", out godownthestairs);
         variableStorage.TryGetValue("$goupthestairs002", out goupthestairs002);
         variableStorage.TryGetValue("$headpulsing", out headpulsing);
-
+        
         if (magnoliadances || !magnoliadances)
         {
             playerAnimator.SetBool("isDancing", magnoliadances);
@@ -98,6 +99,7 @@ public class WakingWorld2 : MonoBehaviour
 
         if (gotothegraveyard)
         {
+            dialogueRunner.SaveStateToPlayerPrefs();
             SceneManager.LoadScene(nameOfTheScene);
         }
 

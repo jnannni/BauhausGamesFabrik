@@ -33,6 +33,7 @@ public class Graveyard : MonoBehaviour
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        dialogueRunner.LoadStateFromPlayerPrefs();
     }
 
     // Start is called before the first frame update
@@ -61,6 +62,7 @@ public class Graveyard : MonoBehaviour
 
         if (trigger_TheChurch)
         {
+            dialogueRunner.SaveStateToPlayerPrefs();
             player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
             transitionAnimator.SetBool("transitiontodw", true);
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))

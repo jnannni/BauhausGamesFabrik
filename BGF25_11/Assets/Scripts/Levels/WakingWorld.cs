@@ -29,6 +29,7 @@ public class WakingWorld : MonoBehaviour
     private bool isDownTheStairs;
     private bool wentHome;
     private FadeLayer fadeLayer;
+    private bool hasClueA;
 
     [SerializeField] private InventoryItem key;    
     [SerializeField] private PlayerInventory playerInventory;
@@ -57,6 +58,9 @@ public class WakingWorld : MonoBehaviour
         variableStorage.TryGetValue("$godownthestairs", out godownthestairs);
         variableStorage.TryGetValue("$gobackhome", out gobackhome);
         variableStorage.TryGetValue("$curtainopens", out curtainopens);
+        variableStorage.TryGetValue("$hasClueA", out hasClueA);
+
+        Debug.Log("hasClueA " + hasClueA);
 
         if (curtains && curtainopens)
         {
@@ -75,6 +79,7 @@ public class WakingWorld : MonoBehaviour
 
         if (takethekey)
         {
+            dialogueRunner.SaveStateToPlayerPrefs();
             if (!playerInventory.myInventory.Contains(key))
             {
                 playerInventory.myInventory.Add(key);                 

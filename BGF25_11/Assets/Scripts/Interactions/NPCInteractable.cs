@@ -25,7 +25,7 @@ public class NPCInteractable : MonoBehaviour
     private bool isInTheRange;
 
     public bool interactable;    
-    public NPCState npcState;
+    public NPCState npcState;    
     public int npcIndex = 0;
     public string npcName;
     public GameObject target;
@@ -65,14 +65,11 @@ public class NPCInteractable : MonoBehaviour
         distance = Vector2.Distance(target.transform.position, this.gameObject.transform.position);
         if (isInTheRange && interactable && !isDialogueRunning.initialValue)
         {
-            this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = outlineShader.shader;
-            //arrowAnimator.SetBool("showArrow", true);
+            this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = outlineShader.shader;            
         }
         else
         {
-            this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = defaultShader;
-            //emitter.Stop();
-            //arrowAnimator.SetBool("showArrow", false);
+            this.transform.gameObject.GetComponent<SpriteRenderer>().material.shader = defaultShader;            
         }
         Interact();        
         if (!isDialogueRunning.initialValue)
@@ -97,8 +94,10 @@ public class NPCInteractable : MonoBehaviour
                 ChangeDirection(-target.GetComponent<Animator>().GetFloat("Horizontal"),
                                 -target.GetComponent<Animator>().GetFloat("Vertical"));
             }
-                        
-            StartConversation();            
+            if (!isDialogueRunning.initialValue)
+            {
+                StartConversation();
+            }                        
         }     
     }
 

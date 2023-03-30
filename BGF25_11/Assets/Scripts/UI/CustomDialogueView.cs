@@ -30,9 +30,7 @@ public class CustomDialogueView : DialogueViewBase
             foreach (var param in animator.parameters)
             {
                 if (param.type == AnimatorControllerParameterType.Bool)
-                {
-                    Debug.Log(spriteName);
-                    Debug.Log(animator.GetBool(spriteName));
+                {                    
                     animator.SetBool(previousSprite, false);
                 }
             }

@@ -52,6 +52,7 @@ public class Blocks : MonoBehaviour
         isInAntiqueShop = false;
         dialogueRunner.StartDialogue("TheBlocks");
         variableStorage.SetValue("$putintheinventory001", true);
+        dialogueRunner.LoadStateFromPlayerPrefs();
     }
 
     // Update is called once per frame
@@ -67,6 +68,7 @@ public class Blocks : MonoBehaviour
 
         if (trigger_TheAllKnowingLady)
         {
+            dialogueRunner.SaveStateToPlayerPrefs();
             transitionAnimator.SetBool("transitiontodw", true);
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {
