@@ -56,8 +56,9 @@ public class ObjectInteractable : MonoBehaviour
 
     public void Interact()
     {
-        if (isInTheRange && isPressed && dialogueStartingNode != "")
+        if (isInTheRange && isPressed && dialogueStartingNode != "" && !isDialogueRunning.initialValue)
         {
+            Debug.Log("running");
             StartConversation();
             if (item && playerInventory && !collectable)
             {

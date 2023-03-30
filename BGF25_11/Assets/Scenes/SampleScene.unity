@@ -10941,6 +10941,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 752036815, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 433729542499819145, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -11037,6 +11041,10 @@ PrefabInstance:
       propertyPath: onDialogueComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 655513777}
+    - target: {fileID: 3038195636993633732, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3038195637035157114, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -39519,6 +39527,10 @@ PrefabInstance:
       propertyPath: transitionAnimator
       value: 
       objectReference: {fileID: 2113605237}
+    - target: {fileID: 2012204937907241179, guid: f03c4539d52a2449bad1d14092e96329, type: 3}
+      propertyPath: isInventoryAvailable
+      value: 
+      objectReference: {fileID: 11400000, guid: 96d4ff70e2c1547a9b210cd3c7e488e3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f03c4539d52a2449bad1d14092e96329, type: 3}
 --- !u!1001 &2550122673931344615
