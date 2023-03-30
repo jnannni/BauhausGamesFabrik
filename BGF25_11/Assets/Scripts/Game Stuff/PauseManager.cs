@@ -14,12 +14,11 @@ public class PauseManager : MonoBehaviour
     public GameObject pausedMenuSelectedButton, optionsSelectedButton;
     public BoolValue isPaused;
     public BoolValue isIllustrationWatched;
-    public BoolValue isInventoryOpen;    
+    public BoolValue isInventoryOpen, isInventoryAvailable;    
     public GameObject pausePanel;
     public string mainMenu;
     public AudioMixer audioMixer;
-    private GameObject inventorySelectedButton;
-    private EventSystem currentEvenSystem;
+    private GameObject inventorySelectedButton;     
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +47,10 @@ public class PauseManager : MonoBehaviour
             inventorySelectedButton.GetComponent<Button>().Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.I) && !pausePanel.activeSelf ||
+        if (Input.GetKeyDown(KeyCode.I) && !pausePanel.activeSelf && isInventoryAvailable.initialValue ||
             Input.GetKeyDown(KeyCode.Escape) && inventoryPanel.activeSelf && !pausePanel.activeSelf)
         {
-            inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
-            Debug.Log("here");
+            inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;            
             InteractInventory();
         } else if (Input.GetKeyDown(KeyCode.Escape) && !inventoryPanel.activeSelf && !illustrationPanel.activeSelf)
         {            
@@ -65,8 +63,7 @@ public class PauseManager : MonoBehaviour
             isPaused.initialValue = true;            
         }
         if (Input.GetKeyDown(KeyCode.Escape) && isIllustrationWatched.initialValue && illustrationPanel.activeSelf)
-        {
-            Debug.Log("hey");
+        {            
             isPaused.initialValue = false;
             illustrationPanel.SetActive(false);            
             isIllustrationWatched.initialValue = false;
@@ -82,8 +79,7 @@ public class PauseManager : MonoBehaviour
         {            
             EventSystem.current.SetSelectedGameObject(null);            
             inventoryPanel.SetActive(true);            
-            EventSystem.current.SetSelectedGameObject(inventorySelectedButton);            
-            Debug.Log(EventSystem.current.currentSelectedGameObject);
+            EventSystem.current.SetSelectedGameObject(inventorySelectedButton);                        
         }
         else
         {

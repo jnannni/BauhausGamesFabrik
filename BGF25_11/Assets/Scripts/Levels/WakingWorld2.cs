@@ -11,6 +11,7 @@ public class WakingWorld2 : MonoBehaviour
     private InMemoryVariableStorage variableStorage;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private Animator playerAnimator;
     [SerializeField] private GameObject downTheStairsPosition;
     [SerializeField] private GameObject upTheStairsPosition;
     [SerializeField] private GameObject homePosition;
@@ -65,9 +66,9 @@ public class WakingWorld2 : MonoBehaviour
         variableStorage.TryGetValue("$goupthestairs002", out goupthestairs002);
         variableStorage.TryGetValue("$headpulsing", out headpulsing);
 
-        if (magnoliadances)
+        if (magnoliadances || !magnoliadances)
         {
-            // add animation to animator for the dance
+            playerAnimator.SetBool("isDancing", magnoliadances);
         }
 
         if (lookatthedrawing && !isIllustrationWatched.initialValue)

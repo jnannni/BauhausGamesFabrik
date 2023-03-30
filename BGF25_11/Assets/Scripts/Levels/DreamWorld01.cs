@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class DreamWorld01  : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class DreamWorld01  : MonoBehaviour
     [SerializeField] private BoolValue isInventoryAvailable;
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private GameObject inventoryPanel;
+    public GameObject inventoryContent;
     public BoolValue isInventoryOpen;
     public BoolValue isPaused;
     public GameObject appearSpotPosition;
@@ -27,6 +30,7 @@ public class DreamWorld01  : MonoBehaviour
     private bool laying;
     private bool stoneSelected;
     private int iteration = 0;
+    private GameObject inventorySelectedButton;
 
     private void Awake()
     {
@@ -40,6 +44,7 @@ public class DreamWorld01  : MonoBehaviour
     void Start()
     {
         dialogueRunner.StartDialogue("TheDreamworld_01");
+        inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -55,8 +60,12 @@ public class DreamWorld01  : MonoBehaviour
 
         if (openInventory && iteration == 0)
         {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(inventorySelectedButton);
+            inventorySelectedButton.GetComponent<Button>().Select();
             isInventoryOpen.initialValue = true;
             inventoryPanel.SetActive(true);
+            isPaused.initialValue = true;
             iteration++;
         }
 

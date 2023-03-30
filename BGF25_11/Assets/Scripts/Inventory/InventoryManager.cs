@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryManager : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class InventoryManager : MonoBehaviour
 {
     [Header("Inventory Information")]
     public PlayerInventory playerInventory;
@@ -81,15 +81,5 @@ public class InventoryManager : MonoBehaviour, ISelectHandler, IDeselectHandler
         {
             currentItem.Use();
         }
-    }
-
-    public void OnSelect(BaseEventData eventData)
-    {
-        Debug.Log(currentItem + "selected");
-    }
-
-    public void OnDeselect(BaseEventData eventData)
-    {
-        Debug.Log(currentItem + "deselected");
     }
 }

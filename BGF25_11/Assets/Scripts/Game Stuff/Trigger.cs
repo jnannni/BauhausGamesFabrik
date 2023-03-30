@@ -6,22 +6,19 @@ public class Trigger : MonoBehaviour
 {
     [SerializeField] private BoolValue isTriggered;
 
-    // Start is called before the first frame update
-    void Start()
-    {        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            isTriggered.initialValue = !isTriggered.initialValue;
+            isTriggered.initialValue = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isTriggered.initialValue = false;
         }
     }
 }

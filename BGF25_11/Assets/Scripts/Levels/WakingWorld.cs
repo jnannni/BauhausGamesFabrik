@@ -25,10 +25,13 @@ public class WakingWorld : MonoBehaviour
     private bool godownthestairs;
     private bool gobackhome;
     private bool curtainopens;
-    public BoolValue isLevel1Completed;    
+    public BoolValue isInventoryAvailable;    
     private bool isDownTheStairs;
     private bool wentHome;
-    private FadeLayer fadeLayer;    
+    private FadeLayer fadeLayer;
+
+    [SerializeField] private InventoryItem key;    
+    [SerializeField] private PlayerInventory playerInventory;
 
     private void Awake()
     {        
@@ -38,7 +41,8 @@ public class WakingWorld : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        isInventoryAvailable.initialValue = false;
         dialogueRunner.StartDialogue("FirstScene");
         isDownTheStairs = false;
         wentHome = false;
@@ -71,14 +75,17 @@ public class WakingWorld : MonoBehaviour
 
         if (takethekey)
         {
+            if (!playerInventory.myInventory.Contains(key))
+            {
+                playerInventory.myInventory.Add(key);                 
+            }
             transitionAnimator.SetBool("transitiontodw", true);
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {
                 StartCoroutine(fadeLayer.FadeIn());
                 SceneManager.LoadScene("DreamWorld1");
                 transitionAnimator.SetBool("transitiontodw", false);
-            }
-            isLevel1Completed.initialValue = true;
+            }            
         }
 
         if (gobackhome && !wentHome)

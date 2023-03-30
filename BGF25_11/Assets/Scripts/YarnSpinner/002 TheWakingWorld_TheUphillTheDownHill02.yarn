@@ -405,7 +405,6 @@ title: TheStairs02
 
 title: TheBeggar
 ---
-<<set $magnoliadanced to true>>
 <<if $magnoliadanced is true>>
  <<SetPortrait noportrait>>
  Magnolia: Hey, do you need any help? 
@@ -428,7 +427,8 @@ title: TheBeggar
   <<SetPortrait judgingpersonportrait1>>
   TheJudgingPerson: You are crazier than him.
   <<wait 3>>
-  <<jump TheJudgingPerson>>
+  <<set $magnoliadances to false>>
+  <<jump TheJudgingPerson>>   
  -> Stay a while and watch.
   <<wait 3>>
   <<jump TheJudgingPerson>>
@@ -451,7 +451,7 @@ title: TheJudgingPerson
  TheJudgingPerson: I'm just being realistic, sorry to say.
   <<jump TheJudgingPerson_Questions>>
 <<else>>
-<<SetPortrait judgingperson1>>
+ <<SetPortrait judgingpersonportrait1>>
  TheJudgingPerson: Everyone is just going madder and madder.
   <<jump TheJudgingPerson_Questions>>
 <<endif>>

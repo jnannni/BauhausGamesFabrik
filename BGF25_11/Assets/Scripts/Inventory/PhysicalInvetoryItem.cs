@@ -30,13 +30,13 @@ public class PhysicalInvetoryItem : MonoBehaviour
     private void Update()
     {        
         isPressed = Input.GetKeyDown(KeyCode.K);
-        if (isPressed && isItemClose && item.collectable)
+        /*if (isPressed && isItemClose && item.collectable)
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.collectedItem, this.transform.position);
             AddItemToInventory();
             animator.Play("PickedUp", 0, 0f);           
             Destroy(this.gameObject);            
-        }
+        }*/
         /*if (isItemClose && !item.collectable)
         {            
             AddItemToInventory();            
@@ -73,16 +73,5 @@ public class PhysicalInvetoryItem : MonoBehaviour
         {
             playerInventory.myInventory.Add(item);
         }
-    }
-
-    public void AddingItemFromDialogue(InventoryItem itemFromDialogue, PlayerInventory curInventory)
-    {
-        Debug.Log("to inv");
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.collectedItem, this.transform.position);
-        if (curInventory && itemFromDialogue)
-        {
-            curInventory.myInventory.Add(itemFromDialogue);
-        }
-        animator.Play("PickedUp", 0, 0f);
-    }
+    }    
 }

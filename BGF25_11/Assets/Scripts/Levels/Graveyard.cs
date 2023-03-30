@@ -23,9 +23,7 @@ public class Graveyard : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject catCreature;
     [SerializeField] private GameObject insideTheChurch;
-    [SerializeField] private PlayerInventory playerInventory;
-    [SerializeField] private GameObject stairsToWalkOn;
-    [SerializeField] private BoolValue isGoingOnStairs;
+    [SerializeField] private PlayerInventory playerInventory;    
     private float distanceToCat;
 
     [SerializeField] private string nameOfTheScene;
@@ -39,8 +37,7 @@ public class Graveyard : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        isGoingOnStairs.initialValue = false;
+    {        
         isInsideTheChurch = false;
         dialogueRunner.StartDialogue("TheGraveYard");
     }
@@ -91,12 +88,7 @@ public class Graveyard : MonoBehaviour
                 playerInventory.myInventory.Add(item002);
                 Destroy(item002Object);
             }
-        }
-
-        if (isGoingOnStairs.initialValue)
-        {
-            stairsToWalkOn.GetComponent<Renderer>().sortingLayerName = "background";
-        } else stairsToWalkOn.GetComponent<Renderer>().sortingLayerName = "Default";
+        }        
 
         if (distanceToCat > 5)
         {
