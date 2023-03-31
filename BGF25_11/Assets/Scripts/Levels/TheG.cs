@@ -48,11 +48,15 @@ public class TheG : MonoBehaviour
     [SerializeField] private Animator cameraAnimator;
     [SerializeField] private Animator canvasAnimator;
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.InitializeMusic(FMODEvents.instance.musicTheG);
     }
 
     // Start is called before the first frame update
@@ -84,6 +88,8 @@ public class TheG : MonoBehaviour
 
         if (gototheMuseum)
         {
+            /*audioManager.PauseMusic(FMODEvents.instance.musicTheG);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionBetweenWW, this.transform.position);*/
             SceneManager.LoadScene(nameOfTheScene);
         }
 

@@ -15,6 +15,7 @@ public class Graveyard : MonoBehaviour
     private bool enterthechurch;
     private bool trigger_TheChurch;
     private bool scurryawayanimation;
+    private AudioManager audioManager;
     
     private bool isInsideTheChurch;
     private FadeLayer fadeLayer;    
@@ -34,11 +35,13 @@ public class Graveyard : MonoBehaviour
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
         dialogueRunner.LoadStateFromPlayerPrefs();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        audioManager.InitializeMusic(FMODEvents.instance.musicGraveyard);
         isInsideTheChurch = false;
         dialogueRunner.StartDialogue("TheGraveYard");
     }
@@ -62,6 +65,8 @@ public class Graveyard : MonoBehaviour
 
         if (trigger_TheChurch)
         {
+            /*audioManager.PauseMusic(FMODEvents.instance.musicGraveyard);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionToDW, this.transform.position);*/
             dialogueRunner.SaveStateToPlayerPrefs();
             player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
             transitionAnimator.SetBool("transitiontodw", true);
@@ -88,7 +93,7 @@ public class Graveyard : MonoBehaviour
             if (!playerInventory.myInventory.Contains(item002))
             {
                 playerInventory.myInventory.Add(item002);
-                Destroy(item002Object);
+                item002Object.GetComponent<ObjectInteractable>().enabled = false;
             }
         }        
 

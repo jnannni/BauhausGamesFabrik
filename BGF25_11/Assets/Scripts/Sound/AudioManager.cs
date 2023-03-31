@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeMusic(FMODEvents.instance.music);
+        //InitializeMusic(FMODEvents.instance.music);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
@@ -52,10 +52,16 @@ public class AudioManager : MonoBehaviour
         return eventInstance;
     }
 
-    private void InitializeMusic(EventReference musicEventReferense)
+    public void InitializeMusic(EventReference musicEventReferense)
     {
         musicEventInstance = CreateEventInstance(musicEventReferense);
-        musicEventInstance.start();
+        musicEventInstance.start();        
+    }
+
+    public void PauseMusic(EventReference musicEventReferense)
+    {
+        musicEventInstance = CreateEventInstance(musicEventReferense);
+        musicEventInstance.setPaused(true);
     }
 
     private void CleanUp()

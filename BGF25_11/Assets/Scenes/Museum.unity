@@ -14708,6 +14708,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 174939152, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
   m_PrefabInstance: {fileID: 1511636795}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1511636798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4689125815495181764, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+  m_PrefabInstance: {fileID: 1511636795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1518827477
 GameObject:
   m_ObjectHideFlags: 0
@@ -17612,6 +17617,8 @@ MonoBehaviour:
   isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
   animator: {fileID: 376153550}
   portraitAnimator: {fileID: 1511636797}
+  continueClue: {fileID: 1511636798}
+  lastLine: {fileID: 0}
 --- !u!4 &1685065080
 Transform:
   m_ObjectHideFlags: 0

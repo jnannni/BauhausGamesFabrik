@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3024238422281102529}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 33.39449, y: 15.056953, z: -1.0736121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -89,13 +89,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad2ce5c4f5df4785813a0042558a138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <music>k__BackingField:
+  <musicWW1>k__BackingField:
     Guid:
-      Data1: 1225557778
-      Data2: 1237595892
-      Data3: -867416935
-      Data4: 1925483338
-    Path: event:/Music/DWCityMusic1
+      Data1: -225093036
+      Data2: 1306040174
+      Data3: -738993529
+      Data4: -1443567724
+    Path: event:/Atmos/Atmo_WakingWorld_001_002_TheUphillTheDownhill_Loopable
+  <musicWW2>k__BackingField:
+    Guid:
+      Data1: 2105246425
+      Data2: 1269492994
+      Data3: -31894379
+      Data4: 1439475598
+    Path: event:/Atmos/Atmo_WakingWorld_003_1_TheGraveyard_Loopable
+  <musicGraveyard>k__BackingField:
+    Guid:
+      Data1: -1434809720
+      Data2: 1288228809
+      Data3: -1839206782
+      Data4: 1055053744
+    Path: event:/Atmos/Atmo_WakingWorld_003_2_TheGraveyard_InsideChurch_Loopable
+  <musicBlocks>k__BackingField:
+    Guid:
+      Data1: -890138077
+      Data2: 1149669386
+      Data3: -2105881720
+      Data4: -1382407552
+    Path: event:/Atmos/Atmo_WakingWorld_004_TheBlocks_Loopable
+  <musicTheG>k__BackingField:
+    Guid:
+      Data1: -1879915837
+      Data2: 1090741833
+      Data3: -762639434
+      Data4: -800099319
+    Path: event:/Atmos/Atmo_WakingWorld_005_TheG_Loopable
+  <musicMuseumCorner>k__BackingField:
+    Guid:
+      Data1: 487614399
+      Data2: 1258582528
+      Data3: -1059681130
+      Data4: -1897012606
+    Path: event:/Atmos/Atmo_WakingWorld_006_TheMuseumCorner_Loopable
+  <musicTrainStation>k__BackingField:
+    Guid:
+      Data1: -714936842
+      Data2: 1076280211
+      Data3: 1452442260
+      Data4: -946779473
+    Path: event:/Atmos/Atmo_WakingWorld_009_TheTrainstation_Loopable
+  <musicWorkerQuarters>k__BackingField:
+    Guid:
+      Data1: 249660120
+      Data2: 1090940929
+      Data3: -1491412567
+      Data4: 122959748
+    Path: event:/Atmos/Atmo_WakingWorld_010_TheWorkerquarters_Loopable
+  <musicFabric>k__BackingField:
+    Guid:
+      Data1: 103952169
+      Data2: 1310747624
+      Data3: 1588683682
+      Data4: -627085339
+    Path: event:/Atmos/Atmo_WakingWorld_011_1_TheFactory_INDOOR_Loopable
+  <musicBeach>k__BackingField:
+    Guid:
+      Data1: -806400701
+      Data2: 1323986463
+      Data3: 1076964256
+      Data4: -683709205
+    Path: event:/Atmos/Atmo_WakingWorld_011_2_TheFactory_OUTDOOR_Loopable
+  <musicAmusementPark>k__BackingField:
+    Guid:
+      Data1: 676692577
+      Data2: 1133920616
+      Data3: 1165236097
+      Data4: -513448029
+    Path: event:/Atmos/Atmo_WakingWorld_012_TheBeach_Loopable
+  <musicDW1>k__BackingField:
+    Guid:
+      Data1: -1047337839
+      Data2: 1193075855
+      Data3: 1575826354
+      Data4: -1551526424
+    Path: event:/Atmos/Atmo_DreamWorld_001_TheGravedream_Loopable
+  <musicGravedream>k__BackingField:
+    Guid:
+      Data1: -1760726550
+      Data2: 1266621198
+      Data3: -1602727283
+      Data4: 1384788270
+    Path: event:/Atmos/Atmo_DreamWorld_002_TheGravedream_Loopable
+  <musicDreamBlocks>k__BackingField:
+    Guid:
+      Data1: -2038344333
+      Data2: 1157585998
+      Data3: 499987592
+      Data4: 1668457036
+    Path: event:/Atmos/Atmo_DreamWorld_003_TheBlocks_Loopable
+  <musicFrozenVillage>k__BackingField:
+    Guid:
+      Data1: 971216283
+      Data2: 1103656341
+      Data3: 1973992833
+      Data4: -457316220
+    Path: event:/Atmos/Atmo_DreamWorld_004_TheFrozenVillage_Loopable
+  <musicRedBeach>k__BackingField:
+    Guid:
+      Data1: -806400701
+      Data2: 1323986463
+      Data3: 1076964256
+      Data4: -683709205
+    Path: event:/Atmos/Atmo_WakingWorld_011_2_TheFactory_OUTDOOR_Loopable
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: -807746728
@@ -129,3 +234,45 @@ MonoBehaviour:
       Data3: -1761359211
       Data4: -189745081
     Path: event:/SFX/ItemPickup
+  <iniventoryClose>k__BackingField:
+    Guid:
+      Data1: 1119690872
+      Data2: 1320326113
+      Data3: -597374066
+      Data4: 2077559997
+    Path: event:/UI Sounds/InventoryClose_Oneshot
+  <inventoryOpen>k__BackingField:
+    Guid:
+      Data1: 2066221621
+      Data2: 1164123931
+      Data3: -1650415993
+      Data4: 2088729360
+    Path: event:/UI Sounds/InventoryOpen_Oneshot
+  <transitionToWW>k__BackingField:
+    Guid:
+      Data1: 688996467
+      Data2: 1255264821
+      Data3: 1758626195
+      Data4: 652419207
+    Path: event:/UI Sounds/Transition_DW_to_WW
+  <transitionToDW>k__BackingField:
+    Guid:
+      Data1: 1102187081
+      Data2: 1147769217
+      Data3: 239079578
+      Data4: 338178065
+    Path: event:/UI Sounds/Transition_WW_to_DW
+  <transitionBetweenWW>k__BackingField:
+    Guid:
+      Data1: 1004181756
+      Data2: 1120403989
+      Data3: 1647074179
+      Data4: -1664564222
+    Path: event:/UI Sounds/Transition_WW_to_WW
+  <dialogueClick>k__BackingField:
+    Guid:
+      Data1: 608254592
+      Data2: 1222954230
+      Data3: -1812032351
+      Data4: 1582834935
+    Path: event:/UI Sounds/DialogueBoxClick

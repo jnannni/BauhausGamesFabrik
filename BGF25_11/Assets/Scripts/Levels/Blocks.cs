@@ -21,6 +21,7 @@ public class Blocks : MonoBehaviour
 
     private bool isInAntiqueShop;
     private FadeLayer fadeLayer;
+    private AudioManager audioManager;
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private GameObject player;
@@ -44,6 +45,7 @@ public class Blocks : MonoBehaviour
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
@@ -53,6 +55,7 @@ public class Blocks : MonoBehaviour
         dialogueRunner.StartDialogue("TheBlocks");
         variableStorage.SetValue("$putintheinventory001", true);
         dialogueRunner.LoadStateFromPlayerPrefs();
+        audioManager.InitializeMusic(FMODEvents.instance.musicBlocks);
     }
 
     // Update is called once per frame
@@ -69,6 +72,8 @@ public class Blocks : MonoBehaviour
         if (trigger_TheAllKnowingLady)
         {
             dialogueRunner.SaveStateToPlayerPrefs();
+            /*audioManager.PauseMusic(FMODEvents.instance.musicBlocks);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionToDW, this.transform.position);*/
             transitionAnimator.SetBool("transitiontodw", true);
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {

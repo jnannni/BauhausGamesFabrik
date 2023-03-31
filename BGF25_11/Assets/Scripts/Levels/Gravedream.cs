@@ -16,6 +16,7 @@ public class Gravedream : MonoBehaviour
 
     private bool trigger_waking03;
     private bool hedge_cleared;
+    private AudioManager audioManager;
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Material dissolveMaterial;
@@ -30,11 +31,13 @@ public class Gravedream : MonoBehaviour
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        audioManager.InitializeMusic(FMODEvents.instance.musicGravedream);
         dialogueRunner.StartDialogue("TheDreamworld_02");
         dissolve = FindObjectOfType<Dissolve>();
     }
@@ -47,6 +50,8 @@ public class Gravedream : MonoBehaviour
 
         if (trigger_waking03)
         {
+            /*audioManager.PauseMusic(FMODEvents.instance.musicGravedream);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionToWW, this.transform.position);*/
             transitionAnimator.SetBool("transitiontoww", true);
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
             {

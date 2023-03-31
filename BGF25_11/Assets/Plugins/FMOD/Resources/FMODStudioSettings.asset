@@ -350,8 +350,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../Downloads/dreamgamefmod-3/dreamgamefmod.fspro
-  sourceBankPath: ../../../Downloads/dreamgamefmod-3/Build
+  sourceProjectPath: Assets/Sound/dreamgamefmod-4/dreamgamefmod.fspro
+  sourceBankPath: Assets/Sound/dreamgamefmod-4/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -375,9 +375,11 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - AtmosDreamWorld
+  - AtmosWakingWorld
   - Characters
-  - DWCity
   - SFX
+  - UI Sounds
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

@@ -30,13 +30,13 @@ public class PhysicalInvetoryItem : MonoBehaviour
     private void Update()
     {        
         isPressed = Input.GetKeyDown(KeyCode.K);
-        /*if (isPressed && isItemClose && item.collectable)
+        if (isPressed && isItemClose && item.collectable)
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.collectedItem, this.transform.position);
             AddItemToInventory();
             animator.Play("PickedUp", 0, 0f);           
             Destroy(this.gameObject);            
-        }*/
+        }
         /*if (isItemClose && !item.collectable)
         {            
             AddItemToInventory();            

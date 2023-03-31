@@ -22,20 +22,26 @@ public class DreamBlocks : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject parents;
     [SerializeField] private GameObject closeToParents;
+    [SerializeField] private BoolValue isMaskUsed;
     [SerializeField] private float approachSpeed = 2f;
+
+    private AudioManager audioManager;
 
     private void Awake()
     {
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicDreamBlocks);
         boxCollider2Ds = parents.GetComponents<BoxCollider2D>();        
         dialogueRunner.StartDialogue("TheDreamworld_03");
+        dialogueRunner.LoadStateFromPlayerPrefs();
     }
 
     // Update is called once per frame
@@ -46,6 +52,9 @@ public class DreamBlocks : MonoBehaviour
 
         if (trigger_waking04)
         {
+            /*audioManager.PauseMusic(FMODEvents.instance.musicDreamBlocks);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionToWW, this.transform.position);*/
+            dialogueRunner.SaveStateToPlayerPrefs();
             transitionAnimator.SetBool("transitiontoww", true);
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
             {

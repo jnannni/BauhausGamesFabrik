@@ -9,6 +9,7 @@
 //variables for in YARN>
 <<set $triedtocatch to false>>
 
+<<SetPortrait noportrait>>
 Magnolia: (I am back!)
 Magnolia: (It's exhausting that the dream is constantly interrupted.)
 <<wait 0.5>>
@@ -25,12 +26,14 @@ Magnolia: (I wonder what that star turned into.)
 title: TheAllKnowingCreature
 ---
 <<if visited_count("TheAllKnowingCreature") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (This seems familiar.)
  Magnolia: (Did that lady follow me?)
  <<wait 0.5>>
  Magnolia: (She seems a little bit weird...)
  <<jump TheAllKnowingCreature_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (It definately resembles that lady!)
  <<jump TheAllKnowingCreature_Questions>>
 <<endif>>
@@ -39,40 +42,56 @@ title: TheAllKnowingCreature
 title: TheAllKnowingCreature_Questions
 ---
 -> Did you follow me from home?
+ <<SetPortrait allknowingcreatureportrait1>>
  TheLady: Where is home?
+ <<SetPortrait noportrait>>
  Magnolia: (She talks!)
  <<wait 0.5>>
  Magnolia: You know, home, outside of the dream?
+ <<SetPortrait allknowingcreatureportrait1>>
  The Lady: Are we in a dream?
 -> Is this the dreamworld you talked about?
+ <<SetPortrait allknowingcreatureportrait1>>
  TheLady: Everyone has their own definitions.
+ <<SetPortrait noportrait>>
  Magnolia: Everybody has their own dreamworld?
  Magnolia: So I am just only dreaming?
  Magnolia: Nobody could see this except me? It is not real?
  <<wait 0.5>>
+ <<SetPortrait allknowingcreatureportrait1>>
  TheLady: I never said it wasn't real.
+ <<SetPortrait noportrait>>
  Magnolia: Then what exactly is it.
+ <<SetPortrait allknowingcreatureportrait1>>
  TheLady: I don't have the answer, sorry.
 -> Do you know anything about the falling star?
+ <<SetPortrait allknowingcreatureportrait1>>
  TheLady: You walk around and you ask that questions?
+ <<SetPortrait noportrait>>
  Magnolia: Yes? It's essential that I find it.
+ <<SetPortrait allknowingcreatureportrait1>>
  TheLady: You shouldn't be doing that.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Why?
+ <<SetPortrait allknowingcreatureportrait1>>
  TheLady: Don't you look outside yourself?
  TheLady: Don't you notice?
+ <<SetPortrait noportrait>>
  Magnolia: (Somebody already told me I don't listen to people.)
 ===
 
 title: TheFlyingSoul
 ---
 <<if visited_count("TheFlyingSoul") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (Are they flying?)
  Magnolia: (It's like they are suspended in the air.)
  Magnolia: (I don't feel like bothering them, but I feel lost.)
  <<wait 0.5>>
  <<jump TheFlyingSoul_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (This is not the weirdest thing I've seen till now.)
  <<jump TheFlyingSoul_Questions>>
 <<endif>>
@@ -81,9 +100,11 @@ title: TheFlyingSoul
 title: TheFlyingSoul_Questions
 ---
 -> Ask them about the star.
+ <<SetPortrait noportrait>>
  Magnolia: (That other celestial told me to not ask about the star.)
  Magnolia: (I feel like I should listen to them.)
 -> Ask them if the stars can fall outside of the dream.
+ <<SetPortrait noportrait>>
  Magnolia: (Technically this is still the question about the star.)
  Magnolia: (But it doesn't say that I want to have it.)
  Magnolia: (I'm just being curious.)
@@ -93,21 +114,29 @@ title: TheFlyingSoul_Questions
  Magnolia: Into another world?
  <<wait 0.5>>
  Magnolia: (They're not going to answer.)
+ <<SetPortrait flyingsoulportrait1>>
  TheFlyingSoul: &%&4@*$&@*%^@%@
+ <<SetPortrait noportrait>>
  Magnolia: Thank you.
 -> Ask about the flying things that scream.
+ <<SetPortrait noportrait>>
  Magnolia: Uhm, I tried to catch those bugs, and I think one of them screamed.
  <<wait 0.5>>
+ <<SetPortrait flyingsoulportrait1>>
  TheFlyingSoul: ^$*&$^@*@%%*@%^@&@^$@@%*%
  TheFlyingSoul: %&*@_@@$*%$*&%*$^$*&%*$^@%@!
+ <<SetPortrait noportrait>>
  Magnolia: Does that mean I shouldn't touch them?
+ <<SetPortrait flyingsoulportrait1>>
  TheFlyingSould: ^@&@^$@@%*%!
+ <<SetPortrait noportrait>>
  Magnolia: Okay, I understand.
  Magnolia: (I don't.)
 ===
 
 title: TheSunDrawing02
 ---
+<<SetPortrait noportrait>>
 //now it's like a whirling circle of fireflies
 <<if visited_count("TheSunDrawing02") < 1>>
  Magnolia: (These bugs seem to be attracted to the light of the sun drawing.)
@@ -140,6 +169,7 @@ title: TheSunDrawing02
 
 title: TheDive
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheDive") < 1>>
  Magnolia: (It looks like a pool.)
  Magnolia: (But I can't see the bottom.)
@@ -164,6 +194,7 @@ title: TheDive
 
 title: TheWaterFalls02
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheWaterFalls02") < 1>>
 Magnolia: (These are probably the waterfalls that I heard from the other dream.)
 <<wait 0.5>>
@@ -176,6 +207,7 @@ Magnolia: (The loudness of the water creates a perfect silence.)
 
 title: TheOtherPart
 ---
+ <<SetPortrait noportrait>>
  Magnolia: (That WAS the weirdest thing I have done, ever.)
  <<wait 1>>
  Magnolia: (Wait, is that?)
@@ -189,11 +221,13 @@ title: TheOtherPart
 
 title: MotherandFather
 ---
+<<SetPortrait noportrait>>
 Magnolia: (It's like my memories are coming back...)
 Magnolia: (And yet, nothing seems right.)
 <<wait 0.5>>
  -> Ask them who they are.
   Magnolia: Have we met before?
+  <<SetPortrait motherandfatherportrait1>>
   Souls: ...
   <<wait 0.5>>
   Magnolia: (They don't answer.)

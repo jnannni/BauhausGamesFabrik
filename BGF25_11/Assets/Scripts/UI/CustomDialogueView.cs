@@ -22,7 +22,7 @@ public class CustomDialogueView : DialogueViewBase
     {
         runner.AddCommandHandler<string>("SetPortrait", SetPortrait);        
     }
-   
+
     public void SetPortrait(string spriteName)
     {       
         if (previousSprite != spriteName)

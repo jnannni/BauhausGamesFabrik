@@ -22,5 +22,17 @@ MonoBehaviour:
   collectable: 1
   thisEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7628477368685516972, guid: d891df1d39573488490bdc78d296a5ab, type: 3}
+        m_TargetAssemblyTypeName: DivingMaskReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   useButton: {fileID: 0}

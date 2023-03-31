@@ -32,6 +32,7 @@ public class DreamWorld01  : MonoBehaviour
     private bool hasClueA;
     private int iteration = 0;
     private GameObject inventorySelectedButton;
+    private AudioManager audioManager;
 
     private void Awake()
     {        
@@ -40,11 +41,13 @@ public class DreamWorld01  : MonoBehaviour
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();        
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
         dialogueRunner.LoadStateFromPlayerPrefs();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicDW1);
         dialogueRunner.StartDialogue("TheDreamworld_01");
         inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
     }
@@ -83,6 +86,8 @@ public class DreamWorld01  : MonoBehaviour
 
         if (trigger_waking02)
         {
+            /*audioManager.PauseMusic(FMODEvents.instance.musicDW1);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionToWW, this.transform.position);*/
             dialogueRunner.SaveStateToPlayerPrefs();
             if (!cutSceneEnded)
             {

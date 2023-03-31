@@ -13,23 +13,24 @@ public class WakingWorld : MonoBehaviour
     // gobackhome - transition the player to default spot (home)
     // curtainopens - delete the obstical on the player's way
     //
-
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject targetPosition;
     [SerializeField] private GameObject homePosition;
     [SerializeField] private Animator transitionAnimator;
-    private GameObject curtains;   
+    private GameObject curtains;
+    
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
+
     private bool takethekey;
     private bool godownthestairs;
     private bool gobackhome;
-    private bool curtainopens;
-    public BoolValue isInventoryAvailable;    
+    private bool curtainopens;  
     private bool isDownTheStairs;
     private bool wentHome;
+
     private FadeLayer fadeLayer;
-    private bool hasClueA;
+    private AudioManager audioManager;
 
     [SerializeField] private InventoryItem key;    
     [SerializeField] private PlayerInventory playerInventory;
@@ -38,12 +39,13 @@ public class WakingWorld : MonoBehaviour
     {        
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
-    {
-        isInventoryAvailable.initialValue = false;
+    {        
+        audioManager.InitializeMusic(FMODEvents.instance.musicWW1);
         dialogueRunner.StartDialogue("FirstScene");
         isDownTheStairs = false;
         wentHome = false;
@@ -53,14 +55,11 @@ public class WakingWorld : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         variableStorage.TryGetValue("$takethekey", out takethekey);
         variableStorage.TryGetValue("$godownthestairs", out godownthestairs);
         variableStorage.TryGetValue("$gobackhome", out gobackhome);
-        variableStorage.TryGetValue("$curtainopens", out curtainopens);
-        variableStorage.TryGetValue("$hasClueA", out hasClueA);
-
-        Debug.Log("hasClueA " + hasClueA);
+        variableStorage.TryGetValue("$curtainopens", out curtainopens);                
 
         if (curtains && curtainopens)
         {
@@ -74,6 +73,7 @@ public class WakingWorld : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             GoDownTheStairs();            
             isDownTheStairs = true;
+            variableStorage.SetValue("$godownthestairs", false);
             StartCoroutine(fadeLayer.FadeOut());
         }
 
@@ -84,11 +84,12 @@ public class WakingWorld : MonoBehaviour
             {
                 playerInventory.myInventory.Add(key);                 
             }
+            //audioManager.PlayOneShot(FMODEvents.instance.transitionToDW, this.transform.position);
             transitionAnimator.SetBool("transitiontodw", true);
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {
                 StartCoroutine(fadeLayer.FadeIn());
-                SceneManager.LoadScene("DreamWorld1");
+                SceneManager.LoadScene("DreamWorld1");                
                 transitionAnimator.SetBool("transitiontodw", false);
             }            
         }
@@ -98,6 +99,7 @@ public class WakingWorld : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(homePosition.transform.position.x, homePosition.transform.position.y, 0f);            
             wentHome = true;
+            variableStorage.SetValue("$gobackhome", false);
             StartCoroutine(fadeLayer.FadeOut());
         }
     }

@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private DialogueRunner dialogueRunner;
     private FadeLayer fadeLayer;
-    public BoolValue isDialogueRunning;
+    public BoolValue isDialogueRunning;    
     public Animator animator;
     public Animator portraitAnimator;
+    private AudioManager audioManager;
+
+    public GameObject continueClue;
+    public GameObject lastLine;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,14 +22,18 @@ public class GameManager : MonoBehaviour
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         isDialogueRunning.initialValue = false;
         dialogueRunner.AddCommandHandler<float>("fadeIn", FadeIn);
-        dialogueRunner.AddCommandHandler<float>("fadeOut", FadeOut);        
+        dialogueRunner.AddCommandHandler<float>("fadeOut", FadeOut);
+        audioManager = FindObjectOfType<AudioManager>();        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private void Update()
+    {        
+        if (isDialogueRunning.initialValue && continueClue.activeSelf && Input.GetKeyDown(KeyCode.M)
+            || isDialogueRunning.initialValue && Input.GetKeyDown(KeyCode.M))
+        {            
+            audioManager.PlayOneShot(FMODEvents.instance.dialogueClick, this.transform.position);            
+        }
+    }    
 
     public void DialogueIsRunning()
     {

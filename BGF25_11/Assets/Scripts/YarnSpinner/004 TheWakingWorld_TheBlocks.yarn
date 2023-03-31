@@ -60,6 +60,7 @@ title: TheCarCleaner
  The Car Cleaner: It's doable.
   <<jump TheCarCleaner_Questions>>
 <<else>>
+ <<SetPortrait carcleanerportrait1>>
  The Car Cleaner: You seem like you want to say something.
  <<jump TheCarCleaner_Questions>>
 <<endif>>
@@ -658,8 +659,8 @@ title: TheHusband_Grafitti
     <<SetPortrait deadbithusbandportrait1>>
     The Husband: Do you not know of the consequences?
     <<set $hasClue_Graffiti001 to false>>
-   -> Don't tell him.
-   <<SetPortrait noportrait>>
+   -> Don't tell him.   
+    <<SetPortrait noportrait>>
     Magnolia: (I feel too tired to continue this.)
     Magnolia: I have to go.
     Magnolia: See you.
@@ -747,8 +748,7 @@ title: TheAllKnowingLady
 <<if $talkedaboutrabbits is true>>
  <<SetPortrait allknowingladyportrait1>>
  The Knowing Lady: You have nowhere else to go.
- The Knowing Lady: This is what you searched for, isn't it?
- <<SetPortrait noportrait>>
+ The Knowing Lady: This is what you searched for, isn't it? 
   -> Hold her hand.
   -> Nope.
 <<else>>
@@ -811,8 +811,7 @@ title: TheAllKnowingLady_Questions
  Magnolia: I've never even seen a purple rabbit!
  <<SetPortrait allknowingladyportrait1>>
  The Knowing Lady: You will.
- The Knowing Lady: Hold my hand.
- <<SetPortrait noportrait>>
+ The Knowing Lady: Hold my hand. 
   -> Hold her hand.
   <<set $trigger_TheAllKnowingLady to true>>
   -> I am too afraid.

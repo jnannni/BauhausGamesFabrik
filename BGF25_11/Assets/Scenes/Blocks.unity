@@ -1942,7 +1942,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -7650,6 +7650,8 @@ MonoBehaviour:
   isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
   animator: {fileID: 1466226404}
   portraitAnimator: {fileID: 380305665}
+  continueClue: {fileID: 751623270}
+  lastLine: {fileID: 0}
 --- !u!4 &488560397
 Transform:
   m_ObjectHideFlags: 0
@@ -12544,6 +12546,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3038195637635317811, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: continueButton
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3038195637647249479, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12577,6 +12583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcdd604a328c4ab296f048eb7b3a925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &751623270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4689125815495181764, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+  m_PrefabInstance: {fileID: 751623268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &760629073
 GameObject:
   m_ObjectHideFlags: 0

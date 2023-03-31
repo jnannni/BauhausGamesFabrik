@@ -32,6 +32,7 @@ public class WakingWorld2 : MonoBehaviour
     private bool headpulsing;    
     private FadeLayer fadeLayer;
     private bool isDownTheStairs;
+    private AudioManager audioManager;
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Animator cameraAnimator;
@@ -45,11 +46,13 @@ public class WakingWorld2 : MonoBehaviour
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
         dialogueRunner.LoadStateFromPlayerPrefs();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicWW2);
         dialogueRunner.StartDialogue("BackInTheWaking");
         isDownTheStairs = false;
     }
@@ -99,6 +102,8 @@ public class WakingWorld2 : MonoBehaviour
 
         if (gotothegraveyard)
         {
+            /*audioManager.PauseMusic(FMODEvents.instance.musicWW2);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionBetweenWW, this.transform.position);*/
             dialogueRunner.SaveStateToPlayerPrefs();
             SceneManager.LoadScene(nameOfTheScene);
         }

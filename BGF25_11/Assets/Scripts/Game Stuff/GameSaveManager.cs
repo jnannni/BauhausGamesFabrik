@@ -5,8 +5,7 @@ using UnityEngine;
 public class GameSaveManager : MonoBehaviour
 {
     public static GameSaveManager gameSave;
-    public List<ScriptableObject> objects = new List<ScriptableObject>();
-    public GameObject dialogueRinner;
+    public List<ScriptableObject> objects = new List<ScriptableObject>();    
 
     private void Awake()
     {

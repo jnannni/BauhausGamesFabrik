@@ -1,5 +1,140 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9104791509357373679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_DreamWorld_004_TheFrozenVillage_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_DreamWorld_004_TheFrozenVillage_Loopable
+  Guid:
+    Data1: 971216283
+    Data2: 1103656341
+    Data3: 1973992833
+    Data4: -457316220
+  Banks:
+  - {fileID: 3655708588568204770}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 131828
+--- !u!114 &-9045164495168462305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Sounds/InventoryOpen_Oneshot
+  m_EditorClassIdentifier: 
+  Path: event:/UI Sounds/InventoryOpen_Oneshot
+  Guid:
+    Data1: 2066221621
+    Data2: 1164123931
+    Data3: -1650415993
+    Data4: 2088729360
+  Banks:
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8399541915225350737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_DreamWorld_001_TheGravedream_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_DreamWorld_001_TheGravedream_Loopable
+  Guid:
+    Data1: -1047337839
+    Data2: 1193075855
+    Data3: 1575826354
+    Data4: -1551526424
+  Banks:
+  - {fileID: 3655708588568204770}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 63000
+--- !u!114 &-6855844716469191230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Sounds/MenuClick_Oneshot
+  m_EditorClassIdentifier: 
+  Path: event:/UI Sounds/MenuClick_Oneshot
+  Guid:
+    Data1: 2062332391
+    Data2: 1115124181
+    Data3: 1716624004
+    Data4: -641429905
+  Banks:
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6806375772055336140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Sounds/MenuHover_Oneshot
+  m_EditorClassIdentifier: 
+  Path: event:/UI Sounds/MenuHover_Oneshot
+  Guid:
+    Data1: -956503789
+    Data2: 1086749861
+    Data3: -26952513
+    Data4: -1862373997
+  Banks:
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6138427731918813582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,7 +154,7 @@ MonoBehaviour:
     Data3: 1355767991
     Data4: 2054595765
   Banks:
-  - {fileID: -5061950208633700049}
+  - {fileID: 8107678060959045563}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -27,27 +162,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26288
---- !u!114 &-5061950208633700049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Characters.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/Characters.bank
-  Name: Characters
-  StudioPath: bank:/Characters
-  lastModified: 638089862240000000
-  FileSizes:
-  - Name: Desktop
-    Value: 484576
-  Exists: 1
---- !u!114 &-3627808398462792656
+--- !u!114 &-6011046567796355709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,24 +172,132 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/DWCityMusic1
+  m_Name: event:/Atmos/Atmo_WakingWorld_003_1_TheGraveyard_Loopable
   m_EditorClassIdentifier: 
-  Path: event:/Music/DWCityMusic1
+  Path: event:/Atmos/Atmo_WakingWorld_003_1_TheGraveyard_Loopable
   Guid:
-    Data1: 1225557778
-    Data2: 1237595892
-    Data3: -867416935
-    Data4: 1925483338
+    Data1: 2105246425
+    Data2: 1269492994
+    Data3: -31894379
+    Data4: 1439475598
   Banks:
-  - {fileID: 7660649764895924582}
+  - {fileID: 8153655840659520650}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 32000
---- !u!114 &-2348102498835495841
+  Length: 68174
+--- !u!114 &-5399705775018162579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_004_TheBlocks_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_004_TheBlocks_Loopable
+  Guid:
+    Data1: -890138077
+    Data2: 1149669386
+    Data3: -2105881720
+    Data4: -1382407552
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 64000
+--- !u!114 &-4504874447125579038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Sounds/InventoryClose_Oneshot
+  m_EditorClassIdentifier: 
+  Path: event:/UI Sounds/InventoryClose_Oneshot
+  Guid:
+    Data1: 1119690872
+    Data2: 1320326113
+    Data3: -597374066
+    Data4: 2077559997
+  Banks:
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4271990980795230484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_010_TheWorkerquarters_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_010_TheWorkerquarters_Loopable
+  Guid:
+    Data1: 249660120
+    Data2: 1090940929
+    Data3: -1491412567
+    Data4: 122959748
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 81127
+--- !u!114 &-3565382679372138259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Sounds/Transition_WW_to_DW
+  m_EditorClassIdentifier: 
+  Path: event:/UI Sounds/Transition_WW_to_DW
+  Guid:
+    Data1: 1102187081
+    Data2: 1147769217
+    Data3: 239079578
+    Data4: 338178065
+  Banks:
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2988697604875706848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,15 +307,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638089862240000000
+  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638158324060000000
   FileSizes:
   - Name: Desktop
-    Value: 41216
+    Value: 2706
   Exists: 1
 --- !u!114 &-2313543921836794448
 MonoBehaviour:
@@ -113,7 +336,7 @@ MonoBehaviour:
     Data3: 1874698423
     Data4: -104530443
   Banks:
-  - {fileID: -5061950208633700049}
+  - {fileID: 8107678060959045563}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -121,27 +344,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 12000
---- !u!114 &-198625158857044744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638089862240000000
-  FileSizes:
-  - Name: Desktop
-    Value: 1188
-  Exists: 1
---- !u!114 &-151151851337528477
+--- !u!114 &-2082111563064363448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,23 +354,104 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/DWCityMusic2
+  m_Name: event:/UI Sounds/Transition_DW_to_WW
   m_EditorClassIdentifier: 
-  Path: event:/Music/DWCityMusic2
+  Path: event:/UI Sounds/Transition_DW_to_WW
   Guid:
-    Data1: 1442653941
-    Data2: 1138998508
-    Data3: -953524058
-    Data4: 361484267
+    Data1: 688996467
+    Data2: 1255264821
+    Data3: 1758626195
+    Data4: 652419207
   Banks:
-  - {fileID: 7660649764895924582}
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1273317219059673066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_DreamWorld_003_TheBlocks_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_DreamWorld_003_TheBlocks_Loopable
+  Guid:
+    Data1: -2038344333
+    Data2: 1157585998
+    Data3: 499987592
+    Data4: 1668457036
+  Banks:
+  - {fileID: 3655708588568204770}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 228000
+  Length: 62000
+--- !u!114 &-1199133928412003620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_005_TheG_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_005_TheG_Loopable
+  Guid:
+    Data1: -1879915837
+    Data2: 1090741833
+    Data3: -762639434
+    Data4: -800099319
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 40000
+--- !u!114 &-611267269994229333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_009_TheTrainstation_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_009_TheTrainstation_Loopable
+  Guid:
+    Data1: -714936842
+    Data2: 1076280211
+    Data3: 1452442260
+    Data4: -946779473
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 64000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,26 +465,197 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -198625158857044744}
-  - {fileID: -5061950208633700049}
-  - {fileID: 7660649764895924582}
-  - {fileID: 5372714921093781665}
-  - {fileID: -2348102498835495841}
+  - {fileID: -2988697604875706848}
+  - {fileID: 3655708588568204770}
+  - {fileID: 8153655840659520650}
+  - {fileID: 8107678060959045563}
+  - {fileID: 4874187178106004974}
+  - {fileID: 170226072645102360}
+  - {fileID: 7567799952404416033}
   EditorEvents:
   - {fileID: -6138427731918813582}
   - {fileID: -2313543921836794448}
   - {fileID: 7161580821986722421}
   - {fileID: 3661762946152768663}
   - {fileID: 7605799821819233385}
-  - {fileID: -3627808398462792656}
-  - {fileID: -151151851337528477}
+  - {fileID: -1273317219059673066}
+  - {fileID: -8399541915225350737}
+  - {fileID: -9104791509357373679}
+  - {fileID: 8250652151534636728}
+  - {fileID: -5399705775018162579}
+  - {fileID: 7383320836897070054}
+  - {fileID: 1515100705605971662}
+  - {fileID: 6422883764447688003}
+  - {fileID: 8477266770766821495}
+  - {fileID: 531015907439175378}
+  - {fileID: 385061407192270133}
+  - {fileID: -1199133928412003620}
+  - {fileID: -4271990980795230484}
+  - {fileID: -6011046567796355709}
+  - {fileID: -611267269994229333}
+  - {fileID: -6806375772055336140}
+  - {fileID: -9045164495168462305}
+  - {fileID: -3565382679372138259}
+  - {fileID: -2082111563064363448}
+  - {fileID: -4504874447125579038}
+  - {fileID: 511501627667972560}
+  - {fileID: -6855844716469191230}
+  - {fileID: 4455889771952073840}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 5372714921093781665}
+  - {fileID: 4874187178106004974}
   StringsBanks:
-  - {fileID: -198625158857044744}
-  cacheTime: 638089862240000000
+  - {fileID: -2988697604875706848}
+  cacheTime: 638158324060000000
   cacheVersion: 131593
+--- !u!114 &170226072645102360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638158324060000000
+  FileSizes:
+  - Name: Desktop
+    Value: 41216
+  Exists: 1
+--- !u!114 &385061407192270133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_006_TheMuseumCorner_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_006_TheMuseumCorner_Loopable
+  Guid:
+    Data1: 487614399
+    Data2: 1258582528
+    Data3: -1059681130
+    Data4: -1897012606
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 46000
+--- !u!114 &511501627667972560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Sounds/DialogueBoxClick
+  m_EditorClassIdentifier: 
+  Path: event:/UI Sounds/DialogueBoxClick
+  Guid:
+    Data1: 608254592
+    Data2: 1222954230
+    Data3: -1812032351
+    Data4: 1582834935
+  Banks:
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &531015907439175378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_003_2_TheGraveyard_InsideChurch_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_003_2_TheGraveyard_InsideChurch_Loopable
+  Guid:
+    Data1: -1434809720
+    Data2: 1288228809
+    Data3: -1839206782
+    Data4: 1055053744
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 38000
+--- !u!114 &1515100705605971662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_011_2_TheFactory_OUTDOOR_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_011_2_TheFactory_OUTDOOR_Loopable
+  Guid:
+    Data1: -806400701
+    Data2: 1323986463
+    Data3: 1076964256
+    Data4: -683709205
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 54920
+--- !u!114 &3655708588568204770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/AtmosDreamWorld.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/AtmosDreamWorld.bank
+  Name: AtmosDreamWorld
+  StudioPath: bank:/AtmosDreamWorld
+  lastModified: 638158324060000000
+  FileSizes:
+  - Name: Desktop
+    Value: 3732832
+  Exists: 1
 --- !u!114 &3661762946152768663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +675,7 @@ MonoBehaviour:
     Data3: -1564831614
     Data4: 1504658364
   Banks:
-  - {fileID: -2348102498835495841}
+  - {fileID: 170226072645102360}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -228,7 +683,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 550
---- !u!114 &5372714921093781665
+--- !u!114 &4455889771952073840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Sounds/Transition_WW_to_WW
+  m_EditorClassIdentifier: 
+  Path: event:/UI Sounds/Transition_WW_to_WW
+  Guid:
+    Data1: 1004181756
+    Data2: 1120403989
+    Data3: 1647074179
+    Data4: -1664564222
+  Banks:
+  - {fileID: 7567799952404416033}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4874187178106004974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,14 +722,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/Master.bank
+  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638089862240000000
+  lastModified: 638158324060000000
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 1486
   Exists: 1
+--- !u!114 &6422883764447688003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_001_002_TheUphillTheDownhill_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_001_002_TheUphillTheDownhill_Loopable
+  Guid:
+    Data1: -225093036
+    Data2: 1306040174
+    Data3: -738993529
+    Data4: -1443567724
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 206000
 --- !u!114 &7161580821986722421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +776,7 @@ MonoBehaviour:
     Data3: 1266322325
     Data4: -552328827
   Banks:
-  - {fileID: -5061950208633700049}
+  - {fileID: 8107678060959045563}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -275,6 +784,53 @@ MonoBehaviour:
   MinDistance: 0.7
   MaxDistance: 20
   Length: 4662
+--- !u!114 &7383320836897070054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_011_1_TheFactory_INDOOR_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_011_1_TheFactory_INDOOR_Loopable
+  Guid:
+    Data1: 103952169
+    Data2: 1310747624
+    Data3: 1588683682
+    Data4: -627085339
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 46322
+--- !u!114 &7567799952404416033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI Sounds.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/UI Sounds.bank
+  Name: UI Sounds
+  StudioPath: bank:/UI Sounds
+  lastModified: 638158324060000000
+  FileSizes:
+  - Name: Desktop
+    Value: 191584
+  Exists: 1
 --- !u!114 &7605799821819233385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +850,7 @@ MonoBehaviour:
     Data3: -1761359211
     Data4: -189745081
   Banks:
-  - {fileID: -2348102498835495841}
+  - {fileID: 170226072645102360}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -302,7 +858,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &7660649764895924582
+--- !u!114 &8107678060959045563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,13 +868,87 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/DWCity.bank
+  m_Name: bank:/Characters.bank
   m_EditorClassIdentifier: 
-  Path: ../../../Downloads/dreamgamefmod-3/Build/Desktop/DWCity.bank
-  Name: DWCity
-  StudioPath: bank:/DWCity
-  lastModified: 638089862240000000
+  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/Characters.bank
+  Name: Characters
+  StudioPath: bank:/Characters
+  lastModified: 638158324060000000
   FileSizes:
   - Name: Desktop
-    Value: 2960608
+    Value: 484576
   Exists: 1
+--- !u!114 &8153655840659520650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/AtmosWakingWorld.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/AtmosWakingWorld.bank
+  Name: AtmosWakingWorld
+  StudioPath: bank:/AtmosWakingWorld
+  lastModified: 638158324060000000
+  FileSizes:
+  - Name: Desktop
+    Value: 10185664
+  Exists: 1
+--- !u!114 &8250652151534636728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_DreamWorld_002_TheGravedream_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_DreamWorld_002_TheGravedream_Loopable
+  Guid:
+    Data1: -1760726550
+    Data2: 1266621198
+    Data3: -1602727283
+    Data4: 1384788270
+  Banks:
+  - {fileID: 3655708588568204770}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 52000
+--- !u!114 &8477266770766821495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_WakingWorld_012_TheBeach_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_WakingWorld_012_TheBeach_Loopable
+  Guid:
+    Data1: 676692577
+    Data2: 1133920616
+    Data3: 1165236097
+    Data4: -513448029
+  Banks:
+  - {fileID: 8153655840659520650}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 162000

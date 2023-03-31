@@ -27,9 +27,11 @@ public class MuseumCorner : MonoBehaviour
     
     private bool isInsideOfTheMuseum;
     private FadeLayer fadeLayer;
+    private AudioManager audioManager;
 
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
     }
@@ -37,6 +39,7 @@ public class MuseumCorner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicMuseumCorner);
         dialogueRunner.StartDialogue("TheMuseumCorner");
         fadeLayer = FindObjectOfType<FadeLayer>();
         isInsideOfTheMuseum = false;

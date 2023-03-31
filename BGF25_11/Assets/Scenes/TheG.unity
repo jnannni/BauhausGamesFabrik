@@ -43184,6 +43184,8 @@ MonoBehaviour:
   isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
   animator: {fileID: 1565539629}
   portraitAnimator: {fileID: 1509134354}
+  continueClue: {fileID: 2123815076}
+  lastLine: {fileID: 0}
 --- !u!4 &1566176382
 Transform:
   m_ObjectHideFlags: 0
@@ -59080,6 +59082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcdd604a328c4ab296f048eb7b3a925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2123815076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4689125815495181764, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+  m_PrefabInstance: {fileID: 2123815074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2129833887
 GameObject:
   m_ObjectHideFlags: 0

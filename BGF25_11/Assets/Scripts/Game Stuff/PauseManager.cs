@@ -18,7 +18,13 @@ public class PauseManager : MonoBehaviour
     public GameObject pausePanel;
     public string mainMenu;
     public AudioMixer audioMixer;
-    private GameObject inventorySelectedButton;     
+    private GameObject inventorySelectedButton;
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -76,13 +82,15 @@ public class PauseManager : MonoBehaviour
         isInventoryOpen.initialValue = !isInventoryOpen.initialValue;
         isPaused.initialValue = !isPaused.initialValue;        
         if (isInventoryOpen.initialValue)
-        {            
+        {
+            audioManager.PlayOneShot(FMODEvents.instance.inventoryOpen, inventoryPanel.transform.position);
             EventSystem.current.SetSelectedGameObject(null);            
             inventoryPanel.SetActive(true);            
             EventSystem.current.SetSelectedGameObject(inventorySelectedButton);                        
         }
         else
         {
+            audioManager.PlayOneShot(FMODEvents.instance.iniventoryClose, inventoryPanel.transform.position);
             EventSystem.current.SetSelectedGameObject(null);
             inventoryPanel.SetActive(false);            
         }

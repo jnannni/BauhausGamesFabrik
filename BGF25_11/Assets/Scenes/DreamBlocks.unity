@@ -152,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26327294}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.282106, y: -9.576477, z: 0.5}
+  m_LocalPosition: {x: 12.82, y: -10.27, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1316,6 +1316,37 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &208447214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208447215}
+  m_Layer: 0
+  m_Name: SecondMapPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208447215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208447214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.48, y: -3.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 741236610}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &211158215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,6 +1942,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3038195637635317811, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: continueButton
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3038195637647249479, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1947,6 +1982,11 @@ MonoBehaviour:
 --- !u!95 &247610381 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 174939152, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+  m_PrefabInstance: {fileID: 247610379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &247610382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4689125815495181764, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
   m_PrefabInstance: {fileID: 247610379}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &251419832
@@ -9058,7 +9098,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &584095411
 Transform:
   m_ObjectHideFlags: 0
@@ -10085,6 +10125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1372345323}
+  - {fileID: 208447215}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19431,11 +19472,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.04
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.59
+      value: -35.76
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20174,7 +20215,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -20334,6 +20375,8 @@ MonoBehaviour:
   isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
   animator: {fileID: 1368990150}
   portraitAnimator: {fileID: 247610381}
+  continueClue: {fileID: 247610382}
+  lastLine: {fileID: 0}
 --- !u!4 &1712255287
 Transform:
   m_ObjectHideFlags: 0
@@ -20367,6 +20410,7 @@ MonoBehaviour:
   player: {fileID: 1632115833}
   parents: {fileID: 1767248435}
   closeToParents: {fileID: 1372345322}
+  isMaskUsed: {fileID: 11400000, guid: 756931461c38742e1a2bdf557cf5f8ea, type: 2}
   approachSpeed: 3
 --- !u!1 &1726805477
 GameObject:
@@ -23017,6 +23061,7 @@ GameObject:
   - component: {fileID: 2062544659}
   - component: {fileID: 2062544660}
   - component: {fileID: 2062544661}
+  - component: {fileID: 2062544662}
   m_Layer: 0
   m_Name: TheDive
   m_TagString: Untagged
@@ -23164,6 +23209,19 @@ MonoBehaviour:
   collectable: 0
   target: {fileID: 1632115833}
   minDist: 0.5
+--- !u!114 &2062544662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062544656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e6402110192442fafec9ad9c014757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTriggered: {fileID: 11400000, guid: c2c6341bca7dd488b98f856f5bd371bf, type: 2}
 --- !u!1 &2095746645
 GameObject:
   m_ObjectHideFlags: 0
