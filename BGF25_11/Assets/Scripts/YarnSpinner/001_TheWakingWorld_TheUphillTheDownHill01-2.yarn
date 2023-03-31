@@ -9,6 +9,7 @@ title: FirstScene
 <<set $takethekey to false>>
 <<set $gobackhome to false>>
 <<set $curtainopens to false>> //we talked about adding some kind of disappearing effect
+<<set $goupthestairs003 to false>> //ADDED: moves the character back to the uphill.
 
 //variables for in YARN
 <<set $hasClueA to false>>
@@ -410,5 +411,8 @@ title: TheRoadClosed
 title: StairsBack
 ---
 <<SetPortrait noportrait>>
-Magnolia: (I can't go back without groceries.)
+Magnolia: (Did I forget anything?)
+ -> Go upstairs.
+  <<set $goupthestairs003 to true>>
+ -> (I guess I didn't.)
 ===
