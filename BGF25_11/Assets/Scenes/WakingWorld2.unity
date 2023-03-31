@@ -19117,7 +19117,6 @@ GameObject:
   - component: {fileID: 986565733}
   - component: {fileID: 986565732}
   - component: {fileID: 986565735}
-  - component: {fileID: 986565734}
   - component: {fileID: 986565737}
   - component: {fileID: 986565736}
   m_Layer: 0
@@ -19194,29 +19193,6 @@ Transform:
   m_Father: {fileID: 1074097477}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &986565734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986565731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1112be88807642508c6b5fe40c0a609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueStartingNode: TheJudgingPerson
-  animator: {fileID: 986565735}
-  arrowAnimator: {fileID: 0}
-  isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
-  outlineShader: {fileID: 2100000, guid: 39f2ab414fbea4d1d9f5159a395c6cc3, type: 2}
-  interactable: 1
-  npcState: 0
-  npcIndex: 0
-  npcName: Judging Person
-  target: {fileID: 995486814}
-  minDist: 2
 --- !u!95 &986565735
 Animator:
   serializedVersion: 4
