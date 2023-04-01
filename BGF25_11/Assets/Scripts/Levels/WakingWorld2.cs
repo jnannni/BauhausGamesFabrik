@@ -45,7 +45,7 @@ public class WakingWorld2 : MonoBehaviour
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
-        dialogueRunner.LoadStateFromPlayerPrefs();
+        //dialogueRunner.LoadStateFromPlayerPrefs();
         audioManager = FindObjectOfType<AudioManager>();
     }
 
