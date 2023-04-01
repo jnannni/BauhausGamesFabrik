@@ -738,11 +738,16 @@ title: Grafitti001
 title:TheRoadSign
 ---
 <<SetPortrait noportrait>>
+<<if $isgoingonjourney001 and $isgoingonjourney002 and $putintheinventoryd001 == true>>
 Magnolia: (Why do they still keep the sign?)
 Magnolia: (The street looks perfectly done now.)
  -> Go down the street.
   <<set $gotothegraveyard to true>> 
  -> One more thing.
+<<else>>
+Magnolia: (It think there's some unfinished business here.)
+ -> Stay here.
+<<endif>>
 ===
 
 //ADITIONAL NODES

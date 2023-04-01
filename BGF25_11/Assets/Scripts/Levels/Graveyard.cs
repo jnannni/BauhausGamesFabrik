@@ -15,6 +15,8 @@ public class Graveyard : MonoBehaviour
     private bool enterthechurch;
     private bool trigger_TheChurch;
     private bool scurryawayanimation;
+    private bool exitthechurch;
+
     private AudioManager audioManager;
     
     private bool isInsideTheChurch;
@@ -24,6 +26,7 @@ public class Graveyard : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject catCreature;
     [SerializeField] private GameObject insideTheChurch;
+    [SerializeField] private GameObject outsideTheChurch;
     [SerializeField] private PlayerInventory playerInventory;    
     private float distanceToCat;
 
@@ -54,6 +57,7 @@ public class Graveyard : MonoBehaviour
         variableStorage.TryGetValue("$scurryawayanimation", out scurryawayanimation);                
         variableStorage.TryGetValue("$putintheinventory002", out putintheinventory002);
         variableStorage.TryGetValue("$enterthechurch", out enterthechurch);
+        variableStorage.TryGetValue("$exitthechurch", out exitthechurch);
 
         if (scurryawayanimation)
         {
@@ -82,10 +86,21 @@ public class Graveyard : MonoBehaviour
         {
             // move the character to the church position
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = insideTheChurch.transform.position;
+            player.transform.position = new Vector3(insideTheChurch.transform.position.x, insideTheChurch.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             isInsideTheChurch = true;
+            variableStorage.SetValue("$enterthechurch", false);
             player.transform.localScale = new Vector3(1.4f, 1.4f, 0f);
+        }
+
+        if (exitthechurch && isInsideTheChurch)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = new Vector3(outsideTheChurch.transform.position.x, outsideTheChurch.transform.position.y, 0f);
+            StartCoroutine(fadeLayer.FadeOut());
+            isInsideTheChurch = false;
+            variableStorage.SetValue("$exitthechurch", false);
+            player.transform.localScale = new Vector3(1f, 1f, 0f);
         }
 
         if (putintheinventory002)

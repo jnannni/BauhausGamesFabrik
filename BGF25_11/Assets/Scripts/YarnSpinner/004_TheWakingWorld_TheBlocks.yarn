@@ -745,11 +745,12 @@ Magnolia: That's okay.
 title: TheAllKnowingLady
 ---
 //this time she is the trigger, it's hidden in her dialogue TRIGGER 002
-<<if $talkedaboutrabbits is true>>
+<<if $talkedaboutrabbits and $putintheinventory003 == true>>
  <<SetPortrait allknowingladyportrait1>>
  The Knowing Lady: You have nowhere else to go.
  The Knowing Lady: This is what you searched for, isn't it? 
   -> Hold her hand.
+   <<set $trigger_TheAllKnowingLady to true>>
   -> Nope.
 <<else>>
  <<if visited_count("TheAllKnowingLady") < 1>>
@@ -812,7 +813,7 @@ title: TheAllKnowingLady_Questions
  <<SetPortrait allknowingladyportrait1>>
  The Knowing Lady: You will.
  The Knowing Lady: Hold my hand. 
-  -> Hold her hand.
+  -> Hold her hand. <<if $putintheinventory003 is true>>
   <<set $trigger_TheAllKnowingLady to true>>
   -> I am too afraid.
 -> Do you know of a way to enter dreams?

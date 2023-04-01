@@ -4,9 +4,11 @@
 //variables for UNITY
 <<set $trigger_waking03 to false>> // should also show the animation of
 <<set $hedge_cleared to false>>
+<<set $pickuptheobject to false>> //NEW
 
 //variables for in YARN
 <<set $activatestone to false>>
+<<set $picked to false>>
 
 <<SetPortrait noportrait>>
 Magnolia: (I can't believe I really decided to do it.)
@@ -70,6 +72,15 @@ title: ThePond
 <<endif>>
 ===
 
+title: TheObject_Ticket
+---
+<<SetPortrait noportrait>>
+Magnolia: (Hm, interesting.)
+ -> Pick it up.
+  <<set $pickuptheobject to true>>
+  <<set $picked to true>>
+===
+
 title: TheFrogs_Questions
 ---
 <<SetPortrait noportrait>>
@@ -128,7 +139,7 @@ Magnolia: (How am I going to find my way around this dream when nobody seems to 
 title: TheStone
 ---
 <<SetPortrait noportrait>>
-<<if $activatestone is true>>
+<<if $activatestone and $picked == true>>
  Magnolia: (There is a giant stone.)
  <<wait 0.5>>
  Magnolia: (I have a sword.)
@@ -137,7 +148,6 @@ title: TheStone
  Magnolia: (Am I living inside the dream of King Arthur?)
   -> Stab the stone.
   <<set $trigger_waking03 to true>>
-
 <<else>>
  Magnolia: (Again a giant stone.)
  Magnolia: (This one doesn't have a face thankfully.)

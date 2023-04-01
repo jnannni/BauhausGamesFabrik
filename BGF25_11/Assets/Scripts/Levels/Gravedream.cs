@@ -16,15 +16,20 @@ public class Gravedream : MonoBehaviour
 
     private bool trigger_waking03;
     private bool hedge_cleared;
+    private bool pickuptheobject;
+
     private AudioManager audioManager;
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Material dissolveMaterial;
     [SerializeField] private GameObject hedgeObject;
+    [SerializeField] private InventoryItem ticketItem;
+    [SerializeField] private GameObject ticketObject;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private BoolValue isInventoryOpen;
     [SerializeField] private BoolValue isPaused;
     [SerializeField] private Animator transitionAnimator;
+    [SerializeField] private PlayerInventory playerInventory;
 
     private void Awake()
     {
@@ -47,6 +52,7 @@ public class Gravedream : MonoBehaviour
     {
         variableStorage.TryGetValue("$trigger_waking03", out trigger_waking03);
         variableStorage.TryGetValue("$hedge_cleared", out hedge_cleared);
+        variableStorage.TryGetValue("$pickuptheobject", out pickuptheobject);
 
         if (trigger_waking03)
         {
@@ -58,6 +64,15 @@ public class Gravedream : MonoBehaviour
                 StartCoroutine(fadeLayer.FadeIn());
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontoww", false);                
+            }
+        }
+
+        if (pickuptheobject)
+        {
+            if (!playerInventory.myInventory.Contains(ticketItem))
+            {
+                playerInventory.myInventory.Add(ticketItem);
+                ticketObject.GetComponent<ObjectInteractable>().enabled = false;
             }
         }
 

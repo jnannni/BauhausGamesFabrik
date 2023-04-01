@@ -6,6 +6,7 @@ title: TheGraveYard
 <<set $enterthechurch to false>> // you enter the church
 <<set $trigger_TheChurch to false>> //second transition to the dreamworld
 <<set $scurryawayanimation to false>> // trigger for the animation for the cat creature paul made
+<<set $exitthechurch to false>> //NEW
 
 //variables for in YARN
 <<set $isgoingonjourney003 to false>>
@@ -578,7 +579,7 @@ title: TheAngel
 <<else>>
  Magnolia: (Maybe I should read what it says.)
   -> Read.
-   TheAngel: Nonamed soldier of death.
+   TheAngel: "Nonamed soldier of death."
    Magnolia: (Curiosity killed the cat.)
   -> Don't. 
 <<endif>>
@@ -639,7 +640,6 @@ Magnolia: (It doesn't like me.)
 title: TheChurch
 ---
 <<SetPortrait noportrait>>
-<<set $hasClue_forChurch to true>>
 <<if $hasClue_forChurch is true>>
  (It looks like it's looking at me.)
   -> Enter the church through the back door.
@@ -707,7 +707,7 @@ title: TheHolyStatue
 title: TheChurchTrigger
 ---
 <<SetPortrait noportrait>>
-<<if $isgoingonjourney001 and $isgoingonjourney002 and $isgoingonjourney003 == true>>
+<<if $isgoingonjourney001 and $isgoingonjourney002 and $hasClue_AllKnowingLady and $isgoingonjourney003 == true>>
  Magnolia: (I don't believe I can save them.)
  Magnolia: (Truthfully.)
  Magnolia: (But I know I can't live like this.)
@@ -726,6 +726,15 @@ title: TheChurchTrigger
   Magnolia: (I'm just going to ignore it.)
  <<endif>>
 <<endif>>
+===
+
+title: TheChurch_Exit
+---
+<<SetPortrait noportrait>>
+Magnolia: (Am I missing something?)
+ -> Go out.
+  <<set $exitthechurch to true>>
+ -> Stay inside.
 ===
 
 //ADDITIONAL NOTES
