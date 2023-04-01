@@ -11,6 +11,7 @@ title: TheBlocks
 <<set $poetsdiary to false>> //shows an illustration of The Lonely Gentleman's diary (maybe we can make it interactive so you can turn some pages)
 <<set $putintheinventory008 to false>> //an object from the Lonely Gentleman
 <<set $coinisselected to false>>
+<<set $showthedrawing to false>>
 
 //variables for in YARN
 <<set $talkedaboutrabbits to false>>
@@ -486,6 +487,7 @@ Magnolia: (Something about his own body bothers him.)
 
 title: TheBlobPerson_Drawing
 ---
+<<set $showthedrawing to true>>
 <<SetPortrait noportrait>>
 Magnolia: I have something to show you.
 <<SetPortrait blobpersonportrait1>>
