@@ -1,0 +1,846 @@
+title: TheGraveYard
+---
+<<fadeIn>>
+//variables for UNITY
+<<set $putintheinventory002 to false>> //you approach an object in the church, I'm still not sure what it is (It is used for 8TH DREAMWORLD)
+<<set $enterthechurch to false>> // you enter the church
+<<set $trigger_TheChurch to false>> //second transition to the dreamworld
+<<set $scurryawayanimation to false>> // trigger for the animation for the cat creature paul made
+<<set $exitthechurch to false>> //NEW
+
+//variables for in YARN
+<<set $isgoingonjourney003 to false>>
+<<set $hasClue003 to false>>
+<<set $hasClue004 to false>>
+<<set $hasClue_forChurch to false>>
+<<set $hasClue_AllKnowingLady to false>>
+<<set $hasClue_TheBride to false>>
+<<fadeOut>>
+
+<<SetPortrait noportrait>>
+Magnolia: (Maybe I should just go home and sleep this off.)
+Magnolia: (I don't know if it's because of me...)
+Magnolia: (But people are starting to make less sense.)
+<<wait 1>>
+Magnolia: (Probably, tho, it's just me.)
+Magnolia: (They are not the ones considering going after a magical star.)
+===
+
+title: TheCreeper
+---
+<<if visited_count("TheCreeper") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (This guy gives me the creeps.)
+ Magnolia: (Not even in a good way.)
+ Magnolia: (Like he might be magical or something.)
+ Magnolia: (It's very - I am a woman and this feels unsafe - way.)
+ <<wait 1>>
+ <<SetPortrait creeperportrait1>>
+ The Creeper: The sun shines through the summer dresses. 
+ <<SetPortrait noportrait>>
+ Magnolia: (I knew it.)
+ Magnolia: (I'll just ignore him.)
+ <<wait 1>> 
+ <<SetPortrait creeperportrait1>>
+ The Creeper: You know this world was made for my eyes?
+ <<wait 0.2>> 
+ <<SetPortrait creeperportrait1>>
+ The Creeper: Every little patch of the skin, it's created by my design.
+ The Creeper: I designed it in my dreams. 
+ <<SetPortrait noportrait>>
+ Magnolia: Dreams or fantasies? 
+ <<SetPortrait creeperportrait1>>
+ The Creeper: Where is the difference? 
+ <<SetPortrait noportrait>>
+ Magnolia: Not every dream is a fantasy. 
+ <<SetPortrait creeperportrait1>>
+ The Creeper: Is it not?
+ The Creeper: What do you dream of? 
+ <<SetPortrait noportrait>>
+ Magnolia: (I dream of a star that can resurrect my family.)
+ Magnolia: (That does seem like a fantasy.)
+ Magnolia: But you believe fantasies can come true? 
+ <<SetPortrait creeperportrait1>>
+ The Creeper: Only mine.
+ The Creeper: Because they are pure.
+ The Creeper: Pure as the girls that I bathe in my fantasies. 
+ <<SetPortrait noportrait>>
+ Magnolia: (I don't want to be close to him anymore.)
+<<else>>
+ Magnolia: (I don't want to come close to him anymore.)
+<<endif>>
+===
+
+title: TheChitChats
+---
+//Two neighbours on the windows arguing about what happened yesterday in front of the window, can’t agree on it.
+//to be able to get into the church you need to get the ChitChats to agree. CLUE 005
+<<if $hasClue004 is true>>
+ <<SetPortrait noportrait>>
+ Magnolia: I think I know what happened here. 
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: What do you mean?
+  -> Someone from the church cut down the tree.  
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: Outrageous!
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: It's her! I told you it's her!   
+   <<SetPortrait noportrait>>
+   Magnolia: I don't think it was her.   
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: Of course, it was not me.
+   The First Chitchat: But someone had to do it.
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: Did the priest do it?!
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: ...
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: Is he still holding the Sunday service?
+   The Second Chitchat: Behind my back?!
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: We wanted to wait until you calmed down.
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: How do you even go in? The church is locked!
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: The backdoor is open. 
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: I can't believe this!   
+   <<SetPortrait noportrait>>
+   Magnolia: (So I could've gone in.)
+   Magnolia: (Church does seem like a perfect place for unusual occurrences.)
+   <<set $hasClue_forChurch to true>> //this is a clue for the church
+  -> God intervened and let the tree rot.  
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: Darling, I do believe in God.
+   The Second Chitchat: However, I don't believe he would involve himself in such a matter.   
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: Why not?
+   The First Chitchat: You said it yourself. It's a spiritual tree!   
+   <<SetPortrait noportrait>>
+   Magnolia: (This is going nowhere.)
+  -> I'm not sure.
+   The Second Chitchat: What was the use of you?   
+   <<SetPortrait noportrait>>
+   Magnolia: I'm sorry.
+<<else>>
+ <<if visited_count("TheChitChats") < 1>> 
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Honestly, it was all a little bit misunderstood.
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat:  How can you misunderstand a murder?
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: That's a little bit of an exaggeration, don't you think?
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: Is it? The body is still there. Just look! 
+ <<SetPortrait noportrait>>
+ Magnolia: (Is there a dead body lying around?!)
+  -> Run away immediately.
+  -> Wait and then ask them.  
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: They just cut down a tree.
+   The First Chitchat: It's hardly a murder.
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: That tree stood there long before any of us were born!
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: So it lived a long life.   
+   <<SetPortrait noportrait>>
+   Magnolia: Trees can live up to 5000 years.
+   Magnolia: (Why can't I shut up?)
+   Magnolia: (But it's true.)
+   Magnolia: (These days it feels like my actions won't have any consequences.)
+   Magnolia: (Everything feels weightless.)
+   Magnolia: (Like this is all a dream.)
+   <<wait 1>>
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: You hear that!
+   <<wait 0.5>>   
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: Not this one.
+   The First Chitchat: It was rotting.   
+   <<SetPortrait noportrait>>
+   Magnolia: So what happened?
+   <<jump TheChitChats_Story>>
+ <<elseif visited_count("TheChitChats") == 1>>
+  <<if visited_count("TheChitChats_Story") <1>>   
+   <<SetPortrait chitchat2portrait1>>
+   The Second Chitchat: Little one, do you want to hear what happened?   
+   <<SetPortrait chitchat1portrait1>>
+   The First Chitchat: I will tell her.
+    -> Let's hear it.
+     <<jump TheChitChats_Story>>
+  <<else>>  
+   <<SetPortrait chitchat2portrait1>>
+   The Second ChitChat: You are on my side right?   
+    -> I have a question.
+     <<jump TheChitChats_Questions>>
+    -> I am on nobody's side.    
+     <<SetPortrait chitchat1portrait1>>
+     The First ChitChat: You can't always be Switzerland you know.
+  <<endif>> 
+ <<else>> 
+  <<SetPortrait chitchat1portrait1>>
+  The First ChitChat: Who do you believe, huh?
+   -> I have a question for you.
+    <<jump TheChitChats_Questions>>
+   -> I don't want to get involved.
+ <<endif>>
+<<endif>>
+===
+
+title: TheChitChats_Story
+---
+<<SetPortrait chitchat1portrait1>>
+The First Chitchat: The tree was dying and they cut it down.
+The First Chitchat: And she has some kind of weird obsession with that tree.
+<<SetPortrait chitchat2portrait1>>
+The Second Chitchat: It's not an obsession. I just respect it.
+The Second Chitchat: And they cut it down in the middle of the night like the criminals they are!
+<<SetPortrait chitchat1portrait1>>
+The First Chitchat: That's because they knew you would make problems.
+<<SetPortrait chitchat2portrait1>>
+The Second Chitchat: I'll anyway make problems!
+The Second Chitchat: Let me just find out who did it.
+<<SetPortrait noportrait>>
+Magnolia: I was wondering...
+<<jump TheChitChats_Questions>>
+===
+
+title: TheChitChats_Questions
+---
+-> Does anyone know who would do it?
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: I say it's her! 
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Me?!
+ The First Chitchat: I don't have that kind of strength.
+ The First Chitchat: But I applaud whoever did it.
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: I bet she knows who did it then! 
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Like I would tell you.
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: I knew it! 
+ <<SetPortrait noportrait>>
+ Magnolia: (It's like listening to two crows fighting in the trees.)
+ Magnolia: There must have been some kind of misunderstanding.
+ Magnolia: Maybe somebody did it at night because of the sun.
+ Magnolia: (There was almost no sun these days.)
+ Magnolia: (But the whole city is acting like that's not true anyway.)
+ Magnolia: (I might as well.)
+ <<wait 0.5>>
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: The sun is indeed strong these days.
+ The Second Chitchat: It burned all my terrace flowers.
+ The Second Chitchat: But I know they did it on purpose!
+ <<wait 0.2>>
+ The Second Chitchat: They didn't get permission from the city!
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Little lady you are wasting your time here.
+ <<SetPortrait noportrait>>
+ Magnolia: (Such a tough crowd.)
+  -> Leave.
+-> Why is that tree so important to you?
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: Like I said it's really old. 
+ <<SetPortrait noportrait>>
+ Magnolia: And that's just it?
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: Isn't it enough?!
+ The Second Chitchat: It was there throughout my whole childhood. 
+ <<SetPortrait noportrait>>
+ Magnolia: Any special memories?
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: She will just make something up. 
+ <<SetPortrait noportrait>>
+ Magnolia: I don't think...
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: I planted it with my grandfather when I was six years old.
+ <<wait 0.5>>
+ The Second Chitchat: He dissapeared the next year. 
+ <<SetPortrait noportrait>>
+ Magnolia and The Second Chitchat: Disappeared??!
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: I'm not going to talk to you about my sad family history.
+ <<set $hasClue003 to true>>
+  -> That's okay.
+-> I had this toy once. <<if $hasClue003>>
+ <<SetPortrait noportrait>>
+ Magnolia: They gifted it to me when I was born.
+ Magnolia: It was made of stardust.
+ Magnolia: Or that's how my child's brain saw it at the time.
+ Magnolia: I rarely remember anything these days.
+ Magnolia: I remember that.
+ Magnolia: While I was growing up, it grew old.
+ Magnolia: One day the stardust dispersed into the air.
+ Magnolia: Of course, it just means the cloth wore out to the point of no return.
+ Magnolia: It's like part of myself.
+ Magnolia: And a part of the person who gifted it to me.
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Do you remember who gifted it to you? 
+ <<SetPortrait noportrait>>
+ Magnolia: Not really.
+ Magnolia: (Why did I suddenly get this memory back?)
+ Magnolia: (I'm getting dizzy.)
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: You seem pale!
+ The First Chitchat: Want me to come down and bring you a glass of water? 
+ <<SetPortrait noportrait>>
+ Magnolia: No need, thank you.
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: We have a nice old church here.
+ The First Chitchat: You should visit.
+ The First Chitchat: You could rest there in peace.
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: That sounds like you plan her dead.
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Don't be ridiculous!
+ <<wait 0.5>> 
+ <<SetPortrait noportrait>>
+ Magnolia: The church looked closed.
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: It is closed! They are renovating the inside.
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: They are not really!
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chithchat and Magnolia: ...?
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Ah no, I forgot. They are.
+ <<wait 0.5>> 
+ <<SetPortrait noportrait>>
+ Magnolia: Where was this tree?
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: Right in front of the church! It was also probably spiritual.
+ <<SetPortrait chitchat1portrait1>>
+ The First Chitchat: Until it would fall onto us while we are in the church.
+ The First Chitchat: Then it would be called the Devil's!
+ <<set $hasClue004 to true>>
+ <<SetPortrait chitchat2portrait1>>
+ The Second Chitchat: It was safe!
+===
+
+title: TheMother
+---
+// is asking for her children, the clues is to get her to realize that they are grown up and that they left her and she is lonely.
+// While admitting that she is lonely, she gives a clue for both the AllKnowingLady and TheBride. CLUE 006 and CLUE 007
+<<if visited_count("TheMother") < 1>>
+ <<SetPortrait motherportrait1>>
+ The Mother: They were playing behind the graves.
+ <<SetPortrait noportrait>>
+ Magnolia: Who?
+ Magnolia: Your kids?
+ <<SetPortrait motherportrait1>>
+ The Mother: They rarely leave my sight.
+ The Mother: The little one is always looking for me.
+ The Mother: And the older one never leaves the younger alone.
+ <<SetPortrait noportrait>>
+ Magnolia: Maybe they are hiding in the shadows.
+ <<SetPortrait motherportrait1>>
+ The Mother: The sun is directly above us, there are no shadows.
+ <<SetPortrait noportrait>>
+ Magnolia: (What's with all these people?)
+ Magnolia: (There's no sun at all.)
+ Magnolia: (The light from street lamps breaks the shadow that is all over the city.)
+ Magnolia: Kids are tiny, they could have hidden somewhere.
+ <<SetPortrait motherportrait1>>
+ The Mother: That's true. 
+ <<wait 0.2>>
+ The Mother: Sometimes they fit in my palms.
+ <<wait 0.2>>
+ The Mother: Do you have kids?
+ <<SetPortrait noportrait>>
+ Magnolia: Oh no. No, no.
+ Magnolia: I feel like a kid myself.
+ <<SetPortrait motherportrait1>>
+ The Mother: Well, you ARE someone's child.
+ The Mother: You never stop being a mother.
+ <<wait 0.2>>
+ <<jump TheMother_Questions>>
+<<elseif visited_count("TheMother") == 1>>
+ <<SetPortrait motherportrait1>>
+ The Mother: I still can't find them.
+ <<SetPortrait noportrait>>
+ Magnolia: How long has it been?
+ <<SetPortrait motherportrait1>>
+ The Mother: A few days.
+ <<SetPortrait noportrait>>
+ Magnolia: A few days??
+ <<SetPortrait motherportrait1>>
+ The Mother: They are usually well-behaved. 
+ The Mother: That's why I am worried.
+ <<SetPortrait noportrait>>
+ Magnolia: (Should I call the police?)
+ <<jump TheMother_Questions>>
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: Still can't find them?
+ <<SetPortrait motherportrait1>>
+ The Mother: It feels like years.
+ <<set $hasClue_TheBride to true>>
+<<endif>>
+ 
+===
+
+title: TheMother_Questions
+---
+-> Do you think you stop being someone's child after they die?
+ <<SetPortrait motherportrait1>>
+ The Mother: Parents shouldn't die before their kids.
+  <<set $hasClue_AllKnowingLady to true>>
+  <<SetPortrait noportrait>>
+ Magnolia: (...)
+ Magnolia: But if they do?
+ <<SetPortrait motherportrait1>>
+ The Mother: It's such a devastating situation.
+ The Mother: I don't like to think of it.
+ <<SetPortrait noportrait>>
+ Magnolia: But do we?
+ <<SetPortrait motherportrait1>>
+ The Mother: Do we what?
+ <<SetPortrait noportrait>>
+ Magnolia: Do we stop being someone's children?
+ <<SetPortrait motherportrait1>>
+ The Mother: There are no palms to fit inside anymore.
+ <<SetPortrait noportrait>>
+ Magnolia: Sorry?
+ <<SetPortrait motherportrait1>>
+ The Mother: I don't think I have an answer to that question.
+ The Mother: I'm sorry.
+-> Are you still a mother if your child dies?
+ <<SetPortrait motherportrait1>>
+ The Mother: What a morbid question from such a young girl!
+ The Mother: Of course, you are still a mother.
+ <<wait 0.5>>
+ The Mother: Sometimes, when I close my eyes I see them still in my palm.
+ <<SetPortrait noportrait>>
+ Magnolia: But your children are alive!
+ <<SetPortrait motherportrait1>>
+ The Mother: Look at her! Shocking!
+ The Mother: Of course they are alive.
+ The Mother: What I meant is...
+ The Mother: Since they left...I mean, since I lost them, I...
+ The Mother: It's like they are still in my palm.
+ The Mother: That's why I don't understand how I can't see them.
+ <<SetPortrait noportrait>>
+ Magnolia: Maybe they are good at hiding.
+ <<SetPortrait motherportrait1>>
+ The Mother: They seem to be.
+-> Maybe they went back home? <<if visited_count("TheMother") == 1>>
+ <<SetPortrait motherportrait1>>
+ The Mother: They don't know the way back home.
+ <<SetPortrait noportrait>>
+ Magnolia: (They must be so young.)
+ Magnolia: Then maybe they looked somewhere for help.
+ <<SetPortrait motherportrait1>>
+ The Mother: Why would they need help?
+ The Mother: They have me.
+ <<SetPortrait noportrait>>
+ Magnolia: They probably couldn't see you.
+ <<SetPortrait motherportrait1>>
+ The Mother: It's hard to see from such a distance.
+  -> Yes, the graveyard is quite big.
+   <<SetPortrait motherportrait1>>
+   The Mother: The distance is uncountable.
+    -> Are your kids alive?    
+     <<SetPortrait motherportrait1>>
+     The Mother: Really!
+     The Mother: You anger me now.
+     The Mother: Of course they are alive.
+     <<SetPortrait noportrait>>
+     Magnolia: I'm sorry.
+    -> How big of a distance are we talking about?    
+     <<SetPortrait motherportrait1>>
+     The Mother: My arm doesn't outstretch that long.
+     <<SetPortrait noportrait>>
+     Magnolia: (I guessed that.)
+     Magnolia: It's okay, you'll find them.
+     <<SetPortrait motherportrait1>>
+     The Mother: Of course, I will.
+  -> What do you mean by distance?  
+   <<SetPortrait motherportrait1>>
+   The Mother: Telephones don't help.
+   <<SetPortrait noportrait>>
+   Magnolia: Do they have telephones?
+   Magnolia: Did you try calling them?
+   <<SetPortrait motherportrait1>>
+   The Mother: The voices that answer are not them.
+   <<SetPortrait noportrait>>
+   Magnolia: What do you mean?
+   <<SetPortrait motherportrait1>>
+   The Mother: You wouldn't understand.
+-> How old are your kids? <<if visited_count("TheMother") == 1>>
+ <<SetPortrait motherportrait1>>
+ The Mother: What do you mean?
+ <<SetPortrait noportrait>>
+ Magnolia: Uhm.
+ Magnolia: How many birthdays did they celebrate?
+ Magnolia: (Why did I need to explain that?)
+ <<SetPortrait motherportrait1>>
+ The Mother: With me less than seventeen.
+ <<SetPortrait noportrait>>
+ Magnolia: (?)
+ Magnolia: And without you...?
+ <<SetPortrait motherportrait1>>
+ The Mother: Probably many more. 
+ The Mother: But I was not there.
+ The Mother: And now they are hiding.
+  -> Are your children adults?  
+   <<SetPortrait motherportrait1>>
+   The Mother: They still fit in my palm.
+   <<SetPortrait noportrait>>
+   Magnolia: (I am not sure they ever did.)
+   <<wait 0.5>>
+   <<SetPortrait motherportrait1>>
+   The Mother: You don't believe me?
+   <<SetPortrait noportrait>>
+   Magnolia: I do!
+   Magnolia: I do.
+  -> Where did you see your kids last?  
+   <<SetPortrait motherportrait1>>
+   The Mother: They were playing just here!
+   <<SetPortrait noportrait>>
+   Magnolia: But if you really, really think?
+   <<SetPortrait motherportrait1>>
+   The Mother: They were in houses I don't recognize.
+   <<SetPortrait noportrait>>
+   Magnolia: They have their own houses?
+   <<SetPortrait motherportrait1>>
+   The Mother: Yes.
+   <<SetPortrait noportrait>>
+   Magnolia: And they don't live in this city?
+   <<SetPortrait motherportrait1>>
+   The Mother: No.
+   <<SetPortrait noportrait>>
+   Magnolia: Did you lose your children when they moved out?
+   <<SetPortrait motherportrait1>>
+   The Mother: ...
+   The Mother: They never came back.
+   <<SetPortrait noportrait>>
+   Magnolia: But you see them?
+   <<SetPortrait motherportrait1>>
+   The Mother: Sometimes.
+   The Mother: But I lied.
+   <<SetPortrait noportrait>>
+   Magnolia: ? 
+   <<SetPortrait motherportrait1>>
+   The Mother: They don't fit in my palm anymore.
+   <<SetPortrait noportrait>>
+   Magnolia: That's okay.
+   Magnolia: They are adults.
+   <<SetPortrait motherportrait1>>
+   The Mother: I don't wish to speak anymore.
+   <<SetPortrait noportrait>>
+   Magnolia: That's okay.
+   Magnolia: I'm sorry if I was too nosy.
+   <<SetPortrait motherportrait1>>
+   The Mother: Do not worry.
+   <<wait 1>>
+   The Mother: I hope you find where you lost your parents.
+===
+
+title: TheSignBack
+---
+<<SetPortrait noportrait>>
+Magnolia: (I might be completely crazy.)
+Magnolia: (But I don't want to go back.)
+===
+
+title: TheCrash
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheCrash") < 1>>
+ Magnolia: (I can't go there.)
+ Magnolia: (It seems there was an accident.)
+ Magnolia: (But it doesn't look recent.)
+  -> Leave it.
+    Magnolia: (It's like this city is closing on itself.)
+    Magnolia: (There's no way to go forward.)
+    Magnolia: (How do I find that star then?)
+    <<wait 0.8>>
+    Magnolia: (What am I even thinking?!)
+<<else>>
+ Magnolia: (If I want to...)
+ Magnolia: (If I want to be able to explore the city, I need to find another way.)
+<<endif>>
+===
+
+title: TheAngel
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheAngel") < 1>>
+ Magnolia: (They always scared me.)
+ Magnolia: (I read somewhere that there are tears in their eyes sometimes.)
+ <<wait 0.5>>
+ Magnolia: (However, these kidn of things make me believe that there might be something out there.)
+ Magnolia: (How do I make myself dream the same dream?)
+<<elseif visited_count("TheAngel") == 1>>
+ Magnolia: (I love patina-colored statues.)
+ Magnolia: (It traces back every day of rain, sun, and air influencing its surface.)
+ Magnolia: (It's like a diary.)
+<<else>>
+ Magnolia: (Maybe I should read what it says.)
+  -> Read.
+   TheAngel: "Nonamed soldier of death."
+   Magnolia: (Curiosity killed the cat.)
+  -> Don't. 
+<<endif>>
+===
+
+title: AnyGrave
+---
+<<SetPortrait noportrait>>
+<<if visited_count("AnyGrave") < 1>>
+ Magnolia: (I always kind of feel like I'll see my name on it.)
+ <<wait 0.5>>
+ Magnolia: (That's ridiculous, right?)
+<<else>>
+ Magnolia: (I won't see my name, right?)
+<<endif>>
+===
+
+title: AnyGrave02
+---
+<<SetPortrait noportrait>>
+<<if visited_count("AnyGrave02") < 1>>
+ Magnolia: (There are some interesting epitaphs here.)
+ -> Read.
+  Rodney Stuart Edward: [i]I was here first.[/i]
+   -> Read more.
+    Bisera Borisova: [i]The world that waits for me is the one I know.[/i]
+     -> This is interesting.
+      Ignacio Ojeda: [i]I wish the rain on this stone rinses my sins.[/i]
+      Magnolia: (I don't like this anymore.)
+     -> I feel like I am again being too nosy.
+   -> It's enough.
+ -> Leave the dead in peace.
+<<else>>
+ Magnolia: (My eyes are pulled toward words written on the stone.)
+ -> Read.
+  Mitzi Hale: I never got to know where I belonged.
+  Magnolia: (These all seem deeply sad.)
+  Magnolia: (I will read only one more.)
+  <<wait 1>>
+  Meriel Abbas: The sunlight lay next to her on her deathbed.
+  Magnolia: (Again the sun.)
+  Magnolia: (How many days passed since the last sunny day?)
+ -> No.
+<<endif>>
+===
+
+title: TheCatCreature
+---
+<<SetPortrait noportrait>>
+Magnolia: (It doesn't like me.)
+ -> Stay away and just watch it.
+  <<wait 0.5>>
+  Magnolia: (It's a beauty.)
+ -> Try to pet it.
+  <<set $scurryawayanimation to true>>
+  Magnolia: (It wouldn't let me approach it.)
+===
+title: TheChurch
+---
+<<SetPortrait noportrait>>
+<<if $hasClue_forChurch is true>>
+ (It looks like it's looking at me.)
+  -> Enter the church through the back door.
+   <<set $enterthechurch to true>>
+  -> (I want to live. No thanks.)
+<<else>>
+ <<if visited_count("TheChurch") < 1>>
+ Magnolia: (I heard our ancestors died here.)
+ Magnolia: (I was never a fan of churches.)
+ Magnolia: (But where else I could look for something impossible?)
+  -> Get in.
+    Magnolia: (It's locked.)
+ <<else>>
+  Magnolia: (It's locked.)
+ <<endif>>
+<<endif>>
+//the trigger is inside the church, there is a small map. TRIGGER 001
+//you get an object here OBJECT d002
+//here is the last STARCLUE 003 where Magnolia decides to go, if she hasn't gathered all three clues, magnolia will not want to go.
+===
+
+//NOW WE ARE IN THE CHURCH
+
+title: TheChurchObject
+---
+<<SetPortrait noportrait>>
+Magnolia: (This looks interesting.)
+ -> Take it.
+  <<set $putintheinventory002 to true>> // one of the two objects for the 8th part of the Dreamworld (TheRedBeach)
+ -> Better not steal holy stuff.
+ //if you take the object it dissapears after
+===
+
+title: TheHolyStatue
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheHolyStatue") < 1>>
+ Magnolia: (I don't remember anyone from my family being religious.)
+ Magnolia: (It just seems ridiculous to me to worship anyone or anything.)
+ Magnolia: (There should be no hierarchy.)
+ <<wait 0.5>>
+ Magnolia: (That Golem creature from my dream did seem like some kind of ancestral god.)
+ Magnolia: (But that was just a dream.)
+<<else>>
+ Magnolia: (He is dead and he still stands here.)
+ Magnolia: (Why don't they let him rest.)
+ Magnolia: (I don't know how all these people can just blindly believe.)
+ <<wait 1>>
+ Magnolia: (And look, somebody left him a white flower.)
+  -> Pick up the flower.
+ // I would maybe make a short cutscene with magnolia and the flower
+ <<wait 1>>
+ Magnolia: (And there is a note.)
+  -> Read it.
+   The Note: I leave my last hopes with you. Bring my child back and take my soul. I have nothing else to lose.
+   Magnolia: (She actually believes she could get her child back?)
+   Magnolia: (I don't think she does.)
+   Magnolia: (But like me she doesn't have anything else left.)
+   Magnolia: (It almost feels like a superpower.)
+   Magnolia: (Or insanity.)
+   <<set $isgoingonjourney003 to true>> //last of 3 STAR CLUES that make Magnolia decide to go on the journey.
+<<endif>>
+===
+
+title: TheChurchTrigger
+---
+<<SetPortrait noportrait>>
+<<if $isgoingonjourney001 and $isgoingonjourney002 and $hasClue_AllKnowingLady and $isgoingonjourney003 == true>>
+ Magnolia: (I don't believe I can save them.)
+ Magnolia: (Truthfully.)
+ Magnolia: (But I know I can't live like this.)
+  -> Touch the cloud of electricity.
+   <<set $trigger_TheChurch to true>>  //now we are transfered to the second part of the Dreamworld
+  -> (I can't go back to this empty life.)
+   <<set $trigger_TheChurch to true>>
+<<else>>
+ <<if visited_count("TheChurchTrigger") < 1>>
+  Magnolia: (They said that right before the lightning would hit, you could feel all this electricity crackling around your head.)
+  Magnolia: (Am I going to be hit by the lightning?)
+  Magnolia: (I don't think I am ready to make myself a fool.)
+  Magnolia: (Following a dream?)
+  Magnolia: (It makes no sense.)
+ <<else>>
+  Magnolia: (I'm just going to ignore it.)
+ <<endif>>
+<<endif>>
+===
+
+title: TheChurch_Exit
+---
+<<SetPortrait noportrait>>
+Magnolia: (Am I missing something?)
+ -> Go out.
+  <<set $exitthechurch to true>>
+ -> Stay inside.
+===
+
+//ADDITIONAL NOTES
+
+title: TheKidsPlay
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheKidsPlay") < 1>>
+ Magnolia: (I don't ever remember playing this game.)
+ Magnolia: (And yet somethow, I know what to do.)
+<<else>>
+ Magnolia: (There's a lot of kids drawings around here.)
+<<endif>>
+===
+
+title: TheNumber7
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheNumber7") < 1>>
+ Magnolia: (The door is locked.)
+ Magnolia: (I've never heard of any of these names.)
+ Magnolia: (I wonder what kind of people live here.)
+<<elseif visited_count("TheNumber7") == 1>>
+ Magnolia: (Sunrays...)
+ Magnolia: (Doomdays...)
+ Magnolia: (Who is called Starlords?)
+<<else>>
+ Magnolia: (I'm not ringing any of those names.)
+<<endif>>
+===
+
+title: TheTable
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheTable") < 1>>
+ Magnolia: (It's like one of those long tables people keep at their summer houses in Italy.)
+ Magnolia: (They would invite their family, neighbours, and accidental passerby to dine together.)
+ <<wait 0.5>>
+ Magnolia: (I might have watched a movie about it.)
+ <<wait 0.5>>
+ Magnolia: (Why is no one here?)
+<<else>>
+ Magnolia: (The table is ready, and there is not a soul here.)
+<<endif>>
+===
+
+title: TheManHole01
+---
+<<SetPortrait noportrait>>
+ Magnolia: (Oh this one is designed differently.)
+ Magnolia: (There is something written on it.)
+  -> Read it.
+   TheManHole: THE
+   Magnolia: (That's all that is written?)
+===
+
+title: TheWilderness04
+---
+<<SetPortrait noportrait>>
+ Magnolia: (I'm close to the railway.)
+ Magnolia: (I can here the distant sound of a train.)
+===
+
+title: Graffiti02
+---
+<<SetPortrait noportrait>>
+<<if visited_count("Graffiti02") < 1>>
+ Magnolia: (It's a bit agressive.)
+ Magnolia: (Is this some kind of conceptual art?)
+<<else>>
+ Magnolia: (I stay away from conspiracy theories.)
+<<endif>>
+===
+
+title: TheWilderness05
+---
+<<SetPortrait noportrait>>
+//inside the Graveyard
+Magnolia: (The fog is really thickly covering the river.)
+Magnolia: (I can it flowing.)
+<<wait 0.5>>
+Magnolia: (And the train is close.)
+===
+
+title: TheBench
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheBench") < 1>>
+ Magnolia: (I kind of expected to see someone feeding the crows or something.)
+ Magnolia: (It looks even spookier when it's so quiet.)
+ <<wait 0.2>>
+ Magnolia: (If I sat down I would feel like something would creep up to me from behind.)
+<<else>>
+ Magnolia: (This is not the right place to rest.)
+<<endif>>
+===
+
+title: TheChurchWindow
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheChurchWindow") < 1>>
+Magnolia: (The sun passing through these stained-glass windows create interesting shapes on the floor.)
+Magnolia: (Could I have something like this in my house?)
+<<wait 0.5>>
+Magnolia: (Wait, is that sun?)
+<<else>>
+ Magnolia: (I haven't seen sun at all outside.)
+<<endif>>
+===

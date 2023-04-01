@@ -16,6 +16,7 @@ public class WakingWorld : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject targetPosition;
     [SerializeField] private GameObject homePosition;
+    [SerializeField] private GameObject upTheStairsPosition;
     [SerializeField] private Animator transitionAnimator;
     private GameObject curtains;
     
@@ -25,7 +26,9 @@ public class WakingWorld : MonoBehaviour
     private bool takethekey;
     private bool godownthestairs;
     private bool gobackhome;
-    private bool curtainopens;  
+    private bool goupthestairs003;
+    private bool curtainopens;
+    
     private bool isDownTheStairs;
     private bool wentHome;
 
@@ -59,7 +62,8 @@ public class WakingWorld : MonoBehaviour
         variableStorage.TryGetValue("$takethekey", out takethekey);
         variableStorage.TryGetValue("$godownthestairs", out godownthestairs);
         variableStorage.TryGetValue("$gobackhome", out gobackhome);
-        variableStorage.TryGetValue("$curtainopens", out curtainopens);                
+        variableStorage.TryGetValue("$curtainopens", out curtainopens);
+        variableStorage.TryGetValue("$goupthestairs003", out goupthestairs003);
 
         if (curtains && curtainopens)
         {
@@ -74,6 +78,15 @@ public class WakingWorld : MonoBehaviour
             GoDownTheStairs();            
             isDownTheStairs = true;
             variableStorage.SetValue("$godownthestairs", false);
+            StartCoroutine(fadeLayer.FadeOut());
+        }
+
+        if (goupthestairs003)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            GoUpTheStairs();
+            isDownTheStairs = false;
+            variableStorage.SetValue("$goupthestairs003", false);
             StartCoroutine(fadeLayer.FadeOut());
         }
 
@@ -108,5 +121,10 @@ public class WakingWorld : MonoBehaviour
     {
         player.transform.position = new Vector3(targetPosition.transform.position.x, targetPosition.transform.position.y, 0f);        
     }
-    
+
+    void GoUpTheStairs()
+    {
+        // add isdownthesrairs in yarn
+        player.transform.position = new Vector3(upTheStairsPosition.transform.position.x, upTheStairsPosition.transform.position.y, 0f);
+    }
 }
