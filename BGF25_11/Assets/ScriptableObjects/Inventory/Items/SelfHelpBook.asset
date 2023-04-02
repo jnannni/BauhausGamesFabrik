@@ -17,10 +17,22 @@ MonoBehaviour:
   itemDescription: Thick hardcopy.
   itemImage: {fileID: 21300000, guid: 05dd8a1e6577d450fb85183105eda1e8, type: 3}
   itemImageDW: {fileID: 21300000, guid: 05dd8a1e6577d450fb85183105eda1e8, type: 3}
-  usable: 0
+  usable: 1
   isUsed: 0
   collectable: 0
   thisEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5785688011941595767, guid: 788c784a9ee1a445a8f08b79404d87f5, type: 3}
+        m_TargetAssemblyTypeName: GriefingBookReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   useButton: {fileID: 0}

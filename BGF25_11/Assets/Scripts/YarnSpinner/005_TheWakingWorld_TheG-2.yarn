@@ -18,6 +18,9 @@ title: TheG
 <<set $fallingfeeling to false>> //again some kind of woozy effect
 <<set $exitgrandpashouse to false>> //NEW ADDED
 <<set $movemagnoliaback to false>> //NEW ADDED
+<<set $gavethegriefbook to false>>
+<<set $gavethestrangebook to false>>
+<<set $objectfromsecurity to false>>
 
 //for YARN
 <<set $gavethebook01 to false>>
@@ -478,12 +481,35 @@ title: TheSecurity_Children
    Magnolia: (Maybe he has a bigger need for that grief book than me.)
    Magnolia: (I also found that old fiction book about tree roots.)
    Magnolia: (Maybe anything that would distract him is good.)
-    -> Give him your book.
-      <<set $gavethebook01 to true>>
-      Magnolia: (I need to fetch it from the backpack.) //player needs to open the inventory
-    -> Give him the other book.
-       <<set $gavethebook02 to true>>
-       Magnolia: (I need to fetch it from the backpack.)
+   Magnolia: (I should look into my backpack and decide.)
+===
+
+title: GaveTheBook1
+---
+<<set $gavethegriefbook to true>>
+Magnolia: Here. It was supposed to help me.
+The Security: Did it?
+Magnolia: No. But I hope it helps you.
+<<wait 0.5>>
+The Security: Thank you.
+<<wait 0.2>>
+The Security: I have something for you.
+The Security: I hope it comes useful for you.
+Magnolia: Oh, I don't know what to say.
+The Security: You don't have to say anything.
+<<set $objectfromsecurity to true>>
+<<set $gavethebook01 to true>>
+===
+
+title: GaveTheBook2
+---
+<<set $gavethestrangebook to true>>
+Magnolia: Here. I found it lying around.
+The Security: What is it?
+Magnolia: A book. It might help you keep your thoughts busy.
+The Security: Thanks.
+<<set $objectfromsecurity to true>>
+<<set $gavethebook02 to true>>
 ===
 
 title: TheSchool

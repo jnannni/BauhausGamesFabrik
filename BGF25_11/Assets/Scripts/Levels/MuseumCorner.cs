@@ -74,6 +74,7 @@ public class MuseumCorner : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(insideOfTheMuseum.transform.position.x, insideOfTheMuseum.transform.position.y, 0f);
             isInsideOfTheMuseum = true;
+            variableStorage.SetValue("$enterthemuseum", false);
             StartCoroutine(fadeLayer.FadeOut());
             player.transform.localScale = new Vector3(1.8f, 1.8f, 0f);
         }
@@ -83,6 +84,7 @@ public class MuseumCorner : MonoBehaviour
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(outsideOfTheMuseum.transform.position.x, outsideOfTheMuseum.transform.position.y, 0f);
             isInsideOfTheMuseum = false;
+            variableStorage.SetValue("$exitthemuseum", false);
             StartCoroutine(fadeLayer.FadeOut());
             player.transform.localScale = new Vector3(1f, 1f, 0f);
         }
