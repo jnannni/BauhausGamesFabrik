@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using System;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -23,12 +22,13 @@ public class MainMenu : MonoBehaviour
         if (!gameExists)
         {
             loadGameButton.enabled = false;
+            loadGameButton.gameObject.GetComponentInChildren<TMP_Text>().color = new Color(0.5566038f, 0.5566038f, 0.5566038f, 0.6235294f);
         }
     }
 
     public void NewGame()
-    {
-        SceneManager.LoadScene("SampleScene");
+    {        
+        SceneManager.LoadScene("WakingWorld");
     }
 
     public void SetVolume(float volume)
