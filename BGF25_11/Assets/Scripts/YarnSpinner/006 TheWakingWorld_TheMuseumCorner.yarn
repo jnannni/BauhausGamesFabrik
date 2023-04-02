@@ -15,6 +15,7 @@ title: TheMuseumCorner
 //variables for in YARN
 <<set $hasplantclue to false>>
 <<set $askaboutstation to false>>
+<<set $tookthefeather to false>>
 ===
 
 title: TheAnxious
@@ -374,6 +375,7 @@ title: TheHappyKid_Questions
   -> Take it.
    Magnolia: (Yes, thank you.)
    <<set $takethefeather to true>>
+   <<set $tookthefeather to true>>
 ===
 title: TheDog
 ---
@@ -708,7 +710,7 @@ title: TheStation
 ---
  Magnolia: (It's the only way to go.)
  Magnolia: (But I don't have any money, nor train tickets.)
-  -> Go inside the station.
-  <<set $goinsidethestation to true>>
+  -> Go inside the station. <<if $tookthefeather is true>>
+   <<set $goinsidethestation to true>>
   -> Stay.
 ===

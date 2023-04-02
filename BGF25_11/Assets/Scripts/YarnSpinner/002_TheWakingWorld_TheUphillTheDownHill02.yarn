@@ -411,9 +411,18 @@ title: TheBeggar
  <<SetPortrait beggarportrait1>>
  TheBeggar: It is very nice of you to think of non-existing.
  TheBeggar: I need no help, but I wish to gift you something.
-  <<set $putintheinventoryd001 to true>> //you get the OBJECT d001
-  <<set $magnoliadanced to false>>
-  <<jump TheJudgingPerson>>
+ <<SetPortrait noportrait>>
+ Magnolia: Oh?
+ <<SetPortrait beggarportrait1>>
+ TheBeggar: Please accept it.
+  -> Accept.
+   <<SetPortrait beggarportrait1>>
+   Magnolia: Thank you!
+   <<SetPortrait beggarportrait1>>
+   TheBeggar: You are welcome.
+   <<set $putintheinventoryd001 to true>> //you get the OBJECT d001
+   <<set $magnoliadanced to false>>
+   <<jump TheJudgingPerson>>
 <<else>>
  <<SetPortrait noportrait>>
  Magnolia: (At least somebody seems happy in this city.)

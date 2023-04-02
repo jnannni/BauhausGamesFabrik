@@ -16,6 +16,8 @@ title: TheG
 <<set $sheisdancing to false>> //plays ANIMATION of a THe One To Impress dancing
 <<set $pulsingeffect to false>> //sound and visual effect of fear, pulsing
 <<set $fallingfeeling to false>> //again some kind of woozy effect
+<<set $exitgrandpashouse to false>> //NEW ADDED
+<<set $movemagnoliaback to false>> //NEW ADDED
 
 //for YARN
 <<set $gavethebook01 to false>>
@@ -23,6 +25,7 @@ title: TheG
 <<set $askedthisquestion to false>>
 <<set $hasclue_fly to false>>
 <<set $hascomb to false>>
+<<set $askaboutstation to false>>
 
 Magnolia: (This is getting out of hand.)
 Magnolia: (I'm starting to believe it.)
@@ -226,6 +229,7 @@ title: TheKindGrandpa01
 //you get him to talk about the roof
 //you go out on the roof
 //you get an dOBJECT 004
+<<if visited_count("TheKindGrandpa01") < 1>>
 The Kind Grandpa: You seem like such a sunny creature.
 Magnolia: Thank you?
 The Kind Grandpa: Three little purple rabbits came this morning for their milk.
@@ -239,6 +243,12 @@ The Kind Grandpa: Do you maybe want a cup of tea?
  -> That would be nice.
   <<set $enterthegranshouse to true>>
  -> No? 
+<<else>>
+The Kind Grandpa: Do you maybe want a cup of tea?
+ -> That would be nice.
+  <<set $enterthegranshouse to true>>
+ -> No? 
+<<endif>>
 ===
 
 title: TheGrandpaHouse
@@ -293,8 +303,11 @@ title: TheGrandpa_Inside
 ===
 title: GrandpasDoor
 ---
-Magnolia: (I don't know how to open this thing.)
-Magnolia: (I could ask him.)
+Magnolia: (I don't feel like going back.)
+Magnolia: (But maybe I forgot something.)
+ -> Go outside.
+  <<set $exitgrandpashouse to true>>
+ -> Stay.
 ===
 
 title: TheVase
@@ -322,6 +335,7 @@ Magnolia: But it's not sunny...
 The Kind Grandpa: The tea is almost ready.
 Magnolia: (Now everything sounds like a clue on a quest.)
 Magnolia: (I can't help to think I should go on that roof.)
+<<if $hascomb is true>>
  -> Stop listening and go on the roof.
   Magnolia: (Maybe he will forgive me.)
   <<set $goontheroof to true>>
@@ -330,6 +344,9 @@ Magnolia: (I can't help to think I should go on that roof.)
   Magnolia: (I'm too distracted.)
    -> Go on the roof.
    <<set $goontheroof to true>>
+<<else>>
+ Magnolia: (I might have missed something important.)
+<<endif>>
 ===
 
 title: TheRoofObject
@@ -495,6 +512,14 @@ Magnolia: (I have never been to this part of the city.)
 -> (I still want to check out something here.)
 -> Pass the bridge.
  <<set $gototheMuseum to true>>
+===
+
+title: BackToSchool
+---
+Magnolia: (Do I really want to turn back now?)
+ -> Do it.
+  <<set $movemagnoliaback to true>>
+ -> Stay and continue.
 ===
 
 //ADDED NODES
