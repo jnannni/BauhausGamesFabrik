@@ -82,7 +82,7 @@ public class PauseManager : MonoBehaviour
         isInventoryOpen.initialValue = !isInventoryOpen.initialValue;
         isPaused.initialValue = !isPaused.initialValue;        
         if (isInventoryOpen.initialValue)
-        {
+        {            
             audioManager.PlayOneShot(FMODEvents.instance.inventoryOpen, inventoryPanel.transform.position);
             EventSystem.current.SetSelectedGameObject(null);            
             inventoryPanel.SetActive(true);            

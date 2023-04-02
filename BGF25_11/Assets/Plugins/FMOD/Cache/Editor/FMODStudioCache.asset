@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: 1973992833
     Data4: -457316220
   Banks:
-  - {fileID: 3655708588568204770}
+  - {fileID: 3266151990902209310}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     Data3: -1650415993
     Data4: 2088729360
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-8399541915225350737
+--- !u!114 &-8902416876236223767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,23 +64,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Atmos/Atmo_DreamWorld_001_TheGravedream_Loopable
+  m_Name: event:/Music/TitleScreenMenu
   m_EditorClassIdentifier: 
-  Path: event:/Atmos/Atmo_DreamWorld_001_TheGravedream_Loopable
+  Path: event:/Music/TitleScreenMenu
   Guid:
-    Data1: -1047337839
-    Data2: 1193075855
-    Data3: 1575826354
-    Data4: -1551526424
+    Data1: -687050349
+    Data2: 1115143895
+    Data3: 465109946
+    Data4: 1587739634
   Banks:
-  - {fileID: 3655708588568204770}
+  - {fileID: 7561473812179240384}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 63000
+  Length: 91428
+--- !u!114 &-7476083785848496477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI Sounds.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/UI Sounds.bank
+  Name: UI Sounds
+  StudioPath: bank:/UI Sounds
+  lastModified: 638159736380000000
+  FileSizes:
+  - Name: Desktop
+    Value: 191584
+  Exists: 1
 --- !u!114 &-6855844716469191230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +120,7 @@ MonoBehaviour:
     Data3: 1716624004
     Data4: -641429905
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -127,7 +147,7 @@ MonoBehaviour:
     Data3: -26952513
     Data4: -1862373997
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -154,7 +174,7 @@ MonoBehaviour:
     Data3: 1355767991
     Data4: 2054595765
   Banks:
-  - {fileID: 8107678060959045563}
+  - {fileID: -1000092721275936231}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -181,7 +201,7 @@ MonoBehaviour:
     Data3: -31894379
     Data4: 1439475598
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -189,6 +209,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 68174
+--- !u!114 &-5623190167084411472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/AtmosWakingWorld.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/AtmosWakingWorld.bank
+  Name: AtmosWakingWorld
+  StudioPath: bank:/AtmosWakingWorld
+  lastModified: 638159736380000000
+  FileSizes:
+  - Name: Desktop
+    Value: 10185664
+  Exists: 1
 --- !u!114 &-5399705775018162579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +248,7 @@ MonoBehaviour:
     Data3: -2105881720
     Data4: -1382407552
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -235,7 +275,7 @@ MonoBehaviour:
     Data3: -597374066
     Data4: 2077559997
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -262,7 +302,7 @@ MonoBehaviour:
     Data3: -1491412567
     Data4: 122959748
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -289,7 +329,7 @@ MonoBehaviour:
     Data3: 239079578
     Data4: 338178065
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -297,7 +337,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-2988697604875706848
+--- !u!114 &-3173586408356266938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/CutScene_01_Golem
+  m_EditorClassIdentifier: 
+  Path: event:/Music/CutScene_01_Golem
+  Guid:
+    Data1: 1482964663
+    Data2: 1123356496
+    Data3: 306523571
+    Data4: 1273273371
+  Banks:
+  - {fileID: 7561473812179240384}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 45000
+--- !u!114 &-2696684886788007985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,15 +374,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638159082571849245
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638159736380000000
   FileSizes:
   - Name: Desktop
-    Value: 2706
+    Value: 1486
   Exists: 1
 --- !u!114 &-2313543921836794448
 MonoBehaviour:
@@ -336,7 +403,7 @@ MonoBehaviour:
     Data3: 1874698423
     Data4: -104530443
   Banks:
-  - {fileID: 8107678060959045563}
+  - {fileID: -1000092721275936231}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -363,7 +430,7 @@ MonoBehaviour:
     Data3: 1758626195
     Data4: 652419207
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -390,7 +457,7 @@ MonoBehaviour:
     Data3: 499987592
     Data4: 1668457036
   Banks:
-  - {fileID: 3655708588568204770}
+  - {fileID: 3266151990902209310}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -417,7 +484,7 @@ MonoBehaviour:
     Data3: -762639434
     Data4: -800099319
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -425,6 +492,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 40000
+--- !u!114 &-1000092721275936231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Characters.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/Characters.bank
+  Name: Characters
+  StudioPath: bank:/Characters
+  lastModified: 638159736380000000
+  FileSizes:
+  - Name: Desktop
+    Value: 484576
+  Exists: 1
 --- !u!114 &-611267269994229333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +531,7 @@ MonoBehaviour:
     Data3: 1452442260
     Data4: -946779473
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -465,13 +552,14 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -2988697604875706848}
-  - {fileID: 3655708588568204770}
-  - {fileID: 8153655840659520650}
-  - {fileID: 8107678060959045563}
-  - {fileID: 4874187178106004974}
-  - {fileID: 170226072645102360}
-  - {fileID: 7567799952404416033}
+  - {fileID: 2353430713484872853}
+  - {fileID: 3266151990902209310}
+  - {fileID: -5623190167084411472}
+  - {fileID: -1000092721275936231}
+  - {fileID: -2696684886788007985}
+  - {fileID: 7561473812179240384}
+  - {fileID: 413311095342911528}
+  - {fileID: -7476083785848496477}
   EditorEvents:
   - {fileID: -6138427731918813582}
   - {fileID: -2313543921836794448}
@@ -479,7 +567,6 @@ MonoBehaviour:
   - {fileID: 3661762946152768663}
   - {fileID: 7605799821819233385}
   - {fileID: -1273317219059673066}
-  - {fileID: -8399541915225350737}
   - {fileID: -9104791509357373679}
   - {fileID: 8250652151534636728}
   - {fileID: -5399705775018162579}
@@ -501,33 +588,16 @@ MonoBehaviour:
   - {fileID: 511501627667972560}
   - {fileID: -6855844716469191230}
   - {fileID: 4455889771952073840}
+  - {fileID: 6427203312321033595}
+  - {fileID: -8902416876236223767}
+  - {fileID: -3173586408356266938}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4874187178106004974}
+  - {fileID: -2696684886788007985}
   StringsBanks:
-  - {fileID: -2988697604875706848}
-  cacheTime: 638159082571879145
+  - {fileID: 2353430713484872853}
+  cacheTime: 638159736380000000
   cacheVersion: 131593
---- !u!114 &170226072645102360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638159082571859210
-  FileSizes:
-  - Name: Desktop
-    Value: 41216
-  Exists: 1
 --- !u!114 &385061407192270133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +617,7 @@ MonoBehaviour:
     Data3: -1059681130
     Data4: -1897012606
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -555,6 +625,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 46000
+--- !u!114 &413311095342911528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638159736380000000
+  FileSizes:
+  - Name: Desktop
+    Value: 65920
+  Exists: 1
 --- !u!114 &511501627667972560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,10 +664,10 @@ MonoBehaviour:
     Data3: -1812032351
     Data4: 1582834935
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -601,7 +691,7 @@ MonoBehaviour:
     Data3: -1839206782
     Data4: 1055053744
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -628,7 +718,7 @@ MonoBehaviour:
     Data3: 1076964256
     Data4: -683709205
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -636,7 +726,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 54920
---- !u!114 &3655708588568204770
+--- !u!114 &2353430713484872853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638159736380000000
+  FileSizes:
+  - Name: Desktop
+    Value: 2866
+  Exists: 1
+--- !u!114 &3266151990902209310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -648,10 +758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/AtmosDreamWorld.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/AtmosDreamWorld.bank
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/AtmosDreamWorld.bank
   Name: AtmosDreamWorld
   StudioPath: bank:/AtmosDreamWorld
-  lastModified: 638159082571520362
+  lastModified: 638159736380000000
   FileSizes:
   - Name: Desktop
     Value: 3732832
@@ -675,14 +785,14 @@ MonoBehaviour:
     Data3: -1564831614
     Data4: 1504658364
   Banks:
-  - {fileID: 170226072645102360}
+  - {fileID: 413311095342911528}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 550
+  Length: 500
 --- !u!114 &4455889771952073840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,7 +812,7 @@ MonoBehaviour:
     Data3: 1647074179
     Data4: -1664564222
   Banks:
-  - {fileID: 7567799952404416033}
+  - {fileID: -7476083785848496477}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -710,26 +820,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &4874187178106004974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638159082571839279
-  FileSizes:
-  - Name: Desktop
-    Value: 1486
-  Exists: 1
 --- !u!114 &6422883764447688003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +839,7 @@ MonoBehaviour:
     Data3: -738993529
     Data4: -1443567724
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -757,6 +847,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 206000
+--- !u!114 &6427203312321033595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Atmos/Atmo_DreamWorld_001_TheGolemDream_Loopable
+  m_EditorClassIdentifier: 
+  Path: event:/Atmos/Atmo_DreamWorld_001_TheGolemDream_Loopable
+  Guid:
+    Data1: -1047337839
+    Data2: 1193075855
+    Data3: 1575826354
+    Data4: -1551526424
+  Banks:
+  - {fileID: 3266151990902209310}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 63000
 --- !u!114 &7161580821986722421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,7 +893,7 @@ MonoBehaviour:
     Data3: 1266322325
     Data4: -552328827
   Banks:
-  - {fileID: 8107678060959045563}
+  - {fileID: -1000092721275936231}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -803,7 +920,7 @@ MonoBehaviour:
     Data3: 1588683682
     Data4: -627085339
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -811,7 +928,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 46322
---- !u!114 &7567799952404416033
+--- !u!114 &7561473812179240384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -821,15 +938,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/UI Sounds.bank
+  m_Name: bank:/Music.bank
   m_EditorClassIdentifier: 
-  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/UI Sounds.bank
-  Name: UI Sounds
-  StudioPath: bank:/UI Sounds
-  lastModified: 638159082571879145
+  Path: Assets/Sound/dreamgamefmod-4-2/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638159736380000000
   FileSizes:
   - Name: Desktop
-    Value: 191584
+    Value: 1724064
   Exists: 1
 --- !u!114 &7605799821819233385
 MonoBehaviour:
@@ -850,7 +967,7 @@ MonoBehaviour:
     Data3: -1761359211
     Data4: -189745081
   Banks:
-  - {fileID: 170226072645102360}
+  - {fileID: 413311095342911528}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -858,46 +975,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &8107678060959045563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Characters.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/Characters.bank
-  Name: Characters
-  StudioPath: bank:/Characters
-  lastModified: 638159082571829311
-  FileSizes:
-  - Name: Desktop
-    Value: 484576
-  Exists: 1
---- !u!114 &8153655840659520650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/AtmosWakingWorld.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Sound/dreamgamefmod-4/Build/Desktop/AtmosWakingWorld.bank
-  Name: AtmosWakingWorld
-  StudioPath: bank:/AtmosWakingWorld
-  lastModified: 638159082571799367
-  FileSizes:
-  - Name: Desktop
-    Value: 10185664
-  Exists: 1
 --- !u!114 &8250652151534636728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,7 +994,7 @@ MonoBehaviour:
     Data3: -1602727283
     Data4: 1384788270
   Banks:
-  - {fileID: 3655708588568204770}
+  - {fileID: 3266151990902209310}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -944,7 +1021,7 @@ MonoBehaviour:
     Data3: 1165236097
     Data4: -513448029
   Banks:
-  - {fileID: 8153655840659520650}
+  - {fileID: -5623190167084411472}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0

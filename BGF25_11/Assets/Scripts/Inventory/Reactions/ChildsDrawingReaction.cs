@@ -15,7 +15,7 @@ public class ChildsDrawingReaction : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Blocks" && isNearBlob.initialValue)
         {
-            dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
+            dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();                        
             dialogueRunner.StartDialogue(startNode);
             childsDrawingSignal.Raise();
         }

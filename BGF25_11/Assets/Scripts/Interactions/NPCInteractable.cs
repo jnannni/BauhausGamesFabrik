@@ -80,8 +80,9 @@ public class NPCInteractable : MonoBehaviour
 
     public void Interact()
     {        
-        if (isInTheRange && isPressed && interactable)
-        {            
+        if (isInTheRange && isPressed && interactable && !isDialogueRunning.initialValue)
+        {
+            Debug.Log("running");
             if (animator)
             {
                 ChangeDirection(-target.GetComponent<Animator>().GetFloat("Horizontal"),

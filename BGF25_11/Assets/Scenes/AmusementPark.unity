@@ -1691,7 +1691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &783355679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3602,6 +3602,8 @@ MonoBehaviour:
   isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
   animator: {fileID: 1428980005}
   portraitAnimator: {fileID: 1200068745}
+  continueClue: {fileID: 0}
+  lastLine: {fileID: 0}
 --- !u!114 &1641380445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3621,6 +3623,7 @@ MonoBehaviour:
   player: {fileID: 1911843172}
   catCreature: {fileID: 0}
   insideTheChurch: {fileID: 0}
+  outsideTheChurch: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 219fc655d65b3420bac8507d43ef20df, type: 2}
   nameOfTheScene: Gravedream
 --- !u!4 &1641380446

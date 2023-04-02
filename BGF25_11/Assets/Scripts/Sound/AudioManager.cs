@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     private List<EventInstance> eventInstances;
     private List<StudioEventEmitter> eventEmitters;
     private EventInstance musicEventInstance;
+    private EventInstance aSoundInstance;
 
     public static AudioManager instance { get; private set; }
 
@@ -58,10 +59,10 @@ public class AudioManager : MonoBehaviour
         musicEventInstance.start();        
     }
 
-    public void PauseMusic(EventReference musicEventReferense)
+    public void StopASoundWithFade(EventReference soundEventReferense)
     {
-        musicEventInstance = CreateEventInstance(musicEventReferense);
-        musicEventInstance.setPaused(true);
+        aSoundInstance = CreateEventInstance(soundEventReferense);
+        aSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void CleanUp()

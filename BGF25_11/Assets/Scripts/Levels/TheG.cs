@@ -22,9 +22,13 @@ public class TheG : MonoBehaviour
     private bool sheisdancing;
     private bool pulsingeffect; //
     private bool fallingfeeling;
+    private bool exitgrandpashouse;
+    private bool movemagnoliaback;
 
     private FadeLayer fadeLayer;
     private bool isOnTheRoof;
+    private bool isInGrandpaHouse;
+    private bool isBehinfTheSchool;
     private Renderer stairsRenderer;
     private Renderer grandpasHouseRenderer;
     private BoxCollider2D[] boxCollider2Ds;
@@ -36,7 +40,9 @@ public class TheG : MonoBehaviour
     [SerializeField] private GameObject roofFall;
     [SerializeField] private GameObject grandpasHouse;
     [SerializeField] private GameObject behindTheSchool;
+    [SerializeField] private GameObject inFrontOfTheSchool;
     [SerializeField] private GameObject grandpasHouseInside;
+    [SerializeField] private GameObject grandpasHouseOutside;
     [SerializeField] private GameObject onTheRoof;
     [SerializeField] private GameObject downTheRoof;
     [SerializeField] private InventoryItem item004;
@@ -141,10 +147,13 @@ public class TheG : MonoBehaviour
             // trigger a cut scene
         }
 
-        if (entertheschool01 || entertheschool02)
+        if ((entertheschool01 || entertheschool02) && !isBehinfTheSchool)
         {
             // move character to school position
             StartCoroutine(fadeLayer.FadeIn());
+            isBehinfTheSchool = true;
+            variableStorage.SetValue("$entertheschool01", false);
+            variableStorage.SetValue("$entertheschool02", false);
             player.transform.position = new Vector3(behindTheSchool.transform.position.x, behindTheSchool.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             /*if (entertheschool01)
@@ -156,13 +165,34 @@ public class TheG : MonoBehaviour
             }*/
         }
 
-        if (enterthegranshouse)
+        if (movemagnoliaback && isBehinfTheSchool)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            isBehinfTheSchool = false;
+            variableStorage.SetValue("$movemagnoliaback", false);            
+            player.transform.position = new Vector3(inFrontOfTheSchool.transform.position.x, inFrontOfTheSchool.transform.position.y, 0f);
+            StartCoroutine(fadeLayer.FadeOut());
+        }
+
+        if (enterthegranshouse && !isInGrandpaHouse)
         {
             // move character to grans position
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(grandpasHouseInside.transform.position.x, grandpasHouseInside.transform.position.y, 0f);
+            isInGrandpaHouse = true;
+            variableStorage.SetValue("$enterthegranshouse", false);
             StartCoroutine(fadeLayer.FadeOut());
             player.transform.localScale = new Vector3(1.5f, 1.5f, 0f);
+        }
+
+        if (exitgrandpashouse && isInGrandpaHouse)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = new Vector3(grandpasHouseOutside.transform.position.x, grandpasHouseOutside.transform.position.y, 0f);
+            isInGrandpaHouse = false;
+            variableStorage.SetValue("$exitgrandpashouse", false);
+            StartCoroutine(fadeLayer.FadeOut());
+            player.transform.localScale = new Vector3(1f, 1f, 0f);
         }
 
         if (godowntheroof && isOnTheRoof)

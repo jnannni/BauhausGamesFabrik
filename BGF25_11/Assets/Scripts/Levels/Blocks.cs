@@ -18,6 +18,7 @@ public class Blocks : MonoBehaviour
     private bool coinisselected;
     private bool putintheinventory008;
     private bool putintheinventory001;
+    private bool showthedrawing;
 
     private bool isInAntiqueShop;
     private FadeLayer fadeLayer;
@@ -68,6 +69,7 @@ public class Blocks : MonoBehaviour
         variableStorage.TryGetValue("$poetsdiary", out poetsdiary);
         variableStorage.TryGetValue("$coinisselected", out coinisselected);
         variableStorage.TryGetValue("$putintheinventory008", out putintheinventory008);
+        variableStorage.TryGetValue("$showthedrawing", out showthedrawing);
 
         if (trigger_TheAllKnowingLady)
         {
@@ -81,6 +83,14 @@ public class Blocks : MonoBehaviour
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontodw", false);
             }
+        }
+
+        if (showthedrawing)
+        {
+            inventoryPanel.SetActive(false);
+            isInventoryOpen.initialValue = false;
+            isPaused.initialValue = false;
+            variableStorage.SetValue("$showthedrawing", false);
         }
 
         if (entertheantique && !isInAntiqueShop)
