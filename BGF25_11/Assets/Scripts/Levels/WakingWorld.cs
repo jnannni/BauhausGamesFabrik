@@ -73,7 +73,8 @@ public class WakingWorld : MonoBehaviour
         }
 
         if (godownthestairs && !isDownTheStairs)
-        {
+        {            
+            audioManager.StopASoundWithFade(FMODEvents.instance.musicWW1);
             StartCoroutine(fadeLayer.FadeIn());
             GoDownTheStairs();            
             isDownTheStairs = true;

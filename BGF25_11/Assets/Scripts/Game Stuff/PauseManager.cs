@@ -85,8 +85,7 @@ public class PauseManager : MonoBehaviour
         {            
             audioManager.PlayOneShot(FMODEvents.instance.inventoryOpen, inventoryPanel.transform.position);
             EventSystem.current.SetSelectedGameObject(null);            
-            inventoryPanel.SetActive(true);
-            Debug.Log(inventoryPanel.activeSelf);
+            inventoryPanel.SetActive(true);            
             EventSystem.current.SetSelectedGameObject(inventorySelectedButton);                        
         }
         else
