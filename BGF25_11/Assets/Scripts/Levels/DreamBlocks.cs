@@ -22,8 +22,12 @@ public class DreamBlocks : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject parents;
     [SerializeField] private GameObject closeToParents;
+    [SerializeField] private GameObject secondPartSpot;
     [SerializeField] private BoolValue isMaskUsed;
     [SerializeField] private float approachSpeed = 2f;
+    [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private BoolValue isInventoryOpen;
+    [SerializeField] private BoolValue isPaused;
 
     private AudioManager audioManager;
 
@@ -62,6 +66,18 @@ public class DreamBlocks : MonoBehaviour
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontoww", false);
             }
+        }
+
+        if (isMaskUsed.initialValue)
+        {
+            StartCoroutine(fadeLayer.FadeIn());
+            inventoryPanel.SetActive(false);
+            isInventoryOpen.initialValue = false;
+            isPaused.initialValue = false;
+            isMaskUsed.initialValue = false;
+            player.transform.position = new Vector3(secondPartSpot.transform.position.x, secondPartSpot.transform.position.y, 0f);
+            StartCoroutine(fadeLayer.FadeOut());
+
         }
 
         if (approaching_parents && player.transform.position != closeToParents.transform.position)

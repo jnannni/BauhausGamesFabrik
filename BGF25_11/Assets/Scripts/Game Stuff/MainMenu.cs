@@ -5,30 +5,51 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using System;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    private bool gameExists;       
+    private bool gameExists;
+    private bool startTheNewGame;
+    private FadeLayer fadeLayer;
     public EventSystem eventSystem;    
     public GameObject optionsMenu, mainMenu;
     public Button loadGameButton;
     public GameObject optionsFirstButton, optionsClosedFirstButton;
+    [SerializeField] private Animator transitionAnimator;
 
     private void Start()
     {
+        startTheNewGame = false;
+        fadeLayer = FindObjectOfType<FadeLayer>();
         gameExists = false;
         if (!gameExists)
         {
             loadGameButton.enabled = false;
+            loadGameButton.gameObject.GetComponentInChildren<TMP_Text>().color = new Color(0.5566038f, 0.5566038f, 0.5566038f, 0.6235294f);
+        }
+    }
+
+    private void Update()
+    {
+        if (startTheNewGame)
+        {
+            transitionAnimator.SetBool("transitiontoww", true);
+            if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
+            {
+                startTheNewGame = false;
+                StartCoroutine(fadeLayer.FadeIn());
+                SceneManager.LoadScene("SampleScene");
+                transitionAnimator.SetBool("transitiontoww", false);
+            }
         }
     }
 
     public void NewGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        startTheNewGame = true;
+              
     }
 
     public void SetVolume(float volume)
@@ -60,11 +81,5 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-    }
-
-    private void Update()
-    {
-        
-        
-    }
+    }  
 }

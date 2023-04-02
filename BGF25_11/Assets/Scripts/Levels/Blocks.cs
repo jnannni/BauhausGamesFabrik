@@ -98,7 +98,7 @@ public class Blocks : MonoBehaviour
             // move the character to antique position and change camera thingy
             player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = insideOfAntique.transform.position;           
+            player.transform.position = new Vector3(insideOfAntique.transform.position.x, insideOfAntique.transform.position.y, 0f);           
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = true;
             variableStorage.SetValue("$exittheantique", false);
@@ -142,7 +142,7 @@ public class Blocks : MonoBehaviour
             // move the character back in front of antique
             player.transform.localScale = new Vector3(1f, 1f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = inFrontOfAntique.transform.position;
+            player.transform.position = new Vector3(inFrontOfAntique.transform.position.x, inFrontOfAntique.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = false;
             variableStorage.SetValue("$entertheantique", false);

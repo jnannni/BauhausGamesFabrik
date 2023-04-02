@@ -90,7 +90,7 @@ public class Graveyard : MonoBehaviour
             StartCoroutine(fadeLayer.FadeOut());
             isInsideTheChurch = true;
             variableStorage.SetValue("$enterthechurch", false);
-            player.transform.localScale = new Vector3(1.4f, 1.4f, 0f);
+            player.transform.localScale = new Vector3(1.2f, 1.2f, 0f);
         }
 
         if (exitthechurch && isInsideTheChurch)

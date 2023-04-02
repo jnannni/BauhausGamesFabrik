@@ -72,7 +72,7 @@ public class Gravedream : MonoBehaviour
             if (!playerInventory.myInventory.Contains(ticketItem))
             {
                 playerInventory.myInventory.Add(ticketItem);
-                ticketObject.GetComponent<ObjectInteractable>().enabled = false;
+                Destroy(ticketObject);
             }
         }
 

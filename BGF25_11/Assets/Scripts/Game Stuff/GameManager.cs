@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using TMPro;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -14,7 +15,10 @@ public class GameManager : MonoBehaviour
     private AudioManager audioManager;
 
     public GameObject continueClue;
+    public GameObject textPanel;
     public GameObject lastLine;
+    private string previousLine = "";
+    private string currentLine;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,9 +31,8 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {        
-        if (isDialogueRunning.initialValue && continueClue.activeSelf && Input.GetKeyDown(KeyCode.M)
-            || isDialogueRunning.initialValue && Input.GetKeyDown(KeyCode.M))
+    {       
+        if (isDialogueRunning.initialValue && continueClue.activeSelf && Input.GetKeyDown(KeyCode.M))
         {            
             audioManager.PlayOneShot(FMODEvents.instance.dialogueClick, this.transform.position);            
         }

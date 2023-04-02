@@ -24,6 +24,9 @@ public class TheG : MonoBehaviour
     private bool fallingfeeling;
     private bool exitgrandpashouse;
     private bool movemagnoliaback;
+    private bool gavethegriefbook;
+    private bool gavethestrangebook;
+    private bool objectfromsecurity;
 
     private FadeLayer fadeLayer;
     private bool isOnTheRoof;
@@ -49,10 +52,15 @@ public class TheG : MonoBehaviour
     [SerializeField] private GameObject item004Object;
     [SerializeField] private InventoryItem item005;
     [SerializeField] private GameObject item005Object;
+    [SerializeField] private InventoryItem griefingBook;
+    [SerializeField] private InventoryItem strangeBook;
     [SerializeField] private InventoryItem objectFromSecurity;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private Animator cameraAnimator;
     [SerializeField] private Animator canvasAnimator;
+    [SerializeField] private GameObject inventoryPanel;
+    public BoolValue isInventoryOpen;
+    public BoolValue isPaused;
 
     private AudioManager audioManager;
 
@@ -91,6 +99,9 @@ public class TheG : MonoBehaviour
         variableStorage.TryGetValue("$sheisdancing", out sheisdancing);
         variableStorage.TryGetValue("$pulsingeffect", out pulsingeffect);
         variableStorage.TryGetValue("$fallingfeeling", out fallingfeeling);
+        variableStorage.TryGetValue("$gavethegriefbook", out gavethegriefbook);
+        variableStorage.TryGetValue("$gavethestrangebook", out gavethestrangebook);
+        variableStorage.TryGetValue("$objectfromsecurity", out objectfromsecurity);
 
         if (gototheMuseum)
         {
@@ -117,6 +128,14 @@ public class TheG : MonoBehaviour
             }
         }
 
+        if (objectfromsecurity)
+        {
+            if (!playerInventory.myInventory.Contains(objectFromSecurity))
+            {
+                playerInventory.myInventory.Add(objectFromSecurity);                
+            }
+        }
+
         if (pulsingeffect || !pulsingeffect)
         {
             cameraAnimator.SetBool("headpulsing", pulsingeffect);
@@ -140,6 +159,30 @@ public class TheG : MonoBehaviour
             }
             boxCollider2DFall.enabled = true;
 
+        }
+
+        if (gavethegriefbook)
+        {
+            inventoryPanel.SetActive(false);
+            isInventoryOpen.initialValue = false;
+            isPaused.initialValue = false;
+            if (playerInventory.myInventory.Contains(griefingBook))
+            {
+                playerInventory.myInventory.Remove(griefingBook);
+            }
+            variableStorage.SetValue("$gavethegriefbook", false);
+        }
+
+        if (gavethestrangebook)
+        {
+            inventoryPanel.SetActive(false);
+            isInventoryOpen.initialValue = false;
+            isPaused.initialValue = false;
+            if (playerInventory.myInventory.Contains(strangeBook))
+            {
+                playerInventory.myInventory.Remove(strangeBook);
+            }
+            variableStorage.SetValue("$gavethestrangebook", false);
         }
 
         if (lookaround)
