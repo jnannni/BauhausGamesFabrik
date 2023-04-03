@@ -26,9 +26,11 @@ public class TheWorkerQuarters : MonoBehaviour
     private Vector3 playerStartPosition;
     private Vector3 playerCurrentPosition;
     private FadeLayer fadeLayer;
+    private AudioManager audioManager;
 
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
@@ -37,6 +39,7 @@ public class TheWorkerQuarters : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicWorkerQuarters);
         dialogueRunner.StartDialogue("TheWorkerQuarters");        
         playerCurrentPosition = player.transform.position;
         playerStartPosition = playerPosition.transform.position;

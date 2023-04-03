@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using TMPro;
 
 public class PauseManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PauseManager : MonoBehaviour
     public BoolValue isIllustrationWatched;
     public BoolValue isInventoryOpen, isInventoryAvailable;    
     public GameObject pausePanel;
-    public string mainMenu;
+    public string mainMenu;    
     public AudioMixer audioMixer;
     private GameObject inventorySelectedButton;
     private AudioManager audioManager;
@@ -24,16 +25,16 @@ public class PauseManager : MonoBehaviour
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        inventoryPanel.SetActive(false);
     }
 
     // Start is called before the first frame update
     void Start()
-    {             
+    {        
         isPaused.initialValue = false;
         inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;               
         isInventoryOpen.initialValue = false;
-        pausePanel.SetActive(false);
-        inventoryPanel.SetActive(false);
+        pausePanel.SetActive(false);        
     }
 
     // Update is called once per frame
@@ -126,5 +127,10 @@ public class PauseManager : MonoBehaviour
     {
         SceneManager.LoadScene(mainMenu);
         Time.timeScale = 1f;
+    }
+
+    public void BackToDemoEnd()
+    {
+        SceneManager.LoadScene("End");
     }
 }

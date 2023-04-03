@@ -23,6 +23,9 @@ public class MuseumCorner : MonoBehaviour
     [SerializeField] private GameObject insideOfTheMuseum;
     [SerializeField] private GameObject outsideOfTheMuseum;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject closerToDog;
+    [SerializeField] private GameObject theDog;
+    [SerializeField] private float approachSpeed = 3f;
     [SerializeField] private PlayerInventory playerInventory;
     
     private bool isInsideOfTheMuseum;
@@ -67,7 +70,7 @@ public class MuseumCorner : MonoBehaviour
             {
                 playerInventory.myInventory.Add(item006);
             }
-        }
+        }       
 
         if (enterthemuseum && !isInsideOfTheMuseum)
         {
@@ -97,11 +100,13 @@ public class MuseumCorner : MonoBehaviour
             }
         }
 
-        if (getclose)
+        if (getclose && player.transform.position != closerToDog.transform.position)
         {            
-            //playerAnimator.SetFloat("Horizontal", -1f);
-            //playerAnimator.SetFloat("Vertical", 0);
-            //player.transform.position = Vector3.MoveTowards(player.transform.position, closeToParents.transform.position, approachSpeed * Time.deltaTime);
+            playerAnimator.SetFloat("Horizontal", 1f);
+            playerAnimator.SetFloat("Vertical", 0);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, closerToDog.transform.position, approachSpeed * Time.deltaTime);
+            variableStorage.SetValue("$getclose", false);
+            Destroy(theDog);
         }
     }
 }

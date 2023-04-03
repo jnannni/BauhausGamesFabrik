@@ -84,6 +84,7 @@ public class Graveyard : MonoBehaviour
 
         if (enterthechurch && !isInsideTheChurch)
         {
+            //audioManager.InitializeMusic(FMODEvents.instance.musicChurch);
             // move the character to the church position
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(insideTheChurch.transform.position.x, insideTheChurch.transform.position.y, 0f);

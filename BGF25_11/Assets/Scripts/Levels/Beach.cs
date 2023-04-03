@@ -16,7 +16,8 @@ public class Beach : MonoBehaviour
     private bool putintheinventory12;
     private bool everythingchanges;
 
-    private FadeLayer fadeLayer;    
+    private FadeLayer fadeLayer;
+    private AudioManager audioManager;
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private GameObject player;
@@ -27,6 +28,7 @@ public class Beach : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
@@ -35,6 +37,7 @@ public class Beach : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicBeach);
         dialogueRunner.StartDialogue("TheBeach");
     }
 

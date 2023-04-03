@@ -27,10 +27,12 @@ public class FrozenVillage : MonoBehaviour
     [SerializeField] private Animator transitionAnimator;
 
     private FadeLayer fadeLayer;
+    private AudioManager audioManager;
 
 
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
@@ -38,7 +40,8 @@ public class FrozenVillage : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        audioManager.InitializeMusic(FMODEvents.instance.musicFrozenVillage);
         dialogueRunner.StartDialogue("TheDreamworld_04");
     }
 

@@ -15,19 +15,28 @@ public class MainMenu : MonoBehaviour
     private FadeLayer fadeLayer;
     public EventSystem eventSystem;    
     public GameObject optionsMenu, mainMenu;
-    public Button loadGameButton;
+    public Button loadGameButton, optionsButton;
     public GameObject optionsFirstButton, optionsClosedFirstButton;
     [SerializeField] private Animator transitionAnimator;
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+        fadeLayer = FindObjectOfType<FadeLayer>();
+    }
 
     private void Start()
     {
-        startTheNewGame = false;
-        fadeLayer = FindObjectOfType<FadeLayer>();
+        audioManager.InitializeMusic(FMODEvents.instance.mainMenuMusic);
+        startTheNewGame = false;        
         gameExists = false;
         if (!gameExists)
         {
             loadGameButton.enabled = false;
+            optionsButton.enabled = false;
             loadGameButton.gameObject.GetComponentInChildren<TMP_Text>().color = new Color(0.5566038f, 0.5566038f, 0.5566038f, 0.6235294f);
+            optionsButton.gameObject.GetComponentInChildren<TMP_Text>().color = new Color(0.5566038f, 0.5566038f, 0.5566038f, 0.6235294f);
         }
     }
 

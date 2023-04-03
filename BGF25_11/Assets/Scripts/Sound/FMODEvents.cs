@@ -22,6 +22,9 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference musicDreamBlocks { get; private set; }
     [field: SerializeField] public EventReference musicFrozenVillage { get; private set; }
     [field: SerializeField] public EventReference musicRedBeach { get; private set; }
+    [field: SerializeField] public EventReference musicChurch { get; private set; }
+    [field: SerializeField] public EventReference golemCutScene { get; private set; }
+    [field: SerializeField] public EventReference mainMenuMusic { get; private set; }
 
     [field: Header("Player SFX")]
     [field: SerializeField] public EventReference playerFootsteps { get; private set; }
