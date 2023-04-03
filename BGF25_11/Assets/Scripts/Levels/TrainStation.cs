@@ -23,9 +23,11 @@ public class TrainStation : MonoBehaviour
     [SerializeField] private GameObject illustrationPanel;
 
     private FadeLayer fadeLayer;
+    private AudioManager audioManager;
 
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
@@ -34,6 +36,7 @@ public class TrainStation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicTrainStation);
         dialogueRunner.StartDialogue("BackInTheWaking");
     }
 

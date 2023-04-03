@@ -30,6 +30,7 @@ title: TheG
 <<set $hascomb to false>>
 <<set $askaboutstation to false>>
 
+<<SetPortrait noportrait>>
 Magnolia: (This is getting out of hand.)
 Magnolia: (I'm starting to believe it.)
 Magnolia: (At the same time I feel like I'm losing contact with reality.)
@@ -41,24 +42,38 @@ Magnolia: (I don't even know if I should search here or in the dreams.)
 
 title: TheGuilty
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheGuilty") < 1>>
+ <<SetPortrait guiltyportrait1>>
  The Guilty: God forgives your sins, but society never does.
+ <<SetPortrait noportrait>>
  Magnolia: (There has been a lot of God talk lately.)
+ <<SetPortrait guiltyportrait1>>
  The Guilty: Sun even seems to be judging me.
  The Guilty: Back home sun couldn't reach at least.
+ <<SetPortrait noportrait>>
  Magnolia: And where is home?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: They put me there to punish me.
  The Guilty: But they saved me from judgment.
+ <<SetPortrait noportrait>>
  Magnolia: You went to prison?!
+ <<SetPortrait guiltyportrait1>>
  The Guilty: You can call it that.
+ <<SetPortrait noportrait>>
  Magnolia: How do you call it?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: It was my second chance.
+ <<SetPortrait noportrait>>
  Magnolia: But I thought your second chance is here.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: There are no chances in this world.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (I don't know if this guy can help me.)
   <<jump TheGuilty_Questions>>
 <<else>>
+ <<SetPortrait guiltyportrait1>>
  The Guilty: Do you know a way for me to go back?
   <<jump TheGuilty_Questions>>
 <<endif>>
@@ -67,78 +82,115 @@ title: TheGuilty
 title: TheGuilty_Questions
 ---
 -> What was the prison like?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: The sun didn't touch us.
+ <<SetPortrait noportrait>>
  Magnolia: Why are you afraid of the sun?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: I am not afraid. 
  The Guilty: But it burns.
  <<wait 0.2>>
  The Guilty: In prison, you don't have that many options.
  The Guilty: That's the only place where I believe in destiny.
  The Guilty: Everything was predetermined.
+ <<SetPortrait noportrait>>
  Magnolia: But why is that good?
  Magnolia: Don't you want the freedom to choose?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: Freedom is a burden. I never make the right choice.
+ <<SetPortrait noportrait>>
  Magnolia: You could learn how to make the right choice.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: How do you know something is the right choice?
+ <<SetPortrait noportrait>>
  Magnolia: For some things you just know.
  Magnolia: That's why there are laws, morals, and personal beliefs.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: Moral codes and beliefs are quite subjective. That's why I turn to the law.
  The Guilty: However, I am not good at studying, so I prefer to stay close as possible to it.
+ <<SetPortrait noportrait>>
  Magnolia: I don't think I would like that.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: It's not for everyone.
  <<wait 0.5>>
  The Guilty: Did you ever commit a crime?
  <<set $pulsingeffect to true>>
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: I don't think I have.
  <<set $pulsingeffect to false>>
  Magnolia: But I don't remember much.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: Maybe you are trying to forget something you did.
+ <<SetPortrait noportrait>>
  Magnolia: It's...It's not that.
  Magnolia: It was an accident.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: You caused an accident?
+ <<SetPortrait noportrait>>
  Magnolia: No!
  Magnolia: I was not there.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: I'll believe you.
+ <<SetPortrait noportrait>>
  Magnolia: But it's the truth.
  <<wait 0.5>>
  Magnolia: I have to go.
 -> How long did you stay there?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: I am not sure.
  The Guilty: My original sentence was 30 years, but they let me go after just a few.
+ <<SetPortrait noportrait>>
  Magnolia: (30 years?! What could have he possibly done?!)
  Magnolia: Why did they let you out?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: For the exceptional behavior, unfortunately!
  The Guilty: But I just really liked it there.
  <<jump TheGuilty_Questions>>
 -> Do you have any friends inside?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: Not anymore.
+ <<SetPortrait noportrait>>
  Magnolia: They got out?
+ <<SetPortrait guiltyportrait1>>
  The Guilty: They killed them all just before I left.
+ <<SetPortrait noportrait>>
  Magnolia: They can kill people?!
+ <<SetPortrait guiltyportrait1>>
  The Guilty: They were not people.
  The Guilty: But what does that matter?! Do their deaths sadden you less now?
+ <<SetPortrait noportrait>>
  Magnolia: No, I...Of course not.
  Magnolia: What were they?
  <<wait 0.5>>
+ <<SetPortrait guiltyportrait1>>
  The Guilty: They would come to my room and sleep under my feet.
  The Guilty: The music of their nocturnal lives put me to sleep.
  The Guilty: We could never understand each other through language, but we knew well our thoughts.
  The Guilty: We were all free in that cage.
+ <<SetPortrait noportrait>>
  Magnolia: (It's not again rabbits is it?)
  <<jump TheGuilty_Questions>>
 -> Do you know how I could get to the train station? <<if $askaboutstation is true>>
+ <<SetPortrait guiltyportrait1>>
  The Guilty: Are you sure you want to get there?
+ <<SetPortrait noportrait>>
  Magnolia: Pretty sure.
+ <<SetPortrait guiltyportrait1>>
  The Guilty: You could try to go through the park.
  <<if visited_count("ThePark") > 0>>
+  <<SetPortrait noportrait>>
   Magnolia: I tried. I can't get in without a rabbit.
+  <<SetPortrait guiltyportrait1>>
   The Guilty: Ah, that's true.
   The Guilty: Maybe you could fly over it?
   <<set $hasclue_fly to true>>
+  <<SetPortrait noportrait>>
   Magnolia: Are you being serious?
+  <<SetPortrait guiltyportrait1>>
   The Guilty: I might be.
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: Oh so that's the way.
  <<endif>>
 -> Never mind.
@@ -147,29 +199,41 @@ title: TheGuilty_Questions
 title: TheChild
 ---
 <<if visited_count("TheChild") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (I don't see his parents around.)
  Magnolia: (Even tho nothing seems to make sense anymore, I'm still worried about the little ones.)
  <<wait 0.2>>
  Magnolia: Hey kid, are you lost?
+ <<SetPortrait kidportrait1>>
  The Child: I know my way home.
+ <<SetPortrait noportrait>>
  Magnolia: That's good.
  Magnolia: Do you want me to walk you there?
+ <<SetPortrait kidportrait1>>
  The Child: I can't talk to strangers.
+ <<SetPortrait noportrait>>
  Magnolia: I understand that.
  Magnolia: Do you at least live close by?
+ <<SetPortrait kidportrait1>>
  The Child: Yes.
  The Child: But my home changed.
+ <<SetPortrait noportrait>>
  Magnolia: How did it change?
+ <<SetPortrait kidportrait1>>
  The Child: Some strange people are living inside.
+ <<SetPortrait noportrait>>
  Magnolia: (?)
  Magnolia: So you can't find your parents?
+ <<SetPortrait kidportrait1>>
  The Child: I know where my parents live.
  The Child: They are just not there.
   <<jump TheChild_Questions>>
 <<elseif visited_count("TheChild") == 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (This situation seems too serious for me to handle it.)
  Magnolia: (Does this child have some kind of memory loss, or delusions?)
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (I still should try to help, right?)
 <<endif>>
 ===
@@ -177,50 +241,79 @@ title: TheChild
 title: TheChild_Questions
 ---
 -> What do you mean they are not there?
+ <<SetPortrait guiltyportrait1>>
  The Child: That's where I left them.
  The Child: But when I came back, it was some other people living inside.
+ <<SetPortrait noportrait>>
  Magnolia: Some strangers are living inside your house?
+ <<SetPortrait kidportrait1>>
  The Child: Yes.
+ <<SetPortrait noportrait>>
  Magnolia: Are you sure you got the right house?
+ <<SetPortrait kidportrait1>>
  The Child: It's my house. I know my house.
+ <<SetPortrait noportrait>>
  Magnolia: Okay, but why would your parents leave?
+ <<SetPortrait kidportrait1>>
  The Child: They left?!
+ <<SetPortrait noportrait>>
  Magnolia: No, I don't know. 
  Magnolia: I'm sure they are somewhere close by, looking for you.
+ <<SetPortrait kidportrait1>>
  The Child: I don't think they are looking for me.
+ <<SetPortrait noportrait>>
  Magnolia: Why do you think like that?
+ <<SetPortrait kidportrait1>>
  The Child: They would find me. 
  The Child: I always play at the same spot.
  The Child: This is where the frogs come out.
 -> When did you see your parents last?
+ <<SetPortrait kidportrait1>>
  The Child: In the morning when they left for work.
+ <<SetPortrait noportrait>>
  Magnolia: Do you know where they work?
+ <<SetPortrait kidportrait1>>
  The Child: It's somewhere important.
  The Child: They never let me bother them when they work.
+ <<SetPortrait noportrait>>
  Magnolia: But do you know what your parents do?
+ <<SetPortrait kidportrait1>>
  The Child: No. They never told me.
  The Child: I don't like when they work.
+ <<SetPortrait noportrait>>
  Magnolia: Why?
+ <<SetPortrait kidportrait1>>
  The Child: Their eyes disappear.
+ <<SetPortrait noportrait>>
  Magnolia: Their eyes?
+ <<SetPortrait kidportrait1>>
  The Child: Then they can't look at me anymore.
  The Child: I never saw their eyes when they talk about work.
  The Child: It scares me.
+ <<SetPortrait noportrait>>
  Magnolia: It's okay. I'll try to make it right.
  <<jump THeChild_Questions>>
 -> Do you want me to take you to the police to help you find your parents?
+ <<SetPortrait kidportrait1>>
  The Child: I don't want them to arrest my parents.
  The Child: Then I'll see them even less.
+ <<SetPortrait noportrait>>
  Magnolia: They are not going to arrest them.
  Magnolia: (I think. They did leave a child alone.)
  Magnolia: They will just help you find them again.
  Magnolia: They will ask those strangers in your house who they are.
+ <<SetPortrait kidportrait1>>
  The Child: I asked.
+ <<SetPortrait noportrait>>
  Magnolia: You asked?
  Magnolia: What did they say?
+ <<SetPortrait kidportrait1>>
  The Child: They told me I look like one of their children.
+ <<SetPortrait noportrait>>
  Magnolia: And nothing else?
+ <<SetPortrait kidportrait1>>
  The Child: No.
+ <<SetPortrait noportrait>>
  Magnolia: That's strange.
  <<jump TheChild_Questions>>
 -> (It's not for me to deal with this.)
@@ -233,13 +326,20 @@ title: TheKindGrandpa01
 //you go out on the roof
 //you get an dOBJECT 004
 <<if visited_count("TheKindGrandpa01") < 1>>
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: You seem like such a sunny creature.
+<<SetPortrait noportrait>>
 Magnolia: Thank you?
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: Three little purple rabbits came this morning for their milk.
+<<SetPortrait noportrait>>
 Magnolia: Did you say purple rabbits?
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: Kittens, yes. They were so lovely.
 The Kind Grandpa: I put the bowl under the table, so it doesn't go bad under the sun.
+<<SetPortrait noportrait>>
 Magnolia: There was no sun this morning.
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: The sun is my only friend these days.
 The Kind Grandpa: Old age is lonely.
 The Kind Grandpa: Do you maybe want a cup of tea?
@@ -247,6 +347,7 @@ The Kind Grandpa: Do you maybe want a cup of tea?
   <<set $enterthegranshouse to true>>
  -> No? 
 <<else>>
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: Do you maybe want a cup of tea?
  -> That would be nice.
   <<set $enterthegranshouse to true>>
@@ -256,15 +357,18 @@ The Kind Grandpa: Do you maybe want a cup of tea?
 
 title: TheGrandpaHouse
 ---
+<<SetPortrait noportrait>>
 Magnolia: (This smell is the smell of old books.)
 Magnolia: (But this doesn't bring back any memories.)
 Magnolia: (All my grandparents died long ago.)
 <<wait 1>>
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: Feel at home, my dear.
 ===
 
 title: TheGrandpaObject
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Why do I feel like the little dots on this old comb are eyes?)
 Magnolia: (The last time that **** completely transformed in my dream.)
 Magnolia: (And this comb already seems kind of mystical.)
@@ -272,28 +376,36 @@ Magnolia: (But I shouldn't steal from the old.)
  -> Take it anyway.
    <<set $putintheinventory004 to true>>
    <<set $hascomb to true>>
+   <<SetPortrait kindgrandpaportrait1>>
    The Kind Grandpa: It was given to my wife by her first love.
    The Kind Grandpa: She was seventeen.
    <<wait 0.5>>
+   <<SetPortrait noportrait>>
    Magnolia: (Did I get caught?)
    Magnolia: (Should I return it?)
     -> Yes.
+     <<SetPortrait noportrait>>
      Magnolia: (I feel no guilt anymore.)
      Magnolia: (I have to see this through to the end.)
     -> Keep it.
+     <<SetPortrait noportrait>>
      Magnolia: (It's okay to be selfish.)
   <<wait 0.5>>
    Magnolia: Didn't it bother you?
    Magnolia: That she kept it?
+   <<SetPortrait kindgrandpaportrait1>>
    The Kind Grandpa: Oh, never.
    The Kind Grandpa: I found it always very romantic.
    The Kind Grandpa: I very well understand a person who would want to give her such a nice gift.
+   <<SetPortrait noportrait>>
    Magnolia: That seems like a healthy way to think.
+   <<SetPortrait kindgrandpaportrait1>>
    The Kind Grandpa: It's just very natural to me.
 ===
 
 title: TheGrandpa_Inside
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheGrandpa_Inside") < 1>>
  Magnolia: (He seems so fragile.)
  Magnolia: (Old people always saddened me.)
@@ -306,6 +418,7 @@ title: TheGrandpa_Inside
 ===
 title: GrandpasDoor
 ---
+<<SetPortrait noportrait>>
 Magnolia: (I don't feel like going back.)
 Magnolia: (But maybe I forgot something.)
  -> Go outside.
@@ -316,38 +429,54 @@ Magnolia: (But maybe I forgot something.)
 title: TheVase
 ---
 //granpa talks about his life
+<<SetPortrait noportrait>>
 Magnolia: This vase seems truly old.
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: It's older than me.
 The Kind Grandpa: However, it's not that important.
 The Kind Grandpa: Nor valuable.
 The Kind Grandpa: It's a fake.
+<<SetPortrait noportrait>>
 Magnolia: (If something is fake, it's not worth it.)
 Magnolia: (Even if it looks the same.)
 Magnolia: (Feels the same.)
 <<wait 0.5>>
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: However, its purpose was once really important.
+<<SetPortrait noportrait>>
 Magnolia: It was?
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: You see that door behind?
+<<SetPortrait noportrait>>
 Magnolia: Not really?
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpda: Exactly.
 The Kind Grandpa: The grandiose presence of that fake vase is hiding the existence of a door.
 The Kind Grandpa: And that door was used for escaping in dire situations.
+<<SetPortrait noportrait>>
 Magnolia: What kind of situations?
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: It's not polite to talk of depressing matters under the sun.
+<<SetPortrait noportrait>>
 Magnolia: But it's not sunny...
+<<SetPortrait kindgrandpaportrait1>>
 The Kind Grandpa: The tea is almost ready.
+<<SetPortrait noportrait>>
 Magnolia: (Now everything sounds like a clue on a quest.)
 Magnolia: (I can't help to think I should go on that roof.)
 <<if $hascomb is true>>
  -> Stop listening and go on the roof.
+  <<SetPortrait noportrait>>
   Magnolia: (Maybe he will forgive me.)
   <<set $goontheroof to true>>
  -> Listen to him.
+  <<SetPortrait noportrait>>
   Magnolia: (I can't d that anymore.)
   Magnolia: (I'm too distracted.)
    -> Go on the roof.
    <<set $goontheroof to true>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (I might have missed something important.)
 <<endif>>
 ===
@@ -355,6 +484,7 @@ Magnolia: (I can't help to think I should go on that roof.)
 title: TheRoofObject
 ---
 //you find the object on the roof OBJECT 005
+<<SetPortrait noportrait>>
 Magnolia: (I don't know what I'll use this for.)
  -> Pick it up anyway.
   <<set $putintheinventory005 to true>>
@@ -364,6 +494,7 @@ Magnolia: (I don't know what I'll use this for.)
 title: TheSpot
 ---
 //from here you see the station
+<<SetPortrait noportrait>>
 Magnolia: (I have never seen the city from this height.)
 -> Look at the distance.
  <<set $lookaround to true>>
@@ -377,6 +508,7 @@ Magnolia: (I have never seen the city from this height.)
 
 title: TheRoofEnd
 ---
+<<SetPortrait noportrait>>
 Magnolia: (These are stairs to go down.)
 Magnolia: (They look safe enough.)
  -> Go down.
@@ -387,22 +519,29 @@ Magnolia: (They look safe enough.)
 title: TheOneToImpress
 ---
 <<if visited_count("TheOneToImpress") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (She is pretty.)
  The One To Impress: Don't be shy. 
  The One To Impress: How do I look?
+ <<SetPortrait noportrait>>
  Magnolia: I absolutely love your dress.
  The One: Only my dress?
+ <<SetPortrait noportrait>>
  Magnolia: (I don't know what to tell her.)
  Magnolia: I can't see your face.
  The One: I have no face.
+ <<SetPortrait noportrait>>
  Magnolia: What do you mean?
  The One: I made a mistake.
+ <<SetPortrait noportrait>>
  Magnolia: What kind of a mistake?
  The One: I dared to live how I wanted.
+ <<SetPortrait noportrait>>
  Magnolia: That's how you lose a face?
  The One: I should have listened.
  <<wait 0.5>>
  The One: But I'm still beautiful.
+ <<SetPortrait noportrait>>
  Magnolia: You are.
  The One: Do you want to see me dance?
   -> I would love to.
@@ -412,13 +551,17 @@ title: TheOneToImpress
 //she is there just for the talk, maybe we get some clue before to unlock more parts of the conversation
 <<elseif visited_count("TheOneToImpress") == 1>>
  The One: Until I am pretty I live.
+ <<SetPortrait noportrait>>
  Magnolia: What happens after?
  The One: The sun will burn my skin and turn me into dust.
+ <<SetPortrait noportrait>>
  Magnolia: Then you will still exist in the wind.
  The One: Exist, but not live.
  The One: It's almost the same as now.
+ <<SetPortrait noportrait>>
  Magnolia: I think I might understand what you are telling.
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (She makes me sad.)
  Magnolia: (I'll just let her dance.)
 <<endif>>
@@ -431,38 +574,57 @@ title: TheSecurity
 //there will be another way to pass, but only if you give him a book, you get another object while passing
 <<if visited_count("TheSchool") > 0>>
  <<if $askedthisquestion is true>>
+  <<SetPortrait noportrait>>
   Magnolia: (I still can't get what he said out of my head.)
    -> Do you know any children that died?
     <<jump TheSecurity_Children>>
  <<else>>
+  <<SetPortrait securityportrait1>>
   The Security: What makes you come here on a break day miss?
+  <<SetPortrait noportrait>>
   Magnolia: (I didn't know it was a break.)
   Magnolia: I am looking for a way to go to that bridge.
+  <<SetPortrait securityportrait1>>
   The Security: Without kids, the school has no reason to be open.
+  <<SetPortrait noportrait>>
   Magnolia: But do you have keys? 
   Magnolia: I just need to pass.
+  <<SetPortrait securityportrait1>>
   The Security: You should find the other way.
+  <<SetPortrait noportrait>>
   Magnolia: But there seems to be no other way!
+  <<SetPortrait securityportrait1>>
   The Security: There is always another way.
   The Security: Maybe you should come back when you are a child.
+  <<SetPortrait noportrait>>
   Magnolia: When I am a child?
+  <<SetPortrait securityportrait1>>
   The Security: Time started going backward.
+  <<SetPortrait noportrait>>
   Magnolia: Since when?
+  <<SetPortrait securityportrait1>>
   The Security: With each child that dies, time goes a little bit backward.
+  <<SetPortrait noportrait>>
   Magnolia: (It's a bit creepy?)
   -> Do you know any children that died?
    <<jump TheSecurity_Children>>
   -> What if I can't come back as a child?
+   <<SetPortrait securityportrait1>>
    The Security: That's your problem miss.
+   <<SetPortrait noportrait>>
    Magnolia: But I want to go to the other part of the city!
+   <<SetPortrait securityportrait1>>
    The Security: That's too bad.
    <<set $askedthisquestion to true>>
  <<endif>>
 <<else>>
  <<if visited_count("TheSecurity") < 1>>
+  <<SetPortrait securityportrait1>>
   The Security: What makes you come here on a break day miss?
+  <<SetPortrait noportrait>>
   Magnolia: I'm not sure.
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: (I don't need to disturb him.)
  <<endif>>
 <<endif>>
@@ -470,13 +632,19 @@ title: TheSecurity
 
 title: TheSecurity_Children
 ---
+   <<SetPortrait securityportrait1>>
    The Security: My child died.
+   <<SetPortrait noportrait>>
    Magnolia: Really?
    Magnolia: I'm so sorry.
+   <<SetPortrait securityportrait1>>
    The Security: No need, the time will pick him up and bring him back.
+   <<SetPortrait noportrait>>
    Magnolia: So you think time resurrects?
+   <<SetPortrait securityportrait1>>
    The Security: I don't know about any of that.
    The Security: I just know I'll see him again.
+   <<SetPortrait noportrait>>
    Magnolia: That's nice.
    Magnolia: (Maybe he has a bigger need for that grief book than me.)
    Magnolia: (I also found that old fiction book about tree roots.)
@@ -487,15 +655,21 @@ title: TheSecurity_Children
 title: GaveTheBook1
 ---
 <<set $gavethegriefbook to true>>
+<<SetPortrait noportrait>>
 Magnolia: Here. It was supposed to help me.
+<<SetPortrait securityportrait1>>
 The Security: Did it?
+<<SetPortrait noportrait>>
 Magnolia: No. But I hope it helps you.
 <<wait 0.5>>
+<<SetPortrait securityportrait1>>
 The Security: Thank you.
 <<wait 0.2>>
 The Security: I have something for you.
 The Security: I hope it comes useful for you.
+<<SetPortrait noportrait>>
 Magnolia: Oh, I don't know what to say.
+<<SetPortrait securityportrait1>>
 The Security: You don't have to say anything.
 <<set $objectfromsecurity to true>>
 <<set $gavethebook01 to true>>
@@ -504,9 +678,13 @@ The Security: You don't have to say anything.
 title: GaveTheBook2
 ---
 <<set $gavethestrangebook to true>>
+<<SetPortrait noportrait>>
 Magnolia: Here. I found it lying around.
+<<SetPortrait securityportrait1>>
 The Security: What is it?
+<<SetPortrait noportrait>>
 Magnolia: A book. It might help you keep your thoughts busy.
+<<SetPortrait securityportrait1>>
 The Security: Thanks.
 <<set $objectfromsecurity to true>>
 <<set $gavethebook02 to true>>
@@ -514,6 +692,7 @@ The Security: Thanks.
 
 title: TheSchool
 ---
+<<SetPortrait noportrait>>
 Magnolia: (This seems like the only way to get to the bridge.)
 <<wait 1>>
 Magnolia: (I barely remember my school days.)
@@ -534,6 +713,7 @@ Magnolia: (It feels so distant.)
 
 title: TheBridge
 ---
+<<SetPortrait noportrait>>
 Magnolia: (I have never been to this part of the city.)
 -> (I still want to check out something here.)
 -> Pass the bridge.
@@ -542,6 +722,7 @@ Magnolia: (I have never been to this part of the city.)
 
 title: BackToSchool
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Do I really want to turn back now?)
  -> Do it.
   <<set $movemagnoliaback to true>>
@@ -552,12 +733,14 @@ Magnolia: (Do I really want to turn back now?)
 
 title: TheCrashScene
 ---
+<<SetPortrait noportrait>>
 Magnolia: (The world is falling into chaos.)
 Magnolia: (I can't go there.)
 ===
 
 title: TheButterfly
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheButterfly") < 1>>
 Magnolia: (This is where my parents stood in that dream.)
 Magnolia: (For a second I got my memories back.)
@@ -571,6 +754,7 @@ Magnolia: (I just want to sit and draw butterflis.)
 
 title: TheRoofWindow
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheRoofWindow") < 1>>
 A male voice: Who is up for an amusement park day tomorrow.
 Kids: Me! Me! Mememememe! Nooo, me!
@@ -591,6 +775,7 @@ Magnlia: (Are they also looking for the star?)
 
 title: ADate
 ---
+<<SetPortrait noportrait>>
 Magnolia: (I've never been on a date.)
 <<wait 0.5>>
 Magnolia: (Have I ever fallen in love?)
@@ -601,6 +786,7 @@ Magnolia: (Haha, no way.)
 
 title: AFall
 ---
+<<SetPortrait noportrait>>
 <<set $fallingfeeling to true>>
 <<wait 0.5>>
 Magnolia: (If I fall now and die...)
@@ -610,18 +796,21 @@ Magnolia: (Will I wake up and realize it was all a messed up dream?)
 
 title: TheWilderness06
 ---
+<<SetPortrait noportrait>>
 Magnolia: (It's like mountains are getting taller.)
 Magnlia: (And the forest is closing in.)
 ===
 
 title: TheOtherEnd
 ---
+<<SetPortrait noportrait>>
 Magnolia: (The road tehre is falling apart.)
 Magnolia: (I'm not in a dream, I can't risk my life.)
 ===
 
 title: KidsDrawings
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Again a sun.)
 Magnolia: (If anything, the clouds are getting darker.)
 <<wait 0.5>>

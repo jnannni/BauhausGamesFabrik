@@ -1,4 +1,3 @@
-
 //NOW WE ARE IN THE ZONE VI THE MUSEUM CORNER
 
 title: TheMuseumCorner
@@ -21,46 +20,72 @@ title: TheMuseumCorner
 title: TheAnxious
 ---
 <<if visited_count("TheAnxious") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (He seems as unhinged as me.)
  Magnolia: Hey!
+ <<SetPortrait anxiousportrait1>>
  The Anxious: Hey!
+ <<SetPortrait noportrait>>
  Magnolia: You seem like something is bothering you.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: YOU seem like something is bothering YOU.
+ <<SetPortrait noportrait>>
  Magnolia: Something does.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: Something does?
+ <<SetPortrait noportrait>>
  Magnolia: I am in this really weird situation.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: [b]I[/b] am in a really weird situation.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (Is he just repeating after me?)
  Magnolia: What is it?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: What?
+ <<SetPortrait noportrait>>
  Magnolia: The situation you are talking about.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I don't know the situation you are talking about.
+ <<SetPortrait noportrait>>
  Magnolia: That's not what I asked. I meant your situation.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: That's not what you asked?
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (I am easily annoyed these days.)
  Magnolia: Hey! Seriously.
  Magnolia: What is it with the repeating?
  <<wait 0.5>>
+ <<SetPortrait anxiousportrait1>>
  The Anxious: If we do it like this...
  The Anxious: They might not know two people are standing here.
  <<wait 1>>
  <<jump TheAnxious_Questions>>
 <<elseif visited_count("TheAnxious") == 1>>
+ <<SetPortrait anxiousportrait1>>
  The Anxious: You should stand in my shadow.
+ <<SetPortrait noportrait>>
  Magnolia: I don't think I understand you.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I don't think I understand YOU.
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: I think there is some kind of an error happening.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I think too.
+ <<SetPortrait noportrait>>
  Magnolia: You are also seeing it?!
+ <<SetPortrait anxiousportrait1>>
  The Anxious: You are.
+ <<SetPortrait noportrait>>
  Magnolia: I am. But are you?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: No, just you.
  The Anxious: You are the error.
   <<jump TheAnxious_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (He makes me stressed.)
  Magnolia: (It's better if I immediately get to the point.)
  <<jump TheAnxious_Questions>>
@@ -70,78 +95,131 @@ title: TheAnxious
 title: TheAnxious_Questions
 ---
 -> Who is it that you are hiding from?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: The ones who wish to delete us.
  The Anxious: They don't need as many copies.
+ <<SetPortrait noportrait>>
  Magnolia: (Okay?)
+ <<SetPortrait anxiousportrait1>>
  The Anxious: However if we stand close, they might not notice that there are two of us.
+ <<SetPortrait noportrait>>
  Magnolia: Two of us? Are we the same?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: We are all the same. Or one.
+ <<SetPortrait noportrait>>
  Magnolia: Why do you believe that?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I know I am just a shell.
  The Anxious: But that emptiness rings when the fear strikes.
  The Anxious: I feel the ringing in my ears.
  The Anxious: Could you please stop being that anxious?
+ <<SetPortrait noportrait>>
  Magnolia: What do I have to do with you?
  Magnolia: How do you even know I am anxious? I'm quite happy.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I told you, I'm just a shell.
  The Anxious: My life is not mine.
+ <<SetPortrait noportrait>>
  Magnolia: Whose is it?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: The suns.
+ <<SetPortrait noportrait>>
  Magnolia: Then ask the sun to be less anxious.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I did.
+ <<SetPortrait noportrait>>
  Magnolia: (He is just getting me nervous.)
 -> I still don't understand why you are repeating everything.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: You can't control an echo.
+ <<SetPortrait noportrait>>
  Magnolia: That's not an echo, that's just your voice.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: If you say so.
+ <<SetPortrait noportrait>>
  Magnolia: It's just common sense.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I didn't know anything common, or sensible was left in here.
+ <<SetPortrait noportrait>>
  Magnolia: Here - where?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: It's a shell. All of this is just a shell.
  The Anxious: And the thoughts and the sun rays echo through it.
+ <<SetPortrait noportrait>>
  Magnolia: Could you try to talk a little bit more coherently?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: My voice doesn't belong to me.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (He is getting on my nerves.)
  Magnolia: But you see! You are not repeating anymore.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: That happens when you fight with yourself.
+ <<SetPortrait noportrait>>
  Magnolia: I don't think you can help me...
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I could.
  The Anxious: As much as you can.
+ <<SetPortrait noportrait>>
  Magnolia: Okay, I got it.
 -> Do you also feel your heart in your throat?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I feel your heart in my throat.
+ <<SetPortrait noportrait>>
  Magnolia: Excuse me?!
+ <<SetPortrait anxiousportrait1>>
  The Anxious: Excuses, yes.
+ <<SetPortrait noportrait>>
  Magnolia: What did you say?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: What did YOU say?
+ <<SetPortrait noportrait>>
  Magnolia: Nothing. You were weird.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: Being nothing is weird.
  The Anxious: But I don't have a choice.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Is something bothering you?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: You.
+ <<SetPortrait noportrait>>
  Magnolia: Me?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: Us.
+ <<SetPortrait noportrait>>
  Magnolia: There's no us. I've never met you before.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: You should get to know yourself.
+ <<SetPortrait noportrait>>
  Magnolia: I know myself well, thank you.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: Do you?
  <<wait 0.5>>
  The Anxious: Stay in my shadow and don't breathe.
+ <<SetPortrait noportrait>>
  Magnolia: (Definitely not doing that.)
 -> How am I the error? <<if visited_count("TheAnxious") > 1>>
+ <<SetPortrait anxiousportrait1>>
  The Anxious: The sun should be in the sky.
+ <<SetPortrait noportrait>>
  Magnolia: Wait.
  Magnolia: Do you also notice there is no sun these days?
+ <<SetPortrait anxiousportrait1>>
  The Anxious: Oh no, the sun is here.
+ <<SetPortrait noportrait>>
  Magnolia: But you said...
+ <<SetPortrait anxiousportrait1>>
  The Anxious: I didn't say anything.
  The Anxious: You did.
+ <<SetPortrait noportrait>>
  Magnolia: Okay.
 -> Do you know how I could get to the train station? <<if $askaboutstation is true>>
+ <<SetPortrait anxiousportrait1>>
  The Anxious: If you don't know, I don't know.
+ <<SetPortrait noportrait>>
  Magnolia: That makes no sense.
+ <<SetPortrait anxiousportrait1>>
  The Anxious: This world is senseless.
 -> He is too much for me.
 ===
@@ -149,53 +227,83 @@ title: TheAnxious_Questions
 title: TheGeek
 ---
 <<if visited_count("TheGeek") < 1>>
+ <<SetPortrait geekportrait1>>
  The Geek: 1, 2, 4, 16, 256...
  The Geek: 4294967296, 1.8446744e+25...Oh no!
  The Geek: I made a mistake!
  The Geek: Shit.
  The Geek: 1, 2, 4, 16, 256...
+ <<SetPortrait noportrait>>
  Magnolia: Hey, sorry, but what are you counting?
+ <<SetPortrait geekportrait1>>
  The Geek: Wait, wait! 
  The Geek: I'll again make a mistake.
  The Geek: 65536, 4294967283...
  The Geek: Again! No, no, no.
+ <<SetPortrait noportrait>>
  Magnolia: Hey, it's okay. It's okay.
  Magnolia: No need to get stressed.
+ <<SetPortrait geekportrait1>>
  The Geek: The sun’s rays are multiplying so fast.
+ <<SetPortrait noportrait>>
  Magnolia: You are counting the sun rays?
+ <<SetPortrait geekportrait1>>
  The Geek: Yes! Look at them swimming through the air.
+ <<SetPortrait noportrait>>
  Magnolia: (Swimming?)
  Magnolia: Why are you counting them?
+ <<SetPortrait geekportrait1>>
  The Geek: It's for school.
+ <<SetPortrait noportrait>>
  Magnolia: I never heard of anyone asking for such stuff in school...
+ <<SetPortrait geekportrait1>>
  The Geek: I can't go home until I do it right!
+ <<SetPortrait noportrait>>
  Magnolia: Why?
+ <<SetPortrait geekportrait1>>
  The Geek: The final number is the password for the main door of my house.
+ <<SetPortrait noportrait>>
  Magnolia: (What?!)
  Magnolia: What do you mean by that?
+ <<SetPortrait geekportrait1>>
  The Geek: It means I get one spoon of love for each spoon of knowledge.
+ <<SetPortrait noportrait>>
  Magnolia: I don't think it works like that.
+ <<SetPortrait geekportrait1>>
  The Geek: It does.
  The Geek: It has been confirmed.
  <<jump TheGeek_Questions>>
 <<elseif visited_count("TheGeek") == 1>>
+ <<SetPortrait geekportrait1>>
  The Geek: 45.003%, 44.993%, 44.992%...
+ <<SetPortrait noportrait>>
  Magnolia: What are you counting now?
+ <<SetPortrait geekportrait1>>
  The Geek: The percentage of the shrinking of this world.
+ <<SetPortrait noportrait>>
  Magnolia: I thought the universe was expanding.
+ <<SetPortrait geekportrait1>>
  The Geek: Yes the universe.
+ <<SetPortrait noportrait>>
  Magnolia: Then what are you talking about?
+ <<SetPortrait geekportrait1>>
  The Geek: Only about this little box.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Is it still some kind of a code from your parents?
  Magnolia: Like get this and you can open a toy box?
+ <<SetPortrait geekportrait1>>
  The Geek: Are you being mean?
+ <<SetPortrait noportrait>>
  Magnolia: Yes, a little. I'm sorry.
+ <<SetPortrait geekportrait1>>
  The Geek: I don't mind.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Can I ask you a question?
  <<jump TheGeek_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (She is probably just doing one of her ridiculous tasks.)
  Magnolia: (Am I curious enough?)
   -> Ask.
@@ -207,40 +315,63 @@ title: TheGeek
 title: TheGeek_Questions
 ---
 -> Is one spoon of love enough?
+ <<SetPortrait geekportrait1>>
  The Geek: It depends what’re your criteria.
+ <<SetPortrait noportrait>>
  Magnolia: Is ‘being a loved enough child’ criteria?
+ <<SetPortrait geekportrait1>>
  The Geek: Not specific enough.
+ <<SetPortrait noportrait>>
  Magnolia: Is one spoon of love enough for you?
+ <<SetPortrait geekportrait1>>
  The Geek: Enough for what?
+ <<SetPortrait noportrait>>
  Magnolia: For you to feel happy?
+ <<SetPortrait geekportrait1>>
  The Geek: Happiness is not defined yet.
+ <<SetPortrait noportrait>>
  Magnolia: Okay for you to feel satisfied.
  <<wait 0.5>>
+ <<SetPortrait geekportrait1>>
  The Geek: I don't get only one spoon of love.
  The Geek: I'm a hardworking person.
  The Geek: I collect more than one spoon of knowledge every day.
+ <<SetPortrait noportrait>>
  Magnolia: If it works for you...
+ <<SetPortrait geekportrait1>>
  The Geek: It has to.
 -> Shouldn't love to be unconditional?
+ <<SetPortrait geekportrait1>>
  The Geek: I don't believe it's possible.
  The Geek: We can't even compare it to anything.
  The Geek: Nature doesn't know of love.
+ <<SetPortrait noportrait>>
  Magnolia: What about mothers who protect their offspring no matter how they are?
+ <<SetPortrait geekportrait1>>
  The Geek: They don't protect the weak ones.
  The Geek: They eat them, kill them, or leave them to die.
+ <<SetPortrait noportrait>>
  Magnolia: (I forgot nature can be brutal.)
  Magnolia: But we are humans.
+ <<SetPortrait geekportrait1>>
  The Geek: Right.
  The Geek: If you want to prove that love is unconditional don't ever look at humans.
+ <<SetPortrait noportrait>>
  Magnolia: So what to look at?
+ <<SetPortrait geekportrait1>>
  The Geek: Maybe universe.
  The Geek: Or God?
  The Geek: Whatever is your thing.
 -> Why were you given impossible tasks?
+ <<SetPortrait geekportrait1>>
  The Geek: They are not impossible.
+ <<SetPortrait noportrait>>
  Magnolia: To me they seem pretty impossible.
+ <<SetPortrait geekportrait1>>
  The Geek: No. You are just lazy to think.
+ <<SetPortrait noportrait>>
  Magnolia: Am I?
+ <<SetPortrait geekportrait1>>
  The Geek: Yes.
 -> Never mind.
 ===
@@ -248,33 +379,47 @@ title: TheGeek_Questions
 title: TheIndependent
 ---
 <<if visited_count("TheIndependent") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (I tend to avoid groups of teenagers.)
  Magnolia: (They are either loud or agressive.)
+ <<SetPortrait independentportrait1>>
  The Independent: Hey you!
+ <<SetPortrait noportrait>>
  Magnolia: (Again me?)
  Magnolia: Yes?
  <<wait 0.5>>
  Talk: This makes me buzz from the inside.
  Talk: Of course, they are not even out yet.
  <<wait 0.5>>
+ <<SetPortrait independentportrait1>>
  The Independent: Hey!
+ <<SetPortrait noportrait>>
  Magnolia: (Why is he talking to me?)
  Magnolia: Yes? I'm listening?
+ <<SetPortrait independentportrait1>>
  The Independent: Does it ever seem too loud to you?
+ <<SetPortrait noportrait>>
  Magnolia: What exactly?
+ <<SetPortrait independentportrait1>>
  The Independent: Everything.
+ <<SetPortrait noportrait>>
  Magnolia: (I had headaches before.)
  Magnolia: (Right after the accident.)
  Talk: We should totally do it.
  Talk: Will we put it on your TikTok or mine?
  <<wait 0.5>>
+ <<SetPortrait independentportrait1>>
  The Independent: But I enjoy being out.
  The Independent: Home is louder.
+ <<SetPortrait noportrait>>
  Magnolia: (Louder than a group of teenagers?)
+ <<SetPortrait independentportrait1>>
  The Independent: I go to clubs to drown the sound.
+ <<SetPortrait noportrait>>
  Magnolia: This kid is not good. 
   <<jump TheIndenpendent_Questions>>
 <<else>>
+ <<SetPortrait independentportrait1>>
  The Indenpendent: I go out and I'm nobody's.
  The Indenpendent: I go home and I wish I was invisible.
   <<jump TheIndenpendent_Questions>>
@@ -283,71 +428,107 @@ title: TheIndependent
 title: TheIndenpendent_Questions
 ---
 -> Do you have problems at home?
+ <<SetPortrait independentportrait1>>
  The Indenpendent: Nothing smells like home.
+ <<SetPortrait noportrait>>
  Magnolia: Do you like being home?
+ <<SetPortrait independentportrait1>>
  The Indenpendent: In certain hours of the day.
  The Indenpendent: Either when there is no sun.
  The Indenpendent: Or when the sun lies on top of the left corner of my bed.
+ <<SetPortrait noportrait>>
  Magnolia: And what about the other hours?
+ <<SetPortrait independentportrait1>>
  The Indenpendent: Then it's not my home.
+ <<SetPortrait noportrait>>
  Magnolia: How is that?
+ <<SetPortrait independentportrait1>>
  The Indenpendent: I am only a son when I am quiet.
  The Indenpendent: But I don't know how to be quiet.
  The Indenpendent: My thoughts are hurting me.
+ <<SetPortrait noportrait>>
  Magnolia: (I don't think I can help here.)
 -> Do you have anyone to talk to?
+ <<SetPortrait independentportrait1>>
  The Indenpendent: I have a lot of friends.
+ <<SetPortrait noportrait>>
  Magnolia: Not exactly what I asked.
+ <<SetPortrait independentportrait1>>
  The Indenpendent: They are good friends.
  The Indenpendent: They let me sleepover.
+ <<SetPortrait noportrait>>
  Magnolia: Do you do that often?
+ <<SetPortrait independentportrait1>>
  The Indenpendent: Sometimes.
  The Indenpendent: When home stops smelling familiar.
+ <<SetPortrait noportrait>>
  Magnolia: Why does that happen?
+ <<SetPortrait independentportrait1>>
  The Indenpendent: I sometimes don't recognize my parents.
+ <<SetPortrait noportrait>>
  Magnolia: Maybe you should look for somebody to talk to.
  Magnolia: Besides your friends.
+ <<SetPortrait independentportrait1>>
  The Indenpendent: My home is already loud enough.
 ===
 title: TheHappyKid
 ---
 //need to make a code that Kid Shows up only after visiting Garden and Museum.
 <<if visited_count("TheHappyKid") < 1>>
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: It was chasing a purple rabbit!
  The Happy Kid: But nobody believes me.
+ <<SetPortrait noportrait>>
  Magnolia: I believe you.
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: So you know where my dog went?
+ <<SetPortrait noportrait>>
  Magnolia: Not really.
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: I don't want to live without it.
+ <<SetPortrait noportrait>>
  Magnolia: Don't say such things.
  Magnolia: But you'll find him!
  <<wait 0.5>>
  Magnolia: What kind of dog was it?
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: Was?!
+ <<SetPortrait noportrait>>
  Magnolia: Is! I meant is!
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: He could have been any dog you like.
+ <<SetPortrait noportrait>>
  Magnolia: In which way?
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: He even changed colors.
  The Happy Kid: That's why I called him Chameleon. 
  The Happy Kid: Cam, for short.
+ <<SetPortrait noportrait>>
  Magnolia: Okay,but what did he look like? Was he small?
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: He was small when he needed to escape underneath the garden door.
  The Happy Kid: And then he was tall when he would help me jump over the wall.
  The Happy Kid: He also liked to watch our neighbor's cats.
+ <<SetPortrait noportrait>>
  Magnolia: So he was truly a dog?
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: Of course he is.
  The Happy Kid: He can bark.
  The Happy Kid: I heard him once.
+ <<SetPortrait noportrait>>
  Magnolia: That's good.
  Magnolia: That confirms he is a dog.
  Magnolia: (What did I get myself into?)
  <<jump TheHappyKid_Questions>>
 <<elseif visited_count("TheHappyKid") == 1>>
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: What if it became so tiny that it disappeared?
+ <<SetPortrait noportrait>>
  Magnolia: I don't believe that happened.
  Magnolia: You will find him.
   <<jump TheHappyKid_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: Kid!
  Magnolia: Tell me this...
  <<jump TheHappyKid_Questions>>
@@ -358,27 +539,40 @@ title: TheHappyKid_Questions
 ---
 -> I changed my mind.
 -> Did you see in which direction your dog run away?
+ <<SetPortrait noportrait>>
  Magnolia: (I feel like this dog might bring me somewhere I need to be.)
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: He is fast as light.
+ <<SetPortrait noportrait>>
  Magnolia: So no clue?
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: We were running around together, and then I was alone.
+ <<SetPortrait noportrait>>
  Magnolia: It's okay.
 -> Where did you see the purple rabbit?
+ <<SetPortrait noportrait>>
  Magnolia: (These rabbits are a constant at this point.)
  Magnolia: (I feel like they are trying to tell me something.)
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: It was there.
+ <<SetPortrait noportrait>>
  Magnolia: Where?
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: I saw its tail disappear in that corner.
  The Happy Kid: He only left one little feather.
+ <<SetPortrait noportrait>>
  Magnolia: A feather?
+ <<SetPortrait happykidportrait1>>
  The Happy Kid: Do you want it?
   -> Take it.
+   <<SetPortrait noportrait>>
    Magnolia: (Yes, thank you.)
    <<set $takethefeather to true>>
    <<set $tookthefeather to true>>
 ===
 title: TheDog
 ---
+<<SetPortrait noportrait>>
 Magnolia: (This is where the kid said the rabbit was.)
 <<wait 1>>
 Magnolia: (Is that the dog?)
@@ -396,6 +590,7 @@ Magnolia: (I was sure the dog was not real!)
 
 title: TheBotanicalGarden
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Plants calm me down.)
 Magnolia: (They breathe, and they live so quietly.)
 Magnolia: (I have never been in a botanical garden.)
@@ -406,38 +601,58 @@ Magnolia: (I have never been in a botanical garden.)
 title: TheGardener
 ---
 <<if visited_count("TheGardener") < 1>>
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Plants are kinder listeners.
+ <<SetPortrait noportrait>>
  Magnolia: I also think so!
+ <<SetPortrait gardenerportrait1>>
  The Gardener: People confess to them daily, without realizing it.
  The Gardener: They are also excellent secret keepers.
+ <<SetPortrait noportrait>>
  Magnolia: Why do we even need priests?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: To help us feel better about ourselves.
  The Gardener: Plants don't tell us our sins are forgiven.
+ <<SetPortrait noportrait>>
  Magnolia: Is it the only thing people are looking for when they go to a church?
  Magnolia: Forgiveness?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Usually they want to know they are not going to get punished.
+ <<SetPortrait noportrait>>
  Magnolia: It's so ridiculous.
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Is it?
  The Gardener: Are you ready to get punished for all your sins?
+ <<SetPortrait noportrait>>
  Magnolia: Who is there to punish me?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: The High Court.
- Magnolia: Do you mean government or like, God?
+ <<SetPortrait noportrait>>
+ Magnolia: Do you mean government or like, God? 
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Neither.
  The Gardener: We all go back to where we belong at the end.
+ <<SetPortrait noportrait>>
  Magnolia: We don't belong here?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Do you feel like you belong?
+ <<SetPortrait noportrait>>
  Magnolia: Not really.
   <<jump TheGardener_Questions>>
 <<elseif visited_count("TheGardener") == 1>>
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Would you believe it if I told you each of them has their own personality?
+ <<SetPortrait noportrait>>
  Magnolia: I would.
  Magnolia: These past weeks, I had a cactus that listened to me grieve.
- Magnolia: But I always felt like it judged me for being weak.
+ Magnolia: But I always felt like it judged me for being weak. 
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Maybe, but it's only because it believes it's not good for you.
  The Gardener: They don't know how to be bad.
  The Gardener: That's reserved for people.
   <<jump TheGardener_Questions>>
 <<else>> 
+ <<SetPortrait gardenerportrait1>>
  The Gardener: I always sing to them.
  The Gardener: They answer in silence.
   <<jump TheGardener_Questions>>
@@ -448,6 +663,7 @@ title: TheGardener
 title: TheGardener_Questions
 ---
 -> Is there any plant you don't like?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: To hell with daisies!
  The Gardener: And chamomile.
  <<wait 0.5>>
@@ -459,43 +675,57 @@ title: TheGardener_Questions
  The Gardener: Maybe I wanted her angry. 
  The Gardener: It could have gotten her angry enough to reach out of the ground and come to me.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (Should I say something?)
  Magnolia: I'm sorry about your wife.
  <<wait 0.5>>
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Then this old witch from my pop's village recommended me chamomile.
  The Gardener: She said it fights with the demons inside one's body.
  The Gardener: I, of course, already knew about chamomile.
  The Gardener: I also knew it looked like thousand little daisies.
  The Gardener: So I avoided it.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: What did you do then?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: I turned to Valeriana officinalis.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: What does it do? 
  Magnolia: Does it also fight demons?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Of course, it doesn't.
  The Gardener: But it makes you forget about them.
  <<wait 0.5>>
  The Gardener: We have it in the garden here.
  The Gardener: You should go and take some.
  The Gardener: But don't forget to take it out with the roots.
+ <<SetPortrait noportrait>>
  Magnolia: Is that allowed?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Do you care if it isn't?
+ <<SetPortrait noportrait>>
  Magnolia: Not really.
  <<set $hasplantclue to true>>
  Magnolia: (I should go check it out.)
  Magnolia: (I want to shut out my nightmares.)
 -> Do you think plants can have magical properties?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: Isn't healing magical in itself?
+ <<SetPortrait noportrait>>
  Magnolia: I suppose it is.
  <<wait 0.5>>
  Magnolia: But do you think they could do more than healing?
+ <<SetPortrait gardenerportrait1>>
  The Gardener: What are you pointing at?
+ <<SetPortrait noportrait>>
  Magnolia: I don't know exactly.
  Magnolia: Something like making you invisible.
  <<wait 0.5>>
  Magnolia: Or shrink down?
  <<wait 0.5>>
+ <<SetPortrait gardenerportrait1>>
  The Gardener: HAHAHAHAHHHAHAHAH!
  The Gardener: HAHAHAHHAHAHAHAHAHAHH!
  The Gardener: Thank you for that.
@@ -504,6 +734,7 @@ title: TheGardener_Questions
 
 title: TheGardenPlant
 ---
+<<SetPortrait noportrait>>
 <<if $hasplantclue is true>>
  Magnolia: (This is it!)
  Magnolia: (Valerianisia something...)
@@ -523,6 +754,7 @@ title: TheGardenPlant
 
 title: WildDaisy
 ---
+<<SetPortrait noportrait>>
 <<if $hasplantclue is true>>
  Magnolia: (I thought I would not see any daisies around here.)
  Magnolia: (This must be a wild one.)
@@ -538,6 +770,7 @@ title: WildDaisy
 
 title: TheMuseum
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("TheMusem") < 1>>
  Magnolia: (Museums fascinate me.)
  Magnolia: (However, I never really understood them.)
@@ -560,30 +793,44 @@ title: TheBride
 ---
 //she might give us an object OBJECT 004 and a later clue
 <<if visited_count("TheBride") < 1>>
+ <<SetPortrait brideportrait1>>
  The Bride: Look at her.
  The Bride: She is so happy to be a bride.
+ <<SetPortrait noportrait>>
  Magnolia: (Why is there a woman in a wedding dress in the middle of the museum?)
+ <<SetPortrait brideportrait1>>
  The Bride: In all our pictures I am smiling wide.
  The Bride: I was so happy.
+ <<SetPortrait noportrait>>
  Magnolia: Did you just get married?
+ <<SetPortrait brideportrait1>>
  The Bride: Oh no, it was years ago.
+ <<SetPortrait noportrait>>
  Magnolia: (Years ago?!)
+ <<SetPortrait brideportrait1>>
  The Bride: It was so beautiful.
  The Bride: My dress was covered in laced flowers.
  The Bride: And I had rabbits running around my feet.
+ <<SetPortrait noportrait>>
  Magnolia: Were they maybe purple?
+ <<SetPortrait brideportrait1>>
  The Bride: Excuse me?
+ <<SetPortrait noportrait>>
  Magnolia: Never mind.
  <<wait 2>>
+ <<SetPortrait brideportrait1>>
  The Bride: Have you ever fallen in love?
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (I haven't thought about that after the accident.)
  Magnolia: (Have I?)
  Magnolia: I don't think I have.
+ <<SetPortrait brideportrait1>>
  The Bride: It's the best feeling in the world.
  The Bride: I dreamt of my wedding since I was a little girl.
   <<jump TheBride_Questions>>
 <<else>>
+ <<SetPortrait brideportrait1>>
  The Bride: Maybe one day they will put our photos in a museum.
  <<jump TheBride_Questions>>
 <<endif>>
@@ -593,70 +840,98 @@ title: TheBride_Questions
 ---
 -> I don't have any thoughts.
 -> Your wedding dress is nice.
+ <<SetPortrait brideportrait1>>
  The Bride: Oh, thank you!
  The Bride: It belonged to my mother.
+ <<SetPortrait noportrait>>
  Magnolia: The idea of wearing the same dress as your mom on the wedding day is quite romantic.
+ <<SetPortrait brideportrait1>>
  The Bride: I AM such a romantic!
  <<wait 0.5>>
  The Bride: I wish she didn't divorce my father.
  The Bride: It's not how it's supposed to go.
+ <<SetPortrait noportrait>>
  Magnolia: How is it supposed to go?
+ <<SetPortrait brideportrait1>>
  The Bride: That commitment is forever.
+ <<SetPortrait noportrait>>
  Magnolia: Commitment to who?
+ <<SetPortrait brideportrait1>>
  The Bride: I'm not sure.
  <<jump TheBride_Questions>>
 -> Are you sure those rabbits were not purple?
+ <<SetPortrait brideportrait1>>
  The Bride: I am sure.
  The Bride: I didn't know rabbits could be purple.
+ <<SetPortrait noportrait>>
  Magnolia: Neither have I.
  <<wait 0.5>>
  Magnolia: Was it sunny on your wedding day?
+ <<SetPortrait brideportrait1>>
  The Bride: The sky opened that day!
  The Bride: It was pouring the whole day.
  The Bride: We didn't see one ray of sunshine.
  <<wait 0.5>>
  The Bride: it is not a bad sign? Is it?
+ <<SetPortrait noportrait>>
  Magnolia: No! I am sure not.
  <<jump TheBride_Questions>>
 -> Did you genuinely have dreams of your wedding?
+ <<SetPortrait brideportrait1>>
  The Bride: I would daydream about it.
  The Bride: I had this little notebook where I would glue cutouts from magazines.
  The Bride: I planned everything!
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: But did you ever actually dream about it?
+ <<SetPortrait brideportrait1>>
  The Bride: I rarely dream.
  The Bride: And when I was a child, it was just nightmares.
  <<wait 0.5>>
  The Bride: Were you ever scared to dream, so much that you would not let yourself sleep the whole night?
+ <<SetPortrait noportrait>>
  Magnolia: Uh. I don't think so.
+ <<SetPortrait brideportrait1>>
  The Bride: Neither have I!
  The Bride: Hahaha!
  <<jump TheBride_Questions>>
 -> Can a woman be a mother before she has a child? <<if $hasClue_TheBride is true>>
+ <<SetPortrait brideportrait1>>
  The Bride: I never wanted to be a mother.
+ <<SetPortrait noportrait>>
  Magnolia: What about your husband?
+ <<SetPortrait brideportrait1>>
  The Bride: Who?
+ <<SetPortrait noportrait>>
  Magnolia: (Oh, I completely assumed.)
  Magnolia: Your wife?
+ <<SetPortrait brideportrait1>>
  The Bride: I don't know whom you are talking about.
+ <<SetPortrait noportrait>>
  Magnolia: The person you have married.
  Magnolia: Do they want kids?
  <<wait 1>>
+ <<SetPortrait brideportrait1>>
  The Bride: I don't know why are you asking such questions.
+ <<SetPortrait noportrait>>
  Magnolia: Yes! I'm sorry.
  Magnolia: I didn't mean to be that insensitive.
  Magnolia: I know it's a private matter.
  <<wait 0.5>>
+ <<SetPortrait brideportrait1>>
  The Bride: It's just...
  The Bride: Why do we need to marry anyone at all?
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: I thought you liked being married?
+ <<SetPortrait brideportrait1>>
  The Bride: I never said that.
  The Bride: I only liked the wedding.
 ===
 
 title: ThePainting
 ---
+<<SetPortrait noportrait>>
 <<if visited_count("ThePainting") < 1>>
 Magnolia: (Some people claim they see intentions behind each stroke of a painting.)
 Magnolia: (I feel like I never have intent behind any of my actions.)
@@ -671,6 +946,7 @@ Magnolia: (I wonder if the painters thought of me looking at their painting cent
 
 title: ThePainting_Actions
 ---
+<<SetPortrait noportrait>>
 -> Read the description.
  Text: Francois-Xavier Fabre / [i]'M Camille'[/i], 1813
  Magnolia: (He seems like a proper gentleman.)
@@ -691,6 +967,7 @@ title: ThePainting_Actions
 
 title: TheMuseumExit
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Museums are collections of someone else's memories.)
 Magnolia: (Why do they all seem to belong to me?)
 -> One more thing.
@@ -702,12 +979,14 @@ Magnolia: (Why do they all seem to belong to me?)
 
 title: TheEnd2
 ---
+<<SetPortrait noportrait>>
 Magnolia: (Nope.)
 Magnolia: (Inland it's even wilder then in the mountains.)
 ===
 
 title: TheStation
 ---
+ <<SetPortrait noportrait>>
  Magnolia: (It's the only way to go.)
  Magnolia: (But I don't have any money, nor train tickets.)
   -> Go inside the station. <<if $tookthefeather is true>>

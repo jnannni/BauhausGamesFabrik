@@ -92,6 +92,7 @@ public class DreamWorld01  : MonoBehaviour
             if (!cutSceneEnded)
             {
                 canvasAnimator.SetBool("startCutSceneGolem", true);                
+                //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);
             }            
             if (canvasAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && canvasAnimator.GetCurrentAnimatorStateInfo(0).IsName("golemDialogue"))
             {

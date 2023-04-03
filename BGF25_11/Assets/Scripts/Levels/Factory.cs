@@ -20,6 +20,7 @@ public class Factory : MonoBehaviour
 
     private FadeLayer fadeLayer;
     private PhysicalInvetoryItem addToInventory;
+    private AudioManager audioManager;
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private GameObject player;
@@ -32,6 +33,7 @@ public class Factory : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
@@ -40,6 +42,7 @@ public class Factory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicFabric);
         dialogueRunner.StartDialogue("TheFactory_Start");
     }
 
