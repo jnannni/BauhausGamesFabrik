@@ -8,19 +8,26 @@ public class TheG : MonoBehaviour
 {
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
+    public Animator transitionAnimator;
 
-    private bool putintheinventory004; //
-    private bool putintheinventory005; //
-    private bool goontheroof; //
+    private BoxCollider2D[] boxCollider2Ds;
+    private BoxCollider2D boxCollider2DFall;
+
+    private Renderer stairsRenderer;
+    private Renderer grandpasHouseRenderer;
+
+    private bool enterthegranshouse;
+    private bool putintheinventory004; 
+    private bool putintheinventory005; 
+    private bool goontheroof; 
     private bool lookaround;
-    private bool entertheschool01; //
-    private bool entertheschool02; //
-    private bool enterthegranshouse; //
-    private bool godowntheroof; //
-    private bool gototheMuseum; //
+    private bool entertheschool01; 
+    private bool entertheschool02;  
+    private bool godowntheroof; 
+    private bool gototheMuseum; 
     private bool playscreamsound;
     private bool sheisdancing;
-    private bool pulsingeffect; //
+    private bool pulsingeffect; 
     private bool fallingfeeling;
     private bool exitgrandpashouse;
     private bool movemagnoliaback;
@@ -28,23 +35,19 @@ public class TheG : MonoBehaviour
     private bool gavethestrangebook;
     private bool objectfromsecurity;
 
-    private FadeLayer fadeLayer;
-    private bool isOnTheRoof;
+    private AudioManager audioManager;
+    
     private bool isInGrandpaHouse;
+    private bool isOnTheRoof;
     private bool isBehinfTheSchool;
-    private Renderer stairsRenderer;
-    private Renderer grandpasHouseRenderer;
-    private BoxCollider2D[] boxCollider2Ds;
-    private BoxCollider2D boxCollider2DFall;    
-
-    [SerializeField] private string nameOfTheScene;
+    private FadeLayer fadeLayer;    
+    [SerializeField] private GameObject grandpasHouseInside;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject roofStairs;
     [SerializeField] private GameObject roofFall;
     [SerializeField] private GameObject grandpasHouse;
     [SerializeField] private GameObject behindTheSchool;
     [SerializeField] private GameObject inFrontOfTheSchool;
-    [SerializeField] private GameObject grandpasHouseInside;
     [SerializeField] private GameObject grandpasHouseOutside;
     [SerializeField] private GameObject onTheRoof;
     [SerializeField] private GameObject downTheRoof;
@@ -55,14 +58,13 @@ public class TheG : MonoBehaviour
     [SerializeField] private InventoryItem griefingBook;
     [SerializeField] private InventoryItem strangeBook;
     [SerializeField] private InventoryItem objectFromSecurity;
-    [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private PlayerInventory playerInventory; 
+    [SerializeField] private GameObject inventoryPanel; 
+    [SerializeField] private BoolValue isInventoryOpen;
+    [SerializeField] private BoolValue isPaused;  
+    [SerializeField] private string nameOfTheScene;
     [SerializeField] private Animator cameraAnimator;
     [SerializeField] private Animator canvasAnimator;
-    [SerializeField] private GameObject inventoryPanel;
-    public BoolValue isInventoryOpen;
-    public BoolValue isPaused;
-
-    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -70,31 +72,35 @@ public class TheG : MonoBehaviour
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
         audioManager = FindObjectOfType<AudioManager>();
-        audioManager.InitializeMusic(FMODEvents.instance.musicTheG);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager.InitializeMusic(FMODEvents.instance.musicTheG);
         dialogueRunner.StartDialogue("TheG");
+        dialogueRunner.LoadStateFromPlayerPrefs();
         boxCollider2Ds = roofStairs.GetComponents<BoxCollider2D>();
         boxCollider2DFall = roofFall.GetComponent<BoxCollider2D>();
         stairsRenderer = roofStairs.GetComponent<Renderer>();
         grandpasHouseRenderer = grandpasHouse.GetComponent<Renderer>();
+        isBehinfTheSchool = false;
+        isInGrandpaHouse = false;
+        isOnTheRoof = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        variableStorage.TryGetValue("$putintheinventory004", out putintheinventory004); //
-        variableStorage.TryGetValue("$putintheinventory005", out putintheinventory005); //
-        variableStorage.TryGetValue("$goontheroof", out goontheroof); //
+        variableStorage.TryGetValue("$enterthegranshouse", out enterthegranshouse);
+        variableStorage.TryGetValue("$putintheinventory004", out putintheinventory004); 
+        variableStorage.TryGetValue("$putintheinventory005", out putintheinventory005); 
+        variableStorage.TryGetValue("$goontheroof", out goontheroof); 
         variableStorage.TryGetValue("$lookaround", out lookaround);
-        variableStorage.TryGetValue("$entertheschool01", out entertheschool01); //
-        variableStorage.TryGetValue("$entertheschool01", out entertheschool02); //
-        variableStorage.TryGetValue("$enterthegranshouse", out enterthegranshouse); //
-        variableStorage.TryGetValue("$godowntheroof", out godowntheroof); //
-        variableStorage.TryGetValue("$gototheMuseum", out gototheMuseum); //
+        variableStorage.TryGetValue("$entertheschool01", out entertheschool01); 
+        variableStorage.TryGetValue("$entertheschool01", out entertheschool02); 
+        variableStorage.TryGetValue("$godowntheroof", out godowntheroof); 
+        variableStorage.TryGetValue("$gototheMuseum", out gototheMuseum); 
         variableStorage.TryGetValue("$playscreamsound", out playscreamsound);
         variableStorage.TryGetValue("$sheisdancing", out sheisdancing);
         variableStorage.TryGetValue("$pulsingeffect", out pulsingeffect);
@@ -102,13 +108,7 @@ public class TheG : MonoBehaviour
         variableStorage.TryGetValue("$gavethegriefbook", out gavethegriefbook);
         variableStorage.TryGetValue("$gavethestrangebook", out gavethestrangebook);
         variableStorage.TryGetValue("$objectfromsecurity", out objectfromsecurity);
-
-        if (gototheMuseum)
-        {
-            /*audioManager.PauseMusic(FMODEvents.instance.musicTheG);
-            audioManager.PlayOneShot(FMODEvents.instance.transitionBetweenWW, this.transform.position);*/
-            SceneManager.LoadScene(nameOfTheScene);
-        }
+        variableStorage.TryGetValue("$exitgrandpashouse", out exitgrandpashouse);
 
         if (putintheinventory004)
         {
@@ -128,37 +128,31 @@ public class TheG : MonoBehaviour
             }
         }
 
+        if (enterthegranshouse && !isInGrandpaHouse)
+        {
+            //audioManager.InitializeMusic(FMODEvents.instance.musicChurch);
+            // move the character to the church position
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = new Vector3(grandpasHouseInside.transform.position.x, grandpasHouseInside.transform.position.y, 0f);
+            StartCoroutine(fadeLayer.FadeOut());
+            isInGrandpaHouse = true;
+            variableStorage.SetValue("$enterthegranshouse", false);
+            player.transform.localScale = new Vector3(1.2f, 1.2f, 0f);
+        }
+
+        if (gototheMuseum)
+        {
+            /*audioManager.PauseMusic(FMODEvents.instance.musicTheG);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionBetweenWW, this.transform.position);*/
+            SceneManager.LoadScene(nameOfTheScene);
+        }
+
         if (objectfromsecurity)
         {
             if (!playerInventory.myInventory.Contains(objectFromSecurity))
             {
                 playerInventory.myInventory.Add(objectFromSecurity);                
             }
-        }
-
-        if (pulsingeffect || !pulsingeffect)
-        {
-            cameraAnimator.SetBool("headpulsing", pulsingeffect);
-            canvasAnimator.SetBool("pulsing", pulsingeffect);
-        }
-
-        if (goontheroof && !isOnTheRoof)
-        {
-            // move character to the roof position
-            player.transform.localScale = new Vector3(1f, 1f, 0);
-            StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = new Vector3(onTheRoof.transform.position.x, onTheRoof.transform.position.y, 0f);
-            StartCoroutine(fadeLayer.FadeOut());
-            variableStorage.SetValue("$godowntheroof", false);
-            isOnTheRoof = true;            
-            stairsRenderer.sortingLayerName = "background";
-            grandpasHouseRenderer.sortingLayerName = "background";
-            foreach (BoxCollider2D boxCollider2D in boxCollider2Ds)
-            {
-                boxCollider2D.enabled = true;
-            }
-            boxCollider2DFall.enabled = true;
-
         }
 
         if (gavethegriefbook)
@@ -217,25 +211,40 @@ public class TheG : MonoBehaviour
             StartCoroutine(fadeLayer.FadeOut());
         }
 
-        if (enterthegranshouse && !isInGrandpaHouse)
-        {
-            // move character to grans position
-            StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = new Vector3(grandpasHouseInside.transform.position.x, grandpasHouseInside.transform.position.y, 0f);
-            isInGrandpaHouse = true;
-            variableStorage.SetValue("$enterthegranshouse", false);
-            StartCoroutine(fadeLayer.FadeOut());
-            player.transform.localScale = new Vector3(1.5f, 1.5f, 0f);
-        }
-
         if (exitgrandpashouse && isInGrandpaHouse)
         {
+            player.transform.localScale = new Vector3(1f, 1f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(grandpasHouseOutside.transform.position.x, grandpasHouseOutside.transform.position.y, 0f);
-            isInGrandpaHouse = false;
-            variableStorage.SetValue("$exitgrandpashouse", false);
             StartCoroutine(fadeLayer.FadeOut());
+            isInGrandpaHouse = false;
+            variableStorage.SetValue("$enterthegranshouse", false);
             player.transform.localScale = new Vector3(1f, 1f, 0f);
+        }
+
+        if (pulsingeffect || !pulsingeffect)
+        {
+            cameraAnimator.SetBool("headpulsing", pulsingeffect);
+            canvasAnimator.SetBool("pulsing", pulsingeffect);
+        }
+
+        if (goontheroof && !isOnTheRoof)
+        {
+            // move character to the roof position
+            player.transform.localScale = new Vector3(1f, 1f, 0);
+            StartCoroutine(fadeLayer.FadeIn());
+            player.transform.position = new Vector3(onTheRoof.transform.position.x, onTheRoof.transform.position.y, 0f);
+            StartCoroutine(fadeLayer.FadeOut());
+            variableStorage.SetValue("$godowntheroof", false);
+            isOnTheRoof = true;            
+            stairsRenderer.sortingLayerName = "background";
+            grandpasHouseRenderer.sortingLayerName = "background";
+            foreach (BoxCollider2D boxCollider2D in boxCollider2Ds)
+            {
+                boxCollider2D.enabled = true;
+            }
+            boxCollider2DFall.enabled = true;
+
         }
 
         if (godowntheroof && isOnTheRoof)
@@ -254,5 +263,7 @@ public class TheG : MonoBehaviour
             }
             boxCollider2DFall.enabled = false;
         }        
+
+
     }
 }

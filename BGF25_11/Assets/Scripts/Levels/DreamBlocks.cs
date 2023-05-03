@@ -87,7 +87,7 @@ public class DreamBlocks : MonoBehaviour
             player.transform.position = Vector3.MoveTowards(player.transform.position, closeToParents.transform.position, approachSpeed * Time.deltaTime);
             boxCollider2Ds[0].enabled = false;
             boxCollider2Ds[1].enabled = true;
-            variableStorage.SetValue("$approaching_parents", false);
+            ///variableStorage.SetValue("$approaching_parents", false);
         }
 
         if(player.transform.position == closeToParents.transform.position)

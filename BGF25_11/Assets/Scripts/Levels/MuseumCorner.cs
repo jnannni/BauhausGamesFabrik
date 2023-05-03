@@ -25,7 +25,7 @@ public class MuseumCorner : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject closerToDog;
     [SerializeField] private GameObject theDog;
-    [SerializeField] private float approachSpeed = 3f;
+    [SerializeField] private float approachSpeed = 1f;
     [SerializeField] private PlayerInventory playerInventory;
     
     private bool isInsideOfTheMuseum;
@@ -34,19 +34,19 @@ public class MuseumCorner : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        isInsideOfTheMuseum = false;
         audioManager.InitializeMusic(FMODEvents.instance.musicMuseumCorner);
         dialogueRunner.StartDialogue("TheMuseumCorner");
-        fadeLayer = FindObjectOfType<FadeLayer>();
-        isInsideOfTheMuseum = false;
-        dialogueRunner.StartDialogue("TheMuseumCorner");
+        dialogueRunner.LoadStateFromPlayerPrefs();
     }
 
     // Update is called once per frame
@@ -74,21 +74,24 @@ public class MuseumCorner : MonoBehaviour
 
         if (enterthemuseum && !isInsideOfTheMuseum)
         {
+            player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
-            player.transform.position = new Vector3(insideOfTheMuseum.transform.position.x, insideOfTheMuseum.transform.position.y, 0f);
-            isInsideOfTheMuseum = true;
-            variableStorage.SetValue("$enterthemuseum", false);
+            player.transform.position = new Vector3(insideOfTheMuseum.transform.position.x, insideOfTheMuseum.transform.position.y, 0f);           
             StartCoroutine(fadeLayer.FadeOut());
-            player.transform.localScale = new Vector3(1.8f, 1.8f, 0f);
+            isInsideOfTheMuseum = true;
+            variableStorage.SetValue("$exitthemuseum", false);
+            player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
+            
         }
 
         if (exitthemuseum && isInsideOfTheMuseum)
         {
+            player.transform.localScale = new Vector3(1f, 1f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(outsideOfTheMuseum.transform.position.x, outsideOfTheMuseum.transform.position.y, 0f);
-            isInsideOfTheMuseum = false;
-            variableStorage.SetValue("$exitthemuseum", false);
             StartCoroutine(fadeLayer.FadeOut());
+            isInsideOfTheMuseum = false;
+            variableStorage.SetValue("$enterthemuseum", false);
             player.transform.localScale = new Vector3(1f, 1f, 0f);
         }
 
@@ -101,12 +104,18 @@ public class MuseumCorner : MonoBehaviour
         }
 
         if (getclose && player.transform.position != closerToDog.transform.position)
-        {            
+        {    
+            playerAnimator.SetBool("walking02", true);     
             playerAnimator.SetFloat("Horizontal", 1f);
             playerAnimator.SetFloat("Vertical", 0);
             player.transform.position = Vector3.MoveTowards(player.transform.position, closerToDog.transform.position, approachSpeed * Time.deltaTime);
-            variableStorage.SetValue("$getclose", false);
             Destroy(theDog);
+        }
+
+         if(player.transform.position == closerToDog.transform.position)
+        {
+            getclose = false; 
+            playerAnimator.SetBool("walking02", false);            
         }
     }
 }

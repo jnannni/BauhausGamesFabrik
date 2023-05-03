@@ -9,6 +9,7 @@ title: TheWorkerQuarters
 <<set $cutscene_rabbits to false>> //CUTSCENE (an animated illustration of Magnolia being inside this dark bag and a small, normal-colored rabbit is looking at her)
 <<set $loopthetext to false>> //loops the node of a dialogue that I wrote(if possible?)
 <<set $trigger_Frozen to false>> //triggers 7th DREAMWORLD
+<<set $stoprabbit to false>>
 
 //variables for in YARN
 <<set $hascluefactory to false>>
@@ -122,7 +123,7 @@ title: TheHitchiker
  The Hitchiker: Wait!
  Magnolia: Yes?
  The Hitchiker: What if I can help you?
-  <<jump THeHitchiker_Questions>>
+  <<jump TheHitchiker_Questions>>
  <<else>>
  The Hitchiker: There is more in this bag than the sun.
  <<jump TheHitchiker_Questions>>
@@ -153,11 +154,13 @@ title: TheHitchiker_Questions
    Magnolia: (How far am I on the crazy scale?)
     -> Let me see.
      <<set $cutscene_rabbits to true>> //it's just an animated illustration of Magnolia being inside this dark bag and a small, normal-colored rabbit is looking at her.
-     <<wait 4>>
+     <<wait 8.5>>
+     <<set $stoprabbit to true>>
      Magnolia: Wait!
      Magnolia: He is not purple!
      The Hitchiker: Why did you expect a purple rabbit?
      Magnolia: Nevermind.
+     <<wait 1>>
      <<jump TheHitchiker_Questions>>
     -> That's fine. I changed my mind.
      <<jump TheHitchiker_Questions>>
@@ -177,6 +180,7 @@ title: TheHitchiker_Questions
  Magnolia: What kind of a sign?
  The Hitchiker: It says: "Only for rabbits."
  <<set $hasclueendless to true>>
+-> Nevermind. 
 ===
 
 

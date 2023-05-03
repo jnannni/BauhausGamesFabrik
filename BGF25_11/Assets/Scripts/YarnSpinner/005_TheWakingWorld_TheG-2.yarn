@@ -344,7 +344,7 @@ The Kind Grandpa: The sun is my only friend these days.
 The Kind Grandpa: Old age is lonely.
 The Kind Grandpa: Do you maybe want a cup of tea?
  -> That would be nice.
-  <<set $enterthegranshouse to true>>
+   <<set $enterthegranshouse to true>>
  -> No? 
 <<else>>
 <<SetPortrait kindgrandpaportrait1>>
@@ -387,10 +387,11 @@ Magnolia: (But I shouldn't steal from the old.)
      <<SetPortrait noportrait>>
      Magnolia: (I feel no guilt anymore.)
      Magnolia: (I have to see this through to the end.)
+      -> Keep it anyway.
     -> Keep it.
      <<SetPortrait noportrait>>
      Magnolia: (It's okay to be selfish.)
-  <<wait 0.5>>
+   <<wait 0.5>>
    Magnolia: Didn't it bother you?
    Magnolia: That she kept it?
    <<SetPortrait kindgrandpaportrait1>>

@@ -585,6 +585,7 @@ Magnolia: (I was sure the dog was not real!)
   <<wait 0.5>>
   Magnolia: (It's nothing.)
   Magnolia: (It's just a pathway to the station.)
+  <<set $getclose to false>>
   <<jump TheStation>>
 ===
 

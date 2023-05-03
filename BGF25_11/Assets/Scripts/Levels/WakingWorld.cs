@@ -42,6 +42,7 @@ public class WakingWorld : MonoBehaviour
     {        
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        PlayerPrefs.DeleteAll();
         audioManager = FindObjectOfType<AudioManager>();
     }
 

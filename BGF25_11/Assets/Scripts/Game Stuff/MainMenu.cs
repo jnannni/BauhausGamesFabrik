@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
         fadeLayer = FindObjectOfType<FadeLayer>();
+        Time.timeScale = 1f;
     }
 
     private void Start()

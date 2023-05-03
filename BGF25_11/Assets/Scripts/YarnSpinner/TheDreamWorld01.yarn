@@ -175,12 +175,10 @@ title: TheGolem_Options
 title: TheGolem_After
 ---
 <<SetPortrait noportrait>>
-<<if visited_count("TheGolem_After") < 1>>
 <<set $stoneSelected to true>>
 Magnolia: (It seems like it perfectly fits.)
 <<wait 0.5>>
 Magnolia: (Will it come alive now?)
 <<set $stoneSelected to false>>
 <<set $trigger_waking02 to true>>
-<<endif>>
 ===

@@ -96,7 +96,7 @@ public class Blocks : MonoBehaviour
         if (entertheantique && !isInAntiqueShop)
         {
             // move the character to antique position and change camera thingy
-            player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
+            player.transform.localScale = new Vector3(1.2f, 1.2f, 0f);
             StartCoroutine(fadeLayer.FadeIn());
             player.transform.position = new Vector3(insideOfAntique.transform.position.x, insideOfAntique.transform.position.y, 0f);           
             StartCoroutine(fadeLayer.FadeOut());

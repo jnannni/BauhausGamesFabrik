@@ -9,11 +9,13 @@ public class TheWorkerQuarters : MonoBehaviour
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
 
+    private bool cutSceneEnded = false;
     private bool loopthemap;
     private bool theworkercomesout;
     private bool cutscene_rabbits;
     private bool loopthetext;
     private bool trigger_Frozen;
+    private bool stoprabbit;
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject playerPosition;
@@ -22,11 +24,15 @@ public class TheWorkerQuarters : MonoBehaviour
     [SerializeField] private CameraMovement cam;
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Animator transitionAnimator;
+    [SerializeField] private Animator theworkerAnimator;
 
     private Vector3 playerStartPosition;
     private Vector3 playerCurrentPosition;
     private FadeLayer fadeLayer;
     private AudioManager audioManager;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Animator canvasAnimator;
+    [SerializeField] private AnimationClip RabbitAnimationClip;
 
     private void Awake()
     {
@@ -51,6 +57,7 @@ public class TheWorkerQuarters : MonoBehaviour
         variableStorage.TryGetValue("$theworkercomesout", out theworkercomesout);
         variableStorage.TryGetValue("$cutscene_rabbits", out cutscene_rabbits);
         variableStorage.TryGetValue("$trigger_Frozen", out trigger_Frozen);
+        variableStorage.TryGetValue("$stoprabbit", out stoprabbit);
 
         playerCurrentPosition = player.transform.position;
         playerStartPosition = new Vector3(playerPosition.transform.position.x, playerCurrentPosition.y, 0f);
@@ -78,5 +85,26 @@ public class TheWorkerQuarters : MonoBehaviour
                 transitionAnimator.SetBool("transitiontodw", false);
             }
         }
+
+        if (theworkercomesout || !theworkercomesout)
+        {
+            theworkerAnimator.SetBool("isOut", theworkercomesout);
+        }
+
+        if (cutscene_rabbits)
+        {
+            if (!cutSceneEnded)
+            {
+                canvasAnimator.SetBool("startCutSceneRabbit", true);                
+                //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);
+            }            
+        }
+
+        if (stoprabbit)
+        {
+            canvasAnimator.SetBool("startCutSceneRabbit", false);
+            cutSceneEnded = true;
+        }
+
     }    
 }

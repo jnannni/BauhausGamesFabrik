@@ -13,10 +13,14 @@ public class TrainStation : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private Sprite mapImage;
+    [SerializeField] private Animator canvasAnimator;
+    [SerializeField] private AnimationClip golemAnimationClip;
+    [SerializeField] private Animator transitionAnimator;
 
     private bool trainapproaching;
     private bool trigger_TheFactory;
     private bool lookatthemap;
+    private bool cutSceneEnded = false;
 
     [SerializeField] private string nameOfTheScene;    
     [SerializeField] private BoolValue isIllustrationWatched;
@@ -31,6 +35,7 @@ public class TrainStation : MonoBehaviour
         fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
+        dialogueRunner.LoadStateFromPlayerPrefs();
     }
 
     // Start is called before the first frame update
@@ -49,7 +54,27 @@ public class TrainStation : MonoBehaviour
 
         if (trigger_TheFactory)
         {
-            SceneManager.LoadScene(nameOfTheScene);
+            /*audioManager.PauseMusic(FMODEvents.instance.musicDW1);
+            audioManager.PlayOneShot(FMODEvents.instance.transitionToWW, this.transform.position);*/
+            dialogueRunner.SaveStateToPlayerPrefs();
+            if (!cutSceneEnded)
+            {
+                canvasAnimator.SetBool("startCutSceneGolem", true);                
+                //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);
+            }            
+            if (canvasAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && canvasAnimator.GetCurrentAnimatorStateInfo(0).IsName("golemDialogue"))
+            {
+                canvasAnimator.SetBool("startCutSceneGolem", false);
+                cutSceneEnded = true;
+                transitionAnimator.SetBool("transitiontoww", true);                                
+            }
+            if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
+            {
+                StartCoroutine(fadeLayer.FadeIn());
+                SceneManager.LoadScene(nameOfTheScene);
+                transitionAnimator.SetBool("transitiontoww", false);
+                trigger_TheFactory = false;
+            }
         }
 
         if (lookatthemap && !isIllustrationWatched.initialValue)

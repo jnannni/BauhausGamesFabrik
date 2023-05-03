@@ -33,6 +33,8 @@ public class DreamWorld01  : MonoBehaviour
     private int iteration = 0;
     private GameObject inventorySelectedButton;
     private AudioManager audioManager;
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02;
 
     private void Awake()
     {        
@@ -47,9 +49,11 @@ public class DreamWorld01  : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager.InitializeMusic(FMODEvents.instance.musicDW1);
+        //audioManager.InitializeMusic(FMODEvents.instance.musicDW1);
         dialogueRunner.StartDialogue("TheDreamworld_01");
         inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_01_Golem");
+        instance.start();
     }
 
     // Update is called once per frame
@@ -88,9 +92,13 @@ public class DreamWorld01  : MonoBehaviour
         {
             /*audioManager.PauseMusic(FMODEvents.instance.musicDW1);
             audioManager.PlayOneShot(FMODEvents.instance.transitionToWW, this.transform.position);*/
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance.release();
             dialogueRunner.SaveStateToPlayerPrefs();
             if (!cutSceneEnded)
             {
+                instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_01_Golem");
+                instance02.start();
                 canvasAnimator.SetBool("startCutSceneGolem", true);                
                 //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);
             }            
@@ -102,6 +110,8 @@ public class DreamWorld01  : MonoBehaviour
             }
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
             {
+                instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance02.release();
                 StartCoroutine(fadeLayer.FadeIn());
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontoww", false);

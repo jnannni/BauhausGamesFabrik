@@ -159,6 +159,7 @@ title: TheWildFlowers
   Magnolia: (The gardener's wife’s favorite.)
    -> Pick them up.
     <<set $putintheinventory12 to true>>
+    <<set $hasclue_flowers to true>>
    -> Leave them be.
  <<else>>
   Magnolia: (I used to like flowers.)
@@ -167,6 +168,7 @@ title: TheWildFlowers
   Magnolia: (The gardener's wife’s favorite.)
    -> Pick them up.
     <<set $putintheinventory12 to true>>
+    <<set $hasclue_flowers to true>>
  <<endif>>
 <<endif>>
 ===
