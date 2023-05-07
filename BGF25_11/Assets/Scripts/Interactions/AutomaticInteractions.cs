@@ -9,14 +9,22 @@ public class AutomaticInteractions : MonoBehaviour
 
     [SerializeField] private string nameOfTheNode;
     [SerializeField] private bool oneUse;
+    public bool camerashake;
 
     private void Awake()
     {
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
+        camerashake = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         dialogueRunner.StartDialogue(nameOfTheNode);
+        camerashake = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        camerashake = false;
     }
 }

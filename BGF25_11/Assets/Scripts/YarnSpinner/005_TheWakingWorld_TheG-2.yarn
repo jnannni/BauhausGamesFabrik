@@ -499,6 +499,8 @@ title: TheSpot
 Magnolia: (I have never seen the city from this height.)
 -> Look at the distance.
  <<set $lookaround to true>>
+ <<wait 12>>
+ <<set $lookaround to false>>
  //there should be a CUTSCENE with Magnolia seeing train station in the distance
 -> Let out a scream.
  <<set $playscreamsound to true>>

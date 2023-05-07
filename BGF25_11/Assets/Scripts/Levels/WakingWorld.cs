@@ -18,6 +18,7 @@ public class WakingWorld : MonoBehaviour
     [SerializeField] private GameObject homePosition;
     [SerializeField] private GameObject upTheStairsPosition;
     [SerializeField] private Animator transitionAnimator;
+    [SerializeField] private Animator CurtainAnimator;
     private GameObject curtains;
     
     private DialogueRunner dialogueRunner;
@@ -28,6 +29,7 @@ public class WakingWorld : MonoBehaviour
     private bool gobackhome;
     private bool goupthestairs003;
     private bool curtainopens;
+    private bool curtainanimation;
     
     private bool isDownTheStairs;
     private bool wentHome;
@@ -38,8 +40,12 @@ public class WakingWorld : MonoBehaviour
     [SerializeField] private InventoryItem key;    
     [SerializeField] private PlayerInventory playerInventory;
 
+    [SerializeField] private BoxCollider2D curtainCollider;
+    [SerializeField] private BoxCollider2D curtainCollider02;
+
     private void Awake()
     {        
+        fadeLayer = FindObjectOfType<FadeLayer>();
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
         PlayerPrefs.DeleteAll();
@@ -53,7 +59,6 @@ public class WakingWorld : MonoBehaviour
         dialogueRunner.StartDialogue("FirstScene");
         isDownTheStairs = false;
         wentHome = false;
-        fadeLayer = FindObjectOfType<FadeLayer>();
         curtains = GameObject.FindWithTag("TheCurtains");
     }
 
@@ -65,12 +70,15 @@ public class WakingWorld : MonoBehaviour
         variableStorage.TryGetValue("$gobackhome", out gobackhome);
         variableStorage.TryGetValue("$curtainopens", out curtainopens);
         variableStorage.TryGetValue("$goupthestairs003", out goupthestairs003);
+        variableStorage.TryGetValue("$curtainanimation", out curtainanimation);
 
         if (curtains && curtainopens)
         {
-            StartCoroutine(fadeLayer.FadeIn());
-            Destroy(curtains);
-            StartCoroutine(fadeLayer.FadeOut());
+            curtainCollider.enabled = false;
+            curtainCollider02.enabled = false;
+            //StartCoroutine(fadeLayer.FadeIn());
+            //Destroy(curtains);
+            //StartCoroutine(fadeLayer.FadeOut());
         }
 
         if (godownthestairs && !isDownTheStairs)
@@ -116,6 +124,16 @@ public class WakingWorld : MonoBehaviour
             wentHome = true;
             variableStorage.SetValue("$gobackhome", false);
             StartCoroutine(fadeLayer.FadeOut());
+        }
+
+        if (curtainanimation)
+        {
+            CurtainAnimator.SetBool("curtainno", true);
+        }
+        
+        if (!curtainanimation)
+        {
+            CurtainAnimator.SetBool("curtainno", false);
         }
     }
 

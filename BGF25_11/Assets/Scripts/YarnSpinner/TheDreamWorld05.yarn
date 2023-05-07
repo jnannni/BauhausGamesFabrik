@@ -5,7 +5,9 @@ title: TheDreamworld_05
 
 //variables for UNITY
 <<set $trigger_waking05 to false>>
-<<set $rabbit_celestial to false>> 
+<<set $rabbit_celestial to false>>
+<<set $activated to false>> 
+<<set $snakeanimation to false>>
 
 //variables for in YARN
 
@@ -152,7 +154,8 @@ Magnolia: (But I can't pass.)
 
 title: AfterSnakes
 ---
-<<wait 1.5>>
+<<set $snakeanimation to true>>
+<<wait 2.5>>
 Magnolia: What???
 Magnolia: (Are those snakes?)
 <<wait 0.5>>

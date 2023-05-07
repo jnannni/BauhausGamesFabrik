@@ -3,17 +3,17 @@
 //variables for UNITY
 
 <<set $standup to false>>
-<<set $laying to false>>
+<<set $laying to true>>
 <<set $openInventory to false>>
 <<set $stoneSelected to false>>
 <<set $trigger_waking02 to false>> //this should also trigger the FIRST CUT SCENE
+<<set $animationgolem to false>>
 
 //variables for in YARN
 <<set $hasClueD to false>>
 <<set $inspected to false>>
 
 <<SetPortrait noportrait>>
-<<set $laying to true>>
 Magnolia: (What has just happened?)
 Magnolia: (My head feels heavy.)
 Magnolia: (Did I pass out?)
@@ -176,6 +176,7 @@ title: TheGolem_After
 ---
 <<SetPortrait noportrait>>
 <<set $stoneSelected to true>>
+<<set $animationgolem to true>>
 Magnolia: (It seems like it perfectly fits.)
 <<wait 0.5>>
 Magnolia: (Will it come alive now?)

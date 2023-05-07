@@ -10,6 +10,7 @@ title: FirstScene
 <<set $gobackhome to false>>
 <<set $curtainopens to false>> //we talked about adding some kind of disappearing effect
 <<set $goupthestairs003 to false>> //ADDED: moves the character back to the uphill.
+<<set $curtainanimation to false>>
 
 //variables for in YARN
 <<set $hasClueA to false>>
@@ -281,6 +282,10 @@ title: TheLittleCorner
    <<if $hasClueC>>
      Magnolia: (I know the trick.)
      -> Move the curtain.
+      <<set $curtainanimation to true>>
+      <<wait 6>>
+      <<set $curtainanimation to true>>
+      <<wait 0.5>>
       <<set $curtainopens to true>>
    <<else>>
      Magnolia: (This curtain is not moving.)

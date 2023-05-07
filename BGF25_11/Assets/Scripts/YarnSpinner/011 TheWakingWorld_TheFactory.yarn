@@ -425,3 +425,20 @@ Magnolia: (All the furniture is super tiny.)
 Magnolia: (Do the fairies live inside?)
 <<endif>>
 ===
+
+title: TheManHole_Factory
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheManHole_Factory") < 1>>
+Magnolia: (Another one.)
+Magnolia: (There is a word here too.)
+ -> Read it.
+  The Word: IS IN
+  <<wait 0.2>>
+  Magnolia: (Whare?!)
+  Magnolia: (What did they steal?)
+<<else>>
+ Magnolia: (The thief is in...?)
+ Magnolia: (I'm still looking too much into it.)
+<<endif>>
+===

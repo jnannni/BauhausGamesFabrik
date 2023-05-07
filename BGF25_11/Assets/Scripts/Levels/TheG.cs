@@ -65,6 +65,8 @@ public class TheG : MonoBehaviour
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Animator cameraAnimator;
     [SerializeField] private Animator canvasAnimator;
+    public AutomaticInteractions takingbool;
+    private bool cutSceneEnded = false;
 
     private void Awake()
     {
@@ -181,7 +183,12 @@ public class TheG : MonoBehaviour
 
         if (lookaround)
         {
-            // trigger a cut scene
+            canvasAnimator.SetBool("lookingaround", true);                
+        }
+
+        if (!lookaround)
+        {
+            canvasAnimator.SetBool("lookingaround", false);
         }
 
         if ((entertheschool01 || entertheschool02) && !isBehinfTheSchool)
@@ -262,8 +269,19 @@ public class TheG : MonoBehaviour
                 boxCollider2D.enabled = false;
             }
             boxCollider2DFall.enabled = false;
-        }        
+        }
+
+        if (takingbool.camerashake)
+        {
+            cameraAnimator.SetBool("groundshaking", true);
+        }   
+
+        if (!takingbool.camerashake)
+        {
+            cameraAnimator.SetBool("groundshaking", false);
+        }    
 
 
     }
+
 }

@@ -9,6 +9,8 @@ title: TheBeach
 <<set $magnoliainarow to false>> // in-game animation of Magnolia walking to the Mourners and stands in the same row (she has some thoughts, but nothing happens)
 <<set $putintheinventory12 to false>> //puts the daisies in the inventory
 <<set $everythingchanges to false>> //enviromental changes
+<<set $activated to false>>
+<<set $fadechihiro to false>>
 
 //variables for in YARN
 <<set $hasclue_flowers to false>>
@@ -58,11 +60,11 @@ title: TheBookReader
   Magnolia: Yeah, you have a book in your hand.
   The Reader: Oh that?
   Magnolia: That's probably just my diary.
-  <<jump TheBookReader_Questions>>
+  <<jump TheBookReader_Question>>
  <<else>>
   Magnolia: (I don't think she can help me.)
   Magnolia: (I can still try.)
-  <<jump TheBookReader_Questions>>
+  <<jump TheBookReader_Question>>
  <<endif>>
 <<endif>>
 ===
@@ -241,15 +243,6 @@ title: TheSunBather
 
 title: Chihiro
 ---
-//she is the one to take us over the bridge
-//to be able to do that we need to talk to the book reader
-<<if visited_count("TheBridge02") < 1>>
- Magnolia: (She looks weird.)
- Magnolia: (And somehow familiar.)
- <<wait 0.5>>
- Magnolia: (But there is the bridge.)
-<<else>>
- <<if $everythingchanged is true>>
   Chihiro: Hey.
   Magnolia: Hey.
   Chihiro: My name is Chihiro.
@@ -261,16 +254,10 @@ title: Chihiro
   Magnolia: You know about the star?
   Chihiro: Hold my hand.
    -> Hold Chihiro's hand.
+    <<set $fadechihiro to true>>
+    <<wait 1.7>>
     <<set $goverthebridge to true>>
- <<else>>
-  Magnolia: Hey, do you maybe know how to pass this bridge?
-  Chihiro: You shouldn't go there.
-  Chihiro: I can't say anything.
-  Magnolia: Why?
-  Magnolia: Please?
-  Chihiro: That's not possible right now.
- <<endif>>
-<<endif>>
+    <<set $activated to true>>
 ===
 
 title: TheBridge02
@@ -315,4 +302,22 @@ Magnolia: (I wonder if the tied will come this far and ruin it.)
 title: ChihiroInSand
 ---
 Magnolia: (Who is Chihiro?)
+===
+
+title: TheManHole_Beach
+---
+<<SetPortrait noportrait>>
+<<if visited_count("TheManHole_Beach") < 1>>
+Magnolia: (I've barely seen this one.)
+Magnolia: (of course, there is a word.)
+ -> Read it.
+  The Word: SUNLIGHT
+  <<wait 0.2>>
+  Magnolia: (What is it with the sun?)
+  Magnolia: (It's everywhere except on the sky.)
+<<else>>
+ Magnolia: (The thief is in sunlight.)
+ <<wait 1>>
+ Magnolia: (I don't know what it means.)
+<<endif>>
 ===

@@ -12,6 +12,7 @@ public class DreamWorld01  : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Animator canvasAnimator;
     [SerializeField] private Animator transitionAnimator;
+    [SerializeField] private Animator golemAnimator;
     [SerializeField] private AnimationClip golemAnimationClip;
     [SerializeField] private BoolValue isInventoryAvailable;
     [SerializeField] private string nameOfTheScene;
@@ -27,6 +28,7 @@ public class DreamWorld01  : MonoBehaviour
     private bool openInventory;
     private bool trigger_waking02;
     private bool standup;
+    private bool animationgolem;
     private bool laying;
     private bool stoneSelected;
     private bool hasClueA;
@@ -52,7 +54,7 @@ public class DreamWorld01  : MonoBehaviour
         //audioManager.InitializeMusic(FMODEvents.instance.musicDW1);
         dialogueRunner.StartDialogue("TheDreamworld_01");
         inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_01_Golem");
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_DreamWorld_001_TheGolemDream_Loopable");
         instance.start();
     }
 
@@ -65,6 +67,7 @@ public class DreamWorld01  : MonoBehaviour
         variableStorage.TryGetValue("$laying", out laying);
         variableStorage.TryGetValue("$stoneSelected", out stoneSelected);
         variableStorage.TryGetValue("$hasClueA", out hasClueA);
+        variableStorage.TryGetValue("$animationgolem", out animationgolem);
 
         Debug.Log("hasClueA " + hasClueA);
 
@@ -97,8 +100,8 @@ public class DreamWorld01  : MonoBehaviour
             dialogueRunner.SaveStateToPlayerPrefs();
             if (!cutSceneEnded)
             {
-                instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_01_Golem");
-                instance02.start();
+                //instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_01_Golem");
+                //instance02.start();
                 canvasAnimator.SetBool("startCutSceneGolem", true);                
                 //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);
             }            
@@ -110,8 +113,8 @@ public class DreamWorld01  : MonoBehaviour
             }
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
             {
-                instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                instance02.release();
+                //instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                //instance02.release();
                 StartCoroutine(fadeLayer.FadeIn());
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontoww", false);
@@ -133,6 +136,11 @@ public class DreamWorld01  : MonoBehaviour
         if (!standup)
         {
             playerAnimator.SetBool("standup", false);
+        }
+
+        if(animationgolem)
+        {
+            golemAnimator.SetBool("hearton", true);
         }
     }   
 }

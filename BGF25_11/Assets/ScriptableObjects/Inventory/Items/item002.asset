@@ -17,10 +17,22 @@ MonoBehaviour:
   itemDescription: It smells like a potion.
   itemImage: {fileID: 21300000, guid: dfd08e82ce6fb4e8bb71e4cafe8cbd76, type: 3}
   itemImageDW: {fileID: 21300000, guid: f30b0ed8880cd4d7e9ee8f547b847a77, type: 3}
-  usable: 0
+  usable: 1
   isUsed: 0
   collectable: 1
   thisEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1004074280292472811, guid: da382dcde5625a94f9be4058222442ca, type: 3}
+        m_TargetAssemblyTypeName: GoldenCupReaction, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   useButton: {fileID: 0}
