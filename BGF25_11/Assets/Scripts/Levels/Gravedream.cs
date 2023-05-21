@@ -17,6 +17,8 @@ public class Gravedream : MonoBehaviour
     private bool trigger_waking03;
     private bool hedge_cleared;
     private bool pickuptheobject;
+    private bool instanceallowed;
+    private bool instanceallowed02;
 
     private AudioManager audioManager;
 
@@ -30,6 +32,8 @@ public class Gravedream : MonoBehaviour
     [SerializeField] private BoolValue isPaused;
     [SerializeField] private Animator transitionAnimator;
     [SerializeField] private PlayerInventory playerInventory;
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02;
 
     private void Awake()
     {
@@ -42,7 +46,11 @@ public class Gravedream : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager.InitializeMusic(FMODEvents.instance.musicGravedream);
+        //audioManager.InitializeMusic(FMODEvents.instance.musicGravedream);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_DreamWorld_002_TheGravedream_Loopable");
+        instance.start();
+        instanceallowed = true;
+        instanceallowed02 = true;
         dialogueRunner.StartDialogue("TheDreamworld_02");
         dissolve = FindObjectOfType<Dissolve>();
     }
@@ -59,9 +67,19 @@ public class Gravedream : MonoBehaviour
             /*audioManager.PauseMusic(FMODEvents.instance.musicGravedream);
             audioManager.PlayOneShot(FMODEvents.instance.transitionToWW, this.transform.position);*/
             transitionAnimator.SetBool("transitiontoww", true);
+            if (instanceallowed)
+                {
+                    instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance.release();
+                    instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/UI Sounds/Transition_DW_to_WW");
+                    instance02.start();
+                    instanceallowed = false;
+                }  
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
             {
                 StartCoroutine(fadeLayer.FadeIn());
+                instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance02.release();
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontoww", false);                
             }

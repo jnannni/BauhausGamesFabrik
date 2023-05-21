@@ -17,6 +17,7 @@ public class DreamWorld01  : MonoBehaviour
     [SerializeField] private BoolValue isInventoryAvailable;
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private GameObject soundCutscene;
     public GameObject inventoryContent;
     public BoolValue isInventoryOpen;
     public BoolValue isPaused;
@@ -32,11 +33,15 @@ public class DreamWorld01  : MonoBehaviour
     private bool laying;
     private bool stoneSelected;
     private bool hasClueA;
+    private bool instanceallowed;
+    private bool instanceallowed02;
+    private bool instanceallowed03;
     private int iteration = 0;
     private GameObject inventorySelectedButton;
     private AudioManager audioManager;
     private FMOD.Studio.EventInstance instance;
     private FMOD.Studio.EventInstance instance02;
+    private FMOD.Studio.EventInstance instance03;
 
     private void Awake()
     {        
@@ -56,6 +61,9 @@ public class DreamWorld01  : MonoBehaviour
         inventorySelectedButton = inventoryContent.transform.GetChild(0).gameObject;
         instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_DreamWorld_001_TheGolemDream_Loopable");
         instance.start();
+        instanceallowed = true;
+        instanceallowed02 = true;
+        instanceallowed03 = true;
     }
 
     // Update is called once per frame
@@ -87,6 +95,7 @@ public class DreamWorld01  : MonoBehaviour
         if (stoneSelected)
         {
             inventoryPanel.SetActive(false);
+            Input.GetKeyDown("i");
             isInventoryOpen.initialValue = false;
             isPaused.initialValue = false;
         }
@@ -95,27 +104,50 @@ public class DreamWorld01  : MonoBehaviour
         {
             /*audioManager.PauseMusic(FMODEvents.instance.musicDW1);
             audioManager.PlayOneShot(FMODEvents.instance.transitionToWW, this.transform.position);*/
-            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            instance.release();
             dialogueRunner.SaveStateToPlayerPrefs();
+            //isPaused.initialValue = true;
+
+            if (instanceallowed)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instanceallowed = false;
+            }
+
             if (!cutSceneEnded)
             {
-                //instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_01_Golem");
-                //instance02.start();
-                canvasAnimator.SetBool("startCutSceneGolem", true);                
+                if (instanceallowed02)
+                {
+                    instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_01_Golem");
+                    instance02.start();
+                    instanceallowed02 = false;
+                }
+                //isPaused.initialValue = false;
+                canvasAnimator.SetBool("startCutSceneGolem", true);       
+                //Destroy(soundCutscene);        
                 //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);
             }            
             if (canvasAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && canvasAnimator.GetCurrentAnimatorStateInfo(0).IsName("golemDialogue"))
             {
                 canvasAnimator.SetBool("startCutSceneGolem", false);
                 cutSceneEnded = true;
-                transitionAnimator.SetBool("transitiontoww", true);                                
+                transitionAnimator.SetBool("transitiontoww", true);  
+                if (instanceallowed03)
+                {
+                    instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance02.release();
+                    instance03 = FMODUnity.RuntimeManager.CreateInstance("event:/UI Sounds/Transition_DW_to_WW");
+                    instance03.start();
+                    instanceallowed03 = false;
+                }                              
             }
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontoww"))
             {
                 //instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 //instance02.release();
                 StartCoroutine(fadeLayer.FadeIn());
+                instance03.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance03.release();
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontoww", false);
                 trigger_waking02 = false;

@@ -17,6 +17,7 @@ public class TheWorkerQuarters : MonoBehaviour
     private bool trigger_Frozen;
     private bool stoprabbit;
 
+
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject playerPosition;
     [SerializeField] private BoolValue isLoopTriggered;
@@ -25,6 +26,9 @@ public class TheWorkerQuarters : MonoBehaviour
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Animator transitionAnimator;
     [SerializeField] private Animator theworkerAnimator;
+    private bool instanceallowed;
+    private bool instanceallowed02;
+    private bool instanceallowed03;
 
     private Vector3 playerStartPosition;
     private Vector3 playerCurrentPosition;
@@ -33,6 +37,9 @@ public class TheWorkerQuarters : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Animator canvasAnimator;
     [SerializeField] private AnimationClip RabbitAnimationClip;
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02; 
+    private FMOD.Studio.EventInstance instance03;
 
     private void Awake()
     {
@@ -45,10 +52,15 @@ public class TheWorkerQuarters : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager.InitializeMusic(FMODEvents.instance.musicWorkerQuarters);
+        //audioManager.InitializeMusic(FMODEvents.instance.musicWorkerQuarters);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_010_TheWorkerquarters_Loopable");
+        instance.start();
         dialogueRunner.StartDialogue("TheWorkerQuarters");        
         playerCurrentPosition = player.transform.position;
         playerStartPosition = playerPosition.transform.position;
+        instanceallowed = true;
+        instanceallowed02 = true;
+        instanceallowed03 = true;
     }
 
     // Update is called once per frame
@@ -78,6 +90,14 @@ public class TheWorkerQuarters : MonoBehaviour
         if (trigger_Frozen)
         {
             transitionAnimator.SetBool("transitiontodw", true);
+            if (instanceallowed03)
+                {
+                    instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance.release();
+                    instance03 = FMODUnity.RuntimeManager.CreateInstance("event:/UI Sounds/Transition_WW_to_DW");
+                    instance03.start();
+                    instanceallowed03 = false;
+                }
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {
                 StartCoroutine(fadeLayer.FadeIn());
@@ -95,14 +115,35 @@ public class TheWorkerQuarters : MonoBehaviour
         {
             if (!cutSceneEnded)
             {
-                canvasAnimator.SetBool("startCutSceneRabbit", true);                
-                //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);
+                canvasAnimator.SetBool("startCutSceneRabbit", true);
+                if (instanceallowed)
+                {
+                    instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance.release();
+                    instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_02_RabbitBag");
+                    instance02.start();
+                    instanceallowed = false;
+                    instanceallowed02 = true;
+                }
+            
+                
+                
+                //audioManager.InitializeMusic(FMODEvents.instance.golemCutScene);    
             }            
         }
 
         if (stoprabbit)
         {
             canvasAnimator.SetBool("startCutSceneRabbit", false);
+            if (instanceallowed02)
+                {
+                    instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance02.release();
+                    instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_010_TheWorkerquarters_Loopable");
+                    instance.start();
+                    instanceallowed02 = false;
+                    instanceallowed02 = true;
+                }
             cutSceneEnded = true;
         }
 

@@ -3,7 +3,6 @@
 title: FirstScene
 
 ---
-<<SetPortrait noportrait>>
 //variables for UNITY
 <<set $godownthestairs to false>>
 <<set $takethekey to false>>
@@ -18,17 +17,37 @@ title: FirstScene
 <<set $hasClueC to false>>
 <<set $stairsareopen to false>>
 
+//variables for clues
+<<set $newclue001 to false>>
+<<set $newclue002 to false>>
+<<set $newclue003 to false>>
+<<set $newclue004 to false>>
+
 // Magnolia is in front of her aunt's house in a small uphill neighborhood:
+<<wait 0.8>>
+<<SetPortrait blackportrait1>>
+Team: This version of the game is still in development.
+Team: See the the instructions:
+<<wait 0.5>>
+Team: k - interact / m - progress dialogue / i - open inventory
+Team: enter - make a choice / esc - exit 
+<<wait 1>>
+<<SetPortrait noportrait>>
 Magnolia: (Did this city suddenly become grayer?)
 <<wait 1>>
 Magnolia: (There's no sun at all today.)
 Magnolia: (Why did I go out again?)
 Magnolia: (Ah groceries...The fridge is empty.)
+<<wait 0.5>>
+<<SetPortrait blackportrait1>>
+Clue: *new objective: find supermarket*
+<<wait 0.5>>
 ===
 
 title: Restart
 ---
 <<wait 1>>
+<<SetPortrait noportrait>>
 Magnolia: (I feel the same heaviness.)
 Magnolia: (Even the city seems unchanged.)
 Magnolia: (Did the days pass?)
@@ -38,12 +57,16 @@ Magnolia: (And I again don't have any food.)
 
 title: TheHouseMan
 ---
+<<wait 0.8>>
 <<if visited_count("TheHouseMan") > 1>>
   <<SetPortrait housemanportrait1>>
   TheHouseMan: I can't scrub the sun from my windows. How does one take the sun off?
   <<if $stairsareopen == true>>
     <<SetPortrait noportrait>>
     Magnolia: (I can't bother with him anymore.) 
+    <<SetPortrait blackportrait1>>
+    Clue: *no clues left*
+    <<wait 0.5>>
   <<else>>
     <<jump TheHouseMan_Questions>>
   <<endif>>
@@ -74,6 +97,7 @@ title: TheHouseMan
 
 title: TheHouseMan_Questions
 ---
+<<wait 0.8>>
 -> I heard about the stairs. <<if $hasClueA>>
    <<SetPortrait housemanportrait1>>
    TheHouseMan: Keep to the left wall.
@@ -82,17 +106,60 @@ title: TheHouseMan_Questions
    <<SetPortrait housemanportrait1>>
    TheHouseMan:...
    <<set $stairsareopen to true>>
-     -> Give up.
+   <<if $newclue001 is false>>
+    <<SetPortrait blackportrait1>>
+    Clue: *new clue unlocked*
+    <<wait 0.5>>
+    <<set $newclue001 to true>>
+   <<else>>
+   <<endif>>
+      -> Give up.
+       Clue: *no clues left*
+       <<wait 0.5>>
+   
+
 -> Ask the man again.
    <<SetPortrait noportrait>>
    Magnolia: Uhm, do you maybe know the way to the supermarket?
    <<SetPortrait housemanportrait1>>
    TheHouseMan: The sky is almost purple today.
       -> Give up.
+       <<if $stairsareopen is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
+       <<if $hasClueA is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
+        
 -> Give up.
+       <<if $stairsareopen is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
+       <<if $hasClueA is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
 ===
 title: TheCarMan
 ---
+<<wait 0.8>>
 <<if visited_count("TheCarMan") > 1>>
   <<SetPortrait carguyportrait1>>
   TheCarMan: I have seen two rabbits down the street.
@@ -101,6 +168,9 @@ title: TheCarMan
     Magnolia: Me too.
     <<SetPortrait carguyportrait1>>
     TheCarMan: Good.
+    <<SetPortrait blackportrait1>>
+    Clue: *no clues left*
+    <<wait 0.5>>
   <<else>>
     <<jump TheCarMan_Questions>>
   <<endif>>
@@ -139,12 +209,22 @@ title: TheCarMan
 
 title: TheCarMan_Questions
 ---
+<<wait 0.8>>
 -> Do you know where the closest supermarket is?
    <<SetPortrait carguyportrait1>>
    TheCarMan: Rabbits are purple only sometimes.
    <<SetPortrait noportrait>>
    Magnolia: (Huh?)
    -> Give up.
+    <<if $hasClueA is false>>
+     <<SetPortrait blackportrait1>>
+     Clue: *one clue left*
+     <<wait 0.5>>
+    <<else>>
+     <<SetPortrait blackportrait1>>
+     Clue: *no clues left*
+     <<wait 0.5>>
+    <<endif>>
 -> How did you drive your car up here?
    <<SetPortrait carguyportrait1>>
    TheCarMan: Billy knows the secret of the stairs.
@@ -163,6 +243,13 @@ title: TheCarMan_Questions
          Magnolia: (Did I pass by this Billy?)
         <<endif>>
         -> Give up.
+         <<if $newclue002 is false>>
+          <<SetPortrait blackportrait1>>
+          Clue: *new clue unlocked*
+          <<set $newclue002 to true>>
+          <<wait 0.5>>
+         <<else>>
+         <<endif>>
     -> Billy? 
         <<SetPortrait carguyportrait1>>
         TheCarMan: Neighbors can be tiring.
@@ -174,9 +261,17 @@ title: TheCarMan_Questions
          Magnolia: (I should probably look for someone around.)
         <<endif>>
         -> Give up.
+         <<if $newclue002 is false>>
+          <<SetPortrait blackportrait1>>
+          Clue: *new clue unlocked*
+          <<wait 0.5>>
+          <<set $newclue002 to true>>
+         <<else>>
+         <<endif>>
 ===
 title: TheStairs
 ---
+<<wait 0.8>>
 <<if $stairsareopen>>
  <<SetPortrait noportrait>>
  Magnolia: (So I should just listen to the strange neighbor?)
@@ -186,9 +281,23 @@ title: TheStairs
   -> Rethink.
    Magnolia: (I am such a coward.)
 <<else>>
- <<SetPortrait noportrait>>
- Magnolia: (They seem like they will crumble under my feet.)
- Magnolia: (I can't go there.)
+ <<if visited_count("TheStairs") < 1>>
+  <<SetPortrait noportrait>>
+  Magnolia: (These stairs seem like they will crumble under my feet.)
+  Magnolia: (I can't go there.)
+  <<wait 0.5>>
+  Magnolia: (Maybe the neighbours here know a safe way.)
+  <<if $newclue003 is false>>
+   <<SetPortrait blackportrait1>>
+   Clue: *new objective: find a safe way down*
+   <<set $newclue003 to true>>
+   <<wait 0.5>>
+  <<else>>
+  <<endif>>
+ <<else>>
+  <<SetPortrait noportrait>>
+  Magnolia: (I need to ask somebody how to get down.)
+ <<endif>>
 <<endif>>
 ===
 
@@ -196,22 +305,42 @@ title: TheStairs
 
 title: TheSign
 ---
-<<if visited_count("TheSign") > 0>>
- <<SetPortrait noportrait>>
- Magnolia: (Yeah, the sign says it's somewhere here.)
+<<wait 0.8>>
+<<if $hasClueB is false>>
+ <<if visited_count("TheSign") > 0>>
+  <<SetPortrait noportrait>>
+  Magnolia: (Yeah, the sign says it's in the Little Corner.)
+  Magnolia: (But where is that?)
+ <<else>>
+  <<SetPortrait noportrait>>
+  Magnolia: (I almost missed it.)
+  Magnolia: (Am I too short, or are they not good at planning.)
+ <<endif>>
+   -> Read the sign.
+     The Sign: Your local supermarket! Now in The Little Corner!
+     <<set $hasClueB to true>>
+     <<SetPortrait blackportrait1>>
+     Clue: *new clue unlocked*
+     <<wait 0.5>>
+   -> Ignore it.
+    <<if $hasClueB is false>>
+      <<SetPortrait blackportrait1>>
+      Clue: *one clue left*
+      <<wait 0.5>>
+    <<else>>
+      <<SetPortrait blackportrait1>>
+      Clue: *no clues left*
+      <<wait 0.5>>
+    <<endif>>
 <<else>>
  <<SetPortrait noportrait>>
- Magnolia: (I almost missed it.)
- Magnolia: (Am I too short, or are they not good at planning.)
+ Magnolia: (I've already seen that.)
 <<endif>>
-  -> Read the sign.
-    The Sign: Your local supermarket! Now in The Little Corner!
-      <<set $hasClueB to true>>
-  -> Ignore it.
 ===
 
 title: TheCatPerson
 ---
+<<wait 0.8>>
 //We are now in the Downhill part of the city, and in this part we find the supermarket. In this part there is only one person.
 <<if visited_count("TheCatPerson") > 1>>
  <<SetPortrait noportrait>>
@@ -247,6 +376,17 @@ title: TheCatPerson
         <<SetPortrait noportrait>>
         Magnolia: You need to roll the curtain from the bottom.
         <<set $hasClueC to true>>
+        <<if $newclue003 is false>>
+          <<SetPortrait blackportrait1>>
+          Clue: *new clue unlocked*
+          <<set $newclue003 to true>>
+          <<wait 0.5>>
+          Clue: *no clues left*
+        <<else>>
+          <<SetPortrait blackportrait1>>
+          Clue: *no clues left*
+          <<wait 0.5>>
+        <<endif>>
      -> Me?
         <<SetPortrait catpersonportrait1>>
         TheCatPerson: Sometimes undeserving people get second chances.
@@ -257,6 +397,21 @@ title: TheCatPerson
         Magnolia: (But she couldn't be possibly talking about that?)
         Magnolia: It's true.
           -> Run away.
+           <<if $hasClueC is false>>
+            <<SetPortrait blackportrait1>>
+            Clue: *one clue left*
+            <<wait 0.5>>
+           <<else>>
+            <<SetPortrait blackportrait1>>
+            Clue: *no clues left*
+            <<wait 0.5>>
+           <<endif>>
+           <<if $hasClueB is false>>
+             <<SetPortrait blackportrait1>>
+             Clue: *one conversation hidden*
+             <<wait 0.5>>
+           <<else>>
+           <<endif>>
      -> Is that a cat?
         <<SetPortrait catpersonportrait1>>
         TheCatPerson: Cats never blame others for their loneliness.
@@ -267,18 +422,50 @@ title: TheCatPerson
         <<SetPortrait noportrait>>
         Magnolia: ...
           -> Slowly move away.
+           <<if $hasClueC is false>>
+            <<SetPortrait blackportrait1>>
+            Clue: *one clue left*
+            <<wait 0.5>>
+           <<else>>
+            <<SetPortrait blackportrait1>>
+            Clue: *no clues left*
+            <<wait 0.5>>
+           <<endif>>
+           <<if $hasClueB is false>>
+             <<SetPortrait blackportrait1>>
+             Clue: *one conversation hidden*
+             <<wait 0.5>>
+           <<else>>
+           <<endif>>
      -> Do you know where the nearest supermarket is?
         <<SetPortrait catpersonportrait1>>
         TheCatPerson: ...
         <<SetPortrait noportrait>>
         Magnolia: ...
           -> Give up.
+           <<if $hasClueC is false>>
+            <<SetPortrait blackportrait1>>
+            Clue: *one clue left*
+            <<wait 0.5>>
+           <<else>>
+            <<SetPortrait blackportrait1>>
+            Clue: *no clues left*
+            <<wait 0.5>>
+           <<endif>>
+           <<if $hasClueB is false>>
+             <<SetPortrait blackportrait1>>
+             Clue: *one conversation hidden*
+             <<wait 0.5>>
+           <<else>>
+           <<endif>>
 ===
 
 title: TheLittleCorner
 ---
+<<wait 0.8>>
+<<if $hasClueB is true>>
   <<SetPortrait noportrait>>
-  Magnolia: (Ah so here it is.)
+  Magnolia: (Ah so here is the Little Corner.)
    <<if $hasClueC>>
      Magnolia: (I know the trick.)
      -> Move the curtain.
@@ -288,14 +475,30 @@ title: TheLittleCorner
       <<wait 0.5>>
       <<set $curtainopens to true>>
    <<else>>
+    <<SetPortrait noportrait>>
      Magnolia: (This curtain is not moving.)
      Magnolia: (Something is holding it from the sides.)
        -> Give up.
+        <<if $newclue004 is false>>
+          <<SetPortrait blackportrait1>>
+          Clue: *new objective: find a way to open the curtain*
+          <<wait 0.5>>
+          <<set $newclue004 to true>>
+        <<else>>
+          <<SetPortrait noportrait>>
+          Magnolia: (There must be a way to open it.)
+          <<wait 0.5>>
+        <<endif>>
    <<endif>>
+<<else>>
+ <<SetPortrait noportrait>>
+ Magnolia: (There is some kind of a curtain here.)
+<<endif>>
 ===
 
 title: TheFlamingKey
 ---
+<<wait 0.8>>
 <<if visited_count("TheFlamingKey") > 0>>
  <<SetPortrait noportrait>>
  Magnolia: (It almost pulls me in.)
@@ -314,6 +517,7 @@ title: TheFlamingKey
 
 title: TheSuperMarket
 ---
+<<wait 0.8>>
  <<SetPortrait noportrait>>
  Magnolia: (I have no time, nor nerves for this.)
  <<wait 0.5>>
@@ -328,6 +532,7 @@ title: TheSuperMarket
 
 title: TheWilderness
 ---
+<<wait 0.8>>
 <<if visited_count("TheWilderness") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (I've never been in this nneighbourhood before.)
@@ -348,6 +553,7 @@ title: TheWilderness
 
 title: TheWilderness02
 ---
+<<wait 0.8>>
 <<if visited_count("TheWilderness02") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (I can see the coast from here.)
@@ -363,6 +569,7 @@ title: TheWilderness02
 
 title: TheLookOut
 ---
+<<wait 0.8>>
 <<if visited_count("TheLookOut") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (From here I can see almost the whole city.)
@@ -378,6 +585,7 @@ title: TheLookOut
 
 title: TheWilderness03
 ---
+<<wait 0.8>>
 //it's in the downhill
 <<if visited_count("TheWilderness03") < 1>>
  <<SetPortrait noportrait>>
@@ -391,6 +599,7 @@ title: TheWilderness03
 
 title: TheOtherSide
 ---
+<<wait 0.8>>
 <<if visited_count ("TheOtherSide") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (I can't pass through here.)
@@ -404,6 +613,7 @@ title: TheOtherSide
 
 title: TheRoadClosed
 ---
+<<wait 0.8>>
 <<if visited_count("TheRoadClosed") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (It's dangerous walking over construction sites.)
@@ -415,6 +625,7 @@ title: TheRoadClosed
 
 title: StairsBack
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Did I forget anything?)
  -> Go upstairs.

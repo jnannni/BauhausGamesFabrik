@@ -20,6 +20,8 @@ title: TheWorkerQuarters
 <<set $opentrigger01 to false>>
 
 //we should add some kind of dizziness effect here
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (NO!)
 Magnolia: (I need to go back.)
 Magnolia: (I wasn't even in a dream!)
@@ -33,37 +35,56 @@ Magnolia: (I feel like I missed something.)
 
 title: TheTicketOffice
 ---
+<<wait 0.8>>
 <<if visited_count("TheTicketOffice") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (Maybe there is a train soon.)
  Magnolia: (I could catch that lady.)
  Magnolia: Excuse me?
+ <<SetPortrait blackportrait1>>
  The Worker:...
+ <<SetPortrait noportrait>>
  Magnolia: Hello?
+ <<SetPortrait blackportrait1>>
  The Worker: You are incredibly quiet.
+ <<SetPortrait noportrait>>
  Magnolia: (But I am almost shouting?)
  Magnolia: [b]Is it better now?[/b]
+ <<SetPortrait blackportrait1>>
  The Worker: Why are you shouting?
+ <<SetPortrait noportrait>>
  Magnolia:...
  Magnolia: I didn't mean to.
+ <<SetPortrait blackportrait1>>
  The Worker: You have 33 seconds.
+ <<SetPortrait noportrait>>
  Magnolia: Excuse me?
+ <<SetPortrait blackportrait1>>
  The Worker: 21...
+ <<SetPortrait noportrait>>
  Magnolia: (Everyone is mad again!)
  Magnolia: When is the next train?
  Magnolia: I want to go back to the city.
  <<set $theworkercomesout to true>>
+ <<SetPortrait workershadowportrait1>>
  The Worker: Our trains never go backward.
+ <<SetPortrait noportrait>>
  Magnolia: I didn't even think it would...
+ <<SetPortrait workershadowportrait1>>
  The Worker: 5 seconds.
+ <<SetPortrait noportrait>>
  Magnolia: How can I go to the city?
+ <<SetPortrait workershadowportrait1>>
  The Worker: The contract expired.
  The Worker: Next session in three months.
  <<wait 0.5>>
  The Worker: You could try going through the factory.
- MAgnolia: (The factory?)
+ <<SetPortrait noportrait>>
+ Magnolia: (The factory?)
  <<set $theworkercomesout to false>>
  //the worker is just eyes from a small window
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (I can't wait for three months.)
  Magnolia: (I need to find another way.)
  Magnolia: (He mentioned the factory.)
@@ -72,112 +93,168 @@ title: TheTicketOffice
 
 title: TheHitchiker
 ---
+<<wait 0.8>>
 <<if $hasclue_forhitch is true>>
+ <<SetPortrait noportrait>>
  Magnolia: Can you show me your bag again?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Did you find a way to the factory?
+ <<SetPortrait noportrait>>
  Magnolia: We will see that now.
   -> Look for the rabbit.
+   <<SetPortrait noportrait>>
    Magnolia: You lost your rabbit!
    Magnolia: (Did I truly believe I will find a factory inside a bag?)
+   <<SetPortrait hitchikerportrait1>>
    The Hitchiker: I never had a rabbit.
+   <<SetPortrait noportrait>>
    Magnolia: But I saw it!
+   <<SetPortrait hitchikerportrait1>>
    The Hithiker: It must have been someone else.
+   <<SetPortrait noportrait>>
    Magnolia: It was you I am sure.
+   <<SetPortrait hitchikerportrait1>>
    The Hitchiker: I am merely a passerby.
    <<wait 0.5>>
+   <<SetPortrait noportrait>>
    Magnolia: You also made me believe I could walk to the factory!
    Magnolia: It was impossible.
    Magnolia: There was a lot of nothing!
+   <<SetPortrait hitchikerportrait1>>
    The Hitchiker: I am no one.
+   <<SetPortrait noportrait>>
    Magnolia: Whatever.
    Magnolia: (I need to go back to the Alice guy.)
    <<set $norabbit to true>>
 <<else>>
  <<if visited_count("TheHitchiker") < 1>>
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Hey you!
+ <<SetPortrait noportrait>>
  Magnolia: Yes?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Have a place for one more?
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (?)
  Magnolia: One more?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: I need a ride.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Where are you going?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: I collected some sun, now I need to bring it to the city.
  <<wait 0.5>>
  TheHitchiker: So can you give me I ride?
+ <<SetPortrait noportrait>>
  Magnolia: I don't even have a car.
+ <<SetPortrait hitchikerportrait1>>
  TheHitchiker: Those legs would do.
+ <<SetPortrait noportrait>>
  Magnolia: What do you mean by that?!
+ <<SetPortrait hitchikerportrait1>>
  TheHitchiker: Come on, you could borrow them to me.
+ <<SetPortrait noportrait>>
  Magnolia: I don't think it works like that...
  Magnolia: Seriously, do you expect me to chop off my own legs?
+ <<SetPortrait hitchikerportrait1>>
  TheHitchiker: I will be rich after I bring this sun.
  TheHitchiker: I could pay.
+ <<SetPortrait noportrait>>
  Magnolia: (!!!)
  Magnolia: Why don't you use your own legs?
+ <<SetPortrait hitchikerportrait1>>
  TheHitchiker: These are an old model.
  TheHitchiker: The battery runs out quickly.
+ <<SetPortrait noportrait>>
  Magnolia: I don't know how to help you.
  <<wait 1>>
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Wait!
+ <<SetPortrait noportrait>>
  Magnolia: Yes?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: What if I can help you?
   <<jump TheHitchiker_Questions>>
  <<else>>
- The Hitchiker: There is more in this bag than the sun.
- <<jump TheHitchiker_Questions>>
+  <<SetPortrait hitchikerportrait1>>
+  The Hitchiker: There is more in this bag than the sun.
+  <<jump TheHitchiker_Questions>>
  <<endif>>
 <<endif>>
 ===
 
 title: TheHitchiker_Questions
 ---
+<<wait 0.8>>
 -> What is there in your bag?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: I am bringing some rabbits to the old factory nearby.
  The Hitchiker: The people there could help us go back to the city.
   -> How could they help?
+   <<SetPortrait hitchikerportrait1>>
    The Hitchiker: They are all from the city and work in this factory.
    The Hitchiker: Their legs are used to that road.
+   <<SetPortrait noportrait>>
    Magnolia: I see.
    Magnolia: (Maybe I really should go and ask.)
    Magnolia: (I don't even know how to get from here to the beach.)
    <<set $hascluefactory to true>>
    <<jump TheHitchiker_Questions>>
   -> Can I see the rabbits?!
+   <<SetPortrait hitchikerportrait1>>
    The Hitchiker: They burn in the sun.
+   <<SetPortrait noportrait>>
    Magnolia: Come on! Please?
    Magnolia: I am trying to see one this whole time.
+   <<SetPortrait hitchikerportrait1>>
    The Hitchiker: I could allow it.
    The Hitchiker: But you need to get inside the bag, so the sun doesn't reach.
+   <<SetPortrait noportrait>>
    Magnolia: (I think this decision will make it official.)
    Magnolia: (How far am I on the crazy scale?)
     -> Let me see.
      <<set $cutscene_rabbits to true>> //it's just an animated illustration of Magnolia being inside this dark bag and a small, normal-colored rabbit is looking at her.
      <<wait 8.5>>
      <<set $stoprabbit to true>>
+     <<SetPortrait noportrait>>
      Magnolia: Wait!
      Magnolia: He is not purple!
+     <<SetPortrait hitchikerportrait1>>
      The Hitchiker: Why did you expect a purple rabbit?
+     <<SetPortrait noportrait>>
      Magnolia: Nevermind.
      <<wait 1>>
      <<jump TheHitchiker_Questions>>
     -> That's fine. I changed my mind.
      <<jump TheHitchiker_Questions>>
 -> Are you some kind of a cyborg?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Why do you think that?
+ <<SetPortrait noportrait>>
  Magnolia: You said you wanted me to give you my legs.
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Does that make me a cyborg?
+ <<SetPortrait noportrait>>
  Magnolia: I don't know how it would function any other way.
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Then I'm a cyborg.
+ <<SetPortrait noportrait>>
  Magnolia: I wouldn't believe you if you told me some months ago.
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: Do you believe me now?
+ <<SetPortrait noportrait>>
  Magnolia: I do.
  Magnolia: But I still won't give you my legs.
+ <<SetPortrait hitchikerportrait1>>
  The Hitchaker: I'm okay with that.
 -> How do we go to this factory? <<if $hascluefactory is true>>
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: We need to go east, and there will be a sign.
+ <<SetPortrait noportrait>>
  Magnolia: What kind of a sign?
+ <<SetPortrait hitchikerportrait1>>
  The Hitchiker: It says: "Only for rabbits."
  <<set $hasclueendless to true>>
 -> Nevermind. 
@@ -186,27 +263,34 @@ title: TheHitchiker_Questions
 
 title: TheEndless
 ---
+<<wait 0.8>>
 <<if $hasclueendless is true>>
+<<SetPortrait noportrait>>
 Magnolia: (There is some kind of a sign.)
  -> Read it.
   The Sign: [i]Only for rabbits.[/i]
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: (This is what that hitchhiker was talking about.)
 Magnolia: (I guess I should just continue.)
 Magnolia: (Even though I am not a rabbit?)
 <<set $loopthemap to true>>
 <<jump TheEndless_Loop>>
 <<else>>
+<<SetPortrait noportrait>>
 Magnolia: (There is some kind of a sign.)
  -> Read it.
   The Sign: [i]Only for rabbits.[/i]
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: (I am not a rabbit.)
 <<endif>>
 ===
 
 title: TheEndless_Loop
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (This road is never-ending. How much more do I need to walk to reach the factory?)
 <<wait 1>>
 Magnolia: (I wonder if the wishing star is real. Can it really resurrect my family?)
@@ -242,35 +326,58 @@ Magnolia: (And I hope that I can maintain my sanity through it all.)
 
 title: TheAstronomer
 ---
+<<wait 0.8>>
 <<if visited_count("TheDustSweepwer") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: Can you see the stars even in the daytime?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: I am not looking for the stars.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: What are you looking for?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: For hope.
+ <<SetPortrait noportrait>>
  Magnolia: Will you find it in the sky?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: There is nowhere else to look.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Are you like searching for a planet we could move onto and live on?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: I wouldn't want such despair upon any poor planet.
+ <<SetPortrait noportrait>>
  Magnolia: How does hope look like then?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: I don't know yet.
+ <<SetPortrait noportrait>>
  Magnolia: How will you know you found it when it happens?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: I depend on a feeling.
+ <<SetPortrait noportrait>>
  Magnolia: What kind of a feeling?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: Familiar.
  The Astronomer: Hope should feel familiar.
+ <<SetPortrait noportrait>>
  Magnolia: (Did I at any point feel the hope of getting my family back?)
  <<jump TheAstronomer_Questions>>
 <<elseif visited_count("TheDustSweeper") == 1>>
+ <<SetPortrait noportrait>>
  Magnolia: Did you find your hope yet?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: Weren't you here like some minutes ago?
+ <<SetPortrait noportrait>>
  Magnolia: Yes?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: You're optimistic.
+ <<SetPortrait noportrait>>
  Magnolia: You don't think it could happen soon?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: I'm not sure there is any left.
  <<jump TheAstronomer_Questions>>
 <<else>>
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: Sometimes I get distracted and look at the stars.
  The Astronomer: And every time it feels like they are watching me back.
  <<jump TheAstronomer_Questions>>
@@ -279,56 +386,89 @@ title: TheAstronomer
 
 title: TheAstronomer_Questions
 ---
+<<wait 0.8>>
 -> What about the moon?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: What do you want to know about the moon?
+ <<SetPortrait noportrait>>
  Magnolia: What do you think of the moon?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: I fear anything that can attract the sea.
+ <<SetPortrait noportrait>>
  Magnolia: So you fear it?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: No really, rather respect it.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Do you think it judges us?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: The moon?
+ <<SetPortrait noportrait>>
  Magnolia: Yes. For ruining its sea.
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: It should be.
  The Astronomer: Maybe the moon is forgiving.
+ <<SetPortrait noportrait>>
  Magnolia: Let's hope.
 -> Does it mean you have no hope left?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: Why do you think I am searching for it?
+ <<SetPortrait noportrait>>
  Magnolia: So it's only for yourself?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: And anyone who wants it.
  The Astronomer: Do you need it?
+ <<SetPortrait noportrait>>
  Magnolia: I think I still have some left.
 -> What do stars look like up close?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: Stars watch me back.
+ <<SetPortrait noportrait>>
  Magnolia: So they have faces?
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: I'm not quite sure.
  The Astronomer: But I can feel they are watching me.
  The Astronomer: It feels like you are in a bus, and you can sense that somebody is watching you through the reflection on the window.
+ <<SetPortrait noportrait>>
  Magnolia: I'm not sure I felt it. But I can imagine.
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: There is life there. I'm sure of it.
  The Astronomer: I'm just not sure where 'there' is.
  The Astronomer: Don't tell this to anybody, but I think that the sky might be just a mirror.
+ <<SetPortrait noportrait>>
  Magnolia: (A mirror? What does it reflect?)
+ <<SetPortrait noportrait>>
  Magnolia: I promise. 
+ <<SetPortrait astronomerportrait1>>
  The Astronomer: Good.
 ===
 
 title: TheDustSweeper
 ---
+<<wait 0.8>>
 <<if $norabbit is false>>
  <<if visited_count("TheDustSweeper") < 1>>
+  <<SetPortrait noportrait>>
   Magnolia: (Maybe they know how I can get to the factory.)
   Magnolia: (That hitchhiker completely scammed me.)
   <<wait 0.5>>
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: Don't walk around my feet.
+  <<SetPortrait noportrait>>
   Magnolia: I'm sorry.
   Magnolia: I am looking for a way to go to the factory.
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: Only rabbits are allowed there.
+  <<SetPortrait noportrait>>
   Magnolia: I heard about that.
   Magnolia: I still really need to get there.
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: Have you ever seen Alice in Wonderland?
+  <<SetPortrait noportrait>>
   Magnolia: I did?
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: Then do that.
+  <<SetPortrait noportrait>>
   Magnolia: What exactly?
   Magnolia: Drop into a hole?
   <<wait 0.5>>
@@ -339,25 +479,39 @@ title: TheDustSweeper
   Magnolia: But it was inside someone’s bag.
   Magnolia: Should I get inside his bag??
   <<set $hasclue_forhitch to true>>
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: ...
+  <<SetPortrait noportrait>>
   Magnolia: Why are you not saying anything?
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: You seem to have a great conversation with yourself.
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: (First thing I need to do is see that hitchhiker guy.)
   Magnolia: (If I lose him, I lose the rabbit.)
  <<endif>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: The rabbit is not there anymore.
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: Where?
+ <<SetPortrait noportrait>>
  Magnolia: Also, does it need to be purple?
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: Who?
+ <<SetPortrait noportrait>>
  Magnolia: The rabbit.
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: I never said anything about a rabbit.
+ <<SetPortrait noportrait>>
  Magnolia: You said Alice in Wonderland!
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: Yes I did!
  TheDustSweeper: I meant you should listen to the mad people.
+ <<SetPortrait noportrait>>
  Magnolia: (Is he kidding me?)
  Magnolia: That's what I have been doing this whole time!
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: Then you are on the right path.
  <<jump TheDustSweeper_Questions>>
 <<endif>>
@@ -365,45 +519,65 @@ title: TheDustSweeper
 
 title: TheDustSweeper_Questions
 ---
+<<wait 0.8>>
 -> What are you even cleaning up?
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: The stardust.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: I sometimes dream of stardust.
  <<wait 0.2>>
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: That's not good. Get rid of it.
+ <<SetPortrait noportrait>>
  Magnolia: Why?
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: Did you talk to that guy that just got out of prison?
  <<if visited_count("TheGuilty") > 0>>
+  <<SetPortrait noportrait>>
   Magnolia: Yes?
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: Then you know sometimes it's better when you are caged.
+  <<SetPortrait noportrait>>
   Magnolia: What does it have to do with stardust in my dreams?
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: It's a key.
   <<set $opentrigger01 to true>>
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: No?
+  <<SetPortrait dustsweeperportrait1>>
   TheDustSweeper: Never mind then.
   <<jump TheDustSweeper_Questions>>
  <<endif>>
 -> You are a mad person, right?
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: That's relative.
  TheDustSweeper: But let's say yes.
+ <<SetPortrait noportrait>>
  Magnolia: Then I am listening.
+ <<SetPortrait dustsweeperportrait1>>
  TheDustSweeper: Haven't you noticed that little spot of uncleaned dust?
  <<wait 1>>
- TheDustSweeper: You should tell your astronomer friend that hope is not necessarily in the sky.
+ <<SetPortrait dustsweeperportrait1>>
+ TheDustSweeper: You should tell your astronomer friend...
+ TheDustSweeper: That hope is not necessarily in the sky.
  <<set $opentrigger to true>>
  -> Nothing.
 ===
 
 title: TheTrigger_Frozen
 ---
-<<if $opentrigger is true and $opentrigger01 is true>>
+<<wait 0.8>>
+<<if $opentrigger == true>> //and $opentrigger01 == true>>
+ <<SetPortrait noportrait>>
  Magnolia: (This is the pile of dust that the cleaner pointed out.)
  Magnolia: (He said the stardust in my dreams is the key.)
  Magnolia: (But what kind of cage does it unlock?)
- -> Hold the dust in your palm.
-  <<set $trigger_Frozen to true>>
+  -> Hold the dust in your palm.
+    <<set $trigger_Frozen to true>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (It looks like somebody didn't clean up this pile of snow from the last winter.)
  Magnolia: (It's that kind of feathery, sparkly snow.)
  Magnolia: (How is it possible that it didn't melt?)
@@ -414,18 +588,24 @@ title: TheTrigger_Frozen
 
 title: TheTrainTracks
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (I don't understand how the train can go over these tracks.)
 Magnolia: (They are frozen, and there are piles of snow.)
 ===
 
 title: TheSun03
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (Another sun.)
 Magnolia: (How did they get up there?)
 ===
 
 title: Hearts
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 <<if visited_count("Hearts") < 1>>
 Magnolia: (If emotions exist in this world, doesn't that make it inherently real?)
 Magnolia: (We are only alive when we desire.)
@@ -438,6 +618,8 @@ Magnolia: (What I desire is almost impossible.)
 
 title: Think
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 <<if visited_count("Think") < 1>>
 Magnolia: (Yeah, no.)
 Magnolia: (What is enough, is enough.)
@@ -450,6 +632,8 @@ Magnolia: (Is just a product of my own mind.)
 
 title: TheLoopEndNode
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (I think I went far enough.)
 Magnolia: (It's time to get back.)
 <<wait 0.5>>
@@ -458,12 +642,16 @@ Magnolia: (I guess it was too good to be true.)
 
 title: TheWilderness07
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (The land here seems even tougher.)
 Magnolia: (There's no way I would survive the adventure through steppe.)
 ===
 
 title: TheCarTracks
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 <<if visited_count("TheCarTracks") < 1>>
 Magnolia: (Some kind of vehicle passed here.)
 Magnolia: (It's eerily noiseless here.)

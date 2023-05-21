@@ -1306,7 +1306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63860210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.247892, y: -12.756477, z: 0.41585034}
+  m_LocalPosition: {x: -18.727, y: -12.756477, z: 0.41585034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4362,6 +4362,7 @@ GameObject:
   - component: {fileID: 327726393}
   - component: {fileID: 327726396}
   - component: {fileID: 327726395}
+  - component: {fileID: 327726397}
   m_Layer: 0
   m_Name: theAstronomer
   m_TagString: Untagged
@@ -4531,6 +4532,36 @@ MonoBehaviour:
   npcName: Astronomer
   target: {fileID: 642211982}
   minDist: 5
+--- !u!114 &327726397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327726390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: 1864064537
+      Data2: 1213879663
+      Data3: 1355767991
+      Data4: 2054595765
+    Path: event:/NPCS/NPC3Carguy
+  Event: 
+  PlayEvent: 5
+  StopEvent: 6
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &333257619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4560,7 +4591,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333257619}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.42, y: -14.32, z: 0.5}
+  m_LocalPosition: {x: -19.076, y: -13.488, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4583,7 +4614,7 @@ MonoBehaviour:
   animator: {fileID: 333257624}
   arrowAnimator: {fileID: 0}
   isDialogueRunning: {fileID: 11400000, guid: 8488817d859ef4d2794b57b76f5c6990, type: 2}
-  outlineShader: {fileID: 2100000, guid: 4457986fa1fe64820a81f8318c7e716f, type: 2}
+  outlineShader: {fileID: 2100000, guid: fe17fc3b7a6793842a62c0a63fcb7fa4, type: 2}
   interactable: 1
   npcState: 0
   npcIndex: 0
@@ -4607,7 +4638,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.4, y: 2}
+    oldSize: {x: 0.62, y: 0.6622222}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4633,7 +4664,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.4, y: 2}
+    oldSize: {x: 0.62, y: 0.6622222}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4703,7 +4734,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1660993194, guid: e62070a1434fd47dd9d6f34b4e5b182d, type: 3}
+  m_Sprite: {fileID: -2015708815, guid: b91c3d523f83b1b43af1aa47fcd37e8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9143,7 +9174,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9977,7 +10008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666047966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.182106, y: -2.2264767, z: 0.5}
+  m_LocalPosition: {x: 45.94, y: -4.67, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10686,6 +10717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfTheNode: TheCarTracks
   oneUse: 0
+  camerashake: 0
 --- !u!1 &701901834
 GameObject:
   m_ObjectHideFlags: 0
@@ -11049,6 +11081,8 @@ GameObject:
   m_Component:
   - component: {fileID: 725262578}
   - component: {fileID: 725262579}
+  - component: {fileID: 725262581}
+  - component: {fileID: 725262580}
   m_Layer: 0
   m_Name: part1
   m_TagString: Untagged
@@ -11105,10 +11139,16 @@ PolygonCollider2D:
       - {x: 2.4422722, y: -30.828074}
       - {x: 2.5823631, y: -17.469393}
       - {x: 4.191868, y: -17.47071}
-      - {x: 4.2279663, y: -8.217329}
-      - {x: 1.512577, y: -7.9481697}
-      - {x: -1.244545, y: -6.026125}
-      - {x: -3.8985138, y: -6.5055733}
+      - {x: 6.0555954, y: -9.09053}
+      - {x: 6.054199, y: -6.1542587}
+      - {x: 4.9038467, y: -5.917469}
+      - {x: 3.4000092, y: -4.6304035}
+      - {x: 2.1646004, y: -4.6055126}
+      - {x: 1.023304, y: -4.5852566}
+      - {x: 0.50582504, y: -3.7324123}
+      - {x: 0.075408936, y: -3.0003834}
+      - {x: -0.2764511, y: -2.1098633}
+      - {x: -1.3124924, y: -1.8556995}
       - {x: -6.2239532, y: -5.837673}
       - {x: -6.591671, y: -4.2325497}
       - {x: -5.983055, y: -2.9901142}
@@ -11182,8 +11222,9 @@ PolygonCollider2D:
       - {x: 72.54202, y: -0.8306198}
       - {x: 72.638596, y: -2.4972878}
       - {x: 74.20598, y: -2.420229}
-      - {x: 76.413864, y: -3.6631794}
-      - {x: 257.3931, y: -2.6323433}
+      - {x: 74.8839, y: -8.253056}
+      - {x: 257.29514, y: -8.477728}
+      - {x: 257.67834, y: 1.0569935}
       - {x: 72.76748, y: -0.105047226}
       - {x: 63.330677, y: 0.7425022}
       - {x: 60.972694, y: -4.0573387}
@@ -11196,6 +11237,58 @@ PolygonCollider2D:
       - {x: 19.131386, y: -3.2738724}
       - {x: 10.5334015, y: 4.113718}
       - {x: 5.5525923, y: -0.1473332}
+--- !u!61 &725262580
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725262577}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 146.6876, y: -13.498368}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 222.02646, y: 4.466936}
+  m_EdgeRadius: 0
+--- !u!61 &725262581
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725262577}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 15.651049, y: -13.427868}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 32.302097, y: 3.9093666}
+  m_EdgeRadius: 0
 --- !u!1 &734080003
 GameObject:
   m_ObjectHideFlags: 0
@@ -11210,6 +11303,7 @@ GameObject:
   - component: {fileID: 734080009}
   - component: {fileID: 734080008}
   - component: {fileID: 734080007}
+  - component: {fileID: 734080010}
   m_Layer: 0
   m_Name: the dust sweeper
   m_TagString: Untagged
@@ -11268,7 +11362,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &734080005
 Transform:
   m_ObjectHideFlags: 0
@@ -11277,7 +11371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734080003}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.45, y: 1.62, z: 0.5}
+  m_LocalPosition: {x: 18.91, y: 1.92, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11379,6 +11473,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.29, y: 0.35064697}
   m_EdgeRadius: 0
+--- !u!114 &734080010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734080003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: 1864064537
+      Data2: 1213879663
+      Data3: 1355767991
+      Data4: 2054595765
+    Path: event:/NPCS/NPC3Carguy
+  Event: 
+  PlayEvent: 5
+  StopEvent: 6
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &735988509
 GameObject:
   m_ObjectHideFlags: 0
@@ -14482,16 +14606,21 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.8328838, y: -0.32198334}
-      - {x: 110.88123, y: -0.010417938}
-      - {x: 43.58673, y: 4.3136635}
-      - {x: 1.8731289, y: 6.9940186}
-      - {x: -3.0073795, y: 1.6496048}
+    - - {x: 3.1257324, y: -2.2843475}
+      - {x: 178.83948, y: -2.6332893}
+      - {x: 178.89922, y: 15.418245}
+      - {x: 75.50672, y: 15.671698}
+      - {x: 4.5576077, y: 15.423388}
+      - {x: 1.9158916, y: 15.225098}
+      - {x: 1.816328, y: -0.038692474}
+      - {x: -7.8699207, y: 1.0605888}
+      - {x: -14.087793, y: 1.7662506}
+      - {x: -14.087793, y: 1.7662506}
       - {x: -14.087793, y: 1.7662506}
       - {x: -13.741868, y: -0.9218981}
       - {x: -0.5877852, y: -0.80901706}
       - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+      - {x: 1.3932295, y: -1.2988853}
 --- !u!1 &838551530
 GameObject:
   m_ObjectHideFlags: 0
@@ -28504,7 +28633,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302717161}
-  m_LocalRotation: {x: -0, y: -0, z: 0.034903444, w: 0.9993907}
+  m_LocalRotation: {x: -0, y: -0, z: 0.96673244, w: 0.2557897}
   m_LocalPosition: {x: -38.12, y: 32.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28528,7 +28657,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8679245, g: 0.8003026, b: 0, a: 1}
   m_Intensity: 0.78
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -28579,8 +28708,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.2740722
+  m_PointLightInnerRadius: 1.2532531
+  m_PointLightOuterRadius: 3.6794896
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -30628,9 +30757,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 642211981}
+  rabbitend: {fileID: 0}
   smoothing: 0.1
+  smoothing02: 0
   maxPosition: {x: 141.1, y: -7.79}
   minPosition: {x: -54.37, y: -56.11}
+  activated: 0
+  target02: {fileID: 0}
+  ChihiroCam: {fileID: 0}
+  anotherscript: {fileID: 0}
+  amusementScript: {fileID: 0}
+  complicated: 0
 --- !u!4 &1397116451
 Transform:
   m_ObjectHideFlags: 0
@@ -32999,6 +33136,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3038195637035157114, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038195637079203247, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3038195637635317810, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
@@ -36779,7 +36920,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3.2571316}
+  m_Offset: {x: 2.0123901, y: 3.2571316}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -36790,7 +36931,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 76.6887, y: 6.514263}
+  m_Size: {x: 80.71347, y: 6.514263}
   m_EdgeRadius: 0
 --- !u!1 &1767987430
 GameObject:
@@ -39171,6 +39312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfTheNode: TheWilderness07
   oneUse: 0
+  camerashake: 0
 --- !u!61 &1866302979
 BoxCollider2D:
   m_ObjectHideFlags: 0

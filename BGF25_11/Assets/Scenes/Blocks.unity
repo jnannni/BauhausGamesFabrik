@@ -6095,6 +6095,7 @@ GameObject:
   - component: {fileID: 380193223}
   - component: {fileID: 380193222}
   - component: {fileID: 380193225}
+  - component: {fileID: 380193226}
   m_Layer: 0
   m_Name: lonely gentelman
   m_TagString: Untagged
@@ -6153,7 +6154,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &380193221
 Transform:
   m_ObjectHideFlags: 0
@@ -6264,6 +6265,36 @@ MonoBehaviour:
   npcName: Lonely Gentelman
   target: {fileID: 1496670051}
   minDist: 5
+--- !u!114 &380193226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380193219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: 1864064537
+      Data2: 1213879663
+      Data3: 1355767991
+      Data4: 2054595765
+    Path: event:/NPCS/NPC3Carguy
+  Event: 
+  PlayEvent: 5
+  StopEvent: 6
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!95 &380305665 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 174939152, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
@@ -11500,9 +11531,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1496670050}
+  rabbitend: {fileID: 0}
   smoothing: 0.1
+  smoothing02: 0
   maxPosition: {x: 77.7, y: -7.83}
   minPosition: {x: -47.87, y: -76.46}
+  activated: 0
+  target02: {fileID: 0}
+  ChihiroCam: {fileID: 0}
+  anotherscript: {fileID: 0}
+  amusementScript: {fileID: 0}
+  complicated: 0
 --- !u!4 &693336341
 Transform:
   m_ObjectHideFlags: 0
@@ -12756,6 +12795,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3038195637035157114, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038195637079203247, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3038195637635317810, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
@@ -14456,6 +14499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfTheNode: TheUphillSee
   oneUse: 0
+  camerashake: 0
 --- !u!61 &887113976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16768,11 +16812,11 @@ GameObject:
   m_Component:
   - component: {fileID: 983393367}
   - component: {fileID: 983393366}
-  - component: {fileID: 983393364}
   - component: {fileID: 983393363}
   - component: {fileID: 983393362}
   - component: {fileID: 983393361}
   - component: {fileID: 983393368}
+  - component: {fileID: 983393369}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16839,26 +16883,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
---- !u!114 &983393364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983393360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 100
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!20 &983393366
 Camera:
   m_ObjectHideFlags: 0
@@ -16869,7 +16893,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -16886,7 +16910,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.5
+  orthographic size: 5.4
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -16937,6 +16961,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &983393369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983393360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_AssetsPPU: 100
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &985974219
 GameObject:
   m_ObjectHideFlags: 0
@@ -25510,6 +25557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfTheNode: TheFog01
   oneUse: 0
+  camerashake: 0
 --- !u!1 &1459399750
 GameObject:
   m_ObjectHideFlags: 0
@@ -25971,11 +26019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.8
+      value: -9.12
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -75.1
+      value: -73.81
       objectReference: {fileID: 0}
     - target: {fileID: 2550122674717551624, guid: 0491bf3eafb134c6c91bf132a407e4f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28773,6 +28821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfTheNode: TheMountains
   oneUse: 0
+  camerashake: 0
 --- !u!61 &1630157117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34879,7 +34928,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1655923803
 Transform:
   m_ObjectHideFlags: 0
@@ -36379,6 +36428,7 @@ GameObject:
   - component: {fileID: 1779844305}
   - component: {fileID: 1779844304}
   - component: {fileID: 1779844307}
+  - component: {fileID: 1779844308}
   m_Layer: 0
   m_Name: car cleaner
   m_TagString: Untagged
@@ -36548,6 +36598,36 @@ MonoBehaviour:
   npcName: Car Cleaner
   target: {fileID: 1496670051}
   minDist: 5
+--- !u!114 &1779844308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779844301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: 1864064537
+      Data2: 1213879663
+      Data3: 1355767991
+      Data4: 2054595765
+    Path: event:/NPCS/NPC3Carguy
+  Event: 
+  PlayEvent: 5
+  StopEvent: 6
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1781232493
 GameObject:
   m_ObjectHideFlags: 0

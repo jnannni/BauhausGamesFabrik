@@ -42,6 +42,13 @@ public class CameraMovement : MonoBehaviour
         {
             Debug.Log("WeaponNum = " + complicated);
         }
+
+        if (transform.position == rabbitend.position)
+        {
+            complicated = true;
+            cameranchor.enabled = !cameranchor.enabled;
+            //rabbitend.transform.position = new Vector4(transform.position.x, 0, transform.position.z);
+        }
     }
 
     private void FixedUpdate()

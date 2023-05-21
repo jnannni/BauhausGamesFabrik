@@ -20,6 +20,10 @@ public class Blocks : MonoBehaviour
     private bool putintheinventory001;
     private bool showthedrawing;
 
+    private bool instanceallowed;
+    private bool instanceallowed02;
+    private bool instanceallowed03;
+
     private bool isInAntiqueShop;
     private FadeLayer fadeLayer;
     private AudioManager audioManager;
@@ -40,6 +44,9 @@ public class Blocks : MonoBehaviour
     [SerializeField] private BoolValue isIllustrationWatched;
     [SerializeField] private GameObject illustrationPanel;
     [SerializeField] private Sprite poetsDairyImage;
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02; 
+    private FMOD.Studio.EventInstance instance03;
 
     private void Awake()
     {
@@ -56,7 +63,12 @@ public class Blocks : MonoBehaviour
         dialogueRunner.StartDialogue("TheBlocks");
         variableStorage.SetValue("$putintheinventory001", true);
         dialogueRunner.LoadStateFromPlayerPrefs();
-        audioManager.InitializeMusic(FMODEvents.instance.musicBlocks);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_DreamWorld_003_TheBlocks_Loopable");
+        instance.start();
+        //audioManager.InitializeMusic(FMODEvents.instance.musicBlocks);
+        instanceallowed = true;
+        instanceallowed02 = true;
+        instanceallowed03 = true;
     }
 
     // Update is called once per frame
@@ -74,14 +86,22 @@ public class Blocks : MonoBehaviour
         if (trigger_TheAllKnowingLady)
         {
             dialogueRunner.SaveStateToPlayerPrefs();
-            /*audioManager.PauseMusic(FMODEvents.instance.musicBlocks);
-            audioManager.PlayOneShot(FMODEvents.instance.transitionToDW, this.transform.position);*/
             transitionAnimator.SetBool("transitiontodw", true);
+            if (instanceallowed03)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instance03 = FMODUnity.RuntimeManager.CreateInstance("event:/UI Sounds/Transition_WW_to_DW");
+                instance03.start();
+                instanceallowed03 = false;
+            }
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {
                 StartCoroutine(fadeLayer.FadeIn());
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontodw", false);
+                instance03.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);;
+                instance03.release();
             }
         }
 
@@ -101,8 +121,17 @@ public class Blocks : MonoBehaviour
             player.transform.position = new Vector3(insideOfAntique.transform.position.x, insideOfAntique.transform.position.y, 0f);           
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = true;
-            variableStorage.SetValue("$exittheantique", false);
+            variableStorage.SetValue("$entertheantique", false);
             player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
+            if (instanceallowed)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_003_2_TheGraveyard_InsideChurch_Loopable");
+                instance02.start();
+                instanceallowed = false;
+                instanceallowed02 = true;
+            }
         }
 
         if (putintheinventory003)
@@ -145,8 +174,17 @@ public class Blocks : MonoBehaviour
             player.transform.position = new Vector3(inFrontOfAntique.transform.position.x, inFrontOfAntique.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             isInAntiqueShop = false;
-            variableStorage.SetValue("$entertheantique", false);
+            variableStorage.SetValue("$exittheantique", false);
             player.transform.localScale = new Vector3(1f, 1f, 0f);
+            if (instanceallowed02)
+                {
+                    instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance02.release();
+                    instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_DreamWorld_003_TheBlocks_Loopable");
+                    instance.start();
+                    instanceallowed02 = false;
+                    instanceallowed = true;
+                }
         }
     }
 }

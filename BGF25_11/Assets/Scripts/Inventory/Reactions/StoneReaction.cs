@@ -10,7 +10,6 @@ public class StoneReaction : MonoBehaviour
     private DialogueRunner dialogueRunner;
     public string startNode;
     [SerializeField] private BoolValue isNearGolem;
-
     public void Use()
     {
         if (SceneManager.GetActiveScene().name == "DreamWorld1" && isNearGolem.initialValue)
@@ -20,4 +19,5 @@ public class StoneReaction : MonoBehaviour
             stoneSignal.Raise();
         }                
     }
+
 }

@@ -15,6 +15,8 @@ public class MuseumCorner : MonoBehaviour
     private bool exitthemuseum;    
     private bool takethefeather;
     private bool getclose;
+    private bool instanceallowed;
+    private bool instanceallowed02;
 
     [SerializeField] private string nameOfTheScene;
     [SerializeField] private Animator playerAnimator;
@@ -27,6 +29,8 @@ public class MuseumCorner : MonoBehaviour
     [SerializeField] private GameObject theDog;
     [SerializeField] private float approachSpeed = 1f;
     [SerializeField] private PlayerInventory playerInventory;
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02; 
     
     private bool isInsideOfTheMuseum;
     private FadeLayer fadeLayer;
@@ -44,9 +48,13 @@ public class MuseumCorner : MonoBehaviour
     void Start()
     {
         isInsideOfTheMuseum = false;
-        audioManager.InitializeMusic(FMODEvents.instance.musicMuseumCorner);
+        //audioManager.InitializeMusic(FMODEvents.instance.musicMuseumCorner);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_006_TheMuseumCorner_Loopable");
+        instance.start();
         dialogueRunner.StartDialogue("TheMuseumCorner");
         dialogueRunner.LoadStateFromPlayerPrefs();
+        instanceallowed = true;
+        instanceallowed02 = true;
     }
 
     // Update is called once per frame
@@ -62,6 +70,8 @@ public class MuseumCorner : MonoBehaviour
         if (goinsidethestation)
         {
             SceneManager.LoadScene(nameOfTheScene);
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance.release();
         }
 
         if (putintheinventory006)
@@ -79,8 +89,17 @@ public class MuseumCorner : MonoBehaviour
             player.transform.position = new Vector3(insideOfTheMuseum.transform.position.x, insideOfTheMuseum.transform.position.y, 0f);           
             StartCoroutine(fadeLayer.FadeOut());
             isInsideOfTheMuseum = true;
-            variableStorage.SetValue("$exitthemuseum", false);
+            variableStorage.SetValue("$enterthemuseum", false);
             player.transform.localScale = new Vector3(1.7f, 1.7f, 0f);
+            if (instanceallowed)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_003_2_TheGraveyard_InsideChurch_Loopable");
+                instance02.start();
+                instanceallowed = false;
+                instanceallowed02 = true;
+            }
             
         }
 
@@ -91,8 +110,17 @@ public class MuseumCorner : MonoBehaviour
             player.transform.position = new Vector3(outsideOfTheMuseum.transform.position.x, outsideOfTheMuseum.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             isInsideOfTheMuseum = false;
-            variableStorage.SetValue("$enterthemuseum", false);
+            variableStorage.SetValue("$exitthemuseum", false);
             player.transform.localScale = new Vector3(1f, 1f, 0f);
+            if (instanceallowed02)
+                {
+                    instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance02.release();
+                    instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_006_TheMuseumCorner_Loopable");
+                    instance.start();
+                    instanceallowed02 = false;
+                    instanceallowed = true;
+                }
         }
 
         if (takethefeather)

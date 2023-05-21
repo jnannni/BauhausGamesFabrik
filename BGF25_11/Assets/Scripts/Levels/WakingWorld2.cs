@@ -19,7 +19,8 @@ public class WakingWorld2 : MonoBehaviour
     [SerializeField] private InventoryItem item001;
     [SerializeField] private GameObject item001Object;
     [SerializeField] private InventoryItem itemd001;
-    [SerializeField] private PlayerInventory playerInventory;    
+    [SerializeField] private PlayerInventory playerInventory;  
+  
 
     private bool gobackhome;
     private bool magnoliadances;
@@ -39,6 +40,7 @@ public class WakingWorld2 : MonoBehaviour
     [SerializeField] private Animator canvasAnimator;
     [SerializeField] private BoolValue isIllustrationWatched;
     [SerializeField] private GameObject illustrationPanel;
+    private FMOD.Studio.EventInstance instance;
 
     private void Awake()
     {
@@ -52,7 +54,9 @@ public class WakingWorld2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager.InitializeMusic(FMODEvents.instance.musicWW2);
+        //audioManager.InitializeMusic(FMODEvents.instance.musicWW2);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_001_002_TheUphillTheDownhill_Loopable");
+        instance.start();
         dialogueRunner.StartDialogue("BackInTheWaking");
         isDownTheStairs = false;
     }
@@ -104,6 +108,8 @@ public class WakingWorld2 : MonoBehaviour
         {
             /*audioManager.PauseMusic(FMODEvents.instance.musicWW2);
             audioManager.PlayOneShot(FMODEvents.instance.transitionBetweenWW, this.transform.position);*/
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);;
+            instance.release();
             dialogueRunner.SaveStateToPlayerPrefs();
             SceneManager.LoadScene(nameOfTheScene);
         }

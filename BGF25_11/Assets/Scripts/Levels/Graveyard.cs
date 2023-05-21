@@ -16,6 +16,9 @@ public class Graveyard : MonoBehaviour
     private bool trigger_TheChurch;
     private bool scurryawayanimation;
     private bool exitthechurch;
+    private bool instanceallowed;
+    private bool instanceallowed02;
+    private bool instanceallowed03;
 
     private AudioManager audioManager;
     
@@ -27,7 +30,10 @@ public class Graveyard : MonoBehaviour
     [SerializeField] private GameObject catCreature;
     [SerializeField] private GameObject insideTheChurch;
     [SerializeField] private GameObject outsideTheChurch;
-    [SerializeField] private PlayerInventory playerInventory;    
+    [SerializeField] private PlayerInventory playerInventory;  
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02;  
+    private FMOD.Studio.EventInstance instance03;  
     private float distanceToCat;
 
     [SerializeField] private string nameOfTheScene;
@@ -44,9 +50,13 @@ public class Graveyard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioManager.InitializeMusic(FMODEvents.instance.musicGraveyard);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_003_1_TheGraveyard_Loopable");
+        instance.start();
         isInsideTheChurch = false;
         dialogueRunner.StartDialogue("TheGraveYard");
+        instanceallowed = true;
+        instanceallowed02 = true;
+        instanceallowed03 = true;
     }
 
     // Update is called once per frame
@@ -74,11 +84,21 @@ public class Graveyard : MonoBehaviour
             dialogueRunner.SaveStateToPlayerPrefs();
             player.transform.localScale = new Vector3(1f, 1f, player.transform.localScale.z);
             transitionAnimator.SetBool("transitiontodw", true);
+            if (instanceallowed03)
+                {
+                    instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance02.release();
+                    instance03 = FMODUnity.RuntimeManager.CreateInstance("event:/UI Sounds/Transition_WW_to_DW");
+                    instance03.start();
+                    instanceallowed03 = false;
+                }  
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {
                 StartCoroutine(fadeLayer.FadeIn());
                 SceneManager.LoadScene(nameOfTheScene);
                 transitionAnimator.SetBool("transitiontodw", false);
+                instance03.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);;
+                instance03.release();
             }                        
         }
 
@@ -92,6 +112,15 @@ public class Graveyard : MonoBehaviour
             isInsideTheChurch = true;
             variableStorage.SetValue("$enterthechurch", false);
             player.transform.localScale = new Vector3(1.2f, 1.2f, 0f);
+            if (instanceallowed)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_003_2_TheGraveyard_InsideChurch_Loopable");
+                instance02.start();
+                instanceallowed = false;
+                instanceallowed02 = true;
+            }
         }
 
         if (exitthechurch && isInsideTheChurch)
@@ -102,6 +131,15 @@ public class Graveyard : MonoBehaviour
             isInsideTheChurch = false;
             variableStorage.SetValue("$exitthechurch", false);
             player.transform.localScale = new Vector3(1f, 1f, 0f);
+            if (instanceallowed02)
+                {
+                    instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance02.release();
+                    instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_003_1_TheGraveyard_Loopable");
+                    instance.start();
+                    instanceallowed02 = false;
+                    instanceallowed = true;
+                }
         }
 
         if (putintheinventory002)

@@ -12,7 +12,7 @@
 //variables for in YARN
 <<set $hasClueD to false>>
 <<set $inspected to false>>
-
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (What has just happened?)
 Magnolia: (My head feels heavy.)
@@ -31,11 +31,13 @@ Magnolia: (Did I pass out?)
  Magnolia: (My head REALLY feels fuzzy. I can't concentrate on my memories at all.)
  <<wait 1>>
  Magnolia: (How does one get out of a dream?)
- //new objective: get out of the dream
+ <<SetPortrait blackportrait1>>
+ Clue: *new objective: get out of the dream*
 ===
 
 title: Reflection
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if $hasClueD is false>>
  <<if visited_count("Reflection") < 1>>
@@ -73,6 +75,7 @@ title: Reflection
 
 title: TheDream
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheDream") < 1>>
  Magnolia: (It looks like no place I've ever seen before.)
@@ -87,6 +90,7 @@ title: TheDream
 
 title: TheEyeLamp
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheEyeLamp") < 1>>
  Magnolia: (What an unusual looking thing.)
@@ -98,6 +102,7 @@ title: TheEyeLamp
 
 title: ThePurpleFireflies
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("ThePurpleFireflies") < 1>>
  Magnolia: (Purple fireflies?)
@@ -111,6 +116,7 @@ title: ThePurpleFireflies
 
 title: TheWaterMist
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheWaterMist") < 1>>
  Magnolia: (I can't discern if it's suspended water, or just mist.)
@@ -127,6 +133,7 @@ title: TheWaterMist
 
 title: TheGolem
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheGolem") < 1>>
      Magnolia: (I can't pass here.)
@@ -144,16 +151,29 @@ title: TheGolem
 
 title: TheGolem_Options
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
    -> Inspect. <<if $inspected is false>>
     Magnolia: (It is a face!)
     Magnolia: (He seems sad.)
     Magnolia: (Me and you both, buddy.)  
     <<set $inspected to true>> 
+       <<if $hasClueD is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
    -> Touch it. <<if $inspected is true>>
     Magnolia: (There is a hole in his body.)
     <<wait 0.5>>
     Magnolia: (It almost seems like somebody took his heart out.)
+       <<if $hasClueD is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
    -> Check your pocket. <<if $hasClueD>>
       Magnolia: (I had these kind of dreams before.)
       Magnolia: (I heard it's called lucid dreaming.)
@@ -170,13 +190,20 @@ title: TheGolem_Options
        -> Put it into the Golem's body.
         <<set $openInventory to true>>    
    -> Leave it be.
+       <<if $hasClueD is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
 ===
 
 title: TheGolem_After
 ---
-<<SetPortrait noportrait>>
 <<set $stoneSelected to true>>
 <<set $animationgolem to true>>
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (It seems like it perfectly fits.)
 <<wait 0.5>>
 Magnolia: (Will it come alive now?)

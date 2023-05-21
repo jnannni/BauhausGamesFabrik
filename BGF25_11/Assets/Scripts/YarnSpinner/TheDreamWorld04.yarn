@@ -10,13 +10,16 @@ title: TheDreamworld_04
 <<set $magnoliawalksforward to false>>
 <<set $priestshows to false>>
 <<set $trigger_waking06 to false>>
+<<set $isonice to false>>
+<<set $crossfade to false>>
+<<set $isonice02 to false>>
 
 //variables for in YARN
 <<set $firstanswer to false>>
 <<set $secondanswer to false>>
 <<set $thirdanswer to false>>
-
-
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (That dust burned my hands.)
 <<wait 1>>
 Magnolia: (It hurts, but I don't have anything to wrap them with.)
@@ -37,6 +40,8 @@ Magnolia: (I definitely shouldn't be here.)
 
 title: TheIceSpot
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 <<if visited_count("TheIceSpot") < 1>>
 Magnolia: (A perfect pair of ice skates.)
 Magnolia: (I guess I could use them to slide over the ice.)
@@ -49,17 +54,73 @@ Magnolia: (I can't do it without the laces. It's dangerous.)
 <<endif>>
 ===
 
-title: TheIceSpot_Laces
+title: OnTheIce
 ---
+<<wait 0.8>>
 //when you choose the laces from the inventory
-Magnolia: (Why is everything so magical here.)
-<<wait 0.5>>
-Magnolia: (Maybe because it's a dream Magnolia, duh.)
+<<if visited_count("OnTheIce") < 1>>
+<<SetPortrait noportrait>>
+Magnolia: (The ice is too slippery.)
+Magnolia: (Do I have anything in my pockets to use?)
+<<wait 1>>
+Magnolia: (Only this little rabbit feather.)
+Magnolia: (It didn't turn into anything.)
+ -> Use the feather.
+  <<set $crossfade to true>>
+  <<wait 1>>
+  <<set $isonice to true>>
+  <<wait 0.5>>
+  <<set $isonice to false>>
+  <<set $crossfade to false>>
+ -> Leave
+<<else>>
+  <<set $crossfade to true>>
+  <<wait 1>>
+  <<set $isonice to true>>
+  <<wait 0.5>>
+  <<set $isonice to false>>
+  <<set $crossfade to false>>
+<<endif>>
+===
+
+title: OffTheIce
+---
+<<wait 0.8>>
+//when you choose the laces from the inventory
+<<if visited_count("OffTheIce") < 1>>
+<<SetPortrait noportrait>>
+Magnolia: (If I drop this feather...)
+Magnolia: (Will I loose my wings?)
+ -> Try it.
+  <<set $crossfade to true>>
+  <<wait 1>>
+  <<set $isonice02 to true>>
+  <<wait 0.5>>
+  <<set $isonice02 to false>>
+  <<set $crossfade to false>>
+ -> Stay.
+<<else>>
+  <<set $crossfade to true>>
+  <<wait 1>>
+  <<set $isonice02 to true>>
+  <<wait 0.5>>
+  <<set $isonice02 to false>>
+  <<set $crossfade to false>>
+<<endif>>
+===
+
+title: IceTry
+---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
+Magnolia: (I'm just trying something here.)
 ===
 
 title: GroupOfSouls
 ---
+<<wait 0.8>>
 <<if visited_count("GroupOfSouls") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (Suddenly this dream doesn't seem so empty.)
  Magnolia: (I wonder what they are talking about.)
  <<wait 0.5>>
@@ -67,18 +128,22 @@ title: GroupOfSouls
  Souls: @$*%&@^%@%$@^*@%?
  Souls: &*&$@*^@.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (I don't understand anything.)
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (They all are looking at me, and yet they don't acknowledge me.)
 <<endif>>
 ===
 
 title: DancingwithFireflies
 ---
+<<wait 0.2>>
 //her pocket starts buzzing she needs to open inventory to check it
 <<if visited_count("DancingwithFireflies") < 1>>
 <<set $camerashaking to true>> //both camera shakes and the buzzing sound plays
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: (Something is vibrating in my pockets.)
 Magnolia: (I didn't bring my phone with me tho. I left it on the nightstand.)
 <<wait 0.5>>
@@ -86,12 +151,15 @@ Magnolia: (I'm getting nervous.)
 Magnolia: (It's sounds like a swarm of hornets.)
 <<set $camerashaking to false>>
 <<else>>
+<<SetPortrait noportrait>>
 Magnolia: (There's some kind of energy around here.)
 <<endif>>
 ===
 
 title: DiscoverTheFireFlies
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 //this node activates when you click on the fireflies in the inventory
 Magnolia: (I never managed to catch those fireflies. How are they in my pocket?)
 Magnolia: (Do these also scream?)
@@ -99,21 +167,31 @@ Magnolia: (Do these also scream?)
 
 title: Giant1
 ---
+<<wait 0.8>>
 <<if visited_count("Giant1") < 1>>
+<<SetPortrait noportrait>>
 Magnolia: (This one looks like a christian representation of a devil.)
 Magnolia: (I wonder...)
+<<SetPortrait devilportrait1>>
 The Devil: &&*$*&$&%%*$&%$*&$*@$@*%^@*%!
+<<SetPortrait noportrait>>
 Magnolia: AAAAAAH!
 Magnolia: (They speak?!)
+<<SetPortrait devilportrait1>>
 The Devil: Why wouldn't we?
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: You speak my language?
+<<SetPortrait devilportrait1>>
 The Devil: There are no languages. Only unwilling to understand.
+<<SetPortrait noportrait>>
 Magnolia: Okay.
 <<wait 0.5>>
+<<SetPortrait devilportrait1>>
 The Devil: Who let you wander here?
 <<jump Giant1_Answers>>
 <<else>>
+<<SetPortrait devilportrait1>>
 The Devil: Who let you wander here?
 <<jump Giant1_Answers>>
 <<endif>>
@@ -121,61 +199,94 @@ The Devil: Who let you wander here?
 
 title: Giant1_Answers
 ---
+ <<wait 0.8>>
  -> "Uh no one. I got a little bit lost." <<if $firstanswer is false>>
+  <<SetPortrait devilportrait1>>
   The Devil: You were. But you are not anymore.
   The Devil: I'm just not sure who helped you.
+  <<SetPortrait noportrait>>
   Magnolia: No one helped me. I'm all alone. My family died.
+  <<SetPortrait devilportrait1>>
   The Devil: Your family died?
+  <<SetPortrait noportrait>>
   Magnolia: Yes, in a freaky accident. I don't remember it well.
   Magnolia: You see, I have amnesia.
   <<wait 0.5>>
+  <<SetPortrait devilportrait1>>
   The Devil: Curious.
   The Devil: Crowley was always so creative.
   The Devil: You should go talk to him.
+  <<SetPortrait noportrait>>
   Magnolia: Crowley? Who is he?
+  <<SetPortrait devilportrait1>>
   The Devil: You'll see him.
   <<set $firstanswer to true>>
  -> "Is it forbidden?" <<if $secondanswer is false>>
+  <<SetPortrait devilportrait1>>
   The Devil: For you, yes.
+  <<SetPortrait noportrait>>
   Magnolia: Me?! Why me? Is it because I come from the waking world?
+  <<SetPortrait devilportrait1>>
   The Devil: Hahahahaahh!
+  <<SetPortrait noportrait>>
   Magnolia: ?
+  <<SetPortrait devilportrait1>>
   The Devil: You really are lost.
   <<set $secondanswer to true>>
  -> "I'm sorry. I will go." <<if $thirdanswer is false>>
+  <<SetPortrait devilportrait1>>
   The Devil: Sorry is not enough.
   The Devil: But it seems someobody else thinks it is.
   The Devil: It has to be seen.
+  <<SetPortrait noportrait>>
   Magnolia: What do you mean?
+  <<SetPortrait devilportrait1>>
   The Devil: ...
   <<set $thirdanswer to true>>
 ===
 
 title: Giant2
 ---
+<<wait 0.8>>
 <<if visited_count("Giant2") < 1>>
+<<SetPortrait noportrait>>
 Magnolia: (I can't find the Crowley person.)
 Magnolia: (Maybe he is like a fallen star... Doesn't exist.)
+<<SetPortrait crowleyportrait1>>
 Crowley: We both exist.
+<<SetPortrait noportrait>>
 Magnolia: AHHHHH!
 <<wait 0.2>>
+<<SetPortrait noportrait>>
 Magnolia: (How am I even surprised anymore?)
+<<SetPortrait crowleyportrait1>>
 Crowley: You scream like the fairies you have in your pocket.
+<<SetPortrait noportrait>>
 Magnolia: Those are fairies?!
 Magnolia: I thought they were fireflies.
+<<SetPortrait crowleyportrait1>>
 Crowley: It's the same thing.
+<<SetPortrait noportrait>>
 Magnolia: Our fareflies don't scream.
+<<SetPortrait crowleyportrait1>>
 Crowley: They do. You just don't listen to them.
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: I guess I'll let them go.
+<<SetPortrait crowleyportrait1>>
 Crowley: I wouldn't do that if I were you. They are awfully magical.
+<<SetPortrait noportrait>>
 Magnolia: You mean they could kill me?
+<<SetPortrait crowleyportrait1>>
 Crowley: Certainly, but that was not what I meant.
 Crowley: They can come useful.
+<<SetPortrait noportrait>>
 Magnolia: Do you know why I'm here?
+<<SetPortrait crowleyportrait1>>
 Crowley: Do you?
 <<jump Giant2_Questions>>
 <<else>>
+<<SetPortrait crowleyportrait1>>
 Crowley: So, still unsure of why you are here?
 <<jump Giant2_Questions>>
 <<endif>>
@@ -183,29 +294,45 @@ Crowley: So, still unsure of why you are here?
 
 title: Giant2_Questions
 ---
+<<wait 0.8>>
 -> Tell Crowley about your family and the star.
+ <<SetPortrait noportrait>>
  Magnolia: (I already got burned once. I shouldn't tell about my goal.)
  <<wait 0.5>>
+ <<SetPortrait crowleyportrait1>>
  Crowley: Your thoughts are awfully loud.
  Crowley: And yes, you shouldn't speak of such things.
+ <<SetPortrait noportrait>>
  Magnolia: (He can read my mind?!)
  Magnolia: (I need to be careful.)
+ <<SetPortrait crowleyportrait1>>
  Crowley: It is not me who you should be careful of.
+ <<SetPortrait noportrait>>
  Magnolia: Who is it?
+ <<SetPortrait crowleyportrait1>>
  Crowley: I helped too much already.
 -> Ask Crowley if he knows where the star is.
+<<SetPortrait crowleyportrait1>>
  Crowley: I will not tell you that.
  Crowley: They are already angry at me.
+ <<SetPortrait noportrait>>
  Magnolia: Who?
+ <<SetPortrait crowleyportrait1>>
  Crowley: You wouldn't know. Anyway, that rabbit feather you have is very useful.
+ <<SetPortrait noportrait>>
  Magnolia: How do you know about that?!
+ <<SetPortrait crowleyportrait1>>
  Crowley: When you are this tall you see everything.
  Crowley: Even that little island in the waking world.
  Crowley: It seems like it shines especially bright tonight.
 -> Ask Crowley if he knows who you are.
+ <<SetPortrait noportrait>>
  Magnolia: Do you know of me?
+ <<SetPortrait crowleyportrait1>>
  Crowley: Why do you ask me that.
+ <<SetPortrait noportrait>>
  Magnolia: You talk like you know me.
+ <<SetPortrait crowleyportrait1>>
  Crowley: I might.
  Crowley: But you are the one going around asking about the things you shouldn't ask.
  Crowley: I think everyone knows you here.
@@ -214,27 +341,41 @@ title: Giant2_Questions
 
 title: OutofTheGiant
 ---
-<<if visited_count("ThePriestSoul") < 1>>
+<<wait 0.8>>
+<<if visited_count("OutofTheGiant") < 1>>
+<<SetPortrait blackportrait1>>
 The Watcher01: What are you doing here?
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: Who is talking?
+<<SetPortrait blackportrait1>>
 The Watcher01: Me.
+<<SetPortrait noportrait>>
 Magnolia: Who is me? I don't see you.
+<<SetPortrait blackportrait1>>
 The Watcher01: That's because you only use your eyes.
+<<SetPortrait noportrait>>
 Magnolia: What should I be using?!
 <<wait 0.5>>
+<<SetPortrait blackportrait1>>
 The Watcher02: If I have to tell you, there's no use.
 <<set $priestshows to true>>
 <<wait 1>>
+<<SetPortrait outofgiantportrait1>>
 The Watcher02: Are you still blind?
+<<SetPortrait noportrait>>
 Magnolia: I was never blind. You were just hidden.
+<<SetPortrait outofgiantportrait1>>
 The Watcher02: Hidden in the plain sight, as you say.
+<<SetPortrait noportrait>>
 Magnolia: Okay, if that's what they say.
+<<SetPortrait outofgiantportrait1>>
 The Watcher02: You seem impatient. Where are you headed to?
 <<jump OutofTheGiant_Questions>>
 <<else>>
 <<set $priestshows to true>>
 <<wait 0.5>>
+<<SetPortrait outofgiantportrait1>>
 The Watcher02: You seem impatient. Where are you headed to?
 <<jump OutofTheGiant_Questions>>
 <<endif>>
@@ -242,93 +383,144 @@ The Watcher02: You seem impatient. Where are you headed to?
 
 title: OutofTheGiant_Questions
 ---
+<<wait 0.8>>
 -> "Is your name Crowley?"
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Me? Crowley? HAHAHAHAAHAHH!
  The Watcher02: I wish.
  <<set $priestshows to false>>
 -> Tell him about the star.
+ <<SetPortrait noportrait>>
  Magnolia: (I'm not sure this is a good idea. But I need to try.)
  Magnolia: I'm looking for a fallen star.
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Oh really? Who would have guessed.
  The Watcher02: And who says that star belongs to you?
+ <<SetPortrait noportrait>>
  Magnolia: Does it belong to anyone?
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: It belongs to itself.
+ <<SetPortrait noportrait>>
  Magnolia: So it's noones. That means anyone can claim it.
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Can you claim a living thing?
+ <<SetPortrait noportrait>>
  Magnolia: People have pets.
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Who are these people?
+ <<SetPortrait noportrait>>
  Magnolia: Uh...normal people.
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: That doesn't seem normal.
  <<wait 0.5>>
  The Watcher02: Anyway, just let the star go.
+ <<SetPortrait noportrait>>
  Magnolia: I can't.
  <<set $priestshows to false>>
 -> Don't tell him about the star, but still try to ask about the way.
+ <<SetPortrait noportrait>>
  Magnolia: I'm a wanderer. I write stories about my adventures.
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: You wandered too far.
+ <<SetPortrait noportrait>>
  Magnolia: I don't think so. 
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: So what kind of adventure are you searching for?
+ <<SetPortrait noportrait>>
  Magnolia: Anythign unusual.
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: I don't think it's a defined thing.
+ <<SetPortrait noportrait>>
  Magnolia: Has anything seem unsual to you?
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: It's unusual to see YOU here.
+ <<SetPortrait noportrait>>
  Magnolia: Anything else?
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Not really.
  <<wait 0.5>>
  The Watcher02: I have to go.
  <<set $priestshows to false>>
 -> Ask about the giants.
+ <<SetPortrait noportrait>>
  Magnolia: Is this some kind fo a museum for your gods?
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: I don't know what a museum is.
+ <<SetPortrait noportrait>>
  Magnolia: Like a display of statues of your gods?
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Those are no statues. Those are our giants.
  The Watcher02: You can check. They breathe.
+ <<SetPortrait noportrait>>
  Magnolia: How are they are alive and unmoving?
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: They know of peace. Unlike you.
+ <<SetPortrait noportrait>>
  Magnolia: Oh.
  <<wait 0.5>>
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: The time is up.
  <<set $priestshows to false>>
 -> Ignore him.
+ <<SetPortrait noportrait>>
  Magnolia: (He appears to be a trickster. I can't deal with that.)
  <<wait 0.5>>
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Did the rabbit eat your tongue?
+ <<SetPortrait noportrait>>
  Magnolia: The rabbit?
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: It's lair is in the factory.
+ <<SetPortrait noportrait>>
  Magnolia: I'm headed there.
+ <<SetPortrait outofgiantportrait1>>
  The Watcher02: Then hurry up.
  <<set $priestshows to false>>
 ===
 
 title: ThePriestSoul
 ---
-<<if visited_count("ThePriestSould") < 1>>
+<<wait 0.8>>
+<<if visited_count("ThePriestSoul") < 1>>
+<<SetPortrait priestsoulportrait1>>
 ThePriest: &^$&*@&@$@%*%&^&@%@%$@%*...
+<<SetPortrait noportrait>>
 Magnolia: Are you a priest here?
+<<SetPortrait priestsoulportrait1>>
 ThePriest: %&^&@%@%$&^$&*@&@$@%...
+<<SetPortrait noportrait>>
 Magnolia: Is that a yes?
+<<SetPortrait priestsoulportrait1>>
 ThePriest: *@^$@%&$@*^@$^?
+<<SetPortrait noportrait>>
 Magnolia: Is your name Crowley by any chance?
+<<SetPortrait priestsoulportrait1>>
 ThePriest: ...
+<<SetPortrait noportrait>>
 Magnolia: (I guess not.)
 Magnolia: I'm Magnolia, it was nice to meet you.
 Magnolia: I have to go.
 <<else>>
+<<SetPortrait noportrait>>
 Magnolia: They will not speak to me.
 <<endif>>
 ===
 
 title: TheCandleStick
 ---
+<<wait 0.8>>
 <<if $hascomb is true>>
+ <<SetPortrait noportrait>>
  Magnolia: (This looks like it should be burning.)
  Magnolia: (I don't have any matches.)
  Magnolia: (I could check if there's anything useful in my pockets.)
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (This seems like it should be burning.)
   -> Try the flaming sword.
    <<set $tryflamingsword to true>>
    <<wait 1>>
+   <<SetPortrait noportrait>>
    Magnolia: (Yeah, it doesn't work.)
    Magnolia: (It won't light it up.)
   -> (I can't do anything about it.)
@@ -339,9 +531,12 @@ title: TheCandleStick_Lit
 ---
 <<set $jar_used to true>>
 <<wait 1.5>>
+<<SetPortrait noportrait>>
 Magnolia: It's so beautiful!
 <<wait 0.5>>
+<<SetPortrait crowleyportrait1>>
 Crowley: Good luck little bird!
+<<SetPortrait noportrait>>
 Magnolia: Wait, what?
 <<set $trigger_waking06 to true>>
 ===

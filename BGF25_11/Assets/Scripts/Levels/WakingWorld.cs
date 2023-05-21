@@ -20,6 +20,8 @@ public class WakingWorld : MonoBehaviour
     [SerializeField] private Animator transitionAnimator;
     [SerializeField] private Animator CurtainAnimator;
     private GameObject curtains;
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02;
     
     private DialogueRunner dialogueRunner;
     private InMemoryVariableStorage variableStorage;
@@ -30,6 +32,8 @@ public class WakingWorld : MonoBehaviour
     private bool goupthestairs003;
     private bool curtainopens;
     private bool curtainanimation;
+    private bool instanceallowed;
+    private bool instanceallowed02;
     
     private bool isDownTheStairs;
     private bool wentHome;
@@ -55,11 +59,15 @@ public class WakingWorld : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
-        audioManager.InitializeMusic(FMODEvents.instance.musicWW1);
+        //audioManager.InitializeMusic(FMODEvents.instance.musicWW1);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_001_002_TheUphillTheDownhill_Loopable");
+        instance.start();
         dialogueRunner.StartDialogue("FirstScene");
         isDownTheStairs = false;
         wentHome = false;
         curtains = GameObject.FindWithTag("TheCurtains");
+        instanceallowed = true;
+        instanceallowed02 = true;
     }
 
     // Update is called once per frame
@@ -83,7 +91,7 @@ public class WakingWorld : MonoBehaviour
 
         if (godownthestairs && !isDownTheStairs)
         {            
-            audioManager.StopASoundWithFade(FMODEvents.instance.musicWW1);
+            //audioManager.StopASoundWithFade(FMODEvents.instance.musicWW1);
             StartCoroutine(fadeLayer.FadeIn());
             GoDownTheStairs();            
             isDownTheStairs = true;
@@ -109,8 +117,18 @@ public class WakingWorld : MonoBehaviour
             }
             //audioManager.PlayOneShot(FMODEvents.instance.transitionToDW, this.transform.position);
             transitionAnimator.SetBool("transitiontodw", true);
+            if (instanceallowed)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/UI Sounds/Transition_WW_to_DW");
+                instance02.start();
+                instanceallowed = false;
+            }
             if (transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && transitionAnimator.GetCurrentAnimatorStateInfo(0).IsName("transitiontodw"))
             {
+                instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);;
+                instance02.release();
                 StartCoroutine(fadeLayer.FadeIn());
                 SceneManager.LoadScene("DreamWorld1");                
                 transitionAnimator.SetBool("transitiontodw", false);

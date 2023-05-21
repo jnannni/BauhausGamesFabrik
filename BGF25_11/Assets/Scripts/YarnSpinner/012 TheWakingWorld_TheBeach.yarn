@@ -11,11 +11,13 @@ title: TheBeach
 <<set $everythingchanges to false>> //enviromental changes
 <<set $activated to false>>
 <<set $fadechihiro to false>>
+<<set $fadescene to false>>
 
 //variables for in YARN
 <<set $hasclue_flowers to false>>
 <<set $everythingchanged to false>>
-
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (I have never been to this beach before.)
 Magnolia: (I'm sure I would have remembered.)
 <<wait 0.5>>
@@ -28,40 +30,60 @@ Magnolia: (There's nobody to take me now.)
 
 title: TheBookReader
 ---
+<<wait 0.8>>
 //she can't get out of the world of the book
 //she believes it’s true, and that when magnolia talks to her she is dreaming
 <<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (She's probably reading about the purple rabbits.)
  Magnolia: (As I said, I don't have time.)
  Magnolia: (I need to cross that bridge.)
 <<else>>
  <<if visited_count("TheBookReader") < 1>>
+  <<SetPortrait noportrait>>
   Magnolia: (Maybe they know something.)
   Magnolia: Hey, sorry to bother you.
   <<wait 0.5>>
+  <<SetPortrait bookreaderportrait1>>
   The Reader: ...
+  <<SetPortrait noportrait>>
   Magnolia: Hey?
+  <<SetPortrait bookreaderportrait1>>
   The Reader: Oh?
   The Reader: Sorry.
+  <<SetPortrait noportrait>>
   Magnolia: Do you maybe know any other way to go to that amusement park?
+  <<SetPortrait bookreaderportrait1>>
   The Reader: Which amusement park?
+  <<SetPortrait noportrait>>
   Magnolia: That one on the island.
+  <<SetPortrait bookreaderportrait1>>
   The Reader: Sorry I can't help. I'm here for the first time.
   The Reader: My dreams are rarely at the same location.
+  <<SetPortrait noportrait>>
   Magnolia: Your dreams?
+  <<SetPortrait bookreaderportrait1>>
   The Reader: Yes. We are in my dream right now.
+  <<SetPortrait noportrait>>
   Magnolia: Are we?
+  <<SetPortrait bookreaderportrait1>>
   The Reader: Yes.
   <<wait 0.5>>
+  <<SetPortrait noportrait>>
   Magnolia: (I don't know what she thinks by that.)
   <<wait 0.5>>
   Magnolia: What are you reading?
+  <<SetPortrait bookreaderportrait1>>
   The Reader: Reading?
+  <<SetPortrait noportrait>>
   Magnolia: Yeah, you have a book in your hand.
+  <<SetPortrait bookreaderportrait1>>
   The Reader: Oh that?
+  <<SetPortrait noportrait>>
   Magnolia: That's probably just my diary.
   <<jump TheBookReader_Question>>
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: (I don't think she can help me.)
   Magnolia: (I can still try.)
   <<jump TheBookReader_Question>>
@@ -71,30 +93,45 @@ title: TheBookReader
 
 title: TheBookReader_Question
 ---
+<<wait 0.8>>
 -> You don't have a clue how to get there?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I'm sorry, I don't.
+ <<SetPortrait noportrait>>
  Magnolia: That's okay.
 -> What is your life like?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I am a warrior.
+ <<SetPortrait noportrait>>
  Magnolia: What kind of warrior?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I don't work for anyone, and I wander around.
  The Reader: Right now I am probably sleeping somewhere by the road.
  The Reader: I do that often on my voyages.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: And whom do you fight?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I fight the thieves. They steal from the poor, despite them being rich themselves.
+ <<SetPortrait noportrait>>
  Magnolia: So it's something like Robin Hood?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I don't know this Robin Hood?
  The Reader: Is he famous?
+ <<SetPortrait noportrait>>
  Magnolia: Kind of.
  Magnolia: (Should I feed their delusions?)
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: I'm sure you're better than him anyway.
+ <<SetPortrait bookreaderportrait1>>
  The Reader: It's not about competition.
  The Reader: I welcome any ally.
 -> Can I see your diary?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Yes, why not? Here, take it.
   -> Take the diary.
+   <<SetPortrait noportrait>>
    Magnolia: (Interesting.)
    Magnolia: (It looks just like a normal fictional book.)
    Magnolia: (It even has a publisher.)
@@ -105,12 +142,15 @@ title: TheBookReader_Question
 ===
 title: TheMourners
 ---
+<<wait 0.8>>
 <<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (They seem like a happy bunch.)
  <<wait 0.5>>
  Magnolia: (I can't waste my time with that.)
 <<else>>
  <<if visited_count("TheBookReader") < 1>>
+  <<SetPortrait noportrait>>
   Magnolia: (They look like they are going to a funeral.)
   Magnolia: (They are terribly serious.)
   <<wait 0.5>>
@@ -118,43 +158,69 @@ title: TheMourners
   Magnolia: (I think I would honestly feel relief if that's the case.)
   <<jump TheMourners_Options>>
  <<else>>
-  Magnolia: (I don't know what I am back here.)
+  <<SetPortrait noportrait>>
+  Magnolia: (I don't know why I'm back here.)
   <<jump TheMourners_Options>>
  <<endif>>
 <<endif>>
 ===
 title: TheMourners_Options
 ---
-   -> Stand with them.
-    <<set $magnoliainarow to true>>
-   -> Give them flowers. <<if $hasclue_flowers is true>>
-    <<set $mournersmove to true>>
-    <<wait 1>>
-    <<jump TheMourners_Next>>
-   -> (They scare me.)
+<<wait 0.8>>  
+-> Stand with them.
+   <<set $fadescene to true>>
+   <<wait 0.5>>
+   <<set $magnoliainarow to true>>
+   <<wait 0.5>>
+   <<set $fadescene to false>>
+   <<wait 2.1>>
+   <<set $magnoliainarow to false>>
+   <<wait 2>>
+   <<jump TheMourners_InaRow>>
+   //<<set $magnoliainarow to false>>
+-> Give them flowers. <<if $hasclue_flowers is true>>
+   <<set $mournersmove to true>>
+   //<<wait 1>>
+   //<<jump TheMournesrs_Next>>
+-> (They scare me.)
+===
+
+title: TheMourners_InaRow
+---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
+Magnolia: (I wonder if they share my grief.)
+<<wait 0.5>>
+Magnolia: (Do waves sooth the pain?)
 ===
 title: TheMournesrs_Next
 ---
- Magnolia: (The moon casts the shadows of the mourners curiously.)
- Magnolia: (It makes it look like streams of water that flow into the sea.)
- <<wait 0.5>>
- <<set $everythingchanges to true>>
-  Magnolia: (What does this mean?)
-  Magnolia: (Why does this look like from my dream?)
-  Magnolia: (Is everything just collapsing?)
-  <<wait 1>>
-   <<set $everythingchanged to true>>
+<<wait 0.8>>
+<<set $mournersmove to false>>
+<<SetPortrait noportrait>>
+Magnolia: (The moon casts the shadows of the mourners curiously.)
+Magnolia: (It makes it look like streams of water that flow into the sea.)
+<<wait 0.5>>
+<<set $everythingchanges to true>>
+Magnolia: (What does this mean?)
+Magnolia: (Why does this look like from my dream?)
+Magnolia: (Is everything just collapsing?)
+<<wait 1>>
+<<set $everythingchanged to true>>
 ===
 
 title: TheWildFlowers
 ---
+<<wait 0.8>>
 //give the wildflowers to the mourners, they move in a way that lets the rays of the moon fall onto the beach in a certain way, showing a certain pattern
 //Magnolia needs to dig this pattern, and as soon as she does, there are waterfalls and the water is red, and the dream is slowly sipping into the wakingworld
 //only after this chihirio is available to talk to
 <<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (I used to like flowers.)
 <<else>>
  <<if visited_count("TheBookReader") < 1>>
+  <<SetPortrait noportrait>>
   Magnolia: (I used to like flowers.)
   <<wait 0.5>>
   Magnolia: (These are daisies.)
@@ -164,6 +230,7 @@ title: TheWildFlowers
     <<set $hasclue_flowers to true>>
    -> Leave them be.
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: (I used to like flowers.)
   <<wait 0.5>>
   Magnolia: (These are daisies.)
@@ -177,18 +244,22 @@ title: TheWildFlowers
 
 title: TheMoonReflection
 ---
+<<wait 0.8>>
 //she is the eclipse of the moon, she is the sun
 <<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (That astronomer was afraid of the moon.)
  Magnolia: (I can see why.)
 <<else>>
  <<if visited_count("TheBookReader") < 1>>
+  <<SetPortrait noportrait>>
   Magnolia: (The astronomer was afraid of the moon.)
   <<wait 0.5>>
   Magnolia: (I can see why.)
   Magnolia: (The sea is obviously in love with it.)
   <<jump TheMoon_Options>>
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: (I understand the sea.)
   Magnolia: (I feel pulled by it.)
   <<jump TheMoon_Options>>
@@ -198,8 +269,10 @@ title: TheMoonReflection
 
 title: TheMoon_Options
 ---
+<<wait 0.8>>
 -> Sit and watch the reflection.
  <<set $cutscene_moon to true>>
+ <<SetPortrait noportrait>>
  Magnolia: (There seems to be a shadow over the moon.)
  Magnolia: (It doesn't look like a normal eclipse.)
  <<wait 0.5>>
@@ -207,13 +280,16 @@ title: TheMoon_Options
  <<wait 0.5>>
  Magnolia: (Why is it that wherever I look I see myself?)
 -> I don't have the time.
+ <<SetPortrait noportrait>>
  Magnolia: (When this is all over, I'll sit and watch the moon.)
 ===
 
 title: ALostDiary
 ---
+<<wait 0.8>>
 //this is just a story within a story
 <<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (If it's not a magic star I don't care.)
  Magnolia: (Somebody else will pick it up.)
  <<wait 0.5>>
@@ -227,42 +303,107 @@ title: ALostDiary
 
 title: TheSunBather
 ---
+<<wait 0.8>>
 <<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (Must be nice pretending that there is the sun.)
 <<else>>
  <<if visited_count("TheBookReader") < 1>>
+  <<SetPortrait noportrait>>
   Magnolia: (Must be nice pretending that there is the sun.)
   <<wait 0.5>>
   Magnolia: (Is that a sunburn on their back?)
   Magnolia: (Well it's not weirder than that ray of sun in the factory.)
  <<else>>
+  <<SetPortrait noportrait>>
   Magnolia: (Must be nice pretending that there is the sun.)
  <<endif>>
 <<endif>>
 ===
 
+title: Chihiro02
+---
+<<wait 0.8>>
+Chihiro: Hey.
+<<SetPortrait noportrait>>
+Magnolia: Hey.
+Chihiro: My name is Chihiro.
+<<SetPortrait noportrait>>
+Magnolia: My name is Magnolia.
+<<wait 0.5>>
+Chihiro: There's no reason to keep you away anymore.
+<<SetPortrait noportrait>>
+Magnolia: From where?
+Chihiro: From the star.
+<<SetPortrait noportrait>>
+Magnolia: You know about the star?
+Chihiro: Hold my hand.
+   -> Hold Chihiro's hand.
+    <<set $fadechihiro to true>>
+    <<wait 1.7>>
+    <<set $goverthebridge to true>>
+    <<set $activated to true>>
+    <<set $fadechihiro to false>>
+===
+
 title: Chihiro
 ---
+<<wait 0.8>>
+//she is the one to take us over the bridge
+//to be able to do that we need to talk to the book reader
+<<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
+ Magnolia: (She looks weird.)
+ Magnolia: (And somehow familiar.)
+ <<wait 0.5>>
+ Magnolia: (But there is the bridge.)
+<<else>>
+ <<if $everythingchanged is true>>
+  <<SetPortrait chihiroportrait1>>
   Chihiro: Hey.
+  <<SetPortrait noportrait>>
   Magnolia: Hey.
+  <<SetPortrait chihiroportrait1>>
   Chihiro: My name is Chihiro.
+  <<SetPortrait noportrait>>
   Magnolia: My name is Magnolia.
   <<wait 0.5>>
+  <<SetPortrait chihiroportrait1>>
   Chihiro: There's no reason to keep you away anymore.
+  <<SetPortrait noportrait>>
   Magnolia: From where?
+  <<SetPortrait chihiroportrait1>>
   Chihiro: From the star.
+  <<SetPortrait noportrait>>
   Magnolia: You know about the star?
+  <<SetPortrait chihiroportrait1>>
   Chihiro: Hold my hand.
    -> Hold Chihiro's hand.
     <<set $fadechihiro to true>>
     <<wait 1.7>>
     <<set $goverthebridge to true>>
     <<set $activated to true>>
+    <<set $fadechihiro to false>>
+ <<else>>
+  <<SetPortrait noportrait>>
+  Magnolia: Hey, do you maybe know how to pass this bridge?
+  <<SetPortrait chihiroportrait1>>
+  Chihiro: You shouldn't go there.
+  Chihiro: I can't say anything.
+  <<SetPortrait noportrait>>
+  Magnolia: Why?
+  Magnolia: Please?
+  <<SetPortrait chihiroportrait1>>
+  Chihiro: That's not possible right now.
+ <<endif>>
+<<endif>>
 ===
 
 title: TheBridge02
 ---
+<<wait 0.8>>
 <<if visited_count("TheBridge02") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (This is it.)
  Magnolia: (I can't believe it's almost over.)
  Magnolia: (I just need to cross this bridge.)
@@ -283,7 +424,9 @@ title: TheBridge02
 
 title: BacktotheCity
 ---
+<<wait 0.8>>
 <<if visited_count("BacktotheCity") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (Even if I wanted to go back to the city it seems like I can't.)
  Magnolia: (It's not walkable.)
 <<else>>
@@ -296,16 +439,21 @@ title: BacktotheCity
 
 title: TheCastle
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (I wonder if the tied will come this far and ruin it.)
 ===
 
 title: ChihiroInSand
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (Who is Chihiro?)
 ===
 
 title: TheManHole_Beach
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheManHole_Beach") < 1>>
 Magnolia: (I've barely seen this one.)

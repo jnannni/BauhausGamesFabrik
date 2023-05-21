@@ -9,7 +9,8 @@ title: TheTrainStation_Start
 <<set $lookatthemap to false>> //shows the illustration of the map
 
 //variables for in YARN
-
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (It's a small station.)
 Magnolia: (I'm not sure where the train comes from.)
 Magnolia: (I guess I'll have to wait.)
@@ -17,6 +18,8 @@ Magnolia: (I guess I'll have to wait.)
 
 title: TheCityMap
 ---
+ <<wait 0.8>>
+ <<SetPortrait noportrait>>
  Magnolia: (There is a whole map of the city.)
   -> Look at the map.
    <<set $lookatthemap to true>>
@@ -25,207 +28,310 @@ title: TheCityMap
 
 title: TrainTracks
 ---
+ <<wait 0.8>>
+ <<SetPortrait noportrait>>
  Magnolia: (I saw somewhere that you can lay your ear on the tracks and hear the distant train.)
  Magnolia: (I won't do that now.)
 ===
 
 title: TheOldPerson
 ---
+<<wait 0.8>>
 <<if visited_count("TheOldPerson") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: Hello.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Hello.
+ <<SetPortrait noportrait>>
  Magnolia: Are you also waiting for the train?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I am not.
+ <<SetPortrait noportrait>>
  Magnolia: You are not?
  Magnolia: Do you by any chance know when it's going to arrive?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Do you have a ticket?
+ <<SetPortrait noportrait>>
  Magnolia: A ticket?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: The train ticket, how do you expect to travel?
+ <<SetPortrait noportrait>>
  Magnolia: (I don't.)
  Magnolia: (I guess I could check my bag.)
  Magnolia: I'll look for it.
+ <<jump TheOldPerson_Questions>>
 <<else>>
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Found your ticket?
+ <<SetPortrait noportrait>>
  Magnolia: Not yet.
+ <<jump TheOldPerson_Questions>>
 <<endif>>
 ===
 
 title: TheTicket
 ---
-<<wait 2>>
+<<wait 1.5>>
+<<SetPortrait noportrait>>
 Magnolia: Here it is!
+<<SetPortrait oldpersonportrait1>>
 The Old Person: Keep it safe. It's not an ordinary ticket.
+<<SetPortrait noportrait>>
 Magnolia: What do you mean?
 <<jump TheOldPerson02>>
 ===
 title: TheOldPerson02
 ---
+<<wait 0.8>>
 //trigger 005
 <<if visited_count("TheOldPerson02") < 1>>
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: The train here is always late.
  The Old Person: Or early.
  The Old Person: They seem to have no concept of time.
  <<wait 0.5>>
  The Old Person: And they tell me I am demented.
+ <<SetPortrait noportrait>>
  Magnolia: (That means she forgets things?)
  Magnolia: I have temporary amnesia.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: But I don't forget anything darling.
  The Old Person: They have me all wrong.
+ <<SetPortrait noportrait>>
  Magnolia: (She seems to be standing strongly on the ground.)
  Magnolia: Why do they think you have dementia?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: They say I talk nonsense.
  The Old Person: And they don't understand why I would come to places like this.
  The Old Person: They just say I get lost.
  The Old Person: But I perfectly know where I am.
+ <<SetPortrait noportrait>>
  Magnolia: Don't they listen?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Darling.
  The Old Person: Nobody ever listens.
  The Old Person: Did you actually listen to anyone you talked to recently?
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (Have I?)
  Magnolia: (Have I missed anything?)
  Magnolia: I have a question for you.
- <<jump TheOldPerson_Questions>>
+ <<jump TheOldPerson_Questions02>>
 <<elseif visited_count("TheOldPerson02") == 1>>
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: You know.
  The Old Person: Sometimes it's not that bad when people think you are insane.
+ <<SetPortrait noportrait>>
  Magnolia:?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: It's like you become invisible.
  The Old Person: And if you take it right, it becomes a superpower.
+ <<SetPortrait noportrait>>
  Magnolia: (I kind of understand her.)
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: You are the first person I feel like I can talk to.
  Magnolia: Can I ask you something?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Of course.
- <<jump TheOldPerson_Questions>>
+ <<jump TheOldPerson_Questions02>>
 <<else>>
  Magnolia: (She seems like the sanest person I met these days.)
- <<jump TheOldPerson_Questions>>
+ <<jump TheOldPerson_Questions02>>
 <<endif>>
 ===
 
 title: TheOldPerson_Questions
 ---
+<<wait 0.8>>
 -> (I should ask her about the rabbits.)
+ <<SetPortrait noportrait>>
  Magnolia: Everybody was talking about these purple rabbits.
  Magnolia: At first I thought they were insane.
  Magnolia: Then I thought I was insane.
  Magnolia: Now I just believe they are real.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Have you seen one?
+ <<SetPortrait noportrait>>
  Magnolia: Not really.
  Magnolia: I thought I saw one's tail.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: There is this philosophy that believes nothing exists until we perceive it.
+ <<SetPortrait noportrait>>
  Magnolia: But you don't believe in that?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I don't.
  The Old Person: But do you believe something we perceive might turn out to be non-existing?
+ <<SetPortrait noportrait>>
  Magnolia: Like hallucinations?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: More than just hallucinations.
  The Old Person: Your whole life for example.
+ <<SetPortrait noportrait>>
  Magnolia: I always thought dreams felt both real and unreal.
  Magnolia: And that reality couldn't ever be mistaken for a dream, even when it feels slightly off.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I think that's what most people think.
+ <<SetPortrait noportrait>>
  Magnolia: What do you think?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: It's not my place to think anymore.
  The Old Person: But I can tell you one thing.
  The Old Person: I never saw one of those rabbits.
  <<jump TheOldPerson_Questions>>
 -> Did you notice there was almost no sun these days?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I think people are turning mad because of it.
+ <<SetPortrait noportrait>>
  Magnolia: So you noticed?!
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: How could I not?
  The Old Person: This old body feels every slight change in the weather.
  <<wait 0.5>>
  The Old Person: And without it, the city seems on the verge of crying, but the rain never comes.
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: You...
  Magnolia: You are the first person who sees it!
  Magnolia: Everybody is talking about how the sun shines so strongly these days!
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: They mistake the warmth behind their skin for the sunshine.
  The Old Person: And they ignore their blindness.
+ <<SetPortrait noportrait>>
  Magnolia: I feel like something is off.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: That requires a time when this city was ever right.
+ <<SetPortrait noportrait>>
  Magnolia: Was it not?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I am old, and I don't have any recollection of such times.
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: They told me I have amnesia after what happened.
  Magnolia: I can't remember well.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: What happened?
+ <<SetPortrait noportrait>>
  Magnolia: I lost all my family in one accident.
  Magnolia: I was the only one to survive.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: That's terrible dear.
  <<wait 0.5>>
  The Old Person: And what was this accident?
+ <<SetPortrait noportrait>>
  Magnolia: That's what's strange.
  Magnolia: I don't remember.
   <<jump TheOldPerson_Questions>>
 -> Why do you come to the train station?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: It's just one of my favorite spots.
  The Old Person: Did you ever hear of liminal spaces?
+ <<SetPortrait noportrait>>
  Magnolia: Not really.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Stations are one of them.
  The Old Person: They are transitional spaces.
  The Old Person: For most people, they are a bit unsettling.
  The Old Person: However, in this city, they seem like the most stable of places.
  The Old Person: Like they are the only real ones.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: What do you do when you are here?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I watch the trains pass.
  The Old Person: That doesn't, however, happen very often.
  The Old Person: So instead I watch the lost time pass.
  The Old Person: Here, you feel like you could almost touch time.
+ <<SetPortrait noportrait>>
  Magnolia: That just makes me dizzy thinking about it.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I find it calming.
  <<wait 0.5>>
  The Old Person: Also, I like watching people say their goodbyes.
+ <<SetPortrait noportrait>>
  Magnolia: But that sounds sad.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: It's one of the most real interactions I see in this city.
+ <<SetPortrait noportrait>>
  Magnolia: (She sounds melancholic.)
  <<jump TheOldPerson_Questions>>
 -> Did you notice that there is something wrong with this city?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: There is a lot wrong with this city.
  The Old Person: But it has always been the same.
+ <<SetPortrait noportrait>>
  Magnolia: (That just means I'm the one going mad.)
  Magnolia: A lot of people told me really strange stuff recently.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Are you sure it's strange, or just unfamiliar to you?
+ <<SetPortrait noportrait>>
  Magnolia: Could it be both?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Could be.
  <<jump TheOldPerson_Questions>>
--> I was told in my dream that if I get a fallen star I can save my parents. //only if you unlock something special
+-> I don't want to ask her anything.
+===
+
+title: TheOldPerson_Questions02
+---
+<<wait 0.8>>
 -> Do I look strange to you? //again needs to unlock something
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: You are the strangest thing I have ever met.
+ <<SetPortrait noportrait>>
  Magnolia: Me?!
  Magnolia: Really?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: I never talk nonsense dear.
  The Old Person: Contrary to what my family claims.
+ <<SetPortrait noportrait>>
  Magnolia: But why me?
  Magnolia: I do feel a little bit weird these past couple of days, but...
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Why is that?
+ <<SetPortrait noportrait>>
  Magnolia: I think I am going insane.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Maybe it's the opposite?
+ <<SetPortrait noportrait>>
  Magnolia: What do you mean?
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Maybe you are regaining your sanity.
+ <<SetPortrait noportrait>>
  Magnolia: If it is, it doesn't feel like it.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: How would you know what sanity feels like if you lost it long ago?
+ <<SetPortrait noportrait>>
  Magnolia: (This is just confusing me.)
  Magnolia: (It's like telling a schizophrenic they should listen to their hallucinations.)
  Magnolia: (It feels dangerous.)
  <<wait 1>>
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Are you okay there?
+ <<SetPortrait noportrait>>
  Magnolia: Yes. Yes!
  <<wait 0.5>>
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: What did you say happened to your family?
+ <<SetPortrait noportrait>>
  Magnolia: (I am not sure I mentioned them at all.)
  Magnolia: They all died.
  Magnolia: I am the only one left.
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Isn't it strange that you don't remember what happened to them?
+ <<SetPortrait noportrait>>
  Magnolia: I did find it strange, but the doctors said...
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Darling, I think you are late.
  <<set $trainapproaching to true>>
  The Old Person: The train is coming.
+ <<SetPortrait noportrait>>
  Magnolia: Wait!
  Magnolia: (Not now.)
  Magnolia: (I need to talk to her more.)
+ <<SetPortrait oldpersonportrait1>>
  The Old Person: Didn't you find it unusual that people around you thought the sun was shining on the cloudy sky?
+ <<SetPortrait noportrait>>
  Magnolia: I...
  Magnolia: I don't think it was because of me...
  <<set $trigger_TheFactory to true>>

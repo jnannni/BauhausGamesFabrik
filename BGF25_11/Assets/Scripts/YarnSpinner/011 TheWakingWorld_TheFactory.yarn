@@ -11,13 +11,19 @@ title: TheFactory_Start
 <<set $putintheinventory11 to false>>
 <<set $pettherabbit to false>> //animation of the rabbit going in the circle
 <<set $bringtherabbit to false>> //animation of magnolia picking up the rabbit and bringing it back
+<<set $lettherabbit to false>>
+<<set $rabbitunder to false>>
+<<set $faderabbit to false>>
+<<set $exitfactory to false>>
 
 //variables for in YARN
+<<set $activated to false>>
 <<set $hasclue_rabbit to false>>
 <<set $hasclue_Newspaper to false>>
 <<set $sawthesun to false>>
 <<set $sawtherabbit to false>>
-
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (That didn't look like any dream before!)
 Magnolia: (Did I somehow get lost?)
 <<wait 0.5>>
@@ -29,36 +35,58 @@ Magnolia: (I guess that dream travel actually works.)
 
 title: TheFactoryWorker
 ---
+<<wait 0.8>>
 <<if visited_count("TheFactoryWorker") < 1>>
  //you can only pick up the rabbit if you get a clue from him
+ <<SetPortrait noportrait>>
  Magnolia: Hello.
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Hello.
+ <<SetPortrait noportrait>>
  Magnolia: Do you know anyone who works in that factory?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Which factory?
+ <<SetPortrait noportrait>>
  Magnolia: That over there.
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Ah you mean the dot.
+ <<SetPortrait noportrait>>
  Magnolia: What?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: I live in this box.
+ <<SetPortrait noportrait>>
  Magnolia: Okay?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: And there is this tiny dot in the corner.
  The Worker: Every day I stand on that dot and wait for most of the day.
  The Worker: After that, I am allowed to walk around.
+ <<SetPortrait noportrait>>
  Magnolia: But only inside the box?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Only inside the box.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: And is there anything outside of this box?
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Am I outside of this box?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: I have never seen the outside.
  The Worker: I've heard of it, and it seems nice.
  The Worker: But I am not sure it exists.
+ <<SetPortrait noportrait>>
  Magnolia: What about me?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: The sun is always there.
+ <<SetPortrait noportrait>>
  Magnolia: Not really, but what I meant is - Do I exist?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: I feel the warmth inside this box.
+ <<SetPortrait noportrait>>
  Magnolia: (He is not going to tell me.)
  <<jump TheFactoryWorker_Questions>>
 <<else>>
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Sometimes I don't know what’s up and what’s down inside this box.
  <<jump TheFactoryWorker_Questions>>
 <<endif>>
@@ -66,37 +94,63 @@ title: TheFactoryWorker
 
 title: TheFactoryWorker_Questions
 ---
+<<wait 0.8>>
 -> What color is your box?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: It's mostly purple.
+ <<SetPortrait noportrait>>
  Magnolia: Oh like the rabbits.
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Oh yes the rabbits. Sometimes they get inside my box.
+ <<SetPortrait noportrait>>
  Magnolia: So you've seen the purple rabbit?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Of course.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: But doesn't it mean that there is something on the outside for sure?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Not really.
+ <<SetPortrait noportrait>>
  Magnolia: Where would the rabbits come from then?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: I'm not sure they are real.
+ <<SetPortrait noportrait>>
  Magnolia: You don't think they are?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: I didn't get the chance to check it.
+ <<SetPortrait noportrait>>
  Magnolia: How would you do that?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Did you hear they burn in the sun?
+ <<SetPortrait noportrait>>
  Magnolia: I think I have.
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: That's how you check.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: But I haven't seen the sun in so long.
  <<set $hasclue_rabbit to true>>
  <<jump TheFactoryWorker_Questions>>
 -> Could I get inside your box?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: You are too big for my box.
+ <<SetPortrait noportrait>>
  Magnolia: I'm only 161cm tall.
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: Not like that.
+ <<SetPortrait noportrait>>
  Magnolia: Then like what?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: You don't belong here.
  <<jump TheFactoryWorker_Questions>>
 -> Aren't you ever curious about the outside?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: I don't have time to be curious.
+ <<SetPortrait noportrait>>
+ <<SetPortrait noportrait>>
  Magnolia: What makes you so busy?
+ <<SetPortrait factoryworkerportrait1>>
  The Worker: What do you mean?
  The Worker: I have so much stuff to do in my empty box.
  <<jump TheFactoryWorker_Questions>>
@@ -105,48 +159,70 @@ title: TheFactoryWorker_Questions
 
 title: TheNewspaperReader
 ---
+<<wait 0.8>>
 <<if visited_count("TheNewspaperReader") < 1>>
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Yes, stand there.
+ <<SetPortrait noportrait>>
  Magnolia: Me?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Yes you. You are creating a perfect shadow for me to read my newspaper.
+ <<SetPortrait noportrait>>
  Magnolia: (THERE IS NO SUN!!!)
  Magnolia: Uhm, I don't think I have that much time.
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I can do it in seconds.
+ <<SetPortrait noportrait>>
  Magnolia: Read the whole newspaper?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: It just repeats itself anyway.
  The Reader: There are 10 different words and they loop.
  The Reader: That's how they write these.
+ <<SetPortrait noportrait>>
  Magnolia: Why do you read it then?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: To keep my mind busy.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: Do you get any useful information out of it?
  <<wait 0.5>>
+ <<SetPortrait bookreaderportrait1>>
  The Reader: No.
  The Reader: Yes.
  The Reader: I realized today they changed one of the ten words.
  The Reader: That's quite interesting.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: I can imagine.
  <<jump TheNewspaperReader_Questions>>
 <<elseif visited_count("TheNewspaperReader") == 1>>
+<<SetPortrait noportrait>>
  Magnolia: Could I sit for a while and read with you?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Be my guest.
+ <<SetPortrait noportrait>>
  Magnolia: Thank you.
  <<set $magnoliasits to true>>
  <<wait 2>>
  Magnolia: What is this?
  Magnolia: I don't see anything on these pages.
  <<wait 0.5>>
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Child's eyes only see what is true.
+ <<SetPortrait noportrait>>
  Magnolia: But I am not a child.
  <<wait 0.5>>
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Do you still dream?
+ <<SetPortrait noportrait>>
  Magnolia: (If he knew what kind of dreams I have.)
  Magnolia: Yes.
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Then you are still a child.
  <<set $magnoliasits to false>>
  <<jump TheNewspaper_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (I need to ask him some stuff.)
  <<jump TheNewspaper_Questions>>
 <<endif>>
@@ -154,39 +230,61 @@ title: TheNewspaperReader
 
 title: TheNewspaperReader_Questions
 ---
+<<wait 0.8>>
 -> Is there a weather section?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Yes, why?
+ <<SetPortrait noportrait>>
  Magnolia: What do they say about today?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Let me see.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (If it says sunny I'm going to go crazy.)
  <<wait 0.5>>
+ <<SetPortrait bookreaderportrait1>>
  The Reader: It says it's sunny with a chance of snow.
  <<wait 0.2>>
  The Reader: Why did you want to know?
+ <<SetPortrait noportrait>>
  Magnolia: (Let's forget about the sun.)
  Magnolia: With the chance of snow?
  Magnolia: It's the middle of the summer?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I don't understand why you find that strange.
+ <<SetPortrait noportrait>>
  Magnolia: Never mind.
 -> Which page did you show to the kid? <<if $hasclue_Newspaper is true>>
+ <<SetPortrait bookreaderportrait1>>
  The Reader: How do you know about the kid?
+ <<SetPortrait noportrait>>
  Magnolia: I talked to him.
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Did he open his eyes again?
+ <<SetPortrait noportrait>>
  Magnolia: He said kids can create and destroy the world.
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Shame.
  The Reader: He is not wrong though.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: What did you show him?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: It was not the page from this newspaper.
+ <<SetPortrait noportrait>>
  Magnolia: He thought it was.
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Didn't he tell you that adults lie?
 -> Is there any strange news?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: What kind of news interests you?
+ <<SetPortrait noportrait>>
  Magnolia: Anything unusual?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: You won't find any of that here.
  The Reader: They don't have enough words for that.
 -> What is your favorite word of those ten?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: I never thought about it.
  <<wait 0.5>>
  The Reader: No, I'm lying. I did think about it.
@@ -194,7 +292,9 @@ title: TheNewspaperReader_Questions
  The Reader: They repeat it so much, but even these newspapers are falling apart in my hands.
  <<wait 0.5>>
  The Reader: Did you notice the cracks?
+ <<SetPortrait noportrait>>
  Magnolia: The cracks? Where?
+ <<SetPortrait bookreaderportrait1>>
  The Reader: Everywhere.
  The Reader: The world is ready to reveal itself.
 -> I changed my mind.
@@ -202,32 +302,51 @@ title: TheNewspaperReader_Questions
 
 title: TheHideandSeeker
 ---
+<<wait 0.8>>
 //gives us a clue to unlocking a part of the conversation with the ‘newspaper’ guy
 <<if visited_count("TheHideandSeeker") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: Whom are you hiding from?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: I am not hiding. They are hiding from me.
+ <<SetPortrait noportrait>>
  Magnolia: (?!)
  Magnolia: Who is hiding from you and why??
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: We are playing hide and seek.
+ <<SetPortrait noportrait>>
  Magnolia: Oh.
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: But I still have to count.
+ <<SetPortrait noportrait>>
  Magnolia: Until when?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: I'm not sure about that.
+ <<SetPortrait noportrait>>
  Magnolia:?
  <<wait 0.5>>
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: They said I have to wait until I grow up.
  The Hide: But I don't know when is that.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: You are going to wait until you grow up?!
  Magnolia: That's a little too long, don't you think?
  <<wait 0.5>>
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: I'm not ready to see. 
+ <<SetPortrait noportrait>>
  Magnolia: What?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: The hidden things.
+ <<SetPortrait noportrait>>
  Magnolia: What kind of hidden things?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: All the things adults lie about.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: How do you know adults are lying?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: I saw someone reading the newspapers.
  The Hide: They let me read one page.
  <<wait 0.5>>
@@ -236,7 +355,9 @@ title: TheHideandSeeker
  <<set $hasclue_Newspaper to true>>
  <<jump TheHideandSeeker_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: Still counting?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: Yes, I'm counting on the adults.
  <<jump TheHideandSeeker_Questions>>
 <<endif>>
@@ -244,45 +365,61 @@ title: TheHideandSeeker
 
 title: TheHideandSeeker_Questions
 ---
+<<wait 0.8>>
 -> What did you see on that page?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: I don't think I should say it.
+ <<SetPortrait noportrait>>
  Magnolia: Why?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: Because it makes it real.
+ <<SetPortrait noportrait>>
  Magnolia: So you think if you don't see or you don't say something it makes it not real?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: Doesn't it?
  The Hide: They told me that children's eyes never lie.
  The Hide: That’s why I keep my eyes closed.
  The Hide: Whenever I opened them, I saw something terrible.
  <<jump TheHideandSeeker_Questions>>
 -> Why do you think the adults are right?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: It's not that I believe them.
  The Hide: But adults can't create or destroy anything.
  The Hide: Only children have that power.
  The Hide: That's why they hide and I keep my eyes closed.
  <<jump TheHideandSeeker_Questions>>
 -> What do you think they are lying about?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: They don't do it on purpose.
  The Hide: They don't know how to see or say the truth.
+ <<SetPortrait noportrait>>
  Magnolia: Why do you think that is?
  Magnolia: Do you think I always lie?
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: You are not an adult.
+ <<SetPortrait noportrait>>
  Magnolia: I am twenty-eight years old, kiddo.
+ <<SetPortrait hideandseekerportrait1>>
  The Hide: It doesn't have anything to do with age.
  <<jump TheHideandSeeker_Questions>>
 ===
 
 title: TheFactory
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (Maybe somebody inside will tell me what to do.)
  -> Enter.
   <<set $enterthefactory to true>>
- -> Not yet.
+ -> I don't have a reason to go there.
 ===
 
 //NOW WE ARE INSIDE THE FACTORY
 
 title: ThePurpleRabbit
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 <<set $sawtherabbit to true>>
 <<if visited_count("ThePurpleRabbit") < 1>>
   Magnolia: (Is that...?)
@@ -298,17 +435,22 @@ title: ThePurpleRabbit
 
 title: ThePurpleRabbit_Options
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 -> Try to pet it.
     <<set $pettherabbit to true>>
     <<wait 0.5>>
     Magnolia: (It won't let me.)
     Magnolia: (It's hopping in the circle.)
-   -> Leave the animal alone.
-    Magnolia: (It might have some kind of magical disease.)
+    -> Leave the animal alone.
+     Magnolia: (It might have some kind of magical disease.)
+     <<set $lettherabbit to true>>
 ===
 
 title: OneRayofSunshine
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 //this is where the trigger is
 //she needs to hold the rabbit and stand and look directly into the sun
 //they both start burning and it triggers 8th DREAMWORLD
@@ -329,6 +471,8 @@ title: OneRayofSunshine
 
 title: Sunshine_Options
 ---
+<<wait 0.3>>
+<<SetPortrait noportrait>>
 <<if $hasclue_rabbit is true and $sawtherabbit is true>>
   <<wait 0.5>>
   Magnolia: (It's just a familiar feeling.)
@@ -347,6 +491,8 @@ title: Sunshine_Options
 
 title: BurningRabbit
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (That guy told me that the purple rabbits supposedly burn under the sun.)
 Magnolia: (That will prove if it's real.)
 <<wait 0.5>>
@@ -356,17 +502,44 @@ Magnolia: (If it was just an innocent rabbit it wouldn't burn right?)
  -> Test the theory.
   Magnolia: (Everything is ridiculous anyway. This is ridiculous. I am ridiculous.)
   Magnolia: (Let's bring the rabbit.)
-  <<set $bringtherabbit to true>>
   <<wait 2>>
-  Magnolia: (Its fur is so soft.)
-  Magnolia: (It feels really real to me.)
-  Magnolia: (Do I want to risk burning it?)
-   -> Put the rabbit under the sun.
+  <<set $faderabbit to true>>
+  <<wait 1>>
+  <<set $bringtherabbit to true>>
+  <<set $activated to true>>
+  <<wait 1>>
+  <<set $faderabbit to false>>
+  <<set $bringtherabbit to false>>
+===
+
+title: HoldingRabbit
+---
+<<wait 2>>
+<<SetPortrait noportrait>>
+Magnolia: (Its fur is so soft.)
+Magnolia: (It feels really real to me.)
+Magnolia: (Do I want to risk burning it?)
+<<wait 0.5>>
+Magnolia: (I guess I do.)
+<<set $rabbitunder to true>>
+===
+
+title: RabbitUnderTheSun
+---
+<<wait 5>>
+<<SetPortrait noportrait>>
+Magnolia: (Should I just keep it and forget about the burning ordeal?)
+Magnolia: (It's nestling against me.)
+<<wait 0.5>>
+Magnolia: (To cute.)
+  -> Just do it.
     <<set $trigger_TheBeach to true>>
 ===
 
 title: PictureFrame
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 //it is a picture of her family, but all the faces and most of the bodies are not visible because there is a sun flare
 //in the picture she holds a purple rabbit
 <<if visited_count("PictureFrame") < 1>>
@@ -409,14 +582,28 @@ title: PictureFrame
 
 //ADDED NODES
 
+title: Factory_Exit
+---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
+Magnolia: (Do I want to go back?)
+ -> Go out.
+  <<set $exitfactory to true>>
+ -> Stay in.
+===
+
 title: GoBack
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (This sounds politically incorrect.)
 Magnolia: (Is it directed towards me?)
 ===
 
 title: LookInside
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 <<if visited_count("LookInside") < 1>>
 Magnolia: (It doesn't look like a factory inside.)
 Magnolia: (It actually looks like a home, except...)
@@ -428,6 +615,7 @@ Magnolia: (Do the fairies live inside?)
 
 title: TheManHole_Factory
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheManHole_Factory") < 1>>
 Magnolia: (Another one.)

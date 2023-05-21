@@ -9,7 +9,7 @@
 //variables for in YARN
 <<set $activatestone to false>>
 <<set $picked to false>>
-
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I can't believe I really decided to do it.)
 <<wait 1>>
@@ -21,6 +21,7 @@ Magnolia: (Who do I stay sane for?)
 
 title: ThePrayingSoul
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheParyingSoul") < 1>>
  Magnolia: (I don't think I should disturb the creatures in the dream.)
@@ -43,6 +44,7 @@ title: ThePrayingSoul
 
 title: WateringFrogs
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("WateringFrogs") < 1>>
  Magnolia: (Is that thing watering frogs?)
@@ -60,6 +62,7 @@ title: WateringFrogs
 
 title: ThePond
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("ThePond") < 1>>
  Magnolia: (I look even worse now.)
@@ -74,6 +77,7 @@ title: ThePond
 
 title: TheObject_Ticket
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Hm, interesting.)
  -> Pick it up.
@@ -83,6 +87,7 @@ Magnolia: (Hm, interesting.)
 
 title: TheFrogs_Questions
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
  -> Are you watering the frogs?
  <<SetPortrait wateringfrogsportrait1>>
@@ -107,6 +112,7 @@ title: TheFrogs_Questions
 
 title: TheHedge
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
  Magnolia: (This hedge looks like it covers a secret passage.)
  <<wait 0.5>>
@@ -126,6 +132,7 @@ title: TheHedgeCleared
 
 title: TheSecretPath
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I did it!)
 Magnolia: (And I have a freaking flaming sword!!!!!)
@@ -138,6 +145,7 @@ Magnolia: (How am I going to find my way around this dream when nobody seems to 
 
 title: TheStone
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if $activatestone and $picked == true>>
  Magnolia: (There is a giant stone.)
@@ -152,12 +160,16 @@ title: TheStone
  Magnolia: (Again a giant stone.)
  Magnolia: (This one doesn't have a face thankfully.)
  <<wait 0.5>>
- Magnolia: (But it seems like it's also missing somethign.)
+ Magnolia: (But it seems like it's also missing something.)
+ <<SetPortrait blackportrait1>>
+ Clue: *one conversation hidden*
+ <<wait 0.5>>
 <<endif>>
 ===
 
 title: TheWaterFalls
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheWaterFalls") < 1>>
 Magnolia: (I can hear strong waterfalls from that direction.)

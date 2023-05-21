@@ -29,7 +29,7 @@ title: TheG
 <<set $hasclue_fly to false>>
 <<set $hascomb to false>>
 <<set $askaboutstation to false>>
-
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This is getting out of hand.)
 Magnolia: (I'm starting to believe it.)
@@ -42,6 +42,7 @@ Magnolia: (I don't even know if I should search here or in the dreams.)
 
 title: TheGuilty
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheGuilty") < 1>>
  <<SetPortrait guiltyportrait1>>
@@ -81,6 +82,7 @@ title: TheGuilty
 
 title: TheGuilty_Questions
 ---
+<<wait 0.8>>
 -> What was the prison like?
  <<SetPortrait guiltyportrait1>>
  The Guilty: The sun didn't touch us.
@@ -198,6 +200,7 @@ title: TheGuilty_Questions
 
 title: TheChild
 ---
+<<wait 0.8>>
 <<if visited_count("TheChild") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (I don't see his parents around.)
@@ -240,6 +243,7 @@ title: TheChild
 
 title: TheChild_Questions
 ---
+<<wait 0.8>>
 -> What do you mean they are not there?
  <<SetPortrait guiltyportrait1>>
  The Child: That's where I left them.
@@ -321,6 +325,7 @@ title: TheChild_Questions
 
 title: TheKindGrandpa01
 ---
+<<wait 0.8>>
 //he talks nonsense, but he invites you in for a tea
 //you get him to talk about the roof
 //you go out on the roof
@@ -357,6 +362,7 @@ The Kind Grandpa: Do you maybe want a cup of tea?
 
 title: TheGrandpaHouse
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This smell is the smell of old books.)
 Magnolia: (But this doesn't bring back any memories.)
@@ -368,6 +374,7 @@ The Kind Grandpa: Feel at home, my dear.
 
 title: TheGrandpaObject
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Why do I feel like the little dots on this old comb are eyes?)
 Magnolia: (The last time that **** completely transformed in my dream.)
@@ -406,6 +413,7 @@ Magnolia: (But I shouldn't steal from the old.)
 
 title: TheGrandpa_Inside
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheGrandpa_Inside") < 1>>
  Magnolia: (He seems so fragile.)
@@ -419,6 +427,7 @@ title: TheGrandpa_Inside
 ===
 title: GrandpasDoor
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I don't feel like going back.)
 Magnolia: (But maybe I forgot something.)
@@ -429,6 +438,7 @@ Magnolia: (But maybe I forgot something.)
 
 title: TheVase
 ---
+<<wait 0.8>>
 //granpa talks about his life
 <<SetPortrait noportrait>>
 Magnolia: This vase seems truly old.
@@ -472,18 +482,22 @@ Magnolia: (I can't help to think I should go on that roof.)
   <<set $goontheroof to true>>
  -> Listen to him.
   <<SetPortrait noportrait>>
-  Magnolia: (I can't d that anymore.)
+  Magnolia: (I can't do that anymore.)
   Magnolia: (I'm too distracted.)
    -> Go on the roof.
    <<set $goontheroof to true>>
 <<else>>
  <<SetPortrait noportrait>>
  Magnolia: (I might have missed something important.)
+ <<SetPortrait blackportrait1>>
+ Clue: *one conversation hidden*
+ <<wait 0.5>>
 <<endif>>
 ===
 
 title: TheRoofObject
 ---
+<<wait 0.8>>
 //you find the object on the roof OBJECT 005
 <<SetPortrait noportrait>>
 Magnolia: (I don't know what I'll use this for.)
@@ -494,12 +508,13 @@ Magnolia: (I don't know what I'll use this for.)
 
 title: TheSpot
 ---
+<<wait 0.8>>
 //from here you see the station
 <<SetPortrait noportrait>>
 Magnolia: (I have never seen the city from this height.)
 -> Look at the distance.
  <<set $lookaround to true>>
- <<wait 12>>
+ <<wait 32>>
  <<set $lookaround to false>>
  //there should be a CUTSCENE with Magnolia seeing train station in the distance
 -> Let out a scream.
@@ -511,6 +526,7 @@ Magnolia: (I have never seen the city from this height.)
 
 title: TheRoofEnd
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (These are stairs to go down.)
 Magnolia: (They look safe enough.)
@@ -521,6 +537,7 @@ Magnolia: (They look safe enough.)
 
 title: TheOneToImpress
 ---
+<<wait 0.8>>
 <<if visited_count("TheOneToImpress") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (She is pretty.)
@@ -572,6 +589,7 @@ title: TheOneToImpress
 
 title: TheSecurity
 ---
+<<wait 0.8>>
 //gives you access through the school, so you could get to the bridge
 //you need to give him the grief book to read for him to let you
 //there will be another way to pass, but only if you give him a book, you get another object while passing
@@ -618,6 +636,10 @@ title: TheSecurity
    Magnolia: But I want to go to the other part of the city!
    <<SetPortrait securityportrait1>>
    The Security: That's too bad.
+   <<SetPortrait blackportrait1>>
+   Clue: *one conversation hidden*
+   Clue: *one clue left*
+   <<wait 0.5>>
    <<set $askedthisquestion to true>>
  <<endif>>
 <<else>>
@@ -626,15 +648,22 @@ title: TheSecurity
   The Security: What makes you come here on a break day miss?
   <<SetPortrait noportrait>>
   Magnolia: I'm not sure.
+  <<SetPortrait blackportrait1>>
+  Clue: *one conversation hidden*
+  Clue: *one clue left*
  <<else>>
   <<SetPortrait noportrait>>
   Magnolia: (I don't need to disturb him.)
+  <<SetPortrait blackportrait1>>
+  Clue: *one conversation hidden*
+  Clue: *one clue left*
  <<endif>>
 <<endif>>
 ===
 
 title: TheSecurity_Children
 ---
+   <<wait 0.8>>
    <<SetPortrait securityportrait1>>
    The Security: My child died.
    <<SetPortrait noportrait>>
@@ -653,10 +682,13 @@ title: TheSecurity_Children
    Magnolia: (I also found that old fiction book about tree roots.)
    Magnolia: (Maybe anything that would distract him is good.)
    Magnolia: (I should look into my backpack and decide.)
+   <<SetPortrait blackportrait1>>
+   Clue: *one action left*
 ===
 
 title: GaveTheBook1
 ---
+<<wait 0.8>>
 <<set $gavethegriefbook to true>>
 <<SetPortrait noportrait>>
 Magnolia: Here. It was supposed to help me.
@@ -676,10 +708,15 @@ Magnolia: Oh, I don't know what to say.
 The Security: You don't have to say anything.
 <<set $objectfromsecurity to true>>
 <<set $gavethebook01 to true>>
+<<SetPortrait blackportrait1>>
+Clue: *no actions left*
+Clue: *no clues left*
+<<wait 0.5>>
 ===
 
 title: GaveTheBook2
 ---
+<<wait 0.8>>
 <<set $gavethestrangebook to true>>
 <<SetPortrait noportrait>>
 Magnolia: Here. I found it lying around.
@@ -691,10 +728,15 @@ Magnolia: A book. It might help you keep your thoughts busy.
 The Security: Thanks.
 <<set $objectfromsecurity to true>>
 <<set $gavethebook02 to true>>
+<<SetPortrait blackportrait1>>
+Clue: *no actions left*
+Clue: *no clues left*
+<<wait 0.5>>
 ===
 
 title: TheSchool
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This seems like the only way to get to the bridge.)
 <<wait 1>>
@@ -711,11 +753,14 @@ Magnolia: (It feels so distant.)
 <<else>>
  Magnolia: (I don't have the key to the school.)
  Magnolia: (The security guard might have it.)
+ <<SetPortrait blackportrait1>>
+ Clue: *one hidden conversation*
 <<endif>>
 ===
 
 title: TheBridge
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I have never been to this part of the city.)
 -> (I still want to check out something here.)
@@ -725,6 +770,7 @@ Magnolia: (I have never been to this part of the city.)
 
 title: BackToSchool
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Do I really want to turn back now?)
  -> Do it.
@@ -736,6 +782,7 @@ Magnolia: (Do I really want to turn back now?)
 
 title: TheCrashScene
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (The world is falling into chaos.)
 Magnolia: (I can't go there.)
@@ -743,6 +790,7 @@ Magnolia: (I can't go there.)
 
 title: TheButterfly
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheButterfly") < 1>>
 Magnolia: (This is where my parents stood in that dream.)
@@ -757,6 +805,7 @@ Magnolia: (I just want to sit and draw butterflis.)
 
 title: TheRoofWindow
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheRoofWindow") < 1>>
 A male voice: Who is up for an amusement park day tomorrow.
@@ -778,6 +827,7 @@ Magnlia: (Are they also looking for the star?)
 
 title: ADate
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I've never been on a date.)
 <<wait 0.5>>
@@ -789,6 +839,7 @@ Magnolia: (Haha, no way.)
 
 title: AFall
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<set $fallingfeeling to true>>
 <<wait 0.5>>
@@ -799,6 +850,7 @@ Magnolia: (Will I wake up and realize it was all a messed up dream?)
 
 title: TheWilderness06
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (It's like mountains are getting taller.)
 Magnlia: (And the forest is closing in.)
@@ -806,6 +858,7 @@ Magnlia: (And the forest is closing in.)
 
 title: TheOtherEnd
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (The road tehre is falling apart.)
 Magnolia: (I'm not in a dream, I can't risk my life.)
@@ -813,6 +866,7 @@ Magnolia: (I'm not in a dream, I can't risk my life.)
 
 title: KidsDrawings
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Again a sun.)
 Magnolia: (If anything, the clouds are getting darker.)

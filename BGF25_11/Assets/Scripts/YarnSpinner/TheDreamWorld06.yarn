@@ -7,10 +7,10 @@ title: TheDreamworld_06
 <<set $holdthestar to false>> //triggers CUTSCENE of holding the star
 <<set $cutscenewrong to false>> //last CUTSCNE wrong choice
 <<set $cutsceneright to false>> //last CUtSCENE right choice
+<<set $activated to false>>
 
 //variables for in YARN
 <<set $magnoliaisback to false>>
-<<set $activated to false>>
 <<set $startanimation to false>>
 <<set $startanimation to true>>
 <<set $activated to true>>
@@ -25,8 +25,11 @@ title: AfterAnimation_Start
 <<wait 1>>
 <<set $magnoliaisback to false>>
 <<set $activated to false>>
+<<SetPortrait noportrait>>
 Magnolia: Thank you Chihiro.
+<<SetPortrait chihiroportrait1>>
 Chihiro: ...
+<<SetPortrait noportrait>>
 Magnolia: (Dead-silent.)
 <<wait 0.5>>
 Magnolia: (Oh, we are on that island.)
@@ -36,34 +39,70 @@ Magnolia: (But this looks incredibly magical. How did they do it?)
 Magnolia: (Wait. Is this just another dream?)
 ===
 
+title: TheSadClown
+---
+<<wait 0.8>>
+<<if visited_count("TheSadClown") < 1>>
+ <<SetPortrait sadclownportrait1>>
+ TheSadClown: Sometimes I feel so blue.
+ <<SetPortrait noportrait>>
+ Magnolia: But you are blue!
+ <<SetPortrait sadclownportrait1>>
+ TheSadClown: Am I?!
+ TheSadClown: I must be color blind!
+<<else>>
+ <<SetPortrait sadclownportrait1>>
+ TheSadClown: I painted myself pink.
+ TheSadClown: But I still feel blue.
+<<endif>>
+===
+
 title: ThePirate
 ---
+<<wait 0.8>>
 <<if visited_count("ThePirate") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (He looks normal enough. Maybe I'm not dreaming.)
+ <<SetPortrait pirateportrait1>>
  ThePirate: Arrgh, three coins for the ride of your life.
+ <<SetPortrait noportrait>>
  Magnolia: Only three coins?
+ <<SetPortrait pirateportrait1>>
  ThePirate: Not any coins. 
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: What kind of ride is it then?
+ <<SetPortrait pirateportrait1>>
  ThePirate: Of your life.
+ <<SetPortrait noportrait>>
  Magnolia: What does that mean?
+ <<SetPortrait pirateportrait1>>
  ThePirate: It means you get to see your whole life. Savvy?
+ <<SetPortrait noportrait>>
  Magnolia: From the beginning?
+ <<SetPortrait pirateportrait1>>
  ThePirate: Till the end.
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: I desparately need that.
  Magnolia: But I don't want to see how I die.
  <<wait 0.5>>
+ <<SetPortrait pirateportrait1>>
  ThePirate: Blimey! Magnolia?
  <<set $shocklevel to true>>
  <<wait 1>>
+ <<SetPortrait noportrait>>
  Magnolia: You know me?
+ <<SetPortrait pirateportrait1>>
  ThePirate: Eveybody knows you.
  ThePirate: You finally reached your star it seems.
+ <<SetPortrait noportrait>>
  Magnolia: It's here?!
+ <<SetPortrait pirateportrait1>>
  ThePirate: Aye Matey, it's here.
  <<jump ThePirate_Questions>>
 <<else>>
+ <<SetPortrait pirateportrait1>>
  ThePirate: Shouldn't you run to your star?
  <<jump ThePirate_Questions>>
 <<endif>>
@@ -71,44 +110,64 @@ title: ThePirate
 
 title: ThePirate_Questions
 ---
+<<wait 0.8>>
 -> I want to go on your ride?
+ <<SetPortrait pirateportrait1>>
  ThePirate: Do you have three coins?
   -> No.
+   <<SetPortrait pirateportrait1>>
    ThePirate: Then you can't.
 -> "Where is it?! Where is the star?"
+ <<SetPortrait pirateportrait1>>
  ThePirate: Don't you see all this stardust glow?
  ThePirate: You just need to follow it.
 -> "Will it ressurect my parents?"
+ <<SetPortrait pirateportrait1>>
  ThePirate: Matey, you first need to get it to your world.
  ThePirate: It won't work from here.
+ <<SetPortrait noportrait>>
  Magnolia: How do I do that?
+ <<SetPortrait pirateportrait1>>
  ThePirate: Ahhhhh, that is a question. Indeed.
+ <<SetPortrait noportrait>>
  Magnolia: What does that mean?!
+ <<SetPortrait pirateportrait1>>
  ThePirate: It means you should hurry up.
 -> "Am I crazy?"
+ <<SetPortrait pirateportrait1>>
  ThePirate: Aren't we all?
+ <<SetPortrait noportrait>>
  Magnolia: But am I especially crazy? Am I imagining all of this?
  Magnolia: The star? The dreams?
+ <<SetPortrait pirateportrait1>>
  ThePirate: Me?
+ <<SetPortrait noportrait>>
  Magnolia: And you.
+ <<SetPortrait pirateportrait1>>
  ThePirate: I don't know about you, but I feel pretty alive.
 ===
 
 title: TheRollerCoaster
 ---
+ <<wait 0.8>>
+ <<SetPortrait noportrait>>
  Magnolia: (I'm scared of these.)
  Magnolia: (I don't want to throw up on someones head.)
 ===
 
 title: TheEdgeoftheWorld
 ---
+ <<wait 0.8>>
+ <<SetPortrait noportrait>>
  Magnolia: (There is no horizon.)
  Magnolia: (It feels like the whole world is floating.)
 ===
 
 title: TheStar
 ---
+<<wait 0.8>>
 <<set $stareffect to true>>
+<<SetPortrait noportrait>>
 Magnolia: This is it.
 Magnolia: I can't believe it.
 <<wait 0.5>>
@@ -130,6 +189,7 @@ Magnolia: Should I just...hold it?
 
 title: AfterStar
 ---
+<<SetPortrait noportrait>>
 Magnolia: Ahhhh! It burns my hands!
 <<wait 0.5>>
 Magnolia: But it doesn't matter. 

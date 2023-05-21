@@ -15,10 +15,16 @@ title: TheMuseumCorner
 <<set $hasplantclue to false>>
 <<set $askaboutstation to false>>
 <<set $tookthefeather to false>>
+
+<<wait 0.8>>
+<<SetPortrait noportrait>>
+Magnolia: (One step closer.)
+Magnolia: (To what?)
 ===
 
 title: TheAnxious
 ---
+<<wait 0.8>>
 <<if visited_count("TheAnxious") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (He seems as unhinged as me.)
@@ -94,6 +100,7 @@ title: TheAnxious
 
 title: TheAnxious_Questions
 ---
+<<wait 0.8>>
 -> Who is it that you are hiding from?
  <<SetPortrait anxiousportrait1>>
  The Anxious: The ones who wish to delete us.
@@ -226,6 +233,7 @@ title: TheAnxious_Questions
 
 title: TheGeek
 ---
+<<wait 0.8>>
 <<if visited_count("TheGeek") < 1>>
  <<SetPortrait geekportrait1>>
  The Geek: 1, 2, 4, 16, 256...
@@ -314,6 +322,7 @@ title: TheGeek
 
 title: TheGeek_Questions
 ---
+<<wait 0.8>>
 -> Is one spoon of love enough?
  <<SetPortrait geekportrait1>>
  The Geek: It depends what’re your criteria.
@@ -378,6 +387,7 @@ title: TheGeek_Questions
 
 title: TheIndependent
 ---
+<<wait 0.8>>
 <<if visited_count("TheIndependent") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (I tend to avoid groups of teenagers.)
@@ -425,8 +435,10 @@ title: TheIndependent
   <<jump TheIndenpendent_Questions>>
 <<endif>>
 ===
+
 title: TheIndenpendent_Questions
 ---
+<<wait 0.8>>
 -> Do you have problems at home?
  <<SetPortrait independentportrait1>>
  The Indenpendent: Nothing smells like home.
@@ -473,6 +485,7 @@ title: TheIndenpendent_Questions
 ===
 title: TheHappyKid
 ---
+<<wait 0.8>>
 //need to make a code that Kid Shows up only after visiting Garden and Museum.
 <<if visited_count("TheHappyKid") < 1>>
  <<SetPortrait happykidportrait1>>
@@ -537,7 +550,17 @@ title: TheHappyKid
 
 title: TheHappyKid_Questions
 ---
+<<wait 0.8>>
 -> I changed my mind.
+       <<if $tookthefeather is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
 -> Did you see in which direction your dog run away?
  <<SetPortrait noportrait>>
  Magnolia: (I feel like this dog might bring me somewhere I need to be.)
@@ -549,6 +572,15 @@ title: TheHappyKid_Questions
  The Happy Kid: We were running around together, and then I was alone.
  <<SetPortrait noportrait>>
  Magnolia: It's okay.
+       <<if $tookthefeather is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
 -> Where did you see the purple rabbit?
  <<SetPortrait noportrait>>
  Magnolia: (These rabbits are a constant at this point.)
@@ -569,9 +601,13 @@ title: TheHappyKid_Questions
    Magnolia: (Yes, thank you.)
    <<set $takethefeather to true>>
    <<set $tookthefeather to true>>
+   <<SetPortrait blackportrait1>>
+   Clue: *no clues left*
+   <<wait 0.5>>
 ===
 title: TheDog
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This is where the kid said the rabbit was.)
 <<wait 1>>
@@ -591,6 +627,7 @@ Magnolia: (I was sure the dog was not real!)
 
 title: TheBotanicalGarden
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Plants calm me down.)
 Magnolia: (They breathe, and they live so quietly.)
@@ -601,6 +638,7 @@ Magnolia: (I have never been in a botanical garden.)
 
 title: TheGardener
 ---
+<<wait 0.8>>
 <<if visited_count("TheGardener") < 1>>
  <<SetPortrait gardenerportrait1>>
  The Gardener: Plants are kinder listeners.
@@ -663,6 +701,7 @@ title: TheGardener
 
 title: TheGardener_Questions
 ---
+<<wait 0.8>>
 -> Is there any plant you don't like?
  <<SetPortrait gardenerportrait1>>
  The Gardener: To hell with daisies!
@@ -735,14 +774,14 @@ title: TheGardener_Questions
 
 title: TheGardenPlant
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if $hasplantclue is true>>
  Magnolia: (This is it!)
  Magnolia: (Valerianisia something...)
  Magnolia: (Will help me sleep.)
- -> Cut out a piece. <<if $hasplantclue is true>>
+ -> Cut out a piece.
   <<set $putintheinventory006 to true>>
-
 <<else>>
  Magnolia: (It's a cute little plant.)
   -> Read the label.
@@ -755,6 +794,7 @@ title: TheGardenPlant
 
 title: WildDaisy
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if $hasplantclue is true>>
  Magnolia: (I thought I would not see any daisies around here.)
@@ -771,6 +811,7 @@ title: WildDaisy
 
 title: TheMuseum
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheMusem") < 1>>
  Magnolia: (Museums fascinate me.)
@@ -792,6 +833,7 @@ title: TheMuseum
 
 title: TheBride
 ---
+<<wait 0.8>>
 //she might give us an object OBJECT 004 and a later clue
 <<if visited_count("TheBride") < 1>>
  <<SetPortrait brideportrait1>>
@@ -839,6 +881,7 @@ title: TheBride
 
 title: TheBride_Questions
 ---
+<<wait 0.8>>
 -> I don't have any thoughts.
 -> Your wedding dress is nice.
  <<SetPortrait brideportrait1>>
@@ -932,6 +975,7 @@ title: TheBride_Questions
 
 title: ThePainting
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("ThePainting") < 1>>
 Magnolia: (Some people claim they see intentions behind each stroke of a painting.)
@@ -947,6 +991,7 @@ Magnolia: (I wonder if the painters thought of me looking at their painting cent
 
 title: ThePainting_Actions
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 -> Read the description.
  Text: Francois-Xavier Fabre / [i]'M Camille'[/i], 1813
@@ -968,6 +1013,7 @@ title: ThePainting_Actions
 
 title: TheMuseumExit
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Museums are collections of someone else's memories.)
 Magnolia: (Why do they all seem to belong to me?)
@@ -980,6 +1026,7 @@ Magnolia: (Why do they all seem to belong to me?)
 
 title: TheEnd2
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Nope.)
 Magnolia: (Inland it's even wilder then in the mountains.)
@@ -987,10 +1034,17 @@ Magnolia: (Inland it's even wilder then in the mountains.)
 
 title: TheStation
 ---
+ <<wait 0.8>> 
  <<SetPortrait noportrait>>
  Magnolia: (It's the only way to go.)
  Magnolia: (But I don't have any money, nor train tickets.)
   -> Go inside the station. <<if $tookthefeather is true>>
    <<set $goinsidethestation to true>>
   -> Stay.
+       <<if $tookthefeather is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
 ===

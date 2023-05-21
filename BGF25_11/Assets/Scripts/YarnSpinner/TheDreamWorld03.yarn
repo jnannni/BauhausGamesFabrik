@@ -8,7 +8,8 @@
 
 //variables for in YARN>
 <<set $triedtocatch to false>>
-
+<<set $swimout to false>>
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I am back!)
 Magnolia: (It's exhausting that the dream is constantly interrupted.)
@@ -25,6 +26,7 @@ Magnolia: (I wonder what that star turned into.)
 
 title: TheAllKnowingCreature
 ---
+<<wait 0.8>>
 <<if visited_count("TheAllKnowingCreature") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (This seems familiar.)
@@ -41,6 +43,7 @@ title: TheAllKnowingCreature
 
 title: TheAllKnowingCreature_Questions
 ---
+<<wait 0.8>>
 -> Did you follow me from home?
  <<SetPortrait allknowingcreatureportrait1>>
  TheLady: Where is home?
@@ -83,6 +86,7 @@ title: TheAllKnowingCreature_Questions
 
 title: TheFlyingSoul
 ---
+<<wait 0.8>>
 <<if visited_count("TheFlyingSoul") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (Are they flying?)
@@ -99,6 +103,7 @@ title: TheFlyingSoul
 
 title: TheFlyingSoul_Questions
 ---
+<<wait 0.8>>
 -> Ask them about the star.
  <<SetPortrait noportrait>>
  Magnolia: (That other celestial told me to not ask about the star.)
@@ -136,6 +141,7 @@ title: TheFlyingSoul_Questions
 
 title: TheSunDrawing02
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 //now it's like a whirling circle of fireflies
 <<if visited_count("TheSunDrawing02") < 1>>
@@ -169,6 +175,7 @@ title: TheSunDrawing02
 
 title: TheDive
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheDive") < 1>>
  Magnolia: (It looks like a pool.)
@@ -192,8 +199,20 @@ title: TheDive
 <<endif>>
 ===
 
+title: TheDive_After
+---
+<<wait 13>>
+Magnolia: (It looks like I'm swimming through the church tower.)
+<<wait 1>>
+Magnolia: (There is a light there.)
+Magnolia: (Should I swim through?)
+ -> Swim out.
+  <<set $swimout to true>>
+===
+
 title: TheWaterFalls02
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheWaterFalls02") < 1>>
 Magnolia: (These are probably the waterfalls that I heard from the other dream.)
@@ -207,6 +226,7 @@ Magnolia: (The loudness of the water creates a perfect silence.)
 
 title: TheOtherPart
 ---
+<<wait 0.8>>
  <<SetPortrait noportrait>>
  Magnolia: (That WAS the weirdest thing I have done, ever.)
  <<wait 1>>
@@ -221,6 +241,7 @@ title: TheOtherPart
 
 title: MotherandFather
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (It's like my memories are coming back...)
 Magnolia: (And yet, nothing seems right.)

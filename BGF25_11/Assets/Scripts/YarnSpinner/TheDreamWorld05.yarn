@@ -8,9 +8,11 @@ title: TheDreamworld_05
 <<set $rabbit_celestial to false>>
 <<set $activated to false>> 
 <<set $snakeanimation to false>>
+<<set $cupselected to false>>
 
 //variables for in YARN
-
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (Again in a dream?!)
 <<wait 0.5>>
 Magnolia: (I thought that would be it.)
@@ -30,8 +32,10 @@ Magnolia: (Not so bad, right?)
 title: TheRabbit_Celestial
 ---
 //Magnolia needs to go forward, the camera follows her, but then she reaches the trigger and the camera spans back, magnolia automaticaly turns around and is faced with a giant rabbit celestial
-<<set $rabbit_celestial to true>>
-<<wait 2.5>>
+//<<set $rabbit_celestial to true>>
+//<<wait 2.5>>
+<<wait 6>>
+<<SetPortrait noportrait>>
 Magnolia: I'm extremely sorry! I, I...
 Magnolia: I didn't see you there!
 <<wait 0.5>>
@@ -39,40 +43,59 @@ Magnolia: I will just move now.
 <<wait 0.5>>
 Magnolia: (Is it possible to die in a dream?)
 <<wait 0.5>>
+<<SetPortrait celestialrabbitportrait1>>
 The Soul: I have no problem with you.
+<<SetPortrait noportrait>>
 Magnolia: Oh okay, that's good.
+<<SetPortrait celestialrabbitportrait1>>
 The Soul: You seem to be found.
+<<SetPortrait noportrait>>
 Magnolia: Found?
+<<SetPortrait celestialrabbitportrait1>>
 The Soul: Opposite of lost.
+<<SetPortrait noportrait>>
 Magnolia: I know that...But how am I found?
+<<SetPortrait celestialrabbitportrait1>>
 The Soul: Are you still planning to steal that star?
+<<SetPortrait noportrait>>
 Magnolia: Steal? From who? And how do you know about that...
+<<SetPortrait celestialrabbitportrait1>>
 The Soul: I have been with you the whole time.
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: The purple rabbit?
+<<SetPortrait celestialrabbitportrait1>>
 The Soul: Humans have such bad sight.
 <<wait 0.5>>
 The Soul: And the star?
+<<SetPortrait noportrait>>
 Magnolia: I need to get my family back.
 Magnolia: I get them back, or I just accept I'm absolutely nuts.
 <<wait 0.5>>
+<<SetPortrait celestialrabbitportrait1>>
 The Soul: You are completely fine.
+<<SetPortrait noportrait>>
 Magnolia: Uhm...thank you?
 <<wait 0.5>>
-The Sould: Aren't you late?
+<<SetPortrait celestialrabbitportrait1>>
+The Soul: Aren't you late?
 //you can't talk to the rabbit anymore and you need to get out on the red beach
 ===
 
 title: TheHouseMan_Soul
 ---
+<<wait 0.8>>
 //the celestial is holding the window in its hands
 <<if visited_count("TheHouseMan_Soul") < 1>>
+ <<SetPortrait noportrait>>
  Magnolia: (I surely know this guy!)
  <<wait 0.5>>
+ <<SetPortrait noportrait>>
  Magnolia: (He does look different...)
  <<wait 0.5>>
  <<jump TheHouseMan_Soul_Questions>>
 <<else>>
+ <<SetPortrait noportrait>>
  Magnolia: (I'm now dreaming of my aunt's neighbours.)
  <<jump TheHouseMan_Soul_Questions>>
 <<endif>>
@@ -80,26 +103,36 @@ title: TheHouseMan_Soul
 
 title: TheHouseMan_Soul_Questions
 ---
+ <<wait 0.8>>
  -> Did you manage to scrubb off the sun?
   <<wait 1>>
+  <<SetPortrait noportrait>>
   Magnolia: (I don't think he will talk.)
   <<wait 0.5>>
   Magnolia: (This seems pointless.)
   <<wait 1>>
+  <<SetPortrait housemansoulportrait1>>
   The Soul: Stupid.
+  <<SetPortrait noportrait>>
   Magnolia: (Huh?)
+  <<SetPortrait housemansoulportrait1>>
   The Soul: There was no sun at all.
+  <<SetPortrait noportrait>>
   Magnolia: (???)
   Magnolia: (That's what I was telling the whole time.)
  -> Why are you in my dream?
   <<wait 0.5>>
+  <<SetPortrait noportrait>>
   Magnolia: (Not talkative I see.)
   <<wait 0.5>>
   Magnolia: (There's no much difference from real life.)
   <<wait 0.5>>
+  <<SetPortrait housemansoulportrait1>>
   The Soul: I left the your dream long ago.
   <<wait 0.5>>
+  <<SetPortrait housemansoulportrait1>>
   The Soul: However, I had no choice about it all.
+  <<SetPortrait noportrait>>
   Magnolia: What do you mean?
   <<wait 1>>
   Magnolia: (Nothing?)
@@ -108,29 +141,44 @@ title: TheHouseMan_Soul_Questions
 
 title: TheBeggar_Soul
 ---
+<<wait 0.8>>
 <<if visited_count("TheBeggar_Soul") < 1>>
+<<SetPortrait noportrait>>
 Magnolia: You are here too?!
+<<SetPortrait beggarsoulportrait1>>
 TheBeggar: Did my coin come useful?
+<<SetPortrait noportrait>>
 Magnolia: Your coin?
 Magnolia: Oh yes, look, I have a cool sword now.
+<<SetPortrait beggarsoulportrait1>>
 TheBeggar: You always had it. But you are welcome.
 <<wait 0.5>>
+<<SetPortrait noportrait>>
 Magnolia: So how are you here?
+<<SetPortrait beggarsoulportrait1>>
 TheBeggar: ...
 <<else>>
+<<SetPortrait noportrait>>
 Magnolia: Is this all real?
+<<SetPortrait beggarsoulportrait1>>
 TheBeggar: It's up to you to decide.
 <<endif>>
 ===
 
 title: TheMother_Soul
 ---
+<<wait 0.8>>
 <<if visited_count("TheMother_Soul") < 1>>
+<<SetPortrait mothersoulportrait1>>
 TheMother: Little bird, you are finally found?
+<<SetPortrait noportrait>>
 Magnolia: Am I?
+<<SetPortrait mothersoulportrait1>>
 TheMother: Mothers know these things, trust me.
+<<SetPortrait noportrait>>
 Magnolia: Then I trust you.
 <<else>>
+<<SetPortrait mothersoulportrait1>>
 TheMother: Little bird, be free.
 <<endif>>
 
@@ -138,6 +186,8 @@ TheMother: Little bird, be free.
 
 title: Underwater
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (It does feel like I am underwater.)
 Magnolia: (However, it's orange. And I can breathe.)
 Magnolia: (Unusual.)
@@ -148,14 +198,18 @@ Magnolia: (Anyway, where's that star?)
 
 title: TheSnakes
 ---
+<<wait 0.8>>
+<<SetPortrait noportrait>>
 Magnolia: (This is the only way.)
 Magnolia: (But I can't pass.)
 ===
 
 title: AfterSnakes
 ---
+<<set $cupselected to true>>
 <<set $snakeanimation to true>>
 <<wait 2.5>>
+<<SetPortrait noportrait>>
 Magnolia: What???
 Magnolia: (Are those snakes?)
 <<wait 0.5>>

@@ -1,6 +1,6 @@
 title: TheGraveYard
 ---
-<<fadeIn>>
+//<<fadeIn>>
 //variables for UNITY
 <<set $putintheinventory002 to false>> //you approach an object in the church, I'm still not sure what it is (It is used for 8TH DREAMWORLD)
 <<set $enterthechurch to false>> // you enter the church
@@ -15,8 +15,13 @@ title: TheGraveYard
 <<set $hasClue_forChurch to false>>
 <<set $hasClue_AllKnowingLady to false>>
 <<set $hasClue_TheBride to false>>
-<<fadeOut>>
+//<<fadeOut>>
 
+<<set $newclue007 to false>>
+<<set $newclue008 to false>>
+
+
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Maybe I should just go home and sleep this off.)
 Magnolia: (I don't know if it's because of me...)
@@ -28,6 +33,7 @@ Magnolia: (They are not the ones considering going after a magical star.)
 
 title: TheCreeper
 ---
+<<wait 0.8>>
 <<if visited_count("TheCreeper") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (This guy gives me the creeps.)
@@ -73,6 +79,7 @@ title: TheCreeper
 
 title: TheChitChats
 ---
+<<wait 0.8>>
 //Two neighbours on the windows arguing about what happened yesterday in front of the window, can’t agree on it.
 //to be able to get into the church you need to get the ChitChats to agree. CLUE 005
 <<if $hasClue004 is true>>
@@ -109,6 +116,17 @@ title: TheChitChats
    Magnolia: (So I could've gone in.)
    Magnolia: (Church does seem like a perfect place for unusual occurrences.)
    <<set $hasClue_forChurch to true>> //this is a clue for the church
+   <<if $newclue008 is false>>
+    <<SetPortrait blackportrait1>>
+    Clue: *new clue unlocked*
+    <<wait 0.5>>
+    Clue: *no clues left*
+    <<wait 0.5>>
+    <<set $newclue008 to true>>
+   <<else>>
+    <<SetPortrait blackportrait1>>
+    Clue: *no clues left*
+   <<endif>>
   -> God intervened and let the tree rot.  
    <<SetPortrait chitchat2portrait1>>
    The Second Chitchat: Darling, I do believe in God.
@@ -118,10 +136,29 @@ title: TheChitChats
    The First Chitchat: You said it yourself. It's a spiritual tree!   
    <<SetPortrait noportrait>>
    Magnolia: (This is going nowhere.)
+       <<if $hasClue_forChurch is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
   -> I'm not sure.
+   <<SetPortrait chitchat2portrait1>>
    The Second Chitchat: What was the use of you?   
    <<SetPortrait noportrait>>
    Magnolia: I'm sorry.
+       <<if $hasClue_forChurch is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
 <<else>>
  <<if visited_count("TheChitChats") < 1>> 
  <<SetPortrait chitchat1portrait1>>
@@ -135,6 +172,15 @@ title: TheChitChats
  <<SetPortrait noportrait>>
  Magnolia: (Is there a dead body lying around?!)
   -> Run away immediately.
+      <<SetPortrait blackportrait1>>
+      Clue: *three clues left*
+      <<wait 0.5>>
+       <<if $hasClue003 is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
   -> Wait and then ask them.  
    <<SetPortrait chitchat1portrait1>>
    The First Chitchat: They just cut down a tree.
@@ -176,6 +222,15 @@ title: TheChitChats
     -> I am on nobody's side.    
      <<SetPortrait chitchat1portrait1>>
      The First ChitChat: You can't always be Switzerland you know.
+     <<SetPortrait blackportrait1>>
+     Clue: *three clues left*
+     <<wait 0.5>>
+       <<if $hasClue003 is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
   <<endif>> 
  <<else>> 
   <<SetPortrait chitchat1portrait1>>
@@ -183,12 +238,23 @@ title: TheChitChats
    -> I have a question for you.
     <<jump TheChitChats_Questions>>
    -> I don't want to get involved.
+    <<SetPortrait blackportrait1>>
+    <<SetPortrait blackportrait1>>
+    Clue: *three clues left*
+    <<wait 0.5>>
+       <<if $hasClue003 is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
  <<endif>>
 <<endif>>
 ===
 
 title: TheChitChats_Story
 ---
+<<wait 0.8>>
 <<SetPortrait chitchat1portrait1>>
 The First Chitchat: The tree was dying and they cut it down.
 The First Chitchat: And she has some kind of weird obsession with that tree.
@@ -207,6 +273,7 @@ Magnolia: I was wondering...
 
 title: TheChitChats_Questions
 ---
+<<wait 0.8>>
 -> Does anyone know who would do it?
  <<SetPortrait chitchat2portrait1>>
  The Second Chitchat: I say it's her! 
@@ -239,6 +306,21 @@ title: TheChitChats_Questions
  <<SetPortrait noportrait>>
  Magnolia: (Such a tough crowd.)
   -> Leave.
+       <<if $hasClue003 is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *three clues left*
+        <<wait 0.5>>
+       <<elseif $hasClue003 is true and $hasClue004 is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *two clues left*
+        <<wait 0.5>>
+       <<endif>>
+       <<if $hasClue003 is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one conversation hidden*
+        <<wait 0.5>>
+       <<else>>
+       <<endif>>
 -> Why is that tree so important to you?
  <<SetPortrait chitchat2portrait1>>
  The Second Chitchat: Like I said it's really old. 
@@ -257,12 +339,17 @@ title: TheChitChats_Questions
  The Second Chitchat: I planted it with my grandfather when I was six years old.
  <<wait 0.5>>
  The Second Chitchat: He dissapeared the next year. 
- <<SetPortrait noportrait>>
+ <<SetPortrait chitmagnoportrait1>>
  Magnolia and The Second Chitchat: Disappeared??!
  <<SetPortrait chitchat2portrait1>>
  The Second Chitchat: I'm not going to talk to you about my sad family history.
  <<set $hasClue003 to true>>
   -> That's okay.
+   Clue: *new clue unlocked*
+   <<wait 0.5>>
+   <<SetPortrait blackportrait1>>
+   Clue: *two clues left*
+   <<wait 0.5>>  
 -> I had this toy once. <<if $hasClue003>>
  <<SetPortrait noportrait>>
  Magnolia: They gifted it to me when I was born.
@@ -314,12 +401,18 @@ title: TheChitChats_Questions
  The First Chitchat: Until it would fall onto us while we are in the church.
  The First Chitchat: Then it would be called the Devil's!
  <<set $hasClue004 to true>>
+ <<SetPortrait blackportrait1>>
+ Clue: *new clue unlocked*
+ <<wait 0.5>>
+ Clue: *one clue left*
+ <<wait 0.5>>
  <<SetPortrait chitchat2portrait1>>
  The Second Chitchat: It was safe!
 ===
 
 title: TheMother
 ---
+<<wait 0.8>>
 // is asking for her children, the clues is to get her to realize that they are grown up and that they left her and she is lonely.
 // While admitting that she is lonely, she gives a clue for both the AllKnowingLady and TheBride. CLUE 006 and CLUE 007
 <<if visited_count("TheMother") < 1>>
@@ -376,17 +469,26 @@ title: TheMother
  <<SetPortrait motherportrait1>>
  The Mother: It feels like years.
  <<set $hasClue_TheBride to true>>
+ Clue: *new clue unlocked*
+ <<jump TheMother_Questions>>
 <<endif>>
  
 ===
 
 title: TheMother_Questions
 ---
+<<wait 0.8>>
 -> Do you think you stop being someone's child after they die?
  <<SetPortrait motherportrait1>>
  The Mother: Parents shouldn't die before their kids.
-  <<set $hasClue_AllKnowingLady to true>>
-  <<SetPortrait noportrait>>
+ <<set $hasClue_AllKnowingLady to true>>
+ <<if $newclue007 is false>>
+   <<SetPortrait blackportrait1>>
+   Clue: *new clue unlocked*
+   <<wait 0.5>>
+   <<set $newclue007 to true>>
+ <<else>>
+ <<endif>>
  Magnolia: (...)
  Magnolia: But if they do?
  <<SetPortrait motherportrait1>>
@@ -405,6 +507,8 @@ title: TheMother_Questions
  <<SetPortrait motherportrait1>>
  The Mother: I don't think I have an answer to that question.
  The Mother: I'm sorry.
+ Clue: *no clues left*
+<<wait 0.5>>
 -> Are you still a mother if your child dies?
  <<SetPortrait motherportrait1>>
  The Mother: What a morbid question from such a young girl!
@@ -424,6 +528,15 @@ title: TheMother_Questions
  Magnolia: Maybe they are good at hiding.
  <<SetPortrait motherportrait1>>
  The Mother: They seem to be.
+       <<if $hasClue_AllKnowingLady is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
 -> Maybe they went back home? <<if visited_count("TheMother") == 1>>
  <<SetPortrait motherportrait1>>
  The Mother: They don't know the way back home.
@@ -447,6 +560,15 @@ title: TheMother_Questions
      The Mother: Of course they are alive.
      <<SetPortrait noportrait>>
      Magnolia: I'm sorry.
+       <<if $hasClue_AllKnowingLady is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
     -> How big of a distance are we talking about?    
      <<SetPortrait motherportrait1>>
      The Mother: My arm doesn't outstretch that long.
@@ -455,6 +577,15 @@ title: TheMother_Questions
      Magnolia: It's okay, you'll find them.
      <<SetPortrait motherportrait1>>
      The Mother: Of course, I will.
+       <<if $hasClue_AllKnowingLady is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
   -> What do you mean by distance?  
    <<SetPortrait motherportrait1>>
    The Mother: Telephones don't help.
@@ -467,6 +598,15 @@ title: TheMother_Questions
    Magnolia: What do you mean?
    <<SetPortrait motherportrait1>>
    The Mother: You wouldn't understand.
+       <<if $hasClue_AllKnowingLady is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
 -> How old are your kids? <<if visited_count("TheMother") == 1>>
  <<SetPortrait motherportrait1>>
  The Mother: What do you mean?
@@ -494,6 +634,15 @@ title: TheMother_Questions
    <<SetPortrait noportrait>>
    Magnolia: I do!
    Magnolia: I do.
+       <<if $hasClue_AllKnowingLady is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
   -> Where did you see your kids last?  
    <<SetPortrait motherportrait1>>
    The Mother: They were playing just here!
@@ -535,10 +684,20 @@ title: TheMother_Questions
    The Mother: Do not worry.
    <<wait 1>>
    The Mother: I hope you find where you lost your parents.
+       <<if $hasClue_AllKnowingLady is false>>
+        <<SetPortrait blackportrait1>>
+        Clue: *one clue left*
+        <<wait 0.5>>
+       <<else>>
+        <<SetPortrait blackportrait1>>
+        Clue: *no clues left*
+        <<wait 0.5>>
+       <<endif>>
 ===
 
 title: TheSignBack
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I might be completely crazy.)
 Magnolia: (But I don't want to go back.)
@@ -546,6 +705,7 @@ Magnolia: (But I don't want to go back.)
 
 title: TheCrash
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheCrash") < 1>>
  Magnolia: (I can't go there.)
@@ -565,6 +725,7 @@ title: TheCrash
 
 title: TheAngel
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheAngel") < 1>>
  Magnolia: (They always scared me.)
@@ -587,6 +748,7 @@ title: TheAngel
 
 title: AnyGrave
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("AnyGrave") < 1>>
  Magnolia: (I always kind of feel like I'll see my name on it.)
@@ -599,6 +761,7 @@ title: AnyGrave
 
 title: AnyGrave02
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("AnyGrave02") < 1>>
  Magnolia: (There are some interesting epitaphs here.)
@@ -628,6 +791,7 @@ title: AnyGrave02
 
 title: TheCatCreature
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (It doesn't like me.)
  -> Stay away and just watch it.
@@ -637,8 +801,10 @@ Magnolia: (It doesn't like me.)
   <<set $scurryawayanimation to true>>
   Magnolia: (It wouldn't let me approach it.)
 ===
+
 title: TheChurch
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if $hasClue_forChurch is true>>
  (It looks like it's looking at me.)
@@ -665,16 +831,19 @@ title: TheChurch
 
 title: TheChurchObject
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This looks interesting.)
  -> Take it.
   <<set $putintheinventory002 to true>> // one of the two objects for the 8th part of the Dreamworld (TheRedBeach)
+  Clue: *new clue unlocked*
  -> Better not steal holy stuff.
  //if you take the object it dissapears after
 ===
 
 title: TheHolyStatue
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheHolyStatue") < 1>>
  Magnolia: (I don't remember anyone from my family being religious.)
@@ -683,6 +852,8 @@ title: TheHolyStatue
  <<wait 0.5>>
  Magnolia: (That Golem creature from my dream did seem like some kind of ancestral god.)
  Magnolia: (But that was just a dream.)
+ Clue: *one clue left*
+ Clue: *one hidden conversation*
 <<else>>
  Magnolia: (He is dead and he still stands here.)
  Magnolia: (Why don't they let him rest.)
@@ -701,11 +872,14 @@ title: TheHolyStatue
    Magnolia: (It almost feels like a superpower.)
    Magnolia: (Or insanity.)
    <<set $isgoingonjourney003 to true>> //last of 3 STAR CLUES that make Magnolia decide to go on the journey.
+   Clue: *new clue unlocked*
+   Clue: *no clues left*
 <<endif>>
 ===
 
 title: TheChurchTrigger
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if $isgoingonjourney001 and $isgoingonjourney002 and $hasClue_AllKnowingLady and $isgoingonjourney003 == true>>
  Magnolia: (I don't believe I can save them.)
@@ -722,14 +896,17 @@ title: TheChurchTrigger
   Magnolia: (I don't think I am ready to make myself a fool.)
   Magnolia: (Following a dream?)
   Magnolia: (It makes no sense.)
+  Clue: *new objective: convince magnolia to go*
  <<else>>
   Magnolia: (I'm just going to ignore it.)
+  Clue: *objective: convince magnolia to go*
  <<endif>>
 <<endif>>
 ===
 
 title: TheChurch_Exit
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Am I missing something?)
  -> Go out.
@@ -741,6 +918,7 @@ Magnolia: (Am I missing something?)
 
 title: TheKidsPlay
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheKidsPlay") < 1>>
  Magnolia: (I don't ever remember playing this game.)
@@ -752,6 +930,7 @@ title: TheKidsPlay
 
 title: TheNumber7
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheNumber7") < 1>>
  Magnolia: (The door is locked.)
@@ -768,6 +947,7 @@ title: TheNumber7
 
 title: TheTable
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheTable") < 1>>
  Magnolia: (It's like one of those long tables people keep at their summer houses in Italy.)
@@ -783,6 +963,7 @@ title: TheTable
 
 title: TheManHole01
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
  Magnolia: (Oh this one is designed differently.)
  Magnolia: (There is something written on it.)
@@ -793,6 +974,7 @@ title: TheManHole01
 
 title: TheWilderness04
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
  Magnolia: (I'm close to the railway.)
  Magnolia: (I can here the distant sound of a train.)
@@ -811,6 +993,7 @@ title: Graffiti02
 
 title: TheWilderness05
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 //inside the Graveyard
 Magnolia: (The fog is really thickly covering the river.)
@@ -821,6 +1004,7 @@ Magnolia: (And the train is close.)
 
 title: TheBench
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheBench") < 1>>
  Magnolia: (I kind of expected to see someone feeding the crows or something.)
@@ -834,6 +1018,7 @@ title: TheBench
 
 title: TheChurchWindow
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheChurchWindow") < 1>>
 Magnolia: (The sun passing through these stained-glass windows create interesting shapes on the floor.)

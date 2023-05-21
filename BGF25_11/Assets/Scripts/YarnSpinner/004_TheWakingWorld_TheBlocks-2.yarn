@@ -2,7 +2,7 @@
 
 title: TheBlocks
 ---
-<<fadeIn>>
+//<<fadeIn>>
 //variables for Unity
 <<set $entertheantique to false>> // enter antique shop
 <<set $trigger_TheAllKnowingLady to false>> //trigger to the Dreamworld, but inside the dialogue of TheAllKnowingLady
@@ -17,8 +17,8 @@ title: TheBlocks
 <<set $talkedaboutrabbits to false>>
 <<set $haspoetclue to false>>
 <<set $clue_uncle to false>>
-<<fadeOut>>
-
+//<<fadeOut>>
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I have nothing to lose.)
 Magnolia: (I have nothing to lose, I have nothing to lose...)
@@ -37,6 +37,7 @@ Magnolia: (I need to find a way to go back.)
 
 title: TheCarCleaner
 ---
+<<wait 0.8>>
 <<if visited_count("TheCarCleaner") < 1>>
  <<SetPortrait carcleanerportrait1>>
  The Car Cleaner: All these rabbits leaving paw prints over the cars.
@@ -69,6 +70,7 @@ title: TheCarCleaner
 
 title: TheLonelyGentleman
 ---
+<<wait 0.8>>
 <<if visited_count("TheLonelyGentleman") < 1>>
  <<SetPortrait noportrait>>
  Magnolia: (He seems approachable.)
@@ -148,6 +150,7 @@ title: TheLonelyGentleman
 
 title: TheLonelyGentleman_Questions
 ---
+<<wait 0.8>>
 -> (I suddenly feel too shy to ask him anything.)
 -> How long have you been waiting?
  <<SetPortrait lonelygentelmanportrait1>>
@@ -298,6 +301,7 @@ title: TheLonelyGentleman_Questions
 
 title: TheDiary
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (He has seen some stuff.)
 Magnolia: (Too bad he didn't show me all of it.)
@@ -305,6 +309,7 @@ Magnolia: (Too bad he didn't show me all of it.)
 
 title: TheCarCleaner_Questions
 ---
+<<wait 0.8>>
 -> Why only three cars per day?
  <<SetPortrait carcleanerportrait1>>
  The Car Cleaner: There is no room for mistakes, that's why.
@@ -366,6 +371,7 @@ title: TheCarCleaner_Questions
 
 title: TheBlobPerson
 ---
+<<wait 0.8>>
 //the blob person and the husband have the connection
 //you unlock a part of his conversation from a scrunched drawing of a kid you found
 <<if visited_count("TheBlobPerson") < 1>>
@@ -414,6 +420,7 @@ title: TheBlobPerson
 
 title: TheBlobPerson_Questions01
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I don't have time to deal with his problems.)
 Magnolia: (I need to find out how to go back.)
@@ -446,6 +453,7 @@ Magnolia: (I need to find out how to go back.)
 
 title: TheBlobPerson_Questions02
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I don't think he is going to talk about anything except himself.)
 Magnolia: (He seems stuck.)
@@ -487,6 +495,7 @@ Magnolia: (Something about his own body bothers him.)
 
 title: TheBlobPerson_Drawing
 ---
+<<wait 0.8>>
 <<set $showthedrawing to true>>
 <<SetPortrait noportrait>>
 Magnolia: I have something to show you.
@@ -538,6 +547,7 @@ Magnolia: Somebody threw it away from their window.
 
 title: TheDeadbitHusband
 ---
+<<wait 0.8>>
 //he is drunk with a girl under his arm, he is only making a joke after a joke, at a certain joke he asks you to guess the end. 
 //To be able to guess the end you would have need to have read a certain text/graffiti(its in the DownHill) that is an excerpt from a movie. It’s a joke about married life.
 //he gives the clue for something later CLUE 005
@@ -608,6 +618,7 @@ title: TheDeadbitHusband
 
 title: TheHusband_Grafitti
 ---
+  <<wait 0.8>>
   <<SetPortrait noportrait>>
   Magnolia: I read this graffiti quote from an old movie.
   Magnolia: But I don't remember from which movie it is.
@@ -670,6 +681,7 @@ title: TheHusband_Grafitti
 
 title: TheDeadbitHusband_Jokes
 ---
+<<wait 0.8>>
 <<if visited_count("TheDeadbitHusband_Jokes") < 1>>
 <<SetPortrait deadbithusbandportrait1>>
 The Husband: Okay, okay!
@@ -746,6 +758,7 @@ Magnolia: That's okay.
 
 title: TheAllKnowingLady
 ---
+<<wait 0.8>>
 //this time she is the trigger, it's hidden in her dialogue TRIGGER 002
 <<if $talkedaboutrabbits and $putintheinventory003 == true>>
  <<SetPortrait allknowingladyportrait1>>
@@ -783,6 +796,7 @@ title: TheAllKnowingLady
 
 title: TheAllKnowingLady_Questions
 ---
+<<wait 0.8>>
 -> Somebody told me parents shouldn't die before their children. <<if $hasClue_AllKnowingLady is true>>
  <<set $talkedaboutrabbits to true>>
  <<SetPortrait allknowingladyportrait1>>
@@ -849,6 +863,7 @@ title: TheAllKnowingLady_Questions
 
 title: TheAntiqueShop
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 //this is where you get the object OBJECT d003
 Magnolia: (This seems like a place you could find magical stuff in.)
@@ -863,6 +878,7 @@ Magnolia: (The shop where i bought a flaming fox looked exactly like this.)
 
 title: TheObject_Antique
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I don't have any money.)
  -> Steal it.
@@ -872,6 +888,7 @@ Magnolia: (I don't have any money.)
 
 title: AnOldEnvelope
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 -> Read the envelope.
  The Envelope: I mistake the rain for your tears.
@@ -881,6 +898,7 @@ title: AnOldEnvelope
 
 title: TheAntiqueDoor
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 -> Exit the shop.
  <<set $exittheantique to true>>
@@ -891,6 +909,7 @@ title: TheAntiqueDoor
 
 title: TheCrash02
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheCrash02") < 1>>
 Magnolia: (Oh so I am on the other side of that crash now.)
@@ -902,12 +921,14 @@ Magnolia: (Can I use my dreams to travel?)
 
 title: TheHedgeDoor
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This door has the exact texture of that hedge.)
 ===
 
 title: TheFog01
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheFog01") < 1>>
 Magnolia: (The fog is too thick.)
@@ -921,6 +942,7 @@ Magnolia: (I was always scared of the dark.)
 
 title: TheHoop
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (I hear people like team games.)
 Magnolia: (I on the other hand always avoid them.)
@@ -928,6 +950,7 @@ Magnolia: (I on the other hand always avoid them.)
 
 title: TheMountains
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (These mountains look so wild.)
 Magnolia: (They are towering over the city.)
@@ -935,6 +958,7 @@ Magnolia: (They are towering over the city.)
 
 title: TheWeirdFog
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This looks out of place.)
 Magnoli: (What if it's one of the ways to fall into a dream?)
@@ -947,6 +971,7 @@ Magnoli: (What if it's one of the ways to fall into a dream?)
 
 title: TheFountain
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Those people that drop coins to make wishes are fools.)
 <<wait 0.5>>
@@ -958,9 +983,9 @@ Magnolia: (But I am the one chasing a dream.)
 title: DroppedTheCoin
 ---
 <<set $coinisselected to true>>
-<<SetPortrait noportrait>>
 //when the player picks the coin from the inventory
 <<wait 1>>
+<<SetPortrait noportrait>>
 Magnolia: (I wish this all turns out to be true.)
 <<wait 0.5>>
 Magnolia: (If not, I wish to never be sane again.)
@@ -968,6 +993,7 @@ Magnolia: (If not, I wish to never be sane again.)
 
 title: TheUphillSee
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (Oh, I can see my aunt's neighbourgood from here.)
 <<wait 0.5>>
@@ -976,6 +1002,7 @@ Magnolia: (Is that the car guy from before?)
 
 title: TheSunDrawing
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 Magnolia: (This is not the first time that I see sun drawn around.)
 Magnolia: (Are they all just pretending there is sun, but secretly missing the sunny days?)
@@ -983,6 +1010,7 @@ Magnolia: (Are they all just pretending there is sun, but secretly missing the s
 
 title: TheManHole02
 ---
+<<wait 0.8>>
 <<SetPortrait noportrait>>
 <<if visited_count("TheManHole02") < 1>>
 Magnolia: (Another one.)

@@ -34,12 +34,18 @@ public class TheG : MonoBehaviour
     private bool gavethegriefbook;
     private bool gavethestrangebook;
     private bool objectfromsecurity;
+    private bool looked;
 
     private AudioManager audioManager;
     
     private bool isInGrandpaHouse;
     private bool isOnTheRoof;
     private bool isBehinfTheSchool;
+    private bool instanceallowed;
+    private bool instanceallowed02;
+    private bool instanceallowed03;
+    private bool instanceallowed04;
+    private bool instanceallowed05;
     private FadeLayer fadeLayer;    
     [SerializeField] private GameObject grandpasHouseInside;
     [SerializeField] private GameObject player;
@@ -66,6 +72,9 @@ public class TheG : MonoBehaviour
     [SerializeField] private Animator cameraAnimator;
     [SerializeField] private Animator canvasAnimator;
     public AutomaticInteractions takingbool;
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instance02;
+    private FMOD.Studio.EventInstance instance03;
     private bool cutSceneEnded = false;
 
     private void Awake()
@@ -74,12 +83,15 @@ public class TheG : MonoBehaviour
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         variableStorage = FindObjectOfType<Yarn.Unity.InMemoryVariableStorage>();
         audioManager = FindObjectOfType<AudioManager>();
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        audioManager.InitializeMusic(FMODEvents.instance.musicTheG);
+        //audioManager.InitializeMusic(FMODEvents.instance.musicTheG);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_005_TheG_Loopable");
+        instance.start();
         dialogueRunner.StartDialogue("TheG");
         dialogueRunner.LoadStateFromPlayerPrefs();
         boxCollider2Ds = roofStairs.GetComponents<BoxCollider2D>();
@@ -89,6 +101,11 @@ public class TheG : MonoBehaviour
         isBehinfTheSchool = false;
         isInGrandpaHouse = false;
         isOnTheRoof = false;
+        instanceallowed = true;
+        instanceallowed02 = true;
+        instanceallowed03 = true;
+        instanceallowed04 = true;
+        instanceallowed05 = true;
     }
 
     // Update is called once per frame
@@ -140,6 +157,16 @@ public class TheG : MonoBehaviour
             isInGrandpaHouse = true;
             variableStorage.SetValue("$enterthegranshouse", false);
             player.transform.localScale = new Vector3(1.2f, 1.2f, 0f);
+            if (instanceallowed03)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instance03 = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_003_2_TheGraveyard_InsideChurch_Loopable");
+                instance03.start();
+                instanceallowed03 = false;
+                instanceallowed04 = true;
+            }
+            
         }
 
         if (gototheMuseum)
@@ -147,6 +174,8 @@ public class TheG : MonoBehaviour
             /*audioManager.PauseMusic(FMODEvents.instance.musicTheG);
             audioManager.PlayOneShot(FMODEvents.instance.transitionBetweenWW, this.transform.position);*/
             SceneManager.LoadScene(nameOfTheScene);
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);;
+            instance.release();
         }
 
         if (objectfromsecurity)
@@ -183,12 +212,32 @@ public class TheG : MonoBehaviour
 
         if (lookaround)
         {
-            canvasAnimator.SetBool("lookingaround", true);                
+            canvasAnimator.SetBool("lookingaround", true);
+            if (instanceallowed)
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance.release();
+                instance02 = FMODUnity.RuntimeManager.CreateInstance("event:/Music/CutScene_03_TheGScene");
+                instance02.start();
+                instanceallowed = false;
+                instanceallowed02 = true;
+                looked = true;
+            }                
         }
 
         if (!lookaround)
         {
             canvasAnimator.SetBool("lookingaround", false);
+            if (instanceallowed02 && looked)
+                {
+                    instance02.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance02.release();
+                    instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_005_TheG_Loopable");
+                    instance.start();
+                    instanceallowed02 = false;
+                    instanceallowed = true;
+                    looked = false;
+                }
         }
 
         if ((entertheschool01 || entertheschool02) && !isBehinfTheSchool)
@@ -225,8 +274,17 @@ public class TheG : MonoBehaviour
             player.transform.position = new Vector3(grandpasHouseOutside.transform.position.x, grandpasHouseOutside.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             isInGrandpaHouse = false;
-            variableStorage.SetValue("$enterthegranshouse", false);
+            variableStorage.SetValue("$exitgrandpashouse", false);
             player.transform.localScale = new Vector3(1f, 1f, 0f);
+            if (instanceallowed04)
+                {
+                    instance03.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance03.release();
+                    instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_005_TheG_Loopable");
+                    instance.start();
+                    instanceallowed04 = false;
+                    instanceallowed03 = true;
+                }
         }
 
         if (pulsingeffect || !pulsingeffect)
@@ -243,6 +301,14 @@ public class TheG : MonoBehaviour
             player.transform.position = new Vector3(onTheRoof.transform.position.x, onTheRoof.transform.position.y, 0f);
             StartCoroutine(fadeLayer.FadeOut());
             variableStorage.SetValue("$godowntheroof", false);
+            if (instanceallowed05)
+                {
+                    instance03.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    instance03.release();
+                    instance = FMODUnity.RuntimeManager.CreateInstance("event:/Atmos/Atmo_WakingWorld_005_TheG_Loopable");
+                    instance.start();
+                    instanceallowed05 = false;
+                }
             isOnTheRoof = true;            
             stairsRenderer.sortingLayerName = "background";
             grandpasHouseRenderer.sortingLayerName = "background";

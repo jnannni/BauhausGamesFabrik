@@ -609,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207223085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.98, y: -16.37, z: 0}
+  m_LocalPosition: {x: -16.46, y: -18.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1162,7 +1162,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -15.037351, y: 20.125732}
+  m_Offset: {x: -24.157768, y: 15.458645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -1173,7 +1173,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8897305, y: 1.5428772}
+  m_Size: {x: 22.130562, y: 6.316841}
   m_EdgeRadius: 0
 --- !u!61 &376850941
 BoxCollider2D:
@@ -2497,6 +2497,7 @@ MonoBehaviour:
   target02: {fileID: 136208151}
   ChihiroCam: {fileID: 418695877}
   anotherscript: {fileID: 1355487444}
+  amusementScript: {fileID: 1641380447}
   complicated: 0
 --- !u!4 &956475107
 Transform:
@@ -3254,6 +3255,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3038195637035157114, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038195637079203247, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3038195637635317810, guid: 4c7d339cf04b543a899f782ebfc742d5, type: 3}
@@ -4052,7 +4057,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &1438960962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4317,7 +4322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagnoliaAway: {fileID: 2019876140}
   ChihiroAway: {fileID: 207223085}
-  chihiroAnimator: {fileID: 0}
+  chihiroAnimator: {fileID: 1438960963}
   nameOfTheScene: StartMenu
   nameOfTheScene02: SampleScene
   player: {fileID: 1911843172}
@@ -4336,6 +4341,8 @@ MonoBehaviour:
   Fader: {fileID: 58345710}
   playerAnimator: {fileID: 1911843174}
   canvasAnimator: {fileID: 1238608446}
+  cameraTransform: {fileID: 956475107}
+  cameranchor: {fileID: 956475105}
 --- !u!1 &1684029572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5296,6 +5303,7 @@ GameObject:
   - component: {fileID: 2047451196}
   - component: {fileID: 2047451195}
   - component: {fileID: 2047451194}
+  - component: {fileID: 2047451199}
   m_Layer: 0
   m_Name: Pirate
   m_TagString: Untagged
@@ -5358,7 +5366,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.348, y: 1.928}
+    oldSize: {x: 1.5318182, y: 2.1909091}
     newSize: {x: 1.1233333, y: 1.6066667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5384,7 +5392,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.348, y: 1.928}
+    oldSize: {x: 1.5318182, y: 2.1909091}
     newSize: {x: 1.1233333, y: 1.6066667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5464,7 +5472,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!114 &2047451199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047451192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: 1864064537
+      Data2: 1213879663
+      Data3: 1355767991
+      Data4: 2054595765
+    Path: event:/NPCS/NPC3Carguy
+  Event: 
+  PlayEvent: 5
+  StopEvent: 6
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2052591280
 GameObject:
   m_ObjectHideFlags: 0
